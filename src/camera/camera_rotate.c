@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   camera_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 17:50:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 11:47:57 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 16:55:15 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/04 17:29:33 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#include "camera.h"
 
-#include "cub3d.h"
-#include "cubmap.h"
+/*angle is in radian*/
+void	camera_rotate(t_camera *camera, double angle)
+{
+	vec_rotate(&camera->dir, angle);
+	vec_rotate(&camera->plane, angle);
+}
 
-/*camera*/
-void	test_camera_rotation(void);
+void	camera_left_rotate(t_camera *camera, double angle)
+{
+	camera_rotate(camera, angle);
+}
 
-/*map*/
-void	print_map(const t_map *m);
-
-#endif
+void	camera_right_rotate(t_camera *camera, double angle)
+{
+	camera_rotate(camera, -angle);
+}

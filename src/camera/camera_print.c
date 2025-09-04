@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   camera_print.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 17:50:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 11:47:57 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 17:05:06 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/04 17:38:08 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#include "camera.h"
 
-#include "cub3d.h"
-#include "cubmap.h"
-
-/*camera*/
-void	test_camera_rotation(void);
-
-/*map*/
-void	print_map(const t_map *m);
-
-#endif
+void	camera_print(t_camera camera, char *name)
+{
+	printf("%s\n", name);
+	printf("position\n");
+	printf("x = %f\n", camera.pos_x);
+	printf("y = %f\n", camera.pos_y);
+	print_vec2d(camera.dir, "dir");
+	print_vec2d(camera.plane, "plane");
+}

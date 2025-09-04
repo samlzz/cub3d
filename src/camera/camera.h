@@ -1,52 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cubmap.h                                           :+:      :+:    :+:   */
+/*   camera.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/10 11:44:47 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 16:56:57 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/04 17:39:03 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBMAP_H
-# define CUBMAP_H
-
-# include <stdint.h>
+#ifndef CAMERA_H
+# define CAMERA_H
 
 # include "vec.h"
-# include "color.h"
 
-enum e_directions
-{
-	DIR_N,
-	DIR_S,
-	DIR_E,
-	DIR_W,
-	DIR_MAX
-};
-typedef enum e_directions	t_directions;
+typedef struct s_camera	t_camera;
 
-struct s_player
+struct s_camera
 {
-	t_vec2d	pos;
+	double	pos_x;
+	double	pos_y;
 	t_vec2d	dir;
 	t_vec2d	plane;
 };
-typedef struct s_player	t_player;
 
-struct s_map
-{
-	char		**grid;
-	t_vec2i		dimensions;
-	char		*tex_paths[DIR_MAX];
-	t_color		*floor_colr;
-	t_color		*ceil_colr;
-	t_player	player;
-};
-typedef struct s_map	t_map;
+/*print*/
+void	camera_print(t_camera camera, char *name);
 
-void	free_map(t_map *m);
+/*rotate*/
+void	camera_rotate(t_camera *camera, double angle);
+void	camera_left_rotate(t_camera *camera, double angle);
+void	camera_right_rotate(t_camera *camera, double angle);
+
 
 #endif

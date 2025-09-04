@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 17:50:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 11:47:57 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 16:15:47 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/04 17:51:51 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
-#include "cub3d.h"
-#include "cubmap.h"
+# include <stdint.h>
+# include "mlx.h"
 
-/*camera*/
-void	test_camera_rotation(void);
+/*to delete*/
+# include "test.h"
 
-/*map*/
-void	print_map(const t_map *m);
+# include "vec.h"
+# include "camera.h"
 
 #endif

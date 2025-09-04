@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec.h                                              :+:      :+:    :+:   */
+/*   convertion_deg_rad.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 00:23:12 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/05 10:15:03 by sliziard         ###   ########.fr       */
+/*   Created: 2025/09/04 17:16:40 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/04 17:18:47 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VEC_H
-# define VEC_H
+#include "vec.h"
 
-# include <stddef.h>
-# include <stdint.h>
-
-struct s_vec2i
+inline double	deg_to_rad(double angle)
 {
-	int32_t	x;
-	int32_t	y;
-};
-typedef struct s_vec2i		t_vec2i;
+	return (angle * M_PI / 180);
+}
 
-struct s_vec2d
+inline double	rad_to_deg(double angle)
 {
-	double	x;
-	double	y;
-};
-typedef struct s_vec2d		t_vec2d;
-
-#endif
+	return (angle * 180 / M_PI);
+}
