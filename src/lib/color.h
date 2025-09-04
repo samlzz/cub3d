@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cubmap.h                                           :+:      :+:    :+:   */
+/*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/04 14:25:17 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/04 15:47:10 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBMAP_H
-# define CUBMAP_H
+#ifndef COLOR_H
+# define COLOR_H
 
 # include <stdint.h>
 
-# include "vec.h"
-
-struct s_player
+struct s_color
 {
-	t_vec2d	pos;
-	t_vec2d	dir;
-	t_vec2d	plane;
+	uint8_t	a;
+	uint8_t	r;
+	uint8_t	g;
+	uint8_t	b;
 };
-typedef struct s_player	t_player;
 
-struct s_map
+union u_color
 {
-	int8_t		**grid;
-	t_vec2i		dimensions;
-	char		*tex_paths[DIR_MAX];
-	t_color		floor_colr;
-	t_color		ceil_colr;
-	t_player	player;
+	struct s_color	code;
+	int32_t			value;
 };
-typedef struct s_map	t_map;
-
-void	free_map(t_map *m);
+typedef union u_color	t_color;
 
 #endif
