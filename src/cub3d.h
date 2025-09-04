@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/04 16:01:57 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 16:15:47 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/04 17:51:51 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
 # include <stdint.h>
+# include "mlx.h"
 
-struct s_color
-{
-	uint8_t	a;
-	uint8_t	r;
-	uint8_t	g;
-	uint8_t	b;
-};
+/*to delete*/
+# include "test.h"
 
-union u_color
-{
-	struct s_color	code;
-	int32_t			value;
-};
-typedef union u_color	t_color;
+# include "vec.h"
+# include "camera.h"
 
 #endif

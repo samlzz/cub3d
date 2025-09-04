@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   convertion_deg_rad.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/04 16:01:57 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 17:16:40 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/04 17:18:47 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "vec.h"
 
-# include <stdint.h>
-
-struct s_color
+inline double	deg_to_rad(double angle)
 {
-	uint8_t	a;
-	uint8_t	r;
-	uint8_t	g;
-	uint8_t	b;
-};
+	return (angle * M_PI / 180);
+}
 
-union u_color
+inline double	rad_to_deg(double angle)
 {
-	struct s_color	code;
-	int32_t			value;
-};
-typedef union u_color	t_color;
-
-#endif
+	return (angle * 180 / M_PI);
+}

@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   camera_print.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/04 16:01:57 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 17:05:06 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/04 17:38:08 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "camera.h"
 
-# include <stdint.h>
-
-struct s_color
+void	camera_print(t_camera camera, char *name)
 {
-	uint8_t	a;
-	uint8_t	r;
-	uint8_t	g;
-	uint8_t	b;
-};
-
-union u_color
-{
-	struct s_color	code;
-	int32_t			value;
-};
-typedef union u_color	t_color;
-
-#endif
+	printf("%s\n", name);
+	printf("position\n");
+	printf("x = %f\n", camera.pos_x);
+	printf("y = %f\n", camera.pos_y);
+	print_vec2d(camera.dir, "dir");
+	print_vec2d(camera.plane, "plane");
+}

@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   print_vec.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/04 16:01:57 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 16:09:58 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/04 17:26:23 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "vec.h"
 
-# include <stdint.h>
-
-struct s_color
+void	print_vec2d(t_vec2d vec, char *name)
 {
-	uint8_t	a;
-	uint8_t	r;
-	uint8_t	g;
-	uint8_t	b;
-};
+	printf("%s\n", name);
+	printf("x = %f\n", vec.x);
+	printf("y = %f\n", vec.y);
+}
 
-union u_color
+/*
+untested
+*/
+void	print_vec2i(t_vec2i vec, char *name)
 {
-	struct s_color	code;
-	int32_t			value;
-};
-typedef union u_color	t_color;
-
-#endif
+	printf("%s\n", name);
+	printf("x = %i\n", vec.x);
+	printf("y = %i\n", vec.y);
+}

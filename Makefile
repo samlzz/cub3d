@@ -13,7 +13,16 @@ OBJ_DIR   = build/
 BIN_DIR   =
 
 ### UFILES_START ###
-FILES     ?= parsing/cubmap.c main.c parsing/parser.c lib/vec.c 
+FILES =	main.c \
+		camera/camera_print.c \
+		camera/camera_rotate.c \
+		lib/vec.c \
+		lib/vec/convertion_deg_rad.c \
+		lib/vec/print_vec.c \
+		lib/vec/vec_rotate.c \
+		parsing/cubmap.c \
+		parsing/parser.c \
+		test/camera_test.c
 ### END ###
 ifeq ($(FILES),)
     $(error FILES is empty: please define source files)
@@ -35,7 +44,7 @@ LIBFT = libft
 
 MLX =  minilibx-linux
 
-INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(SRC_DIR)/lib $(MLX)
+INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(SRC_DIR)lib $(MLX) $(SRC_DIR)lib/vec/ $(SRC_DIR)camera $(SRC_DIR)test $(SRC_DIR)
 # ? Directories & Libraries to link against
 LIB_DIRS  = $(LIBFT) $(MLX)
 LIB_FILES = ft mlx Xext X11 m

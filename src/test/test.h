@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   test.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/04 16:01:57 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 17:50:47 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/04 17:52:45 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#ifndef TEST_H
+# define TEST_H
 
-# include <stdint.h>
+#include "cub3d.h"
 
-struct s_color
-{
-	uint8_t	a;
-	uint8_t	r;
-	uint8_t	g;
-	uint8_t	b;
-};
-
-union u_color
-{
-	struct s_color	code;
-	int32_t			value;
-};
-typedef union u_color	t_color;
+/*camera*/
+void	test_camera_rotation(void);
 
 #endif

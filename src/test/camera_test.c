@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   camera_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/04 16:01:57 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 17:49:30 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/04 17:51:08 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "test.h"
 
-# include <stdint.h>
-
-struct s_color
+void	test_camera_rotation(void)
 {
-	uint8_t	a;
-	uint8_t	r;
-	uint8_t	g;
-	uint8_t	b;
-};
+	t_camera	camera;
 
-union u_color
-{
-	struct s_color	code;
-	int32_t			value;
-};
-typedef union u_color	t_color;
-
-#endif
+	camera.pos_x = 22.0;
+	camera.pos_y = 12.0;
+	camera.dir.x = -1.0;
+	camera.dir.y = 0.0;
+	camera.plane.x = 0.0;
+	camera.plane.y = 0.66;
+	camera_print(camera, "before rotation");
+	camera_rotate(&camera, deg_to_rad(-90));
+	camera_print(camera, "after rotation");
+}

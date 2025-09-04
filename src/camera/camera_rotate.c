@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   camera_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/04 16:01:57 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 16:55:15 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/04 17:29:33 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "camera.h"
 
-# include <stdint.h>
-
-struct s_color
+/*angle is in radian*/
+void	camera_rotate(t_camera *camera, double angle)
 {
-	uint8_t	a;
-	uint8_t	r;
-	uint8_t	g;
-	uint8_t	b;
-};
+	vec_rotate(&camera->dir, angle);
+	vec_rotate(&camera->plane, angle);
+}
 
-union u_color
+void	camera_left_rotate(t_camera *camera, double angle)
 {
-	struct s_color	code;
-	int32_t			value;
-};
-typedef union u_color	t_color;
+	camera_rotate(camera, angle);
+}
 
-#endif
+void	camera_right_rotate(t_camera *camera, double angle)
+{
+	camera_rotate(camera, -angle);
+}

@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec.h                                              :+:      :+:    :+:   */
+/*   camera.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 00:23:12 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/04 15:47:46 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 16:56:57 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/04 17:39:03 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VEC_H
-# define VEC_H
+#ifndef CAMERA_H
+# define CAMERA_H
 
-# include <stddef.h>
-# include <stdint.h>
+# include "vec.h"
 
-struct s_vec2i
+typedef struct s_camera	t_camera;
+
+struct s_camera
 {
-	int32_t	x;
-	int32_t	y;
+	double	pos_x;
+	double	pos_y;
+	t_vec2d	dir;
+	t_vec2d	plane;
 };
-typedef struct s_vec2i		t_vec2i;
 
-enum e_directions
-{
-	DIR_N,
-	DIR_S,
-	DIR_E,
-	DIR_W,
-	DIR_MAX
-};
-typedef enum e_directions	t_directions;
+/*print*/
+void	camera_print(t_camera camera, char *name);
 
-struct s_vec2d
-{
-	double	x;
-	double	y;
-};
-typedef struct s_vec2d		t_vec2d;
+/*rotate*/
+void	camera_rotate(t_camera *camera, double angle);
+void	camera_left_rotate(t_camera *camera, double angle);
+void	camera_right_rotate(t_camera *camera, double angle);
+
 
 #endif
