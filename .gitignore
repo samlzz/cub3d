@@ -14,4 +14,5 @@ build/*
 compile_commands.json
 
 .cache
+minilibx-linux
 cub3d

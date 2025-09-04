@@ -41,10 +41,12 @@ CXXFLAGS  = -Wall -Wextra -Werror -std=c++98
 
 LIBFT = libft
 
-INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(SRC_DIR) $(SRC_DIR)/lib
+MLX =  minilibx-linux
+
+INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(SRC_DIR)/lib $(MLX)
 # ? Directories & Libraries to link against
-LIB_DIRS  = $(LIBFT)
-LIB_FILES = ft
+LIB_DIRS  = $(LIBFT) $(MLX)
+LIB_FILES = ft mlx Xext X11 m
 
 RM = rm -f
 MD = mkdir -p
@@ -119,7 +121,7 @@ all: $(OUT)
 $(OUT): $(LIBFT)/libft.a $(O_DIRS) $(OBJS)
 	$(P)printf "$(GRAY)"
 ifneq ($(suffix $(NAME)), .a)
-	$(LD) $(LDFLAGS) $(OBJS) -o $(OUT) $(LDLIBS)
+	$(LD) $(LDFLAGS) $(OBJS) -o $(OUT) $(LDLIBS) $(MLX_LIB)
 else
 	$(LD) $(OUT) $(OBJS)
 endif
