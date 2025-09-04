@@ -13,7 +13,7 @@ OBJ_DIR   = build/
 BIN_DIR   =
 
 ### UFILES_START ###
-FILES     ?= 
+FILES     ?= parsing/cubmap.c main.c parsing/parser.c lib/vec.c 
 ### END ###
 ifeq ($(FILES),)
     $(error FILES is empty: please define source files)
@@ -31,10 +31,12 @@ CFLAGS    = -Wall -Wextra -Werror
 CXX       = c++
 CXXFLAGS  = -Wall -Wextra -Werror -std=c++98
 
-INCL_DIRS =
+LIBFT = libft
+
+INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(SRC_DIR)/lib
 # ? Directories & Libraries to link against
-LIB_DIRS  =
-LIB_FILES =
+LIB_DIRS  = $(LIBFT)
+LIB_FILES = ft
 
 RM = rm -f
 MD = mkdir -p
@@ -106,7 +108,7 @@ endif
 .PHONY: all
 all: $(OUT)
 
-$(OUT): $(O_DIRS) $(OBJS)
+$(OUT): $(LIBFT)/libft.a $(O_DIRS) $(OBJS)
 	$(P)printf "$(GRAY)"
 ifneq ($(suffix $(NAME)), .a)
 	$(LD) $(LDFLAGS) $(OBJS) -o $(OUT) $(LDLIBS)
@@ -114,6 +116,9 @@ else
 	$(LD) $(OUT) $(OBJS)
 endif
 	$(call clr_print,$(GREEN)$(UNDERLINE),$(NAME) compiled !)
+
+$(LIBFT)/libft.a:
+	make -C $(LIBFT)
 
 $(O_DIRS):
 	$(P)$(MD) $@

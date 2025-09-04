@@ -6,11 +6,11 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 01:02:07 by sliziard          #+#    #+#             */
-/*   Updated: 2025/02/17 16:40:02 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/04 14:18:30 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "ft_gnl.h"
 #include <stdint.h>
 
 t_mem	ft_memjoin(t_mem const *m, char const *buffer, int buff_size)

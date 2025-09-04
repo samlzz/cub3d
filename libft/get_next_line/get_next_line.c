@@ -6,11 +6,11 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 01:01:59 by sliziard          #+#    #+#             */
-/*   Updated: 2025/02/17 18:24:20 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/04 14:18:24 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "ft_gnl.h"
 #include <unistd.h>
 
 static ssize_t	_free_for_quit(t_mem *stash)
