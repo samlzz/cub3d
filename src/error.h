@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 13:34:03 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/04 13:35:28 by sliziard         ###   ########.fr       */
+/*   Created: 2025/09/05 11:53:18 by sliziard          #+#    #+#             */
+/*   Updated: 2025/09/05 11:54:50 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ERROR_H
+# define ERROR_H
 
-# include <stdint.h>
+# define ERR_WRONG_USAGE "Usage: ./cub3d <path_to_map_file>.cub"
 
-int main(int32_t argc, const char **argv)
-{
-	(void)argc;
-	(void)argv;
-	return (0);
-}
+#endif

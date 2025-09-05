@@ -13,14 +13,15 @@ OBJ_DIR   = build/
 BIN_DIR   =
 
 ### UFILES_START ###
-FILES =	main.c \
+FILES =	cubmap.c \
 		lib/color.c \
 		lib/str_lst.c \
 		lib/vec.c \
-		parsing/cubmap.c \
 		parsing/identifiers.c \
 		parsing/parse_utils.c \
-		parsing/parser.c
+		parsing/parser.c \
+		test/P_test_cub_parsing.c \
+		test/print_cubmap.c
 ### END ###
 ifeq ($(FILES),)
     $(error FILES is empty: please define source files)

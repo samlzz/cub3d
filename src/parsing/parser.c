@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:39:11 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/05 11:46:56 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/05 12:06:55 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,14 @@ int16_t	parse_cub(const char *map_path, t_map *out)
 	if (code)
 		return (free_map(out), code);
 	return (0);
+}
+
+bool	is_dot_cub(const char *path)
+{
+	char	*dot;
+
+	dot = ft_strrchr(path, '.');
+	if (!dot)
+		return (false);
+	return (!ft_strcmp(dot + 1, "cub"));
 }
