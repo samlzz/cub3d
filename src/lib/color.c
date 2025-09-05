@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:17:58 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/05 10:58:48 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/05 12:05:36 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_color	*parse_rgb_triplet(const char *s, const char **end)
 	uint8_t		*triplet[3];
 	uint8_t		i;
 
-	c = ft_calloc(sizeof (t_color), 1);
+	c = ft_calloc(1, sizeof (t_color));
 	if (!c)
 		return (NULL);
 	triplet[0] = &c->code.r;

@@ -19,6 +19,7 @@
 
 #include "cubmap.h"
 #include "ft_gnl.h"
+#include "libft.h"
 #include "str_lst.h"
 #include "vec.h"
 #include "parser.h"
@@ -71,7 +72,7 @@ int16_t	parse_grid(int fd, t_map *m)
 	head = _retrieve_nested_lines(fd, &m->dimensions.y);
 	if (!head)
 		return (1 + (m->dimensions.y == -2));
-	m->grid = ft_calloc(sizeof (char *), m->dimensions.y + 1);
+	m->grid = ft_calloc(m->dimensions.y + 1, sizeof (char *));
 	if (!m->grid)
 		return (strlst_clear(head), 1);
 	_fill_grid(m, head);

@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:41:31 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/04 18:25:09 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/05 12:05:50 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_strlst	*strlst_new(char *str)
 {
 	t_strlst	*new;
 
-	new = ft_calloc(sizeof (t_strlst), 1);
+	new = ft_calloc(1, sizeof (t_strlst));
 	if (!new)
 		return (NULL);
 	new->str = str;
