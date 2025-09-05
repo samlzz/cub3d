@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:17:58 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/05 12:05:36 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/05 12:15:30 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include "libft.h"
 #include "color.h"
-#include "parsing/parse_utils.c"
+#include "parsing/parse_utils.h"
 
 int16_t	ft_ato_u8(const char **ps, uint8_t *out)
 {
