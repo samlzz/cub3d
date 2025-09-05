@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec.h                                              :+:      :+:    :+:   */
+/*   cubmap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 00:23:12 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/05 10:15:03 by sliziard         ###   ########.fr       */
+/*   Created: 2025/09/04 13:02:44 by sliziard          #+#    #+#             */
+/*   Updated: 2025/09/05 10:20:19 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VEC_H
-# define VEC_H
+#include <stdint.h>
+#include <stdlib.h>
 
-# include <stddef.h>
-# include <stdint.h>
+#include "cubmap.h"
 
-struct s_vec2i
+void	free_map(t_map *m)
 {
-	int32_t	x;
-	int32_t	y;
-};
-typedef struct s_vec2i		t_vec2i;
+	t_directions	d;
+	int32_t			i;
 
-struct s_vec2d
-{
-	double	x;
-	double	y;
-};
-typedef struct s_vec2d		t_vec2d;
-
-#endif
+	free(m->ceil_colr);
+	free(m->floor_colr);
+	d = 0;
+	while (d < DIR_MAX)
+		free(m->tex_paths[d++]);
+	i = 0;
+	while (i < m->dimensions.y)
+		free(m->grid[i++]);
+	free(m->grid);
+}

@@ -13,7 +13,14 @@ OBJ_DIR   = build/
 BIN_DIR   =
 
 ### UFILES_START ###
-FILES     ?= parsing/cubmap.c main.c parsing/parser.c lib/vec.c 
+FILES =	main.c \
+		lib/color.c \
+		lib/str_lst.c \
+		lib/vec.c \
+		parsing/cubmap.c \
+		parsing/identifiers.c \
+		parsing/parse_utils.c \
+		parsing/parser.c
 ### END ###
 ifeq ($(FILES),)
     $(error FILES is empty: please define source files)
@@ -33,7 +40,7 @@ CXXFLAGS  = -Wall -Wextra -Werror -std=c++98
 
 LIBFT = libft
 
-INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(SRC_DIR)/lib
+INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(SRC_DIR) $(SRC_DIR)/lib
 # ? Directories & Libraries to link against
 LIB_DIRS  = $(LIBFT)
 LIB_FILES = ft
