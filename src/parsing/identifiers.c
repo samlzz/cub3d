@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:54:51 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/05 11:07:02 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/08 19:17:50 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include "parse_utils.h"
 #include "cubmap.h"
 
-static inline int16_t	_dispatch_colors(char **tex_paths, const char *id, size_t id_len)
+static inline int16_t	_dispatch_textures(char **tex_paths, const char *id, size_t id_len)
 {
 	t_directions	tex_dir;
 	size_t			len;
@@ -44,7 +44,7 @@ static inline int16_t	_dispatch_colors(char **tex_paths, const char *id, size_t 
 	tex_paths[tex_dir] = ft_substr(id, 0, len);
 	if (!tex_paths[tex_dir])
 		return (1);
-	return (!(*ft_skip_sp(id) == '\0'));
+	return (!(*ft_skip_sp(id + len) == '\0'));
 }
 
 static int16_t	_fill_identifiers(const char *ln, t_map *m)
@@ -62,13 +62,10 @@ static int16_t	_fill_identifiers(const char *ln, t_map *m)
 	else if (*ln == 'C' && n == 1)
 		m->ceil_colr = parse_rgb_line(ln + 1);
 	else
-		return (_dispatch_colors(m->tex_paths, ln, n));
-	if (!m->floor_colr || !m->ceil_colr)
-	{
-		free(m->floor_colr);
-		free(m->ceil_colr);
+		return (_dispatch_textures(m->tex_paths, ln, n));
+	if ((*ln == 'F' && !m->floor_colr) 
+	|| (*ln == 'C' && !m->ceil_colr))
 		return (1);
-	}
 	return (0);
 }
 
@@ -85,11 +82,11 @@ int16_t	parse_identifiers(int fd, t_map *m)
 	int16_t	code;
 
 	line = NULL;
-	while (ft_getline(&line, fd))
+	while (ft_getline(&line, fd) > 0)
 	{
 		if (!line)
 			return (1);
-		if (*line)
+		if (*line != '\n')
 		{
 			if (_identifiers_filled(m))
 				return (free(line), 0);

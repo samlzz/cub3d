@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:17:58 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/05 12:15:30 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/05 12:50:12 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ t_color	*parse_rgb_triplet(const char *s, const char **end)
 			return (free(c), NULL);
 		if (i != 2 && !expect_comma(&s))
 			return (free(c), NULL);
+		i++;
 	}
 	if (end)
 		*end = ft_skip_sp(s);
@@ -87,8 +88,9 @@ t_color	*parse_rgb_line(const char *s)
 	t_color		*new;
 	const char	*end;
 
+	end = NULL;
 	new = parse_rgb_triplet(s, &end);
-	if (*end)
+	if (end && *end)
 	{
 		free(new);
 		new = NULL;

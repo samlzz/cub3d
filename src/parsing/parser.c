@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:39:11 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/05 12:06:55 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/08 19:29:05 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size)
 	t_strlst	*new;
 
 	head = NULL;
-	while (ft_getline(&line, fd))
+	while (ft_getline(&line, fd) > 0)
 	{
 		if (!line)
 			return (strlst_clear(head), NULL);
-		if (!*line)
+		if (*line == '\n')
 		{
 			strlst_clear(head);
 			free(line);
@@ -47,7 +47,6 @@ static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size)
 			return (strlst_clear(head), free(line), NULL);
 		strlst_addback(&head, new);
 		(*size)++;
-		free(line);
 	}
 	return (head);
 }
@@ -55,12 +54,19 @@ static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size)
 static inline void	_fill_grid(t_map *m, t_strlst *rows)
 {
 	int32_t	i;
+	char	*ln;
 
 	i = 0;
 	while (i < m->dimensions.y && rows)
 	{
 		m->grid[i++] = rows->str;
-		rows->str = NULL;
+		if (rows->str)
+		{
+			ln = ft_strrchr(rows->str, '\n');
+			if (ln)
+				*ln = '\0';
+			rows->str = NULL;
+		}
 		rows = rows->next;
 	}
 }
