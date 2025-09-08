@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   data_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 16:15:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/08 14:23:26 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/08 13:17:57 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/08 14:29:10 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "data.h"
 
-# include <stdint.h>
-# include "mlx.h"
-# include "libft.h"
-
-/*to delete*/
-# include "test.h"
-
-# include "vec.h"
-# include "camera.h"
-# include "data.h"
-
-#endif
+void	data_init(t_data *data)
+{
+	// game_data_init(data); // needed ?
+	cub3d_mlx_init(data);
+}
