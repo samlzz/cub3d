@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.h                                            :+:      :+:    :+:   */
+/*   untextured_raycasting.h                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 13:34:03 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/10 11:52:49 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/08 16:13:04 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/08 16:36:45 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_H
-# define ERROR_H
+#ifndef UNTEXTURED_RAYCASTING_H
+# define UNTEXTURED_RAYCASTING_H
 
-# define ERR_WRONG_USAGE "Usage: ./cub3d <path_to_map_file>.cub"
+# include <sys/time.h>
+
+# include "cub3d.h"
+
+typedef enum e_time_precision		t_time_precision;
+
+enum e_time_precision
+{
+	T_SECOND,
+	T_MILISECOND,
+	T_MICROSECOND,
+};
+
+
 
 #endif

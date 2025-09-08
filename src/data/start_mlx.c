@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_mlx_init.c                                   :+:      :+:    :+:   */
+/*   start_mlx.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:22:56 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/08 15:03:51 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/08 16:29:31 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	init_mlx_image(t_data *data)
 			&data->mlx.img.endian);
 }
 
-void	cub3d_mlx_init(t_data *data)
+void	start_mlx(t_data *data)
 {
 	init_mlx_display(data);
 	init_mlx_window(data);

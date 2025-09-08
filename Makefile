@@ -59,7 +59,7 @@ LIBFT = libft
 
 MLX =  minilibx-linux
 
-INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(SRC_DIR)lib $(MLX) $(SRC_DIR)lib/vec/ $(SRC_DIR)camera $(SRC_DIR)test $(SRC_DIR)data $(SRC_DIR)
+INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(SRC_DIR)lib $(MLX) $(SRC_DIR)lib/vec/ $(SRC_DIR)camera $(SRC_DIR)test $(SRC_DIR)data $(SRC_DIR)untextured_raycasting $(SRC_DIR)
 # ? Directories & Libraries to link against
 LIB_DIRS  = $(LIBFT) $(MLX)
 LIB_FILES = ft mlx Xext X11 m
