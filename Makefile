@@ -27,6 +27,9 @@ FILES =	cubmap.c \
 FILES =	main.c \
 		camera/camera_print.c \
 		camera/camera_rotate.c \
+		data/clear_data.c \
+		data/cub3d_mlx_init.c \
+		data/data_init.c \
 		lib/vec.c \
 		lib/vec/convertion_deg_rad.c \
 		lib/vec/print_vec.c \

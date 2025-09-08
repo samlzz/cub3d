@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:22:56 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/08 14:45:12 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/08 15:03:51 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	init_mlx_image(t_data *data)
 			WINDOW_WIDTH, WINDOW_HEIGHT);
 	if (data->mlx.img.image == NULL)
 		clear_data(data, true, MLX_INIT_ERROR);
-	data->mlx.img.data_addr = mlx_get_data_addr(data->mlx.img.image,
+	data->mlx.img.data_addr = (int8_t *)mlx_get_data_addr(data->mlx.img.image,
 			&data->mlx.img.bpp, &data->mlx.img.line_len,
 			&data->mlx.img.endian);
 }

@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/08 14:40:39 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/08 15:03:22 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ struct s_img
 {
 	void	*image;
 	int8_t	*data_addr;
-	int		bpp;
-	int		endian;
-	int		line_len;
+	int32_t	bpp;
+	int32_t	endian;
+	int32_t	line_len;
 };
 
 struct s_mlx
