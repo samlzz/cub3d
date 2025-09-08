@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vec.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:23:12 by sliziard          #+#    #+#             */
-<<<<<<< HEAD:src/lib/vec.h
-/*   Updated: 2025/09/05 10:15:03 by sliziard         ###   ########.fr       */
-=======
-/*   Updated: 2025/09/04 17:29:55 by eazard           ###   ########.fr       */
->>>>>>> ca79e70 (feat(camera) add of camera struct and camera rotation):src/lib/vec/vec.h
+/*   Updated: 2025/09/10 11:51:03 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
