@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/08 16:29:53 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/09 11:56:30 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ enum	exit_code
 void	data_init(t_data *data);
 void	start_mlx(t_data *data);
 void	install_hooks(t_data *data);
+void	install_frame_engine(t_data *data);
 void	clear_data(t_data *data, bool fatal, int16_t exit_code);
 
 #endif

@@ -18,6 +18,7 @@
 
 /*camera*/
 void	test_camera_rotation(void);
+void	test_get_time(void);
 
 /*map*/
 void	print_map(const t_map *m);

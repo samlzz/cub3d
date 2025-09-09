@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:56:57 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/08 12:29:53 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/09 12:03:04 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ struct s_camera
 	t_vec2d pos;
 	t_vec2d	dir;
 	t_vec2d	plane;
+	double	current_frame_time;
+	double	last_frame_time;
 };
 
 /*print*/

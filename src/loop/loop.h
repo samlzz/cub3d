@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   loop.h                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 16:15:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/09 12:10:21 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/08 16:13:04 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/09 11:56:17 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef UNTEXTURED_RAYCASTING_H
+# define UNTEXTURED_RAYCASTING_H
 
-# include <stdint.h>
-# include "mlx.h"
-# include "libft.h"
-# include <stdlib.h>
-# include <X11/X.h>
-# include <X11/keysym.h>
+# include <sys/time.h>
 
-/*to delete*/
-# include "test.h"
+# include "cub3d.h"
 
-# include "loop.h"
-# include "vec.h"
-# include "camera.h"
-# include "data.h"
+typedef enum e_time_precision		t_time_precision;
+
+enum e_time_precision
+{
+	T_SECOND,
+	T_MILISECOND,
+	T_MICROSECOND,
+};
+
+double	get_time(t_time_precision time_precision);
+
 
 #endif

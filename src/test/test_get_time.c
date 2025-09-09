@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   untextured_raycasting.h                            :+:      :+:    :+:   */
+/*   test_get_time.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/08 16:13:04 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/08 16:36:45 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/09 11:49:46 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/09 12:42:09 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UNTEXTURED_RAYCASTING_H
-# define UNTEXTURED_RAYCASTING_H
+#include "test.h"
 
-# include <sys/time.h>
-
-# include "cub3d.h"
-
-typedef enum e_time_precision		t_time_precision;
-
-enum e_time_precision
+void	test_get_time(void)
 {
-	T_SECOND,
-	T_MILISECOND,
-	T_MICROSECOND,
-};
-
-
-
-#endif
+	printf("time in second : %f\n", get_time(T_SECOND));
+}

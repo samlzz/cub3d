@@ -28,16 +28,20 @@ FILES =	main.c \
 		camera/camera_print.c \
 		camera/camera_rotate.c \
 		data/clear_data.c \
-		data/cub3d_mlx_init.c \
 		data/data_init.c \
+		data/install_frame_engine.c \
+		data/install_hooks.c \
+		data/start_mlx.c \
 		lib/vec.c \
 		lib/vec/convertion_deg_rad.c \
 		lib/vec/print_vec.c \
 		lib/vec/vec_rotate.c \
+		loop/app_loop_hook.c \
+		loop/app_update.c \
+		loop/get_time.c \
 		parsing/cubmap.c \
 		parsing/parser.c \
 		test/camera_test.c
->>>>>>> ca79e70 (feat(camera) add of camera struct and camera rotation)
 ### END ###
 ifeq ($(FILES),)
     $(error FILES is empty: please define source files)
@@ -59,7 +63,7 @@ LIBFT = libft
 
 MLX =  minilibx-linux
 
-INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(SRC_DIR)lib $(MLX) $(SRC_DIR)lib/vec/ $(SRC_DIR)camera $(SRC_DIR)test $(SRC_DIR)data $(SRC_DIR)untextured_raycasting $(SRC_DIR)
+INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(SRC_DIR)lib $(MLX) $(SRC_DIR)lib/vec/ $(SRC_DIR)camera $(SRC_DIR)test $(SRC_DIR)data $(SRC_DIR)loop $(SRC_DIR)
 # ? Directories & Libraries to link against
 LIB_DIRS  = $(LIBFT) $(MLX)
 LIB_FILES = ft mlx Xext X11 m
