@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   install_frame_engine.c                             :+:      :+:    :+:   */
+/*   multiply_vec_by_scalar.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/08 16:30:26 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 10:21:07 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/10 09:17:47 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/10 09:20:45 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "data.h"
+#include "vec.h"
 
-void	install_frame_engine(t_data *data)
+t_vec2d	multiply_vec_by_scalar_2d(t_vec2d vec, double scalar)
 {
-	(void)data; //to delete
-	mlx_loop_hook(data->mlx.display, &app_loop_hook, data);
+	t_vec2d	result;
+
+	result.x = vec.x * scalar;
+	result.y = vec.y * scalar;
+	return (result);
+}
+
+t_vec2i	multiply_vec_by_scalar_2i(t_vec2i vec, int32_t scalar)
+{
+	t_vec2i	result;
+
+	result.x = vec.x * scalar;
+	result.y = vec.y * scalar;
+	return (result);
 }

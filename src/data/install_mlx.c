@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_mlx.c                                        :+:      :+:    :+:   */
+/*   install_mlx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:22:56 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/08 16:29:31 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/10 10:31:36 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ static void	init_mlx_image(t_data *data)
 			&data->mlx.img.endian);
 }
 
-void	start_mlx(t_data *data)
+void	install_mlx(t_data *data)
 {
 	init_mlx_display(data);
 	init_mlx_window(data);
 	init_mlx_image(data);
+	mlx_do_key_autorepeatoff(data->mlx.display);
 }

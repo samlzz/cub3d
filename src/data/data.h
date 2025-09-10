@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/09 11:56:30 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/10 11:19:02 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define KEY_D      100
 # define KEY_LEFT   65361
 # define KEY_RIGHT  65363
+# define E_DESTROY_NOTIFY -1
 #else
 /* macOS (si besoin) :
 # define KEY_ESC    53
@@ -82,7 +83,7 @@ struct s_data
 	t_inputs	inputs;
 };
 
-enum	exit_code
+enum e_exit_code
 {
 	SUCCESS,
 	DESTROY_NOTIFY,
@@ -90,9 +91,10 @@ enum	exit_code
 };
 
 void	data_init(t_data *data);
-void	start_mlx(t_data *data);
+void	install_mlx(t_data *data);
 void	install_hooks(t_data *data);
 void	install_frame_engine(t_data *data);
+void	game_data_init(t_data *data);
 void	clear_data(t_data *data, bool fatal, int16_t exit_code);
 
 #endif

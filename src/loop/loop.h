@@ -17,7 +17,11 @@
 
 # include "cub3d.h"
 
+# define MOVE_SPEED 3.0
+# define ROT_SPEED 2.0
+
 typedef enum e_time_precision		t_time_precision;
+typedef struct s_data				t_data;
 
 enum e_time_precision
 {
@@ -27,6 +31,8 @@ enum e_time_precision
 };
 
 double	get_time(t_time_precision time_precision);
+int		app_update(t_data *data, double time_delta_beetwen_frame);
+int		app_loop_hook(t_data *data);
 
 
 #endif

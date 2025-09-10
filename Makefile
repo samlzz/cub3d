@@ -29,12 +29,15 @@ FILES =	main.c \
 		camera/camera_rotate.c \
 		data/clear_data.c \
 		data/data_init.c \
+		data/game_data_init.c \
 		data/install_frame_engine.c \
 		data/install_hooks.c \
-		data/start_mlx.c \
+		data/install_mlx.c \
 		lib/vec.c \
 		lib/vec/convertion_deg_rad.c \
+		lib/vec/multiply_vec_by_scalar.c \
 		lib/vec/print_vec.c \
+		lib/vec/sum_vec.c \
 		lib/vec/vec_rotate.c \
 		loop/app_loop_hook.c \
 		loop/app_update.c \

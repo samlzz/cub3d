@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/08 14:41:17 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/10 10:11:22 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	clear_mlx(t_data *data, bool fatal)
 {
 	if (fatal)
 	{
+		mlx_do_key_autorepeaton(data->mlx.display);
 		if (data->mlx.display && data->mlx.img.image)
 		{
 			mlx_destroy_image(data->mlx.display,
