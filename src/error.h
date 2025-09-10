@@ -6,12 +6,14 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:34:03 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/10 11:54:19 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/10 12:40:51 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERROR_H
 # define ERROR_H
+
+# include "cub3d.h"
 
 # define ERR_WRONG_USAGE "Usage: ./cub3d <path_to_map_file>.cub"
 

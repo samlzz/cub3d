@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:21:33 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/05 11:57:49 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/10 12:40:33 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdbool.h>
 # include <stdint.h>
 
+# include "cub3d.h"
 # include "cubmap.h"
 
 bool	is_dot_cub(const char *path);

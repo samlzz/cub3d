@@ -1,0 +1,55 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/04 13:34:03 by sliziard          #+#    #+#             */
+/*   Updated: 2025/09/10 12:48:58 by eazard           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d.h"
+
+int	cub3d_main(int32_t ac, char *av[])
+{
+	t_data	data;
+	int16_t	code;
+
+	if (ac != 2 || !is_dot_cub(av[1]))
+		return (ft_putendl_fd(ERR_WRONG_USAGE, 2), 2);
+	ft_memset(&data, 0, sizeof(data));
+	code = parse_cub(av[1], &data.map);
+	if (code)
+		return (code);
+	data_init(&data);
+	mlx_loop(data.mlx.display);
+	clear_data(&data, true, SUCCESS);
+	return (0);
+}
+
+
+int	test_parsing(int ac, char **av)
+{
+	int16_t	code;
+	t_map	map;
+
+	if (ac != 2 || !is_dot_cub(av[1]))
+		return (ft_putendl_fd(ERR_WRONG_USAGE, 2), 2);
+	ft_bzero(&map, sizeof(t_map));
+	code = parse_cub(av[1], &map);
+	if (code)
+		return (code);
+	print_map(&map);
+	return (0);
+}
+
+int	main(int32_t ac, char *av[])
+{
+	// (void)ac; (void)av;
+	return (cub3d_main(ac, av));
+	// return (test_parsing(ac, av));
+	// test_get_time();
+	// return (0);
+}

@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 11:19:02 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/10 12:48:33 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_data	t_data;
 typedef struct s_mlx	t_mlx;
 typedef struct s_img	t_img;
 typedef struct s_inputs	t_inputs;
+typedef struct s_map	t_map;
 
 struct s_img
 {
@@ -81,6 +82,7 @@ struct s_data
 	t_camera	camera;
 	t_mlx		mlx;
 	t_inputs	inputs;
+	t_map		map;
 };
 
 enum e_exit_code

@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:15:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 09:35:41 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/10 12:41:07 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@
 # include "vec.h"
 # include "camera.h"
 # include "data.h"
+# include "color.h"
+# include "cubmap.h"
+# include "parser.h"
+# include "error.h"
 
 # define UNTEXTURED_RAYCASTING_DEBUG 1
 

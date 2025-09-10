@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:50:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 11:47:57 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/10 12:20:52 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define TEST_H
 
 #include "cub3d.h"
-#include "cubmap.h"
+
+typedef struct s_map	t_map;
+
 
 /*camera*/
 void	test_camera_rotation(void);

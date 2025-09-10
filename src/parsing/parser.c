@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:39:11 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/08 19:29:05 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/10 12:25:58 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include "cub3d.h"
 #include "cubmap.h"
 #include "ft_gnl.h"
 #include "libft.h"

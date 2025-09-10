@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/09/05 10:58:57 by sliziard         ###   ########.fr       */
-=======
-/*   Updated: 2025/09/04 16:01:57 by eazard           ###   ########.fr       */
->>>>>>> ca79e70 (feat(camera) add of camera struct and camera rotation)
+/*   Created: 2025/09/10 12:21:30 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/10 12:21:32 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
