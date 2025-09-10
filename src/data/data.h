@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 12:48:33 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/10 15:12:54 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "mlx.h"
 
 # include "cub3d.h"
+# include "cubmap.h"
 
 # define WINDOW_HEIGHT 600
 # define WINDOW_WIDTH 800
@@ -44,6 +45,7 @@
 */
 #endif
 
+# define FOV_FACTOR 0.66
 
 typedef struct s_data	t_data;
 typedef struct s_mlx	t_mlx;
@@ -98,5 +100,7 @@ void	install_hooks(t_data *data);
 void	install_frame_engine(t_data *data);
 void	game_data_init(t_data *data);
 void	clear_data(t_data *data, bool fatal, int16_t exit_code);
+void	game_camera_init(t_data *data);
+void	set_up_camera_dir_and_plane(t_data *data, char direction);
 
 #endif

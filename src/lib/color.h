@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:21:30 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 12:21:32 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/10 15:10:23 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define COLOR_H
 
 # include <stdint.h>
+# include "cub3d.h"
 
 struct s_color
 {

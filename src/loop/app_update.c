@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:09:09 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 11:20:29 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/10 15:24:21 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	app_update(t_data *data, double time_delta_beetwen_frame)
 
 	update_position(data, time_delta_beetwen_frame);
 	update_angle(data, time_delta_beetwen_frame);
-	if (UNTEXTURED_RAYCASTING_DEBUG)
-		camera_print(data->camera, "camera");
+	// if (UNTEXTURED_RAYCASTING_DEBUG)
+	// 	camera_print(data->camera, "camera");
 	return (0);
 }

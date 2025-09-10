@@ -1,7 +1,8 @@
 #include <stdint.h>
 
 #include "libft.h"
-#include "cubmap.h"
+#include "cub3d.h"
+#include "cub3d.h"
 #include "error.h"
 #include "parsing/parser.h"
 #include "test.h"

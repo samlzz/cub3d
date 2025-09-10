@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cubmap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:02:44 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/05 10:20:19 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/10 15:16:32 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdint.h>
 #include <stdlib.h>
 
-#include "cubmap.h"
+#include "cub3d.h"
 
 void	free_map(t_map *m)
 {

@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "cubmap.h"
+
+#include "cub3d.h"
 
 static void	print_color(const char *label, t_color *c)
 {
@@ -9,13 +10,13 @@ static void	print_color(const char *label, t_color *c)
 		printf("%s: R=%u G=%u B=%u\n", label, c->code.r, c->code.g, c->code.b);
 }
 
-static void	print_player(const t_player *p)
-{
-	printf("Player:\n");
-	printf("  pos   = (%.3f, %.3f)\n", p->pos.x, p->pos.y);
-	printf("  dir   = (%.3f, %.3f)\n", p->dir.x, p->dir.y);
-	printf("  plane = (%.3f, %.3f)\n", p->plane.x, p->plane.y);
-}
+// static void	print_player(const t_player *p)
+// {
+// 	printf("Player:\n");
+// 	printf("  pos   = (%.3f, %.3f)\n", p->pos.x, p->pos.y);
+// 	printf("  dir   = (%.3f, %.3f)\n", p->dir.x, p->dir.y);
+// 	printf("  plane = (%.3f, %.3f)\n", p->plane.x, p->plane.y);
+// }
 
 void	print_map(const t_map *m)
 {
@@ -38,7 +39,7 @@ void	print_map(const t_map *m)
 	}
 	print_color("Floor", m->floor_colr);
 	print_color("Ceil ", m->ceil_colr);
-	print_player(&m->player);
+	// print_player(&m->player);
 	printf("Grid:\n");
 	if (m->grid)
 	{

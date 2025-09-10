@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/10 12:49:30 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/10 15:14:14 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 # include <stdint.h>
 
 # include "cub3d.h"
+# include "color.h"
 
 typedef enum e_directions	t_directions;
-typedef struct s_map	t_map;
-typedef struct s_player	t_player;
+typedef struct s_map		t_map;
+typedef struct s_player		t_player;
+typedef union u_color		t_color;
 
 enum e_directions
 {

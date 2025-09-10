@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:39:11 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/10 12:25:58 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/10 15:58:09 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <unistd.h>
 
 #include "cub3d.h"
-#include "cubmap.h"
+#include "cub3d.h"
 #include "ft_gnl.h"
 #include "libft.h"
 #include "str_lst.h"
@@ -31,9 +31,11 @@ static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size)
 	t_strlst	*head;
 	t_strlst	*new;
 
+	fprintf(stderr, "_retrieve_nested_lines\n");
 	head = NULL;
 	while (ft_getline(&line, fd) > 0)
 	{
+		fprintf(stderr, "%s\n", line);
 		if (!line)
 			return (strlst_clear(head), NULL);
 		if (*line == '\n')

@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:54:51 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/10 12:22:29 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/10 16:02:08 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include "cub3d.h"
 #include "color.h"
 #include "parse_utils.h"
-#include "cubmap.h"
+#include "cub3d.h"
 
 static inline int16_t	_dispatch_textures(char **tex_paths, const char *id, size_t id_len)
 {
@@ -83,14 +83,14 @@ int16_t	parse_identifiers(int fd, t_map *m)
 	int16_t	code;
 
 	line = NULL;
-	while (ft_getline(&line, fd) > 0)
+	while (!_identifiers_filled(m) && ft_getline(&line, fd) > 0)
 	{
 		if (!line)
 			return (1);
 		if (*line != '\n')
 		{
 			if (_identifiers_filled(m))
-				return (free(line), 0);
+				return (free(line), 0); //HERE AU LIEU DE FREE LA LINE il faut la garder car c'est la premiere ligne de la map
 			code = _fill_identifiers(line, m);
 			if (code)
 				return (free(line), code);

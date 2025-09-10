@@ -22,6 +22,8 @@ FILES =	main.c \
 		data/install_frame_engine.c \
 		data/install_hooks.c \
 		data/install_mlx.c \
+		data/game_camera_init/game_camera_init.c \
+		data/game_camera_init/set_up_camera_dir_and_plane.c \
 		lib/color.c \
 		lib/str_lst.c \
 		lib/vec.c \
