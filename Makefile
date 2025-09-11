@@ -17,6 +17,7 @@ FILES =	cubmap.c \
 		lib/color.c \
 		lib/str_lst.c \
 		lib/vec.c \
+		parsing/grid.c \
 		parsing/identifiers.c \
 		parsing/parse_utils.c \
 		parsing/parser.c \
@@ -34,7 +35,7 @@ endif
 AR        = ar rcs
 
 CC        = cc
-CFLAGS    = -Wall -Wextra -Werror
+CFLAGS    = -Wall -Wextra -Werror -g3
 
 CXX       = c++
 CXXFLAGS  = -Wall -Wextra -Werror -std=c++98

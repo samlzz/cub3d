@@ -16,6 +16,8 @@ int main(int ac, char **av)
 	ft_bzero(&map, sizeof(t_map));
 	code = parse_cub(av[1], &map);
 	if (code)
-		return (code);
+		return (free_map(&map), code);
 	print_map(&map);
+	free_map(&map);
+	return (0);
 }
