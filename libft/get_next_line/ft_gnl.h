@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 01:01:52 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/04 13:02:24 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/11 14:19:21 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,19 @@
 # define FT_GNL_H
 
 # include <stdlib.h>
+
+// *UTILS
+
+# ifndef LIBFT_H
+
+#  include <stddef.h>
+#  include <stdbool.h>
+
+# else
+
+#  include "private/libft_internal.h"
+
+# endif
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
@@ -25,14 +38,9 @@ ssize_t	ft_getdelim(char **lineptr, int delim, int fd);
 ssize_t	ft_getline(char **lineptr, int fd);
 char	*get_next_line(int fd);
 
-//* UTILS
-
 # ifndef LIBFT_H
+// *in libft
 
-# include <stddef.h>
-# include <stdbool.h>
-
-//* in libft
 typedef struct s_mem
 {
 	char	*content;
@@ -41,11 +49,12 @@ typedef struct s_mem
 
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_memmove(void *dest, const void *src, size_t n);
-# else
-#  include "private/libft_internal.h"
 # endif
 
-//* GNL utils:
+// *GNL utils:
+
+ssize_t	free_for_quit_gnl(t_mem *stash);
+
 /**
  * @brief Joins two memory segments into a single memory block.
  *
