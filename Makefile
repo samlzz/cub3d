@@ -28,17 +28,22 @@ FILES =	main.c \
 		lib/str_lst.c \
 		lib/vec.c \
 		lib/vec/convertion_deg_rad.c \
+		lib/vec/get_norm_vec.c \
 		lib/vec/multiply_vec_by_scalar.c \
 		lib/vec/print_vec.c \
 		lib/vec/sum_vec.c \
 		lib/vec/vec_rotate.c \
 		loop/app_loop_hook.c \
 		loop/app_update.c \
+		loop/clamp_move_try_length.c \
 		loop/get_time.c \
+		loop/row_from_worldY.c \
+		loop/try_move_and_update_pos.c \
 		parsing/cubmap.c \
 		parsing/identifiers.c \
 		parsing/parse_utils.c \
 		parsing/parser.c \
+		parsing/update_x_dim.c \
 		test/P_test_cub_parsing.c \
 		test/print_cubmap.c \
 		test/test_camera_rotation.c \

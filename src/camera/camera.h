@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:56:57 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 11:07:52 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/12 09:39:52 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,11 @@ struct s_camera
 };
 
 /*print*/
-void	camera_print(t_camera camera, char *name);
+void	camera_print(t_camera camera);
 
 /*rotate*/
 void	camera_rotate(t_camera *camera, double angle);
 void	camera_left_rotate(t_camera *camera, double angle);
 void	camera_right_rotate(t_camera *camera, double angle);
-
 
 #endif

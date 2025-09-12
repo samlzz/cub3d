@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camera_print.c                                     :+:      :+:    :+:   */
+/*   row_from_worldY.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 17:05:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 09:39:58 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/12 11:33:20 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/12 11:34:14 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
+#include "loop.h"
 
-void	camera_print(t_camera camera)
+int	row_from_worldY(const t_data *data, double y)
 {
-	fprintf(stderr, "\rPOS(%.2f, %.2f) DIR(%.2f, %.2f) PLANE(%.2f, %.2f) ",
-		camera.pos.x, camera.pos.y,
-		camera.dir.x, camera.dir.y,
-		camera.plane.x, camera.plane.y);
-	fflush(stderr);
+    return (data->map.dimensions.y - 1 - (int)floor(y));
 }

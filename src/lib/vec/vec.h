@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:23:12 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/10 11:54:24 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/12 10:22:25 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,8 @@ t_vec2i	multiply_vec_by_scalar_2i(t_vec2i vec, int32_t scalar);
 /*sum vec*/
 t_vec2d	sum_vec_2d(t_vec2d vec1, t_vec2d vec2);
 t_vec2i	sum_vec_2i(t_vec2i vec1, t_vec2i vec2);
+
+/*get norm vec*/
+double	get_norm_vec_2d(t_vec2d vec);
 
 #endif

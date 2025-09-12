@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:49:30 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/09 11:53:53 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/12 09:39:34 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	test_camera_rotation(void)
 	camera.dir.y = 0.0;
 	camera.plane.x = 0.0;
 	camera.plane.y = 0.66;
-	camera_print(camera, "before rotation");
+	camera_print(camera);
 	camera_rotate(&camera, deg_to_rad(90));
-	camera_print(camera, "after rotation");
+	camera_print(camera);
 }

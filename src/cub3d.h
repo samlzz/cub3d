@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:15:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 15:08:26 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/12 11:51:33 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
+# include <inttypes.h>
 
 /*to delete*/
 # include "test.h"

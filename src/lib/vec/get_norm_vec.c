@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camera_print.c                                     :+:      :+:    :+:   */
+/*   get_norm_vec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 17:05:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 09:39:58 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/12 10:20:46 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/12 10:21:41 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
+#include "vec.h"
 
-void	camera_print(t_camera camera)
+double	get_norm_vec_2d(t_vec2d vec)
 {
-	fprintf(stderr, "\rPOS(%.2f, %.2f) DIR(%.2f, %.2f) PLANE(%.2f, %.2f) ",
-		camera.pos.x, camera.pos.y,
-		camera.dir.x, camera.dir.y,
-		camera.plane.x, camera.plane.y);
-	fflush(stderr);
+	return (sqrt(vec.x * vec.x + vec.y * vec.y));
 }

@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:39:11 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/12 08:55:08 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/12 13:12:56 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ int16_t	parse_cub(const char *map_path, t_map *out)
 	code = validate_map_closed(out);
 	if (code)
 		return (free_map(out), code);
+	update_x_dim(out);
 	return (0);
 }
 

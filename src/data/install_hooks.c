@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:38:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 10:20:53 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/12 09:41:37 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ static void    print_event(int keycode, const char *event)
  */
 static int	on_key_press(int keycode, t_data *data)
 {
-	if (UNTEXTURED_RAYCASTING_DEBUG)
-		print_event(keycode, "press");
+	// if (UNTEXTURED_RAYCASTING_DEBUG)
+		// print_event(keycode, "press");
 	if (keycode == KEY_ESC)
 		clear_data(data, true, DESTROY_NOTIFY);
 	if (keycode == KEY_W)
@@ -69,8 +69,8 @@ static int	on_key_press(int keycode, t_data *data)
  */
 static int	on_key_release(int keycode, t_data *data)
 {
-	if (UNTEXTURED_RAYCASTING_DEBUG)
-		print_event(keycode, "release");
+	// if (UNTEXTURED_RAYCASTING_DEBUG)
+		// print_event(keycode, "release");
 	if (keycode == KEY_W)
 		data->inputs.forward = false;
 	else if (keycode == KEY_S)
