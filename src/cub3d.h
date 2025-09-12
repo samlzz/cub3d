@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:15:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 11:51:33 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/12 14:49:53 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 
 /*to delete*/
 # include "test.h"
-
 # include "loop.h"
 # include "vec.h"
 # include "camera.h"
@@ -32,7 +31,14 @@
 # include "cubmap.h"
 # include "parser.h"
 # include "error.h"
+# include "render.h"
+
+typedef struct s_camera	t_camera;
+
 
 # define UNTEXTURED_RAYCASTING_DEBUG 1
+
+typedef struct s_img	t_img;
+
 
 #endif

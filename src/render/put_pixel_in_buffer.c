@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   put_pixel_in_buffer.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 17:50:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 14:50:04 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/12 14:25:30 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/12 14:28:10 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#include "render.h"
 
-#include "cub3d.h"
-
-typedef struct s_camera	t_camera;
-typedef struct s_map	t_map;
-
-
-/*camera*/
-void	test_camera_rotation(void);
-void	test_get_time(void);
-
-/*map*/
-void	print_map(const t_map *m);
-
-#endif
+void	put_pixel_in_buffer(t_img *img, int x, int y, int color)
+{
+	*(img->data_addr + y * img->line_len + x * img->bpp / 8) = color;
+}

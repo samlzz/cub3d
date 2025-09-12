@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   static void cast_one_ray.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 17:50:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 14:50:04 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/12 13:38:47 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/12 13:39:05 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#include "render.h"
 
-#include "cub3d.h"
-
-typedef struct s_camera	t_camera;
-typedef struct s_map	t_map;
-
-
-/*camera*/
-void	test_camera_rotation(void);
-void	test_get_time(void);
-
-/*map*/
-void	print_map(const t_map *m);
-
-#endif
+void cast_one_ray(t_data *d, int x, double *perpWallDist, int *side_hit)
+{
+	;
+}
