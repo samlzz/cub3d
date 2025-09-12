@@ -6,19 +6,20 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:41:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/04 18:24:48 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/11 18:07:23 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STR_LST_H
 # define STR_LST_H
 
-#include <stddef.h>
+#include <stdint.h>
 
 typedef struct s_strlst	t_strlst;
 struct s_strlst
 {
 	char		*str;
+	int32_t		len;
 	t_strlst	*next;
 };
 

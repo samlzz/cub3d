@@ -6,10 +6,11 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:29:49 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/11 14:34:18 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/12 14:21:46 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
@@ -20,18 +21,7 @@
 #include "ft_gnl.h"
 #include "libft.h"
 #include "str_lst.h"
-
-static inline bool	_is_empty_line(const char *ln)
-{
-	size_t	i;
-	size_t	len;
-	
-	len = ft_strlen(ln);
-	i = 0;
-	while (ft_isspace(ln[i]))
-		i++;
-	return (i == len);
-}
+#include "vec.h"
 
 static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size)
 {
@@ -73,11 +63,14 @@ static inline void	_fill_grid(t_map *m, t_strlst *rows)
 	char	*ln;
 
 	i = 0;
+	m->dimensions.x = INT_MIN;
 	while (i < m->dimensions.y && rows)
 	{
 		m->grid[i++] = rows->str;
 		if (rows->str)
 		{
+			if (rows->len > m->dimensions.x)
+				m->dimensions.x = rows->len;
 			ln = ft_strrchr(rows->str, '\n');
 			if (ln)
 				*ln = '\0';
@@ -100,4 +93,50 @@ int16_t	parse_grid(int fd, t_map *m)
 	_fill_grid(m, head);
 	strlst_clear(head);
 	return (0);
+}
+
+static inline int16_t	_fill_norm_row(const char *row, int32_t tot_width,
+	char **dest)
+{
+	int32_t	len;
+	int32_t	inner_w;
+
+	*dest = malloc((tot_width + 1) * sizeof (char));
+	if (!*dest)
+		return (1);
+	ft_memset(*dest, ' ', tot_width);
+	(*dest)[tot_width] = '\0';
+	if (!row)
+		return (0);
+	inner_w = tot_width - 2;
+	len = (int32_t)ft_strlen(row);
+	if (len > inner_w)
+		len = inner_w;
+	ft_memmove(*dest + 1, row, (size_t)len);
+	return (0);
+}
+
+char	**get_normalized_grid(const t_map *m)
+{
+	t_vec2i		total;
+	char		**normalized;
+	const char	*src;
+	int32_t		y;
+
+	total = (t_vec2i){m->dimensions.x + 2, m->dimensions.y + 2};
+	normalized = ft_calloc(total.y, sizeof (char *));
+	if (!normalized)
+		return (NULL);
+	y = 0;
+	while (y < total.y)
+	{
+		if (y == 0 || y == total.y - 1)
+			src = NULL;
+		else
+			src = m->grid[y - 1];
+		if (_fill_norm_row(src, total.x, normalized + y))
+			return (ft_splitfree(normalized, (size_t)y), NULL);
+		y++;
+	}
+	return (normalized);
 }
