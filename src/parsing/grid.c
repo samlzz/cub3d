@@ -38,21 +38,26 @@ static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size)
 	char		*line;
 	t_strlst	*head;
 	t_strlst	*new;
-	bool		empty_ln;
+	bool		map_begin;
+	bool		seen_trailing_blank;
 
 	head = NULL;
+	map_begin = false;
+	seen_trailing_blank = false;
 	while (ft_getline(&line, fd) > 0)
 	{
 		if (!line)
 			return (strlst_clear(head), NULL);
-		if (_is_empty_line(line))
+		if (ft_isln_empty(line))
 		{
-			empty_ln = true;
+			if (map_begin)
+				seen_trailing_blank = true;
 			free(line);
 			continue ;
 		}
-		if (empty_ln)
+		if (seen_trailing_blank)
 			return (strlst_clear(head), free(line), *size = -2, NULL);
+		map_begin = true;
 		new = strlst_new(line);
 		if (!new)
 			return (strlst_clear(head), free(line), NULL);

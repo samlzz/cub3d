@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:54:51 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/08 19:17:50 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/12 13:47:40 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,12 @@ int16_t	parse_identifiers(int fd, t_map *m)
 	int16_t	code;
 
 	line = NULL;
-	while (ft_getline(&line, fd) > 0)
+	while (!_identifiers_filled(m) && ft_getline(&line, fd) > 0)
 	{
 		if (!line)
 			return (1);
 		if (*line != '\n')
 		{
-			if (_identifiers_filled(m))
-				return (free(line), 0);
 			code = _fill_identifiers(line, m);
 			if (code)
 				return (free(line), code);
