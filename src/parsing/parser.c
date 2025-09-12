@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:39:11 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/10 15:58:09 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/12 08:55:08 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@
 #include "vec.h"
 #include "parser.h"
 
-static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size)
+static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size,
+					char **first_line_of_map)
 {
 	char		*line;
 	t_strlst	*head;
 	t_strlst	*new;
 
-	fprintf(stderr, "_retrieve_nested_lines\n");
 	head = NULL;
-	while (ft_getline(&line, fd) > 0)
+	line = *first_line_of_map; // on process d'abord
+	while (line || ft_getline(&line, fd) > 0)
 	{
-		fprintf(stderr, "%s\n", line);
 		if (!line)
 			return (strlst_clear(head), NULL);
 		if (*line == '\n')
@@ -49,6 +49,7 @@ static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size)
 		if (!new)
 			return (strlst_clear(head), free(line), NULL);
 		strlst_addback(&head, new);
+		line = NULL;
 		(*size)++;
 	}
 	return (head);
@@ -74,11 +75,11 @@ static inline void	_fill_grid(t_map *m, t_strlst *rows)
 	}
 }
 
-int16_t	parse_grid(int fd, t_map *m)
+int16_t	parse_grid(int fd, t_map *m, char **first_line_of_map)
 {
 	t_strlst	*head;
 
-	head = _retrieve_nested_lines(fd, &m->dimensions.y);
+	head = _retrieve_nested_lines(fd, &m->dimensions.y, first_line_of_map);
 	if (!head)
 		return (1 + (m->dimensions.y == -2));
 	m->grid = ft_calloc(m->dimensions.y + 1, sizeof (char *));
@@ -99,14 +100,15 @@ int16_t	parse_cub(const char *map_path, t_map *out)
 {
 	int16_t	code;
 	int		fd;
+	char	*first_line_of_map;
 
 	fd = open(map_path, O_RDONLY);
 	if (fd == -1)
 		return (1);
-	code = parse_identifiers(fd, out);
+	code = parse_identifiers(fd, out, &first_line_of_map);
 	if (code)
 		return (close(fd), code);
-	code = parse_grid(fd, out);
+	code = parse_grid(fd, out, &first_line_of_map);
 	close(fd);
 	code = validate_map_closed(out);
 	if (code)

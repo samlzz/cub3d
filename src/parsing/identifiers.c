@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:54:51 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/10 16:02:08 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/12 09:00:16 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,20 +77,23 @@ static inline bool	_identifiers_filled(t_map *m)
 		&& m->tex_paths[DIR_E] && m->tex_paths[DIR_W]);
 }
 
-int16_t	parse_identifiers(int fd, t_map *m)
+int16_t	parse_identifiers(int fd, t_map *m, char **first_line_of_map)
 {
 	char	*line;
 	int16_t	code;
 
 	line = NULL;
-	while (!_identifiers_filled(m) && ft_getline(&line, fd) > 0)
+	while (ft_getline(&line, fd) > 0)
 	{
 		if (!line)
 			return (1);
 		if (*line != '\n')
 		{
 			if (_identifiers_filled(m))
-				return (free(line), 0); //HERE AU LIEU DE FREE LA LINE il faut la garder car c'est la premiere ligne de la map
+			{
+				*first_line_of_map = line;
+				return (0); //HERE AU LIEU DE FREE LA LINE il faut la garder car c'est la premiere ligne de la map
+			} 
 			code = _fill_identifiers(line, m);
 			if (code)
 				return (free(line), code);
