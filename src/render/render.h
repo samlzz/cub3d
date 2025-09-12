@@ -6,13 +6,14 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 15:40:55 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/12 16:25:15 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RENDER_H
 # define RENDER_H
 
+# include "vec.h"
 # include "cub3d.h"
 
 /* colors.h */
