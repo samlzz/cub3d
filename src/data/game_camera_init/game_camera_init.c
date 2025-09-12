@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:44:59 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 15:32:47 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/12 09:24:15 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ static void	set_up_camera_pos(t_data *data, size_t x, size_t y)
 	if (UNTEXTURED_RAYCASTING_DEBUG)
 		fprintf(stderr, "x = %lu, y = %lu\n", x, y);
 	data->camera.pos.x = (double)x + 0.5;
-	data->camera.pos.y = (double)y + 0.5;
+	data->camera.pos.y = (double)(data->map.dimensions.y - (y  + 1)) + 0.5; // dimension va de 1 a dim.y. , y va de 0 a dim.y -1 , donc je fais + 1 dans le calcule
+	if (UNTEXTURED_RAYCASTING_DEBUG)
+		fprintf(stderr, "camera.pos.x = %f, camera.pos.y = %f\n",
+			data->camera.pos.x, data->camera.pos.y);
 }
 
 static bool	is_a_direction_character(char c)
