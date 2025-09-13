@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:29:49 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/13 12:12:26 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/13 18:03:33 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size)
 	return (head);
 }
 
-static inline void	_fill_grid(t_map *m, t_strlst *rows)
+static inline int16_t	_fill_grid(t_map *m, t_strlst *rows)
 {
 	int32_t	i;
 	char	*ln;
@@ -66,6 +66,8 @@ static inline void	_fill_grid(t_map *m, t_strlst *rows)
 		m->grid[i++] = rows->str;
 		if (rows->str)
 		{
+			if (!ft_isln_valid(rows->str))
+				return (2);
 			if (rows->len > m->dimensions.x)
 				m->dimensions.x = rows->len;
 			ln = ft_strrchr(rows->str, '\n');
@@ -75,21 +77,24 @@ static inline void	_fill_grid(t_map *m, t_strlst *rows)
 		}
 		rows = rows->next;
 	}
+	return (0);
 }
 
 int16_t	parse_grid(int fd, t_map *m)
 {
 	t_strlst	*head;
+	int16_t		code;
 
+	code = 0;
 	head = _retrieve_nested_lines(fd, &m->dimensions.y);
 	if (!head)
 		return (1 + (m->dimensions.y == -2));
 	m->grid = ft_calloc(m->dimensions.y + 1, sizeof (char *));
 	if (!m->grid)
 		return (strlst_clear(head), 1);
-	_fill_grid(m, head);
+	code = _fill_grid(m, head);
 	strlst_clear(head);
-	return (0);
+	return (code);
 }
 
 static inline int16_t	_fill_norm_row(const char *row, int32_t tot_width,

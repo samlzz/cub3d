@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:22:45 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/12 13:31:47 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/13 18:03:42 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,24 @@ bool	ft_isln_empty(const char *ln)
 	while (ft_isspace(ln[i]))
 		i++;
 	return (i == len);
+}
+
+bool	ft_is_walkable(char c)
+{
+	return (c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W');
+}
+
+bool	ft_isln_valid(const char *ln)
+{
+	size_t	i;
+
+	i = 0;
+	while (ln[i]
+		&& (ft_is_walkable(ln[i])
+			|| ln[i] == ' '
+			|| ln[i] == '1'
+			|| ln[i] == '\n')
+	)
+		i++;
+	return (ln[i] == '\0');
 }
