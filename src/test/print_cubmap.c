@@ -43,7 +43,7 @@ void	print_map(const t_map *m)
 	if (m->grid)
 	{
 		y = 0;
-		while (y < m->dimensions.y && m->grid[y])
+		while (y < m->dimensions.y)
 		{
 			printf("  %s\n", m->grid[y]);
 			y++;
