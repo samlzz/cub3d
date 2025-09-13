@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:41:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/11 18:07:23 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:12:15 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void		strlst_clear(t_strlst *head);
 
 t_strlst	*strlst_getlast(t_strlst *head);
 void		strlst_addback(t_strlst **head, t_strlst *new);
+int16_t		strlst_add_node(t_strlst **head, char *line, int32_t *size);
 
 #endif

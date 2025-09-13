@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:29:49 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/12 14:21:46 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:12:26 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,36 +23,33 @@
 #include "str_lst.h"
 #include "vec.h"
 
+#define MAP_BEGIN 0
+#define SEEN_TRAILING_BLANK 1
+
 static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size)
 {
 	char		*line;
 	t_strlst	*head;
-	t_strlst	*new;
-	bool		map_begin;
-	bool		seen_trailing_blank;
+	bool		flags[2];
 
 	head = NULL;
-	map_begin = false;
-	seen_trailing_blank = false;
+	ft_bzero(flags, 2 * sizeof (bool));
 	while (ft_getline(&line, fd) > 0)
 	{
 		if (!line)
 			return (strlst_clear(head), NULL);
 		if (ft_isln_empty(line))
 		{
-			if (map_begin)
-				seen_trailing_blank = true;
+			if (flags[MAP_BEGIN])
+				flags[SEEN_TRAILING_BLANK] = true;
 			free(line);
 			continue ;
 		}
-		if (seen_trailing_blank)
+		if (flags[SEEN_TRAILING_BLANK])
 			return (strlst_clear(head), free(line), *size = -2, NULL);
-		map_begin = true;
-		new = strlst_new(line);
-		if (!new)
+		flags[MAP_BEGIN] = true;
+		if (strlst_add_node(&head, line, size))
 			return (strlst_clear(head), free(line), NULL);
-		strlst_addback(&head, new);
-		(*size)++;
 	}
 	return (head);
 }
@@ -123,8 +120,8 @@ char	**get_normalized_grid(const t_map *m)
 	const char	*src;
 	int32_t		y;
 
-	total = (t_vec2i){m->dimensions.x + 2, m->dimensions.y + 2};
-	normalized = ft_calloc(total.y, sizeof (char *));
+	total = (t_vec2i){m->dimensions.x + 1, m->dimensions.y + 2};
+	normalized = ft_calloc(total.y + 1, sizeof (char *));
 	if (!normalized)
 		return (NULL);
 	y = 0;
