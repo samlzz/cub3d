@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:39:11 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/12 13:35:09 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/13 17:59:31 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,18 @@
 
 #include "cubmap.h"
 #include "libft.h"
+#include "vec.h"
 #include "parser.h"
 
 int16_t	validate_map_closed(const t_map *m)
 {
-	(void)m;
+	char	**n;
+	t_vec2i	ndim;
+
+	n = get_normalized_grid(m, &ndim);
+	if (!n)
+		return (1);
+	ft_splitfree(n, ndim.y);
 	return (0);
 }
 

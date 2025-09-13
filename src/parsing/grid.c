@@ -113,25 +113,24 @@ static inline int16_t	_fill_norm_row(const char *row, int32_t tot_width,
 	return (0);
 }
 
-char	**get_normalized_grid(const t_map *m)
+char	**get_normalized_grid(const t_map *m, t_vec2i *out_dim)
 {
-	t_vec2i		total;
 	char		**normalized;
 	const char	*src;
 	int32_t		y;
 
-	total = (t_vec2i){m->dimensions.x + 1, m->dimensions.y + 2};
-	normalized = ft_calloc(total.y + 1, sizeof (char *));
+	*out_dim = (t_vec2i){m->dimensions.x + 1, m->dimensions.y + 2};
+	normalized = ft_calloc(out_dim->y + 1, sizeof (char *));
 	if (!normalized)
 		return (NULL);
 	y = 0;
-	while (y < total.y)
+	while (y < out_dim->y)
 	{
-		if (y == 0 || y == total.y - 1)
+		if (y == 0 || y == out_dim->y - 1)
 			src = NULL;
 		else
 			src = m->grid[y - 1];
-		if (_fill_norm_row(src, total.x, normalized + y))
+		if (_fill_norm_row(src, out_dim->x, normalized + y))
 			return (ft_splitfree(normalized, (size_t)y), NULL);
 		y++;
 	}
