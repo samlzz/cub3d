@@ -15,6 +15,7 @@ BIN_DIR   =
 ### UFILES_START ###
 FILES =	cubmap.c \
 		lib/color.c \
+		lib/ft_lifo.c \
 		lib/str_lst.c \
 		lib/vec.c \
 		parsing/grid.c \
