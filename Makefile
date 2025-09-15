@@ -44,11 +44,11 @@ FILES =	main.c \
 		parsing/parse_utils.c \
 		parsing/parser.c \
 		parsing/update_x_dim.c \
+		render/dda_algorithm.c \
 		render/draw_clear.c \
 		render/draw_vline.c \
 		render/put_pixel_in_buffer.c \
 		render/render_frame.c \
-		render/static \
 		test/P_test_cub_parsing.c \
 		test/print_cubmap.c \
 		test/test_camera_rotation.c \

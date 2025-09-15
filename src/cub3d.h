@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:15:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 14:49:53 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/15 11:37:38 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 typedef struct s_camera	t_camera;
 
 
-# define UNTEXTURED_RAYCASTING_DEBUG 1
+# define UNTEXTURED_RAYCASTING_DEBUG 0
 
 typedef struct s_img	t_img;
 

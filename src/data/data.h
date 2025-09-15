@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 14:47:09 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/15 09:04:01 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ enum e_exit_code
 	SUCCESS,
 	DESTROY_NOTIFY,
 	MLX_INIT_ERROR,
+	DDA_RAYDIR_VEC_ZERO,
 };
 
 void	data_init(t_data *data);

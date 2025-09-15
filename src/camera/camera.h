@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:56:57 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 14:54:16 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/15 10:57:21 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ typedef struct s_camera	t_camera;
 
 struct s_camera
 {
-	t_vec2d pos;
+	t_vec2d	pos;
 	t_vec2d	dir;
 	t_vec2d	plane;
 	double	current_frame_time;
 	double	last_frame_time;
 	double	fov_factor;
+	double	zbuf;
 };
 
 /*print*/
