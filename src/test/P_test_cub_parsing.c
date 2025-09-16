@@ -19,13 +19,6 @@ int main(int ac, char **av)
 	if (code)
 		return (free_map(&map), code);
 	print_map(&map);
-/* 	n = get_normalized_grid(&map);
-	int norm_h = map.dimensions.y + 2;
-	printf("### NORMALIZED: ###\n\n");
-	for (int y = 0; y < norm_h; ++y)
-		printf("  %s\n", n[y]);
-	printf("==============\n");
-	ft_splitfree(n, norm_h); */
 	free_map(&map);
 	return (0);
 }
