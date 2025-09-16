@@ -15,11 +15,11 @@ BIN_DIR   =
 ### UFILES_START ###
 FILES =	cubmap.c \
 		lib/color.c \
-		lib/ft_lifo.c \
 		lib/str_lst.c \
 		lib/vec.c \
 		parsing/grid.c \
 		parsing/identifiers.c \
+		parsing/map_validate.c \
 		parsing/parse_utils.c \
 		parsing/parser.c \
 		test/P_test_cub_parsing.c \

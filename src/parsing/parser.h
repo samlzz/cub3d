@@ -33,6 +33,6 @@ int16_t	parse_identifiers(int fd, t_map *m);
 // grid
 int16_t	parse_grid(int fd, t_grid *out);
 
-int16_t	validate_map_closed(const t_map *m);
+int16_t	validate_map_closed(const t_grid *usr_map);
 
 #endif
