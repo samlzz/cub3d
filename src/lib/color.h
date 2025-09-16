@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/05 10:58:57 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 15:19:35 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ union u_color
 };
 typedef union u_color	t_color;
 
-t_color	*parse_rgb_triplet(const char *s, const char **end);
-t_color	*parse_rgb_line(const char *s);
+int16_t	parse_rgb_triplet(const char *s, const char **end, t_color **out);
+int16_t	parse_rgb_line(const char *s, t_color **out);
 
 #endif

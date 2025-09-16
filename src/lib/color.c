@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:17:58 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/05 12:50:12 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 15:21:30 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static bool	expect_comma(const char **ps)
 	return (true);
 }
 
-t_color	*parse_rgb_triplet(const char *s, const char **end)
+int16_t	parse_rgb_triplet(const char *s, const char **end, t_color **out)
 {
 	t_color		*c;
 	uint8_t		*triplet[3];
@@ -64,7 +64,7 @@ t_color	*parse_rgb_triplet(const char *s, const char **end)
 
 	c = ft_calloc(1, sizeof (t_color));
 	if (!c)
-		return (NULL);
+		return (1);
 	triplet[0] = &c->code.r;
 	triplet[1] = &c->code.g;
 	triplet[2] = &c->code.b;
@@ -73,27 +73,31 @@ t_color	*parse_rgb_triplet(const char *s, const char **end)
 	{
 		s = ft_skip_sp(s);
 		if (ft_ato_u8(&s, triplet[i]))
-			return (free(c), NULL);
+			return (free(c), 2);
 		if (i != 2 && !expect_comma(&s))
-			return (free(c), NULL);
+			return (free(c), 2);
 		i++;
 	}
 	if (end)
 		*end = ft_skip_sp(s);
-	return (c);
+	*out = c;
+	return (0);
 }
 
-t_color	*parse_rgb_line(const char *s)
+int16_t	parse_rgb_line(const char *s, t_color **out)
 {
-	t_color		*new;
 	const char	*end;
+	int16_t		code;
 
 	end = NULL;
-	new = parse_rgb_triplet(s, &end);
+	code = parse_rgb_triplet(s, &end, out);
+	if (code)
+		return (code);
 	if (end && *end)
 	{
-		free(new);
-		new = NULL;
+		free(*out);
+		*out = NULL;
+		return (2);
 	}
-	return (new);
+	return (0);
 }

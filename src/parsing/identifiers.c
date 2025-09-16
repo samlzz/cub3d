@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:54:51 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/12 13:47:40 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 15:23:40 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static inline int16_t	_dispatch_textures(char **tex_paths, const char *id, size_
 static int16_t	_fill_identifiers(const char *ln, t_map *m)
 {
 	size_t			n;
+	int16_t			code;
 	
 	ln = ft_skip_sp(ln);
 	n = 0;
@@ -58,15 +59,12 @@ static int16_t	_fill_identifiers(const char *ln, t_map *m)
 	if (!n || !ln[n])
 		return (2);
 	if (*ln == 'F' && n == 1)
-		m->floor_colr = parse_rgb_line(ln + 1);
+		code = parse_rgb_line(ln + 1, &m->floor_colr);
 	else if (*ln == 'C' && n == 1)
-		m->ceil_colr = parse_rgb_line(ln + 1);
+		code = parse_rgb_line(ln + 1, &m->ceil_colr);
 	else
 		return (_dispatch_textures(m->tex_paths, ln, n));
-	if ((*ln == 'F' && !m->floor_colr) 
-	|| (*ln == 'C' && !m->ceil_colr))
-		return (1);
-	return (0);
+	return (code);
 }
 
 static inline bool	_identifiers_filled(t_map *m)
