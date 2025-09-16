@@ -26,12 +26,12 @@ FILES =	main.c \
 		data/game_camera_init/set_up_camera_dir_and_plane.c \
 		lib/color.c \
 		lib/str_lst.c \
-		lib/vec.c \
 		lib/vec/convertion_deg_rad.c \
 		lib/vec/get_norm_vec.c \
 		lib/vec/multiply_vec_by_scalar.c \
 		lib/vec/print_vec.c \
 		lib/vec/sum_vec.c \
+		lib/vec/vec.c \
 		lib/vec/vec_rotate.c \
 		loop/app_loop_hook.c \
 		loop/app_update.c \
@@ -64,8 +64,8 @@ endif
 
 AR        = ar rcs
 
-CC        = cc
-CFLAGS    = -Wall -Wextra -Werror
+CC        = cc -std=gnu11
+CFLAGS    = #-Wall -Wextra -Werror
 
 CXX       = c++
 CXXFLAGS  = -Wall -Wextra -Werror -std=c++98
@@ -149,7 +149,7 @@ endif
 .PHONY: all
 all: $(OUT)
 
-$(OUT): $(LIBFT)/libft.a $(O_DIRS) $(OBJS)
+$(OUT): $(LIBFT)/libft.a $(MLX)/libmlx.a $(O_DIRS) $(OBJS)
 	$(P)printf "$(GRAY)"
 ifneq ($(suffix $(NAME)), .a)
 	$(LD) $(LDFLAGS) $(OBJS) -o $(OUT) $(LDLIBS) $(MLX_LIB)
@@ -157,6 +157,9 @@ else
 	$(LD) $(OUT) $(OBJS)
 endif
 	$(call clr_print,$(GREEN)$(UNDERLINE),$(NAME) compiled !)
+
+$(MLX)/libmlx.a:
+	make CC=clang -s -C $(MLX) 2>/dev/null
 
 $(LIBFT)/libft.a:
 	make -C $(LIBFT)
