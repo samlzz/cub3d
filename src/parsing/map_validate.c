@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:29:02 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 13:45:29 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 14:55:34 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_grid	*get_normalized_grid(const t_grid *usr_map)
 	normalized = ft_calloc(1, sizeof (t_grid));
 	if (!normalized)
 		return (NULL);
-	normalized->dim = (t_vec2i){usr_map->dim.x + 1, usr_map->dim.y + 2};
+	normalized->dim = (t_vec2i){usr_map->dim.x + 2, usr_map->dim.y + 2};
 	normalized->grid = ft_calloc(normalized->dim.y + 1, sizeof (char *));
 	if (!normalized->grid)
 		return (free(normalized), NULL);

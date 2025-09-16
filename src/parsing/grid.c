@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:29:49 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 13:45:06 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 14:54:54 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size)
 static inline int16_t	_fill_grid(t_grid *g, t_strlst *rows)
 {
 	int32_t	i;
-	char	*ln;
 
 	i = 0;
 	g->dim.x = INT_MIN;
@@ -71,9 +70,6 @@ static inline int16_t	_fill_grid(t_grid *g, t_strlst *rows)
 				return (2);
 			if (rows->len > g->dim.x)
 				g->dim.x = rows->len;
-			ln = ft_strrchr(rows->str, '\n');
-			if (ln)
-				*ln = '\0';
 			rows->str = NULL;
 		}
 		rows = rows->next;
