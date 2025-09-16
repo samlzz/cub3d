@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:29:02 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 14:55:34 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 15:02:57 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static bool	_check_neighbors(const t_grid n, const t_vec2i pos)
 		curr.y = pos.y + DY[i];
 		if (curr.x >= 0 && curr.y >= 0 && curr.x < n.dim.x && curr.y < n.dim.y)
 		{
-			if (n.grid[pos.y][pos.x] == ' ')
+			if (n.grid[curr.y][curr.x] == ' ')
 				return (true);
 		}
 		i++;
