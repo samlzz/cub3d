@@ -25,6 +25,11 @@ print_error() {
     printf "%b[Error]%b %s\n" "$COLOR_RED" "$COLOR_RESET" "$1" >&2
 }
 
+print_warn()
+{
+	printf "%b[Warn]%b %s\n" "$COLOR_YELLOW" "$COLOR_RESET" "$1"
+}
+
 run_tests() {
     local fold="$1"
     local mode="$2"
@@ -53,7 +58,11 @@ run_tests() {
             fi
         else
             if [[ "$result" -ne 0 ]]; then
-                print_success "Expected failure"
+                if [[ "$result" -eq 1 ]]; then
+                        print_warn "Programs return 1 for a wrong input, this should be an error"
+                else
+                    print_success "Expected failure: $result"
+				fi
             else
                 print_error "Unexpected success (exit 0)"
                 ((error_count++))
