@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   install_hooks.c                                    :+:      :+:    :+:   */
+/*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/08 15:38:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/16 16:48:51 by sliziard         ###   ########.fr       */
+/*   Created: 2025/09/16 19:16:10 by sliziard          #+#    #+#             */
+/*   Updated: 2025/09/16 19:17:05 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 #include <stdio.h>
 
 #include "mlx.h"
-#include "data.h"
+#include "../data.h"
 #include "test/test.h"
 
 /*
  * Debug helper: print key events to stderr (fd 2)
  */
-static void    print_event(int keycode, const char *event)
+static void	print_event(int keycode, const char *event)
 {
-    const char  *keyname;
+	const char	*keyname;
 
-    if (keycode == KEY_W)
-        keyname = "W";
-    else if (keycode == KEY_A)
-        keyname = "A";
-    else if (keycode == KEY_S)
-        keyname = "S";
-    else if (keycode == KEY_D)
-        keyname = "D";
-    else if (keycode == KEY_LEFT)
-        keyname = "LEFT";
-    else if (keycode == KEY_RIGHT)
-        keyname = "RIGHT";
-    else if (keycode == KEY_ESC)
-        keyname = "ESC";
+	if (keycode == KEY_W)
+		keyname = "W";
+	else if (keycode == KEY_A)
+		keyname = "A";
+	else if (keycode == KEY_S)
+		keyname = "S";
+	else if (keycode == KEY_D)
+		keyname = "D";
+	else if (keycode == KEY_LEFT)
+		keyname = "LEFT";
+	else if (keycode == KEY_RIGHT)
+		keyname = "RIGHT";
+	else if (keycode == KEY_ESC)
+		keyname = "ESC";
 	else if (keycode == E_DESTROY_NOTIFY)
 		return ((void)fprintf(stderr, "destroy notify event ocured\n"));
-    else
-        keyname = "UNKNOWN";
-    fprintf(stderr, "[event] key %s: %s\n", keyname, event);
+	else
+		keyname = "UNKNOWN";
+	fprintf(stderr, "[event] key %s: %s\n", keyname, event);
 }
 
 /* 

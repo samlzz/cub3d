@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:56:57 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/16 15:58:46 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 19:59:00 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "vec/vec.h"
 
+typedef struct s_data	t_data;
+typedef struct s_grid	t_grid;
 typedef struct s_camera	t_camera;
 
 struct s_camera
@@ -27,6 +29,8 @@ struct s_camera
 	double	fov_factor;
 	double	zbuf;
 };
+
+void	camera_init(t_camera *cam, const t_grid map);
 
 /*print*/
 void	camera_print(t_camera camera);

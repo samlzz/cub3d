@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/16 16:48:12 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 20:05:05 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@
 
 # include "camera.h"
 # include "cubmap.h"
-# include "camera.h"
 
-# define WINDOW_HEIGHT 600
-# define WINDOW_WIDTH 800
+# define WINDOW_HEIGHT	600
+# define WINDOW_WIDTH	800
+# define WINDOW_NAME	"cub3d"
+# define FOV_FACTOR		0.66
 
 # ifdef __linux__
 
@@ -46,8 +47,6 @@
 #  define KEY_RIGHT  124
 */
 # endif
-
-# define FOV_FACTOR 0.66
 
 typedef struct s_img	t_img;
 typedef struct s_inputs	t_inputs;
@@ -97,12 +96,16 @@ enum e_exit_code
 };
 
 void	data_init(t_data *data);
-void	install_mlx(t_data *data);
-void	install_hooks(t_data *data);
-void	install_frame_engine(t_data *data);
-void	game_data_init(t_data *data);
+
 void	clear_data(t_data *data, bool fatal, int16_t exit_code);
-void	game_camera_init(t_data *data);
-void	set_up_camera_dir_and_plane(t_data *data, char direction);
+
+// * Install
+
+int16_t	install_mlx(t_mlx *mlx, t_vec2i screen);
+int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i screen_dim);
+
+void	install_frame_engine(t_data *data);
+
+void	install_hooks(t_data *data);
 
 #endif

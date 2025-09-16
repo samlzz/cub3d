@@ -13,17 +13,13 @@ OBJ_DIR   = build/
 BIN_DIR   =
 
 ### UFILES_START ###
-FILES =	camera.c \
-		cubmap.c \
+FILES =	cubmap.c \
 		main.c \
-		data/clear_data.c \
-		data/data_init.c \
-		data/game_data_init.c \
-		data/install_frame_engine.c \
-		data/install_hooks.c \
-		data/install_mlx.c \
-		data/game_camera_init/game_camera_init.c \
-		data/game_camera_init/set_up_camera_dir_and_plane.c \
+		data/camera.c \
+		data/camera_init.c \
+		data/data.c \
+		data/install/hooks.c \
+		data/install/mlx.c \
 		lib/color.c \
 		lib/str_lst.c \
 		lib/vec/convertion_deg_rad.c \
