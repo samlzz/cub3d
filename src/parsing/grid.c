@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:29:49 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/13 18:03:33 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 13:45:06 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include "parse_utils.h"
 #include "ft_gnl.h"
 #include "libft.h"
+#include "parsing/parser.h"
 #include "str_lst.h"
 #include "vec.h"
 
@@ -54,22 +55,22 @@ static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size)
 	return (head);
 }
 
-static inline int16_t	_fill_grid(t_map *m, t_strlst *rows)
+static inline int16_t	_fill_grid(t_grid *g, t_strlst *rows)
 {
 	int32_t	i;
 	char	*ln;
 
 	i = 0;
-	m->dimensions.x = INT_MIN;
-	while (i < m->dimensions.y && rows)
+	g->dim.x = INT_MIN;
+	while (i < g->dim.y && rows)
 	{
-		m->grid[i++] = rows->str;
+		g->grid[i++] = rows->str;
 		if (rows->str)
 		{
 			if (!ft_isln_valid(rows->str))
 				return (2);
-			if (rows->len > m->dimensions.x)
-				m->dimensions.x = rows->len;
+			if (rows->len > g->dim.x)
+				g->dim.x = rows->len;
 			ln = ft_strrchr(rows->str, '\n');
 			if (ln)
 				*ln = '\0';
@@ -80,64 +81,29 @@ static inline int16_t	_fill_grid(t_map *m, t_strlst *rows)
 	return (0);
 }
 
-int16_t	parse_grid(int fd, t_map *m)
+int16_t	parse_grid(int fd, t_grid *out)
 {
 	t_strlst	*head;
 	int16_t		code;
 
 	code = 0;
-	head = _retrieve_nested_lines(fd, &m->dimensions.y);
+	head = _retrieve_nested_lines(fd, &out->dim.y);
 	if (!head)
-		return (1 + (m->dimensions.y == -2));
-	m->grid = ft_calloc(m->dimensions.y + 1, sizeof (char *));
-	if (!m->grid)
+		return (1 + (out->dim.y == -2));
+	out->grid = ft_calloc(out->dim.y + 1, sizeof (char *));
+	if (!out->grid)
 		return (strlst_clear(head), 1);
-	code = _fill_grid(m, head);
+	code = _fill_grid(out, head);
 	strlst_clear(head);
+	if (!code)
+		code = validate_map_closed(out);
 	return (code);
 }
 
-static inline int16_t	_fill_norm_row(const char *row, int32_t tot_width,
-	char **dest)
+void	free_grid(t_grid *g)
 {
-	int32_t	len;
-	int32_t	inner_w;
-
-	*dest = malloc((tot_width + 1) * sizeof (char));
-	if (!*dest)
-		return (1);
-	ft_memset(*dest, ' ', tot_width);
-	(*dest)[tot_width] = '\0';
-	if (!row)
-		return (0);
-	inner_w = tot_width - 2;
-	len = (int32_t)ft_strlen(row);
-	if (len > inner_w)
-		len = inner_w;
-	ft_memmove(*dest + 1, row, (size_t)len);
-	return (0);
-}
-
-char	**get_normalized_grid(const t_map *m, t_vec2i *out_dim)
-{
-	char		**normalized;
-	const char	*src;
-	int32_t		y;
-
-	*out_dim = (t_vec2i){m->dimensions.x + 1, m->dimensions.y + 2};
-	normalized = ft_calloc(out_dim->y + 1, sizeof (char *));
-	if (!normalized)
-		return (NULL);
-	y = 0;
-	while (y < out_dim->y)
-	{
-		if (y == 0 || y == out_dim->y - 1)
-			src = NULL;
-		else
-			src = m->grid[y - 1];
-		if (_fill_norm_row(src, out_dim->x, normalized + y))
-			return (ft_splitfree(normalized, (size_t)y), NULL);
-		y++;
-	}
-	return (normalized);
+	if (!g)
+		return ;
+	if (g->grid)
+		ft_splitfree(g->grid, g->dim.y);
 }

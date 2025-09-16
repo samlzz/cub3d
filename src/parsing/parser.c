@@ -117,14 +117,9 @@ int16_t	parse_cub(const char *map_path, t_map *out)
 	code = parse_identifiers(fd, out);
 	if (code)
 		return (close(fd), code);
-	code = parse_grid(fd, out);
+	code = parse_grid(fd, &out->g);
 	close(fd);
-	if (code)
 		return (code);
-	code = validate_map_closed(out);
-	if (code)
-		return (code);
-	return (0);
 }
 
 bool	is_dot_cub(const char *path)

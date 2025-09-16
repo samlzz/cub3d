@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/05 10:15:55 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 13:08:01 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,15 @@ struct s_player
 };
 typedef struct s_player	t_player;
 
+struct s_grid
+{
+	char	**grid;
+	t_vec2i	dim;
+};
+typedef struct s_grid t_grid;
 struct s_map
 {
-	char		**grid;
-	t_vec2i		dimensions;
+	t_grid		g;
 	char		*tex_paths[DIR_MAX];
 	t_color		*floor_colr;
 	t_color		*ceil_colr;
