@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:29:49 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 14:54:54 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 16:10:52 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 #include "libft.h"
 #include "parsing/parser.h"
 #include "str_lst.h"
-#include "vec.h"
 
 #define MAP_BEGIN 0
 #define SEEN_TRAILING_BLANK 1

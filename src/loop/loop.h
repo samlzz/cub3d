@@ -13,10 +13,8 @@
 #ifndef LOOP_H
 # define LOOP_H
 
-# include <sys/time.h>
-
-# include "cub3d.h"
-# include "vec.h"
+# include "vec/vec.h"
+# include "data/data.h"
 
 # define MOVE_SPEED 3.0
 # define ROT_SPEED 2.0
@@ -25,7 +23,6 @@
 # define EPS 1e-9
 
 typedef enum e_time_precision		t_time_precision;
-typedef struct s_data				t_data;
 
 enum e_time_precision
 {

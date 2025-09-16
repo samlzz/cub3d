@@ -13,9 +13,9 @@ OBJ_DIR   = build/
 BIN_DIR   =
 
 ### UFILES_START ###
-FILES =	main.c \
-		camera/camera_print.c \
-		camera/camera_rotate.c \
+FILES =	camera.c \
+		cubmap.c \
+		main.c \
 		data/clear_data.c \
 		data/data_init.c \
 		data/game_data_init.c \
@@ -31,7 +31,6 @@ FILES =	main.c \
 		lib/vec/multiply_vec_by_scalar.c \
 		lib/vec/print_vec.c \
 		lib/vec/sum_vec.c \
-		lib/vec/vec.c \
 		lib/vec/vec_rotate.c \
 		loop/app_loop_hook.c \
 		loop/app_update.c \
@@ -39,23 +38,18 @@ FILES =	main.c \
 		loop/get_time.c \
 		loop/row_from_worldY.c \
 		loop/try_move_and_update_pos.c \
-		parsing/cubmap.c \
-		lib/vec.c \
 		parsing/grid.c \
 		parsing/identifiers.c \
 		parsing/map_validate.c \
 		parsing/parse_utils.c \
 		parsing/parser.c \
-		parsing/update_x_dim.c \
 		render/dda_algorithm.c \
 		render/draw_clear.c \
 		render/draw_vline.c \
 		render/put_pixel_in_buffer.c \
 		render/render_frame.c \
-		test/P_test_cub_parsing.c \
 		test/print_cubmap.c \
-		test/test_camera_rotation.c \
-		test/test_get_time.c
+		test/test_camera_rotation.c
 ### END ###
 ifeq ($(FILES),)
     $(error FILES is empty: please define source files)
@@ -77,7 +71,7 @@ LIBFT = libft
 
 MLX =  minilibx-linux
 
-INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(SRC_DIR)lib $(MLX) $(SRC_DIR)lib/vec/ $(SRC_DIR)camera $(SRC_DIR)test $(SRC_DIR)data $(SRC_DIR)loop $(SRC_DIR)parsing $(SRC_DIR)render $(SRC_DIR)
+INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(MLX) $(SRC_DIR) $(SRC_DIR)lib
 # ? Directories & Libraries to link against
 LIB_DIRS  = $(LIBFT) $(MLX)
 LIB_FILES = ft mlx Xext X11 m

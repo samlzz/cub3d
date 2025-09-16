@@ -1,16 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camera_print.c                                     :+:      :+:    :+:   */
+/*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 17:05:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 09:39:58 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 16:55:15 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/16 16:02:15 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 #include "camera.h"
+
+/*angle is in radian*/
+void	camera_rotate(t_camera *camera, double angle)
+{
+	vec_rotate(&camera->dir, angle);
+	vec_rotate(&camera->plane, angle);
+}
+
+void	camera_left_rotate(t_camera *camera, double angle)
+{
+	camera_rotate(camera, angle);
+}
+
+void	camera_right_rotate(t_camera *camera, double angle)
+{
+	camera_rotate(camera, -angle);
+}
 
 void	camera_print(t_camera camera)
 {

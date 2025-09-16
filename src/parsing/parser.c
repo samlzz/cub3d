@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:39:11 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 15:53:32 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 16:37:49 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,11 @@ int16_t	parse_cub(const char *map_path, t_map *out)
 {
 	int16_t	code;
 	int		fd;
-	char	*first_line_of_map;
 
 	fd = open(map_path, O_RDONLY);
 	if (fd == -1)
 		return (1);
-	code = parse_identifiers(fd, out, &first_line_of_map);
+	code = parse_identifiers(fd, out);
 	if (code)
 		return (close(fd), code);
 	code = parse_grid(fd, &out->g);

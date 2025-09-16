@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   install_mlx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:22:56 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 10:31:36 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:49:23 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "mlx.h"
 #include "data.h"
 
 static void	init_mlx_window(t_data *data)

@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:34:03 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/10 15:39:01 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:49:05 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include <stdint.h>
+
+#include "mlx.h"
+#include "libft.h"
+#include "error.h"
+#include "data/data.h"
+#include "parsing/parser.h"
+#include "test/test.h"
 
 int	cub3d_main(int32_t ac, char *av[])
 {

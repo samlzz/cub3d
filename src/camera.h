@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   camera.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:56:57 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/15 10:57:21 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 15:58:46 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAMERA_H
 # define CAMERA_H
 
-# include "vec.h"
+# include "vec/vec.h"
 
 typedef struct s_camera	t_camera;
 

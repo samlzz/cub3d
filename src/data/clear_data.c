@@ -3,13 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   clear_data.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 10:11:22 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:48:23 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
+#include "mlx.h"
 #include "data.h"
 
 static void	clear_mlx(t_data *data, bool fatal)

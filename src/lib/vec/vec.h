@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vec.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:23:12 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/12 10:22:25 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:13:22 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,27 @@
 # include <stddef.h>
 # include <stdint.h>
 # include <math.h>
-# include <stdio.h>
 
 # ifndef M_PI
 #  define M_PI 3.14159265358979323846
 # endif
+
+typedef struct s_vec2i		t_vec2i;
+typedef struct s_vec2d		t_vec2d;
 
 struct s_vec2i
 {
 	int32_t	x;
 	int32_t	y;
 };
-typedef struct s_vec2i		t_vec2i;
 
 struct s_vec2d
 {
 	double	x;
 	double	y;
 };
-typedef struct s_vec2d		t_vec2d;
+
+// *Functions
 
 /*rotate*/
 void	vec_rotate(t_vec2d *vec, double angle);

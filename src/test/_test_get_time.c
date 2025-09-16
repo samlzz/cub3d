@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   test_get_time.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 11:49:46 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/09 12:42:09 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:22:34 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 #include "test.h"
 

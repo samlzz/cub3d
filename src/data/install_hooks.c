@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   install_hooks.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:38:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 09:41:37 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:48:51 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <X11/X.h>
+#include <stdio.h>
+
+#include "mlx.h"
 #include "data.h"
+#include "test/test.h"
 
 /*
  * Debug helper: print key events to stderr (fd 2)

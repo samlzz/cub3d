@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:41:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/13 12:12:15 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 16:14:04 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdint.h>
 
 typedef struct s_strlst	t_strlst;
+
 struct s_strlst
 {
 	char		*str;

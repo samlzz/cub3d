@@ -3,13 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   app_loop_hook.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:07:14 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/15 11:00:12 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:28:56 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "mlx.h"
+#include "render/render.h"
 #include "loop.h"
 
 static void	clamping_delta_beetwen_frame(double *time_delta_beetwen_frame)

@@ -6,14 +6,14 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:29:02 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 15:02:57 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 16:07:17 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
 #include "libft.h"
-#include "vec.h"
+#include "vec/vec.h"
 #include "parser.h"
 #include "parse_utils.h"
 

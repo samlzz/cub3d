@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   set_up_camera_dir_and_plane.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:48:20 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 15:22:22 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:17:15 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "data.h"
+#include "../data.h"
 
 /*
  Facing North: dir = (0, -1), plane = (1, 0)

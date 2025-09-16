@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   app_update.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:09:09 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 11:56:24 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:30:07 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "loop.h"
+#include "test/test.h"
 
 double	get_side_move_sclar(t_data *data, double time_delta_beetwen_frame)
 {

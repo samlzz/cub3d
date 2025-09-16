@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   render.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/15 12:28:09 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:48:05 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RENDER_H
 # define RENDER_H
 
-# include "vec.h"
-# include "cub3d.h"
-# include "libft.h"
+# include <stdbool.h>
+
+# include "vec/vec.h"
+# include "data/data.h"
 
 /* colors.h */
 #ifndef COLORS_H
@@ -46,7 +47,6 @@
 
 # define BIG 1e30
 
-typedef struct s_img		t_img;
 typedef struct s_line		t_line;
 typedef struct s_dda_data	t_dda_data;
 
@@ -72,8 +72,6 @@ struct s_dda_data
 	t_line	line;
 	int		x;
 };
-
-
 
 void	put_pixel_in_buffer(t_img *img, int x, int y, int color);
 void	draw_clear(t_data *data, uint32_t ceil_color, uint32_t floor_color);

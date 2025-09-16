@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   dda_algorithm.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 09:13:59 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/15 11:01:28 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:33:23 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "loop/loop.h"
 #include "render.h"
 
 static void	_init_step_and_side_dist(t_data *data, t_dda_data *dda)
@@ -70,12 +71,12 @@ static bool	wall_has_been_hit(t_data *data, t_dda_data *dda) //TODO
 	t_vec2i	cubpos;
 
 	cubpos.y = (int32_t)row_from_worldY(data, dda->map.y);
-	if (cubpos.y < 0 || cubpos.y >= data->map.dimensions.y)
+	if (cubpos.y < 0 || cubpos.y >= data->map.g.dim.y)
 		return (true);
 	cubpos.x = (int32_t)dda->map.x;
-	if (cubpos.x < 0 || cubpos.x >= data->map.dimensions.x)
+	if (cubpos.x < 0 || cubpos.x >= data->map.g.dim.x)
 		return (true);
-	cell = data->map.grid[cubpos.y][cubpos.x];
+	cell = data->map.g.grid[cubpos.y][cubpos.x];
 	if (cell == '1')
 		return (true);
 	return (false);

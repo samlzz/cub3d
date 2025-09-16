@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:54:51 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 15:51:38 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 16:08:13 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 
 #include "libft.h"
 #include "ft_gnl.h"
-#include "cub3d.h"
 #include "color.h"
 #include "parse_utils.h"
-#include "cub3d.h"
+#include "cubmap.h"
 
 static inline int16_t	_dispatch_textures(char **tex_paths, const char *id, size_t id_len)
 {
@@ -75,7 +74,7 @@ static inline bool	_identifiers_filled(t_map *m)
 		&& m->tex_paths[DIR_E] && m->tex_paths[DIR_W]);
 }
 
-int16_t	parse_identifiers(int fd, t_map *m, char **first_line_of_map)
+int16_t	parse_identifiers(int fd, t_map *m)
 {
 	char	*line;
 	int16_t	code;

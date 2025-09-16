@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_time.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:07:58 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/09 12:54:21 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:30:35 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <sys/time.h>
 
 #include "loop.h"
 

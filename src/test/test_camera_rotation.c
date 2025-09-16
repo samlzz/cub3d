@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   test_camera_rotation.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:49:30 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 09:39:34 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:23:11 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#include "camera.h"
 
 void	test_camera_rotation(void)
 {

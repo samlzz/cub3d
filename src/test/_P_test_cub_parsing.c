@@ -1,17 +1,14 @@
 #include <stdint.h>
-#include <stdio.h>
 
 #include "libft.h"
-#include "cub3d.h"
-#include "cub3d.h"
 #include "error.h"
 #include "parsing/parser.h"
 #include "test.h"
 
-// int main(int ac, char **av)
-// {
-// 	int16_t	code;
-// 	t_map	map;
+int main(int ac, char **av)
+{
+	int16_t	code;
+	t_map	map;
 
 	if (ac != 2 || !is_dot_cub(av[1]))
 		return (ft_putendl_fd(ERR_WRONG_USAGE, 2), 2);

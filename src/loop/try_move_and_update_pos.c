@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   try_move_and_update_pos.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:15:11 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 13:08:33 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:31:38 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 #include "loop.h"
+#include "test/test.h"
 
 static void	_block_log_(int32_t x, int32_t y, char c, char *reason)
 {
@@ -27,11 +30,11 @@ static inline bool	_is_blocking_(t_data *data, int32_t x, int32_t y)
 {
 	char	c;
 
-	c = data->map.grid[y][x];
+	c = data->map.g.grid[y][x];
 	if (x < 0 || y < 0)
 		return (_block_log_(x, y, c, "< 0"), true);
-	if (x >= data->map.dimensions.x
-		|| y >= data->map.dimensions.y)
+	if (x >= data->map.g.dim.x
+		|| y >= data->map.g.dim.y)
 		return (_block_log_(x, y, c, "> dim"), true);
 	if (c == '1' || c == '\n' || c == '\0' || c == ' ')
 		return (_block_log_(x, y, c, "unwalkable char"), true);
