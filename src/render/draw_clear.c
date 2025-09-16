@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:39:43 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/15 12:45:54 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/15 14:52:56 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	draw_clear(t_data *data, uint32_t ceil_color, uint32_t floor_color)
 {
 	int	x;
 	int	y;
-	
+
 	y = 0;
 	while (y < WINDOW_HEIGHT / 2)
 	{

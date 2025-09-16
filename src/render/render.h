@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/15 12:28:09 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/15 15:01:44 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,12 @@ struct s_dda_data
 	int		x;
 };
 
-
-
 void	put_pixel_in_buffer(t_img *img, int x, int y, int color);
 void	draw_clear(t_data *data, uint32_t ceil_color, uint32_t floor_color);
 void	draw_vline(t_data *data, t_line line, uint32_t color);
 void	render_frame(t_data *data);
 void	dda_algorithm(t_data *data, t_dda_data *dda);
 void	init_dda(t_data *data, t_dda_data *dda);
+void	dda_loop(t_data *data, t_dda_data *dda);
 
 #endif
