@@ -6,12 +6,13 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:41:31 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/05 12:05:50 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/16 14:54:06 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 #include <stddef.h>
+#include <stdint.h>
 #include <stdlib.h>
 
 #include "str_lst.h"
@@ -20,11 +21,19 @@
 t_strlst	*strlst_new(char *str)
 {
 	t_strlst	*new;
+	size_t		tmp;
 
 	new = ft_calloc(1, sizeof (t_strlst));
 	if (!new)
 		return (NULL);
 	new->str = str;
+	if (str)
+	{
+		tmp = ft_strlen(str);
+		if (tmp > INT_MAX)
+			return (free(new), NULL);
+		new->len = (int32_t)tmp;
+	}
 	return (new);
 }
 
@@ -59,4 +68,24 @@ void	strlst_addback(t_strlst **head, t_strlst *new)
 		last->next = new;
 	else
 		*head = new;
+}
+
+int16_t	strlst_add_node(t_strlst **head, char *line, int32_t *size)
+{
+	t_strlst	*new;
+	char		*ln;
+
+	if (line)
+	{
+		ln = ft_strrchr(line, '\n');
+		if (ln)
+			*ln = '\0';
+	}
+	new = strlst_new(line);
+	if (!new)
+		return (1);
+	strlst_addback(head, new);
+	if (size)
+		(*size)++;
+	return (0);
 }

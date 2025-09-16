@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:21:33 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/12 13:18:43 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 15:52:43 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,21 @@
 # include "cub3d.h"
 # include "cubmap.h"
 
+// *External
+
 bool	is_dot_cub(const char *path);
 int16_t	parse_cub(const char *map_path, t_map *out);
 
-int16_t	parse_identifiers(int fd, t_map *m, char **first_line_of_map);
-int16_t	parse_grid(int fd, t_map *m, char **first_line_of_map);
-int16_t	validate_map_closed(const t_map *m);
-void	update_x_dim(t_map *map);
+void	free_grid(t_grid *g);
+
+// *Internal
+
+// identifiers
+int16_t	parse_identifiers(int fd, t_map *m);
+
+// grid
+int16_t	parse_grid(int fd, t_grid *out);
+
+int16_t	validate_map_closed(const t_grid *usr_map);
 
 #endif

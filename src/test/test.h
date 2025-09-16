@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:50:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/12 14:50:04 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 15:54:24 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	test_camera_rotation(void);
 void	test_get_time(void);
 
 /*map*/
+void	print_grid(const t_grid *g);
 void	print_map(const t_map *m);
 
 #endif

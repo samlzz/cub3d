@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 12:21:30 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 15:10:23 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/16 15:50:53 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ union u_color
 };
 typedef union u_color	t_color;
 
-t_color	*parse_rgb_triplet(const char *s, const char **end);
-t_color	*parse_rgb_line(const char *s);
+int16_t	parse_rgb_triplet(const char *s, const char **end, t_color **out);
+int16_t	parse_rgb_line(const char *s, t_color **out);
 
 #endif

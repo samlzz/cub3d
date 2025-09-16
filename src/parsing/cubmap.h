@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubmap.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/10 15:14:14 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 15:51:56 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,15 @@ struct s_player
 	t_vec2d	plane;
 };
 
+struct s_grid
+{
+	char	**grid;
+	t_vec2i	dim;
+};
+typedef struct s_grid t_grid;
 struct s_map
 {
-	char		**grid;
-	t_vec2i		dimensions;
+	t_grid		g;
 	char		*tex_paths[DIR_MAX];
 	t_color		*floor_colr;
 	t_color		*ceil_colr;

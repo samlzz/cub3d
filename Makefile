@@ -40,7 +40,10 @@ FILES =	main.c \
 		loop/row_from_worldY.c \
 		loop/try_move_and_update_pos.c \
 		parsing/cubmap.c \
+		lib/vec.c \
+		parsing/grid.c \
 		parsing/identifiers.c \
+		parsing/map_validate.c \
 		parsing/parse_utils.c \
 		parsing/parser.c \
 		parsing/update_x_dim.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identifiers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:54:51 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/12 09:00:16 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 15:51:38 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ static inline int16_t	_dispatch_textures(char **tex_paths, const char *id, size_
 static int16_t	_fill_identifiers(const char *ln, t_map *m)
 {
 	size_t			n;
+	int16_t			code;
 	
 	ln = ft_skip_sp(ln);
 	n = 0;
@@ -59,15 +60,12 @@ static int16_t	_fill_identifiers(const char *ln, t_map *m)
 	if (!n || !ln[n])
 		return (2);
 	if (*ln == 'F' && n == 1)
-		m->floor_colr = parse_rgb_line(ln + 1);
+		code = parse_rgb_line(ln + 1, &m->floor_colr);
 	else if (*ln == 'C' && n == 1)
-		m->ceil_colr = parse_rgb_line(ln + 1);
+		code = parse_rgb_line(ln + 1, &m->ceil_colr);
 	else
 		return (_dispatch_textures(m->tex_paths, ln, n));
-	if ((*ln == 'F' && !m->floor_colr) 
-	|| (*ln == 'C' && !m->ceil_colr))
-		return (1);
-	return (0);
+	return (code);
 }
 
 static inline bool	_identifiers_filled(t_map *m)
@@ -83,17 +81,12 @@ int16_t	parse_identifiers(int fd, t_map *m, char **first_line_of_map)
 	int16_t	code;
 
 	line = NULL;
-	while (ft_getline(&line, fd) > 0)
+	while (!_identifiers_filled(m) && ft_getline(&line, fd) > 0)
 	{
 		if (!line)
 			return (1);
 		if (*line != '\n')
 		{
-			if (_identifiers_filled(m))
-			{
-				*first_line_of_map = line;
-				return (0); //HERE AU LIEU DE FREE LA LINE il faut la garder car c'est la premiere ligne de la map
-			} 
 			code = _fill_identifiers(line, m);
 			if (code)
 				return (free(line), code);
