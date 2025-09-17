@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 19:15:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/17 10:21:09 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:47:05 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int16_t	install_mlx(t_mlx *mlx, t_vec2i screen)
 	if (!mlx->display)
 		return (1);
 	mlx->window = mlx_new_window(mlx->display,
-		screen.x, screen.y, WINDOW_NAME);
+		screen.x, screen.y, WIN_NAME);
 	if (!mlx->window)
 		return (1);
 	if (install_mlx_img(mlx, &mlx->img, screen))

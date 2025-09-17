@@ -6,9 +6,11 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 09:13:59 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/16 16:33:23 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:47:43 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <math.h>
 
 #include "loop/loop.h"
 #include "render.h"
@@ -115,13 +117,13 @@ void	calcul_perp_wall_dist(t_data *data, t_dda_data *dda)
 void	calcul_wall_band_size(t_data *data, t_dda_data *dda)
 {
 	(void)data;
-	dda->line_height = (int)(WINDOW_HEIGHT / dda->perp_wall_dist);
-	dda->draw_start = WINDOW_HEIGHT / 2 - dda->line_height / 2;
+	dda->line_height = (int)(WIN_HEIGHT / dda->perp_wall_dist);
+	dda->draw_start = WIN_HEIGHT / 2 - dda->line_height / 2;
 	if (dda->draw_start < 0)
 		dda->draw_start = 0;
-	dda->draw_end = WINDOW_HEIGHT / 2 + dda->line_height / 2;
-	if (dda->draw_end > WINDOW_HEIGHT - 1)
-		dda->draw_end = WINDOW_HEIGHT - 1;
+	dda->draw_end = WIN_HEIGHT / 2 + dda->line_height / 2;
+	if (dda->draw_end > WIN_HEIGHT - 1)
+		dda->draw_end = WIN_HEIGHT - 1;
 }
 
 void	draw_wall_bend(t_data *data, t_dda_data *dda)

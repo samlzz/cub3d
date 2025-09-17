@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:44:59 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 15:33:12 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:41:21 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "camera.h"
 #include "test/test.h"
 #include "vec/vec.h"
+#include "vec/ftmath_utils.h"
 #include "parsing/parse_utils.h"
 
 /* Return dedicated angle corresponding to go from EAST to `direction` */
@@ -35,7 +36,7 @@ static int16_t	_dir_to_angle(char direction, double *theta)
 	return (0);
 }
 
-static void	_set_up_camera_vecs(t_camera *c, int32_t map_h, t_vec2i pos, char dir)
+static inline void	_set_up_camera_vecs(t_camera *c, int32_t map_h, t_vec2i pos, char dir)
 {
 	double	th;
 

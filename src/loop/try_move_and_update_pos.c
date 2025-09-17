@@ -6,11 +6,12 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:15:11 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/16 16:31:38 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:35:18 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <math.h>
 
 #include "loop.h"
 #include "test/test.h"
@@ -26,7 +27,7 @@ static void	_block_log_(int32_t x, int32_t y, char c, char *reason)
 	}
 }
 
-static inline bool	_is_blocking_(t_data *data, int32_t x, int32_t y)
+static bool	_is_blocking_(t_data *data, int32_t x, int32_t y)
 {
 	char	c;
 
@@ -40,6 +41,7 @@ static inline bool	_is_blocking_(t_data *data, int32_t x, int32_t y)
 		return (_block_log_(x, y, c, "unwalkable char"), true);
 	return (false);
 }
+
 
 static bool	_can_stand_at_(t_data *data, double x, double y, double r)
 {

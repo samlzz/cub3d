@@ -6,19 +6,20 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:55:15 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/16 16:02:15 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:38:24 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
 #include "camera.h"
+#include "vec/vec.h"
 
 /*angle is in radian*/
 void	camera_rotate(t_camera *camera, double angle)
 {
-	vec_rotate(&camera->dir, angle);
-	vec_rotate(&camera->plane, angle);
+	vec2d_rotate(&camera->dir, angle);
+	vec2d_rotate(&camera->plane, angle);
 }
 
 void	camera_left_rotate(t_camera *camera, double angle)

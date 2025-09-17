@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 16:55:02 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:23:53 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define RENDER_H
 
 # include <stdbool.h>
+# include <stdint.h>
 
 # include "vec/vec.h"
 # include "data/data.h"
@@ -37,13 +38,13 @@ struct s_dda_data
 	t_vec2d	step;
 	t_vec2d	side_dist;
 	t_vec2d	ray_dir;
-	int		line_height;
-	int		draw_start;
-	int		draw_end;
+	int32_t	line_height;
+	int32_t	draw_start;
+	int32_t	draw_end;
 	double	perp_wall_dist;
 	bool	side;
 	t_line	line;
-	int		x;
+	int32_t	x;
 };
 
 // DDA algo

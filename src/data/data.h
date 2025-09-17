@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 16:24:59 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:51:47 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,18 @@
 # include "camera.h"
 # include "cubmap.h"
 
-# define WINDOW_HEIGHT	600
-# define WINDOW_WIDTH	800
-# define WINDOW_NAME	"cub3d"
-# define FOV_FACTOR		0.66
+# ifndef WIN_HEIGHT
+#  define WIN_HEIGHT	2160
+# endif
+# ifndef WIN_WIDTH
+#  define WIN_WIDTH		2600
+# endif
+# ifndef WIN_NAME
+#  define WIN_NAME		"cub3d"
+# endif
+# ifndef FOV_FACTOR
+#  define FOV_FACTOR		0.66
+# endif
 
 # ifdef __linux__
 
