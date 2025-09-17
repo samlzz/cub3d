@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:44:59 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 13:47:42 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/17 15:33:12 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@
 #include "vec/vec.h"
 #include "parsing/parse_utils.h"
 
-static int16_t	_dir_to_angle(char c, double *theta)
+/* Return dedicated angle corresponding to go from EAST to `direction` */
+static int16_t	_dir_to_angle(char direction, double *theta)
 {
-	if (c == 'E')
-		*theta = 0.0;			/* +X */
-	else if (c == 'N')
-		*theta = -M_PI / 2.0;	/* -Y */
-	else if (c == 'W')
-		*theta = M_PI;			/* -X */
-	else if (c == 'S')
-		*theta = M_PI / 2.0;	/* +Y */
+	if (direction == 'E')
+		*theta = 0.0;
+	else if (direction == 'N')
+		*theta = -M_PI / 2.0;
+	else if (direction == 'W')
+		*theta = M_PI;
+	else if (direction == 'S')
+		*theta = M_PI / 2.0;
 	else
 		return (1);
 	return (0);
@@ -37,8 +38,6 @@ static int16_t	_dir_to_angle(char c, double *theta)
 static void	_set_up_camera_vecs(t_camera *c, int32_t map_h, t_vec2i pos, char dir)
 {
 	double	th;
-	double	cs;
-	double	sn;
 
 	if (UNTEXTURED_RAYCASTING_DEBUG)
 		fprintf(stderr, "x = %d, y = %d\n", pos.x, pos.y);
@@ -48,6 +47,8 @@ static void	_set_up_camera_vecs(t_camera *c, int32_t map_h, t_vec2i pos, char di
 		fprintf(stderr, "camera.pos.x = %f, camera.pos.y = %f\n", c->pos.x, c->pos.y);
 	if (_dir_to_angle(dir, &th))
 		return ;
+	c->dir = (t_vec2d){1, 0};
+	c->plane = (t_vec2d){0, -1};
 	camera_rotate(c, th);
 }
 
