@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 17:51:47 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/17 20:14:55 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 # include "cubmap.h"
 
 # ifndef WIN_HEIGHT
-#  define WIN_HEIGHT	2160
+#  define WIN_HEIGHT	1080
 # endif
 # ifndef WIN_WIDTH
-#  define WIN_WIDTH		2600
+#  define WIN_WIDTH		1920
 # endif
 # ifndef WIN_NAME
 #  define WIN_NAME		"cub3d"
