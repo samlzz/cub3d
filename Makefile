@@ -44,8 +44,7 @@ FILES =	cubmap.c \
 		render/draw_vline.c \
 		render/put_pixel_in_buffer.c \
 		render/render_frame.c \
-		test/print_cubmap.c \
-		test/test_camera_rotation.c
+		test/print_cubmap.c
 ### END ###
 ifeq ($(FILES),)
     $(error FILES is empty: please define source files)
@@ -58,7 +57,7 @@ endif
 AR        = ar rcs
 
 CC        = cc -std=gnu11
-CFLAGS    = #-Wall -Wextra -Werror
+CFLAGS    = -g3 -Wall -Wextra -Werror
 
 CXX       = c++
 CXXFLAGS  = -Wall -Wextra -Werror -std=c++98
@@ -129,7 +128,7 @@ endif
 
 OUT := $(if $(BIN_DIR),$(BIN_DIR),./)$(NAME)
 
-export VERBOSE    := false
+export VERBOSE    ?= false
 export P := @
 ifeq ($(VERBOSE),true)
 	P :=
