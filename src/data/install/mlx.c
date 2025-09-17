@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 19:15:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 20:04:57 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/17 10:21:09 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i screen_dim)
 		return (1);
 	img->data_addr = (int8_t *)mlx_get_data_addr(img->image, 
 		&img->bpp, &img->line_len, &img->endian);
+	if (!img->data_addr)
+		return (1);
 	return (0);
 }
 
@@ -35,7 +37,8 @@ int16_t	install_mlx(t_mlx *mlx, t_vec2i screen)
 		screen.x, screen.y, WINDOW_NAME);
 	if (!mlx->window)
 		return (1);
-	install_mlx_img(mlx, &mlx->img, screen);
+	if (install_mlx_img(mlx, &mlx->img, screen))
+		return (1);
 	mlx_do_key_autorepeatoff(mlx->display);
 	return (0);
 }

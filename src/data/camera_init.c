@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:44:59 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/16 19:58:38 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/17 13:47:42 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,7 @@ static void	_set_up_camera_vecs(t_camera *c, int32_t map_h, t_vec2i pos, char di
 		fprintf(stderr, "camera.pos.x = %f, camera.pos.y = %f\n", c->pos.x, c->pos.y);
 	if (_dir_to_angle(dir, &th))
 		return ;
-	cs = cos(th);
-	sn = sin(th);
-	c->dir.x = cs;
-	c->dir.y = sn;
-	c->plane.x = -sn * FOV_FACTOR;
-	c->plane.y = cs * FOV_FACTOR;
+	camera_rotate(c, th);
 }
 
 static void	deduce_cam_setting_from_player_pos(t_camera *cam, const t_grid map)
@@ -70,7 +65,7 @@ static void	deduce_cam_setting_from_player_pos(t_camera *cam, const t_grid map)
 		while (i.x < map.dim.x)
 		{
 			c = map.grid[i.y][i.x];
-			if (ft_is_walkable(c) && c != ' ')
+			if (ft_is_walkable(c) && c != '0')
 				_set_up_camera_vecs(cam, map.dim.y, i, c);
 			i.x++;
 		}
