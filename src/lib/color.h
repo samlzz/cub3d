@@ -36,6 +36,18 @@
 # define WHITE        0xFFFFFF
 # define BLACK        0x000000
 
+/* --- Compat endianness (Linux/macOS) --- */
+# if !defined(__BYTE_ORDER__)
+#  if defined(__APPLE__)
+#   include <machine/endian.h>
+#   define __BYTE_ORDER__ BYTE_ORDER
+#   define __ORDER_LITTLE_ENDIAN__ LITTLE_ENDIAN
+#   define __ORDER_BIG_ENDIAN__    BIG_ENDIAN
+#  else
+#   include <endian.h>
+#  endif
+# endif
+
 # if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
 
 struct s_color
@@ -55,6 +67,11 @@ struct s_color
 	uint8_t	b;
 };
 # endif
+
+enum	e_compil_time_check
+{
+	s_color_must_be_4_bytes = 1 / (int)(sizeof (struct s_color) == 4)
+};
 
 typedef union u_color	t_color;
 
