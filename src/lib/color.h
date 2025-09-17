@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 19:59:50 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/17 20:08:26 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,6 @@
 # define WHITE        0xFFFFFF
 # define BLACK        0x000000
 
-/* --- Compat endianness (Linux/macOS) --- */
-# if !defined(__BYTE_ORDER__)
-#  if defined(__APPLE__)
-#   include <machine/endian.h>
-#   define __BYTE_ORDER__ BYTE_ORDER
-#   define __ORDER_LITTLE_ENDIAN__ LITTLE_ENDIAN
-#   define __ORDER_BIG_ENDIAN__    BIG_ENDIAN
-#  else
-#   include <endian.h>
-#  endif
-# endif
-
 # if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
 
 struct s_color
@@ -72,6 +60,10 @@ enum	e_compil_time_check
 {
 	s_color_must_be_4_bytes = 1 / (int)(sizeof (struct s_color) == 4)
 };
+
+typedef union u_color	t_color;
+
+# endif
 
 typedef union u_color	t_color;
 

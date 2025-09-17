@@ -21,7 +21,7 @@ FILES =	cubmap.c \
 		data/install/hooks.c \
 		data/install/mlx.c \
 		lib/color.c \
-		lib/ft_mlx_img.c \
+		lib/ft_mlx.c \
 		lib/str_lst.c \
 		lib/vec/convertion_deg_rad.c \
 		lib/vec/get_norm_vec.c \
