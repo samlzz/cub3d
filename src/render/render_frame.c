@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   render_frame.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:25 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/15 12:11:15 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/17 16:55:13 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
-
-// static void	test_draw_vline(t_data *data)
-// {
-// 	draw_vline(data, (t_line){WINDOW_WIDTH/2 - 50,            0,                WINDOW_HEIGHT}, RED); // rouge, pleine hauteur
-// 	draw_vline(data, (t_line){WINDOW_WIDTH/2,50,               WINDOW_HEIGHT-50}, RED); // vert, centré, marges haut/bas
-// 	draw_vline(data, (t_line){WINDOW_WIDTH/2 + 20,100,              300},            RED); // bleu, à droite, segment court
-// 	draw_vline(data, (t_line){WINDOW_WIDTH/2 - 20,          0,                WINDOW_HEIGHT},              RED); // blanc, hauteur nulle (rien visible)
-// }
 
 static	t_vec2d	get_ray_dir(t_data *data, int x)
 {
@@ -34,7 +26,7 @@ void	render_frame(t_data *data)
 {
 	t_dda_data	dda;
 
-	draw_clear(data, SKY_BLUE, DARK_GRAY);
+	draw_clear(&data->mlx.img, SKY_BLUE, DARK_GRAY);
 	dda.x = 0;
 	while (dda.x < WINDOW_WIDTH)
 	{

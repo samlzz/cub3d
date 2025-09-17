@@ -21,6 +21,7 @@ FILES =	cubmap.c \
 		data/install/hooks.c \
 		data/install/mlx.c \
 		lib/color.c \
+		lib/ft_mlx_img.c \
 		lib/str_lst.c \
 		lib/vec/convertion_deg_rad.c \
 		lib/vec/get_norm_vec.c \
@@ -40,9 +41,7 @@ FILES =	cubmap.c \
 		parsing/parse_utils.c \
 		parsing/parser.c \
 		render/dda_algorithm.c \
-		render/draw_clear.c \
-		render/draw_vline.c \
-		render/put_pixel_in_buffer.c \
+		render/draw.c \
 		render/render_frame.c \
 		test/print_cubmap.c
 ### END ###
