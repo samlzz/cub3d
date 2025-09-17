@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:23:12 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 16:13:22 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:45:20 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 
 # include <stddef.h>
 # include <stdint.h>
-# include <math.h>
-
-# ifndef M_PI
-#  define M_PI 3.14159265358979323846
-# endif
 
 typedef struct s_vec2i		t_vec2i;
 typedef struct s_vec2d		t_vec2d;
@@ -38,28 +33,17 @@ struct s_vec2d
 
 // *Functions
 
-/*rotate*/
-void	vec_rotate(t_vec2d *vec, double angle);
-void	vec_left_rotate(t_vec2d *vec, double angle);
-void	vec_right_rotate(t_vec2d *vec, double angle);
+/* vector of double */
+void	vec2d_rotate(t_vec2d *vec, double angle);
+t_vec2d	vec2d_sum(t_vec2d vec1, t_vec2d vec2);
+t_vec2d	vec2d_scalar_mult(t_vec2d vec, double scalar);
 
-/*print*/
-void	print_vec2d(t_vec2d vec, char *name);
-void	print_vec2i(t_vec2i vec, char *name);
+void	vec2d_print(t_vec2d vec, char *name);
 
-/*convert radian in degree and the oposit*/
-double	rad_to_deg(double angle);
-double	deg_to_rad(double angle);
+/* vector of integer */
+t_vec2i	vec2i_sum(t_vec2i vec1, t_vec2i vec2);
+t_vec2i	vec2i_scalar_mult(t_vec2i vec, int32_t scalar);
 
-/*multiply vec by scalar*/
-t_vec2d	multiply_vec_by_scalar_2d(t_vec2d vec, double scalar);
-t_vec2i	multiply_vec_by_scalar_2i(t_vec2i vec, int32_t scalar);
-
-/*sum vec*/
-t_vec2d	sum_vec_2d(t_vec2d vec1, t_vec2d vec2);
-t_vec2i	sum_vec_2i(t_vec2i vec1, t_vec2i vec2);
-
-/*get norm vec*/
-double	get_norm_vec_2d(t_vec2d vec);
+void	vec2i_print(t_vec2i vec, char *name);
 
 #endif

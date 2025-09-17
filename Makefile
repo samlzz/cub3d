@@ -21,14 +21,11 @@ FILES =	cubmap.c \
 		data/install/hooks.c \
 		data/install/mlx.c \
 		lib/color.c \
-		lib/ft_mlx.c \
+		lib/ft_mlx_img.c \
 		lib/str_lst.c \
-		lib/vec/convertion_deg_rad.c \
-		lib/vec/get_norm_vec.c \
-		lib/vec/multiply_vec_by_scalar.c \
+		lib/vec/ftmath_utils.c \
 		lib/vec/print_vec.c \
-		lib/vec/sum_vec.c \
-		lib/vec/vec_rotate.c \
+		lib/vec/vec_edit.c \
 		loop/app_loop_hook.c \
 		loop/app_update.c \
 		loop/clamp_move_try_length.c \

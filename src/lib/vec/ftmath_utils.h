@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_vec.c                                        :+:      :+:    :+:   */
+/*   ftmath_utils.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 16:09:58 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 17:18:22 by sliziard         ###   ########.fr       */
+/*   Created: 2025/09/17 17:07:26 by sliziard          #+#    #+#             */
+/*   Updated: 2025/09/17 17:45:07 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#ifndef FTMATH_UTILS_H
+# define FTMATH_UTILS_H
 
-#include "vec.h"
+# include <stdint.h>
+# include <math.h>
 
-void	vec2d_print(t_vec2d vec, char *name)
-{
-	printf("%s\n", name);
-	printf("x = %f\n", vec.x);
-	printf("y = %f\n", vec.y);
-}
+# include "vec.h"
 
-/*
-untested
-*/
-void	vec2i_print(t_vec2i vec, char *name)
-{
-	printf("%s\n", name);
-	printf("x = %i\n", vec.x);
-	printf("y = %i\n", vec.y);
-}
+# ifndef M_PI
+#  define M_PI 3.14159265358979323846
+# endif
+
+double	vec2d_get_norm(t_vec2d vec);
+
+// *To manipulate angle of t_vec2d:
+
+double	ftm_clamp(double val, double min, double max);
+/* Conversions */
+double	ftm_rad_to_deg(double angle);
+double	ftm_deg_to_rad(double angle);
+
+
+#endif
