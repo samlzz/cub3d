@@ -69,7 +69,7 @@ MLX =  minilibx-linux
 INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(MLX) $(SRC_DIR) $(SRC_DIR)lib
 # ? Directories & Libraries to link against
 LIB_DIRS  = $(LIBFT) $(MLX)
-LIB_FILES = ft mlx Xext X11 m
+LIB_FILES = ft mlx Xext X11 Xfixes m
 
 RM = rm -f
 MD = mkdir -p
