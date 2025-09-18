@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 16:03:29 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/18 17:27:39 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,17 @@ void	init_dda(t_data *data, t_dda_data *dda);
 void	dda_loop(t_data *data, t_dda_data *dda);
 void	dda_algorithm(t_data *data, t_dda_data *dda);
 
+/* deduce_after_loop */
+void	deduce_perp_wall_dist(t_data *data, t_dda_data *dda);
+void	deduce_wall_band_size(t_data *data, t_dda_data *dda);
+void	deduce_wall_orientation(t_dda_data *dda);
+void	deduce_wall_x(t_data *data, t_dda_data *dda);
+void	deduce_texture_related_data(t_data *data, t_dda_data *dda);
+
 // Draw
 void	draw_clear(t_img *img, uint32_t ceil_color, uint32_t floor_color);
 void	draw_vline(t_data *data, t_line line, uint32_t color);
+void	draw_bend_with_textue(t_data *data, t_dda_data *dda);
+void	draw_bend_without_texture(t_data *data, t_dda_data *dda);
 
 #endif
