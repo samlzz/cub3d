@@ -16,11 +16,12 @@
 # include "vec/vec.h"
 # include "data/data.h"
 
-# define MOVE_SPEED 3.0
-# define ROT_SPEED 2.0
+# define MOVE_SPEED 		3.0
+# define ROT_SPEED 			2.0
+# define DELTA_T_CLAMP_MAX	0.05
 
-# define PLAYER_RADIUS 0.20
-# define EPS 1e-9
+# define PLAYER_RADIUS	0.20
+# define EPS			1e-9
 
 typedef enum e_time_precision		t_time_precision;
 

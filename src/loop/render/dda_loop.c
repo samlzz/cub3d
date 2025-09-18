@@ -6,11 +6,9 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 14:54:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 16:27:53 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 16:49:39 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <math.h>
 
 #include "loop/loop.h"
 #include "render.h"

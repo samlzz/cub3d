@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:44:59 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 17:41:21 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 17:05:58 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ static inline void	_set_up_camera_vecs(t_camera *c, int32_t map_h, t_vec2i pos, 
 
 static void	deduce_cam_setting_from_player_pos(t_camera *cam, const t_grid map)
 {
+	char	*row;
 	char	c;
 	t_vec2i	i;
 
@@ -62,11 +63,12 @@ static void	deduce_cam_setting_from_player_pos(t_camera *cam, const t_grid map)
 	while (i.y < map.dim.y)
 	{
 		i.x = 0;
+		row = map.grid[i.y];
 		if (UNTEXTURED_RAYCASTING_DEBUG)
-				fprintf(stderr, "%s\n", map.grid[i.y]);
-		while (i.x < map.dim.x)
+				fprintf(stderr, "%s\n", row);
+		while (i.x < map.dim.x && row[i.x])
 		{
-			c = map.grid[i.y][i.x];
+			c = row[i.x];
 			if (ft_is_walkable(c) && c != '0')
 				_set_up_camera_vecs(cam, map.dim.y, i, c);
 			i.x++;

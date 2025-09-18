@@ -34,16 +34,16 @@ FILES =	cubmap.c \
 		loop/get_time.c \
 		loop/row_from_worldY.c \
 		loop/try_move_and_update_pos.c \
+		loop/render/dda_algorithm.c \
+		loop/render/dda_loop.c \
+		loop/render/draw.c \
+		loop/render/init_dda.c \
+		loop/render/render_frame.c \
 		parsing/grid.c \
 		parsing/identifiers.c \
 		parsing/map_validate.c \
 		parsing/parse_utils.c \
 		parsing/parser.c \
-		render/dda_algorithm.c \
-		render/dda_loop.c \
-		render/draw.c \
-		render/init_dda.c \
-		render/render_frame.c \
 		test/print_cubmap.c
 ### END ###
 ifeq ($(FILES),)
