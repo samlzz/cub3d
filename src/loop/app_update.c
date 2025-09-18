@@ -6,10 +6,12 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:09:09 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 17:31:39 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 19:36:08 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "data/camera.h"
+#include "data/data.h"
 #include "loop.h"
 #include "test/test.h"
 #include "vec/vec.h"
@@ -41,19 +43,21 @@ static void	update_position(t_data *data, double time_delta_beetwen_frame)
 	try_move_and_update_pos(data, move_try);
 }
 
-static void	update_angle(t_data *data, double time_delta_beetwen_frame)
+static void	update_angle(t_camera *cam, t_inputs *io, double time_delta_beetwen_frame)
 {
-	double	angle_delta;
+	double	delta;
 
-	angle_delta = ROT_SPEED * time_delta_beetwen_frame
-		* (double )(data->inputs.turn_left - data->inputs.turn_right);
-	camera_rotate(&data->camera, angle_delta);
+	delta = ROT_SPEED * time_delta_beetwen_frame
+		* (double )(io->turn_left - io->turn_right);
+	delta += - io->cursor.dx_accum * MOUSE_SENSITIVITY;
+	io->cursor.dx_accum = 0;
+	camera_rotate(cam, delta);
 }
 
 int	app_update(t_data *data, double time_delta_beetwen_frame)
 {
 	update_position(data, time_delta_beetwen_frame);
-	update_angle(data, time_delta_beetwen_frame);
+	update_angle(&data->camera, &data->inputs, time_delta_beetwen_frame);
 	if (UNTEXTURED_RAYCASTING_DEBUG)
 		camera_print(data->camera);
 	return (0);

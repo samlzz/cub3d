@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 16:35:21 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 18:43:00 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # include "camera.h"
 # include "cubmap.h"
+#include "vec/vec.h"
 
 # ifndef WIN_HEIGHT
 #  define WIN_HEIGHT	1080
@@ -28,19 +29,21 @@
 # ifndef WIN_NAME
 #  define WIN_NAME		"cub3d"
 # endif
+
 # ifndef FOV_FACTOR
 #  define FOV_FACTOR		0.66
 # endif
+# ifndef MOUSE_SENSITIVITY
+#  define MOUSE_SENSITIVITY 0.0025 /* radians/pixel à ajuster */
+# endif
+
 
 # ifdef __linux__
 
-#  define KEY_ESC    65307
 #  define KEY_W      119
 #  define KEY_A      97
 #  define KEY_S      115
 #  define KEY_D      100
-#  define KEY_LEFT   65361
-#  define KEY_RIGHT  65363
 #  define E_DESTROY_NOTIFY -1
 
 # else
@@ -57,10 +60,11 @@
 # endif
 
 typedef struct s_img	t_img;
+typedef struct s_assets	t_assets;
+typedef struct s_mouse	t_mouse;
 typedef struct s_inputs	t_inputs;
 typedef struct s_mlx	t_mlx;
 typedef struct s_data	t_data;
-typedef struct s_assets	t_assets;
 
 struct s_img
 {
@@ -78,6 +82,14 @@ struct s_assets
 	t_img	cardinal_textures[DIR_MAX];
 };
 
+struct s_mouse
+{
+	t_vec2i	pos;
+	double	dx_accum;
+	bool	pending_recenter;
+	bool	hidden;
+};
+
 struct s_inputs
 {
 	bool	forward;
@@ -86,6 +98,7 @@ struct s_inputs
 	bool	right;
 	bool	turn_left;
 	bool	turn_right;
+	t_mouse	cursor;
 };
 
 struct s_mlx
@@ -97,11 +110,11 @@ struct s_mlx
 
 struct s_data
 {
-	struct s_camera	camera;
-	t_mlx			mlx;
-	t_inputs		inputs;
-	t_map			map;
-	t_assets		assets;
+	t_camera	camera;
+	t_mlx		mlx;
+	t_inputs	inputs;
+	t_map		map;
+	t_assets	assets;
 };
 
 enum e_exit_code
@@ -119,7 +132,7 @@ void	clear_data(t_data *data, bool fatal, int16_t exit_code);
 
 // * Install
 
-int16_t	install_mlx(t_mlx *mlx, t_vec2i screen);
+int16_t	install_mlx(t_mlx *mlx, t_vec2i screen, t_mouse *cursor);
 int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i screen_dim);
 
 void	install_hooks(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 16:36:50 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 18:44:12 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,17 @@
 
 void	data_init(t_data *data)
 {
-	if (install_mlx(&data->mlx, (t_vec2i){WIN_WIDTH, WIN_HEIGHT}))
+	if (install_mlx(
+		&data->mlx,
+		(t_vec2i){WIN_WIDTH, WIN_HEIGHT},
+		&data->inputs.cursor)
+	)
 		clear_data(data, true, EC_MLX_INIT_ERROR);
-	if (load_cardinal_textures(&data->map, data->assets.cardinal_textures, &data->mlx))
+	if (load_cardinal_textures(
+		&data->map,
+		data->assets.cardinal_textures,
+		&data->mlx)
+	)
 		clear_data(data, true, EC_OPEN_TEXTURE_FAILURE);
 	install_hooks(data);
 	install_frame_engine(data);
@@ -31,6 +39,7 @@ void	data_init(t_data *data)
 static void	_fatal_clear_mlx(t_mlx *mlx)
 {
 	mlx_do_key_autorepeaton(mlx->display);
+	mlx_mouse_show(mlx->display, mlx->window);
 	if (mlx->display && mlx->img.image_ptr)
 	{
 		mlx_destroy_image(mlx->display,
