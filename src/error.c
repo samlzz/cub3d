@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 10:05:42 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 10:07:38 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 16:56:06 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,5 @@ void	open_err(const char *filename)
 	ft_strlcat(str, filename, len);
 	errno = errno_;
 	perror(str);
+	free(str);
 }
