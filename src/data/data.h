@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 20:14:55 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 12:09:01 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,10 @@ struct s_data
 
 enum e_exit_code
 {
-	SUCCESS,
-	DESTROY_NOTIFY,
-	MLX_INIT_ERROR,
-	DDA_RAYDIR_VEC_ZERO,
+	EC_SUCCESS,
+	EC_DESTROY_NOTIFY,
+	EC_MLX_INIT_ERROR,
+	EC_DDA_RAYDIR_VEC_ZERO,
 };
 
 void	data_init(t_data *data);

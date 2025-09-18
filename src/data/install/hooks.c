@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 19:16:10 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 19:17:05 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 12:09:53 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	on_key_press(int keycode, t_data *data)
 	// if (UNTEXTURED_RAYCASTING_DEBUG)
 		// print_event(keycode, "press");
 	if (keycode == KEY_ESC)
-		clear_data(data, true, DESTROY_NOTIFY);
+		clear_data(data, true, EC_DESTROY_NOTIFY);
 	if (keycode == KEY_W)
 		data->inputs.forward = true;
 	else if (keycode == KEY_S)
@@ -98,7 +98,7 @@ static int	on_destroy_notify(t_data *data)
 {
 	if (UNTEXTURED_RAYCASTING_DEBUG)
 		print_event(E_DESTROY_NOTIFY, "destroy_notify");
-	clear_data(data, true, DESTROY_NOTIFY);
+	clear_data(data, true, EC_DESTROY_NOTIFY);
 	return (0);
 }
 

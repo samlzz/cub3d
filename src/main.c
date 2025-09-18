@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:34:03 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 09:59:00 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 12:09:21 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ int	main(int32_t ac, char *av[])
 	print_map(&data.map);
 	data_init(&data);
 	mlx_loop(data.mlx.display);
-	clear_data(&data, true, SUCCESS);
+	clear_data(&data, true, EC_SUCCESS);
 	return (0);
 }
