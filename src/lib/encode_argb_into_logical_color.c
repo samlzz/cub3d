@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_get_time.c                                    :+:      :+:    :+:   */
+/*   encode_argb_into_logical_color.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 11:49:46 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/16 16:22:34 by sliziard         ###   ########.fr       */
+/*   Created: 2025/09/16 15:03:43 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/16 15:34:40 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "color.h"
 
-#include "test.h"
-
-void	test_get_time(void)
+int32_t	encode_argb_into_logical_color(t_argb argb)
 {
-	printf("time in second : %f\n", get_time(T_SECOND));
+	return ((int32_t)argb.a << 24 | (int32_t)argb.r << 16
+		| (int32_t)argb.g << 8 | (int32_t)argb.b);
+
 }

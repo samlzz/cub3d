@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 20:13:45 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:58:35 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@
 # define ORANGE       0xFFA500
 # define WHITE        0xFFFFFF
 # define BLACK        0x000000
+
+# define SOUTH_COLOR	ORANGE
+# define NORTH_COLOR	BLUE
+# define EST_COLOR		GREEN
+# define WEST_COLOR		PURPLE
+# define CEILING_COLOR	BLACK
+# define FLOOR_COLOR	WHITE
 
 /* --- Compat endianness (Linux/macOS) --- */
 # if !defined(__BYTE_ORDER__)

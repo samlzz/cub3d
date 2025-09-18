@@ -2,7 +2,7 @@
 #* >> USER CONFIGURATION (MANDATORY)
 # =============================================================================
 
-NAME      ?= cub3d
+NAME      = cub3d
 ifeq ($(NAME),)
     $(error NAME is empty: please define executable name)
 endif

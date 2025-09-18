@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mlx_img.h                                       :+:      :+:    :+:   */
+/*   extract_argb_from_logical_color.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 13:41:20 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 15:47:01 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/16 15:31:52 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/16 15:32:02 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MLX_IMG_H
-# define FT_MLX_IMG_H
+#include "color.h"
 
-# include <stdint.h>
+t_argb	extract_argb_from_logical_color(int32_t logical_color)
+{
+	t_argb	argb;
 
-# include "color.h"
-# include "vec/vec.h"
-
-typedef struct s_img	t_img;
-
-void	ft_mlx_img_put_px(t_img *img, t_vec2i pos, uint32_t color);
-void	ft_mlx_img_fill(t_img *img, t_vec2i start, const t_vec2i end, const t_color filled);
-
-#endif
+	argb.a = (uint8_t)((logical_color & 0xFF000000) >> 24);
+	argb.r = (uint8_t)((logical_color & 0x00FF0000) >> 16);
+	argb.g = (uint8_t)((logical_color & 0x0000FF00) >> 8);
+	argb.b = (uint8_t)(logical_color & 0x000000FF);
+	return (argb);
+}

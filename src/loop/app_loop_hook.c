@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   app_loop_hook.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:07:14 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 17:38:52 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:47:12 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ int	app_loop_hook(t_data *data)
 	beetwen_frame = ftm_clamp(beetwen_frame, 0.0, 0.05);
 	app_update(data, beetwen_frame);
 	render_frame(data);
-	mlx_put_image_to_window(data->mlx.display, data->mlx.window, data->mlx.img.image, 0, 0);
+	mlx_put_image_to_window(data->mlx.display, data->mlx.window, data->mlx.img.image_ptr, 0, 0);
 	return (0);
 }

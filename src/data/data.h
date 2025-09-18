@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 12:09:01 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:34:44 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,22 @@ typedef struct s_img	t_img;
 typedef struct s_inputs	t_inputs;
 typedef struct s_mlx	t_mlx;
 typedef struct s_data	t_data;
+typedef struct s_assets	t_assets;
 
 struct s_img
 {
-	void	*image;
-	int8_t	*data_addr;
+	void	*image_ptr;
+	char	*data_addr;
 	int32_t	bpp;
 	int32_t	endian;
 	int32_t	line_len;
+	int32_t	width;
+	int32_t	height;
+};
+
+struct s_assets
+{
+	t_img	cardinal_textures[DIR_MAX];
 };
 
 struct s_inputs
@@ -93,6 +101,7 @@ struct s_data
 	t_mlx			mlx;
 	t_inputs		inputs;
 	t_map			map;
+	t_assets		assets;
 };
 
 enum e_exit_code
@@ -101,6 +110,7 @@ enum e_exit_code
 	EC_DESTROY_NOTIFY,
 	EC_MLX_INIT_ERROR,
 	EC_DDA_RAYDIR_VEC_ZERO,
+	EC_OPEN_TEXTURE_FAILURE,
 };
 
 void	data_init(t_data *data);
@@ -115,5 +125,9 @@ int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i screen_dim);
 void	install_hooks(t_data *data);
 
 void	install_frame_engine(t_data *data);
+int16_t	load_cardinal_textures(t_map *map, t_img cardinal_textures[],
+			t_mlx *mlx);
+void	clear_cardinal_textures(t_mlx *mlx, t_img cardinal_textures[],
+			bool fatal);
 
 #endif

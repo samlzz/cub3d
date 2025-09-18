@@ -3,27 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   cubmap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 13:02:44 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 15:51:15 by sliziard         ###   ########.fr       */
+/*   Created: 2025/09/08 13:17:57 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/18 15:17:26 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdint.h>
-#include <stdlib.h>
+#include "data.h"
 
-#include "cubmap.h"
-#include "parsing/parser.h"
+
 
 void	free_map(t_map *m)
 {
-	t_directions	d;
-
-	free(m->ceil_colr);
-	free(m->floor_colr);
-	d = 0;
-	while (d < DIR_MAX)
-		free(m->tex_paths[d++]);
-	free_grid(&m->g);
+	install_mlx(data);
+	install_hooks(data);
+	install_frame_engine(data);
+	game_data_init(data);
 }

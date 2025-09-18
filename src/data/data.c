@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 12:10:08 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:25:47 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,24 @@ static void	_fatal_clear_mlx(t_mlx *mlx)
 	}
 }
 
+static void	_fatal_clear_cardinal_textures_(t_mlx *mlx, t_img cardinal_textures[])
+{
+	int	i;
+
+	i = 0;
+	while (i < DIR_MAX && cardinal_textures[i].image_ptr != NULL)
+	{
+		mlx_destroy_image(mlx->display, cardinal_textures[i].image_ptr);
+		cardinal_textures[i].image_ptr = NULL;
+		i++;
+	}
+}
+
 void	clear_data(t_data *data, bool fatal, int16_t exit_code)
 {
+	if (fatal)
+		_fatal_clear_cardinal_textures_(&data->mlx,
+			data->assets.cardinal_textures);
 	if (fatal)
 		_fatal_clear_mlx(&data->mlx);
 	free_map(&data->map);
