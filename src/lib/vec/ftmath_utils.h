@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cubmap.h                                           :+:      :+:    :+:   */
+/*   ftmath_utils.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/04 13:31:53 by sliziard         ###   ########.fr       */
+/*   Created: 2025/09/17 17:07:26 by sliziard          #+#    #+#             */
+/*   Updated: 2025/09/17 17:45:07 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBMAP_H
-# define CUBMAP_H
+#ifndef FTMATH_UTILS_H
+# define FTMATH_UTILS_H
 
 # include <stdint.h>
+# include <math.h>
 
 # include "vec.h"
 
-struct s_player
-{
-	t_vec2d	pos;
-	t_vec2d	dir;
-	t_vec2d	plane;
-};
-typedef struct s_player	t_player;
+# ifndef M_PI
+#  define M_PI 3.14159265358979323846
+# endif
 
-struct s_map
-{
-	int8_t		**grid;
-	t_vec2i		dimensions;
-	char		*tex_paths[DIR_MAX];
-	t_color		floor_colr;
-	t_color		ceil_colr;
-	t_player	player;
-};
-typedef struct s_map	t_map;
+double	vec2d_get_norm(t_vec2d vec);
 
-void	free_map(t_map *m);
+// *To manipulate angle of t_vec2d:
+
+double	ftm_clamp(double val, double min, double max);
+/* Conversions */
+double	ftm_rad_to_deg(double angle);
+double	ftm_deg_to_rad(double angle);
+
 
 #endif

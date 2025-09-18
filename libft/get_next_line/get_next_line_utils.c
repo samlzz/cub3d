@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 01:02:07 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/04 14:18:30 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/11 14:12:52 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,13 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	return (line);
+}
+
+ssize_t	free_for_quit_gnl(t_mem *stash)
+{
+	if (stash->content)
+		free(stash->content);
+	stash->content = NULL;
+	stash->size = 0;
+	return (-1);
 }

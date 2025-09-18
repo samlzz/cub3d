@@ -3,44 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:34:03 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/04 15:04:03 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/18 15:02:11 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdbool.h>
+#include <stdint.h>
 
-# include <stdint.h>
-# include "mlx.h"
+#include "data/camera.h"
+#include "mlx.h"
+#include "libft.h"
+#include "error.h"
+#include "data/data.h"
+#include "parsing/parser.h"
+#include "test/test.h"
 
-int main(void)
+int	main(int32_t ac, char *av[])
 {
-    void    *mlx;
-    void    *win;
-    void    *img;
-    char    *addr;
-    int     bpp, line_length, endian;
+	int16_t	code;
+	t_data	data;
 
-    mlx = mlx_init();
-    win = mlx_new_window(mlx, 800, 600, "Gradient");
-
-    img = mlx_new_image(mlx, 800, 600);
-    addr = mlx_get_data_addr(img, &bpp, &line_length, &endian);
-
-    // Dégradé vertical du noir en haut au blanc en bas
-    for (int x = 0; x < 800; x++)
-    {
-        int color = (255 - x * 255 / 800) << 16   // rouge
-                  | (255 - x * 255 / 800) << 8    // vert
-                  | (255 - x * 255 / 800);        // bleu
-        for (int y = 0; y < 600; y++)
-        {
-            char *dst = addr + (y * line_length + x * (bpp / 8));
-            *(unsigned int*)dst = color;
-        }
-    }
-
-    mlx_put_image_to_window(mlx, win, img, 0, 0);
-    mlx_loop(mlx);
+	if (ac != 2 || !is_dot_cub(av[1]))
+		return (ft_putendl_fd(ERR_WRONG_USAGE, 2), 2);
+	ft_bzero(&data, sizeof (t_data));
+	code = parse_cub(av[1], &data.map);
+	if (code)
+		return (parse_err_print(code, &data.map), code);
+	print_map(&data.map);
+	data_init(&data);
+	mlx_loop(data.mlx.display);
+	clear_data(&data, true, EC_SUCCESS);
+	return (0);
 }

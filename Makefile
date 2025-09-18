@@ -13,7 +13,35 @@ OBJ_DIR   = build/
 BIN_DIR   =
 
 ### UFILES_START ###
-FILES     ?= parsing/cubmap.c main.c parsing/parser.c lib/vec.c 
+FILES =	cubmap.c \
+		error.c \
+		main.c \
+		data/camera.c \
+		data/camera_init.c \
+		data/data.c \
+		data/install/hooks.c \
+		data/install/mlx.c \
+		lib/color.c \
+		lib/ft_mlx_img.c \
+		lib/str_lst.c \
+		lib/vec/ftmath_utils.c \
+		lib/vec/print_vec.c \
+		lib/vec/vec_edit.c \
+		loop/app_loop_hook.c \
+		loop/app_update.c \
+		loop/clamp_move_try_length.c \
+		loop/get_time.c \
+		loop/row_from_worldY.c \
+		loop/try_move_and_update_pos.c \
+		parsing/grid.c \
+		parsing/identifiers.c \
+		parsing/map_validate.c \
+		parsing/parse_utils.c \
+		parsing/parser.c \
+		render/dda_algorithm.c \
+		render/draw.c \
+		render/render_frame.c \
+		test/print_cubmap.c
 ### END ###
 ifeq ($(FILES),)
     $(error FILES is empty: please define source files)
@@ -25,8 +53,8 @@ endif
 
 AR        = ar rcs
 
-CC        = cc
-CFLAGS    = -Wall -Wextra -Werror
+CC        = cc -std=gnu11
+CFLAGS    = -g3 -Wall -Wextra -Werror
 
 CXX       = c++
 CXXFLAGS  = -Wall -Wextra -Werror -std=c++98
@@ -35,7 +63,7 @@ LIBFT = libft
 
 MLX =  minilibx-linux
 
-INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(SRC_DIR)/lib $(MLX)
+INCL_DIRS = $(LIBFT) $(LIBFT)/get_next_line $(MLX) $(SRC_DIR) $(SRC_DIR)lib
 # ? Directories & Libraries to link against
 LIB_DIRS  = $(LIBFT) $(MLX)
 LIB_FILES = ft mlx Xext X11 m
@@ -97,7 +125,7 @@ endif
 
 OUT := $(if $(BIN_DIR),$(BIN_DIR),./)$(NAME)
 
-export VERBOSE    := false
+export VERBOSE    ?= false
 export P := @
 ifeq ($(VERBOSE),true)
 	P :=
@@ -110,7 +138,7 @@ endif
 .PHONY: all
 all: $(OUT)
 
-$(OUT): $(LIBFT)/libft.a $(O_DIRS) $(OBJS)
+$(OUT): $(LIBFT)/libft.a $(MLX)/libmlx.a $(O_DIRS) $(OBJS)
 	$(P)printf "$(GRAY)"
 ifneq ($(suffix $(NAME)), .a)
 	$(LD) $(LDFLAGS) $(OBJS) -o $(OUT) $(LDLIBS) $(MLX_LIB)
@@ -118,6 +146,9 @@ else
 	$(LD) $(OUT) $(OBJS)
 endif
 	$(call clr_print,$(GREEN)$(UNDERLINE),$(NAME) compiled !)
+
+$(MLX)/libmlx.a:
+	make CC=clang -s -C $(MLX) 2>/dev/null
 
 $(LIBFT)/libft.a:
 	make -C $(LIBFT)
@@ -144,6 +175,7 @@ clean:
 .PHONY: fclean
 fclean: clean
 	$(P)$(RM) $(OUT)
+	$(P)$(RM) $(LIBFT)/libft.a
 	$(call clr_print,$(CYAN),executables files cleaned!)
 
 .PHONY: re

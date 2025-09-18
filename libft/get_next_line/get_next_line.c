@@ -6,21 +6,12 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 01:01:59 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/04 14:18:24 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 11:04:36 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_gnl.h"
 #include <unistd.h>
-
-static ssize_t	_free_for_quit(t_mem *stash)
-{
-	if (stash->content)
-		free(stash->content);
-	stash->content = NULL;
-	stash->size = 0;
-	return (-1);
-}
 
 /**
  * This function reads data from a file descriptor `fd` and stores it in the
@@ -73,15 +64,21 @@ static ssize_t	_extract_ln_from_buff(t_mem *stash, char **lineptr, int delim)
 		ln_i++;
 	line = ft_submem(*stash, 0, ln_i + (ln_i < stash->size));
 	if (!line.content)
-		return (_free_for_quit(stash));
+		return (free_for_quit_gnl(stash));
 	tmp = ft_submem(*stash, ln_i + 1, stash->size - ln_i - 1);
-	_free_for_quit(stash);
+	free_for_quit_gnl(stash);
 	if (!tmp.content && tmp.size == 1)
 		return (free(line.content), -1);
 	*stash = tmp;
 	*lineptr = line.content;
 	(*lineptr)[line.size] = 0;
 	return (line.size);
+}
+
+__attribute__((destructor))
+static void	_ft_getdelim_clean_exit(void)
+{
+	ft_getdelim(NULL, '0', -1);
 }
 
 ssize_t	ft_getdelim(char **lineptr, int delim, int fd)
@@ -91,18 +88,19 @@ ssize_t	ft_getdelim(char **lineptr, int delim, int fd)
 	bool			eof_reached;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
-		return (_free_for_quit(&stash));
+		return (free_for_quit_gnl(&stash));
 	*lineptr = NULL;
 	eof_reached = false;
 	data.size = BUFFER_SIZE;
 	data.content = (char *)(&delim);
-	if (!_get_buff_w_ln(fd, &stash, &eof_reached, data))
+	if (!_get_buff_w_ln(fd, &stash, &eof_reached, data)
+		&& !eof_reached)
 	{
-		return (_free_for_quit(&stash));
+		return (free_for_quit_gnl(&stash));
 	}
 	if (eof_reached && (!stash.content || !*stash.content))
 	{
-		return (_free_for_quit(&stash));
+		return (free_for_quit_gnl(&stash), 0);
 	}
 	return (_extract_ln_from_buff(&stash, lineptr, delim));
 }
