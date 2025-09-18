@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/10 15:14:14 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/18 09:10:40 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <stdint.h>
 
-# include "cub3d.h"
 # include "color.h"
+# include "vec.h"
 
 typedef enum e_directions	t_directions;
 typedef struct s_map		t_map;
@@ -46,7 +46,14 @@ struct s_map
 	char		*tex_paths[DIR_MAX];
 	t_color		*floor_colr;
 	t_color		*ceil_colr;
-	// t_player	player;
+};
+
+enum e_open_output
+{
+	OPEN_SUCCESS,
+	FILE_DOESNT_EXIST,
+	NO_READ_PERM,
+	OPEN_OTHER_FAILURE
 };
 
 void	free_map(t_map *m);

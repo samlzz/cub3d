@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:25 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/15 14:53:14 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:31:31 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	render_frame(t_data *data)
 {
 	t_dda_data	dda;
 
-	draw_clear(data, SKY_BLUE, DARK_GRAY);
+	draw_clear(data, CEILING_COLOR, FLOOR_COLOR);
 	dda.x = 0;
 	while (dda.x < WINDOW_WIDTH)
 	{

@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:22:56 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 10:31:36 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/18 09:12:26 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,15 @@ static void	init_mlx_display(t_data *data)
 
 static void	init_mlx_image(t_data *data)
 {
-	data->mlx.img.image = mlx_new_image(data->mlx.display,
+	data->mlx.img.image_ptr = mlx_new_image(data->mlx.display,
 			WINDOW_WIDTH, WINDOW_HEIGHT);
-	if (data->mlx.img.image == NULL)
+	if (data->mlx.img.image_ptr == NULL)
 		clear_data(data, true, MLX_INIT_ERROR);
-	data->mlx.img.data_addr = (int8_t *)mlx_get_data_addr(data->mlx.img.image,
+	data->mlx.img.data_addr = mlx_get_data_addr(data->mlx.img.image_ptr,
 			&data->mlx.img.bpp, &data->mlx.img.line_len,
 			&data->mlx.img.endian);
+	fprintf(stderr, "endian = %i \nbpp= %i\n line_len = %i \n", data->mlx.img.endian, data->mlx.img.bpp, data->mlx.img.line_len);
+	fflush(stderr);
 }
 
 void	install_mlx(t_data *data)

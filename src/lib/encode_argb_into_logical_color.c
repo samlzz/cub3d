@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_vline.c                                       :+:      :+:    :+:   */
+/*   encode_argb_into_logical_color.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 13:41:20 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/16 16:10:36 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/16 15:03:43 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/16 15:34:40 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
+#include "color.h"
 
-void	draw_vline(t_data *data, t_line line, uint32_t color)
+int32_t	encode_argb_into_logical_color(t_argb argb)
 {
-	int	y;
+	return ((int32_t)argb.a << 24 | (int32_t)argb.r << 16
+		| (int32_t)argb.g << 8 | (int32_t)argb.b);
 
-	y = line.y0;
-	while (y < line.y1)
-	{
-		put_pixel_in_buffer(&data->mlx.img, line.column, y, color);
-		y++;
-	}
 }

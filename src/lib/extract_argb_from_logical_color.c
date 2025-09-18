@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_vline.c                                       :+:      :+:    :+:   */
+/*   extract_argb_from_logical_color.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 13:41:20 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/16 16:10:36 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/16 15:31:52 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/16 15:32:02 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
+#include "color.h"
 
-void	draw_vline(t_data *data, t_line line, uint32_t color)
+t_argb	extract_argb_from_logical_color(int32_t logical_color)
 {
-	int	y;
+	t_argb	argb;
 
-	y = line.y0;
-	while (y < line.y1)
-	{
-		put_pixel_in_buffer(&data->mlx.img, line.column, y, color);
-		y++;
-	}
+	argb.a = (uint8_t)((logical_color & 0xFF000000) >> 24);
+	argb.r = (uint8_t)((logical_color & 0x00FF0000) >> 16);
+	argb.g = (uint8_t)((logical_color & 0x0000FF00) >> 8);
+	argb.b = (uint8_t)(logical_color & 0x000000FF);
+	return (argb);
 }

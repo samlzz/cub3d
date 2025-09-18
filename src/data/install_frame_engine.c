@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 16:30:26 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/10 10:21:07 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/18 08:54:14 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	install_frame_engine(t_data *data)
 {
-	(void)data; //to delete
 	mlx_loop_hook(data->mlx.display, &app_loop_hook, data);
 }

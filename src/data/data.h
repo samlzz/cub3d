@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/15 09:04:01 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/18 09:13:32 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,22 @@ typedef struct s_mlx	t_mlx;
 typedef struct s_img	t_img;
 typedef struct s_inputs	t_inputs;
 typedef struct s_map	t_map;
+typedef struct s_assets	t_assets;
 
 struct s_img
 {
-	void	*image;
-	int8_t	*data_addr;
+	void	*image_ptr;
+	char	*data_addr;
 	int32_t	bpp;
 	int32_t	endian;
 	int32_t	line_len;
+	int32_t	width;
+	int32_t	height;
+};
+
+struct s_assets
+{
+	t_img	cardinal_textures[DIR_MAX];
 };
 
 struct s_inputs
@@ -87,6 +95,7 @@ struct s_data
 	t_mlx			mlx;
 	t_inputs		inputs;
 	t_map			map;
+	t_assets		assets;
 };
 
 enum e_exit_code
@@ -95,6 +104,7 @@ enum e_exit_code
 	DESTROY_NOTIFY,
 	MLX_INIT_ERROR,
 	DDA_RAYDIR_VEC_ZERO,
+	OPEN_TEXTURE_FAILURE,
 };
 
 void	data_init(t_data *data);
@@ -105,5 +115,9 @@ void	game_data_init(t_data *data);
 void	clear_data(t_data *data, bool fatal, int16_t exit_code);
 void	game_camera_init(t_data *data);
 void	set_up_camera_dir_and_plane(t_data *data, char direction);
+int16_t	load_cardinal_textures(t_map *map, t_img cardinal_textures[],
+			t_mlx *mlx);
+void	clear_cardinal_textures(t_mlx *mlx, t_img cardinal_textures[],
+			bool fatal);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/15 15:01:44 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/18 11:14:40 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 # define RENDER_H
 
 # include "vec.h"
-# include "cub3d.h"
 # include "libft.h"
-
-/* colors.h */
-#ifndef COLORS_H
-# define COLORS_H
+# include "data.h"
+# include "cubmap.h"
 
 // Plafond
 # define SKY_BLUE     0x87CEEB
@@ -42,9 +39,15 @@
 # define WHITE        0xFFFFFF
 # define BLACK        0x000000
 
-# endif
 
 # define BIG 1e30
+
+# define SOUTH_COLOR ORANGE
+# define NORTH_COLOR BLUE
+# define EST_COLOR GREEN
+# define WEST_COLOR PURPLE
+# define CEILING_COLOR BLACK
+# define FLOOR_COLOR WHITE
 
 typedef struct s_img		t_img;
 typedef struct s_line		t_line;
@@ -59,18 +62,27 @@ struct s_line
 
 struct s_dda_data
 {
-	t_vec2d	map;
-	t_vec2d	delta_dist;
-	t_vec2d	step;
-	t_vec2d	side_dist;
-	t_vec2d	ray_dir;
-	int		line_height;
-	int		draw_start;
-	int		draw_end;
-	double	perp_wall_dist;
-	bool	side;
-	t_line	line;
-	int		x;
+	t_vec2d			map;
+	t_vec2d			delta_dist;
+	t_vec2d			step;
+	t_vec2d			side_dist;
+	t_vec2d			ray_dir;
+	int				line_height;
+	int				draw_start;
+	int				draw_end;
+	double			perp_wall_dist;
+	bool			side;
+	t_line			line;
+	int				x;
+	double			wall_x;	
+	int				tex_x;	
+	t_directions	wall_orientation;
+	double			tex_step;
+	double			tex_pos;
+	int				tex_y;
+	int				y;
+	t_img			*tex_img;
+	uint32_t		color;
 };
 
 void	put_pixel_in_buffer(t_img *img, int x, int y, int color);
