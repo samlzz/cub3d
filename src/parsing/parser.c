@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:39:11 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 09:57:42 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 10:30:11 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int16_t	parse_cub(const char *map_path, t_map *out)
 
 	fd = open(map_path, O_RDONLY);
 	if (fd == -1)
-		return (1);
+		return (open_err(map_path), 1);
 	code = parse_identifiers(fd, out);
 	if (code)
 		return (close(fd), code);
@@ -53,7 +53,7 @@ void	parse_err_print(int16_t code, t_map *to_free)
 	else if (code == 2)
 		return (ft_putendl_fd(ERR_USR_INPUT, 2));
 	else if (code == 3)
-		return (ft_putendl_fd(ERR_WRONG_USAGE, 2));
+		return (ft_putendl_fd(ERR_MAP_OPEN, 2));
 }
 
 bool	is_dot_cub(const char *path)

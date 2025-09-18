@@ -6,13 +6,14 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:17:58 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 15:21:30 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 10:12:39 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "libft.h"
@@ -64,7 +65,7 @@ int16_t	parse_rgb_triplet(const char *s, const char **end, t_color **out)
 
 	c = ft_calloc(1, sizeof (t_color));
 	if (!c)
-		return (1);
+		return (perror("cub3d: parse_rgb_triplet: malloc"), 1);
 	triplet[0] = &c->code.r;
 	triplet[1] = &c->code.g;
 	triplet[2] = &c->code.b;

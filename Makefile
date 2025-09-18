@@ -14,6 +14,7 @@ BIN_DIR   =
 
 ### UFILES_START ###
 FILES =	cubmap.c \
+		error.c \
 		main.c \
 		data/camera.c \
 		data/camera_init.c \

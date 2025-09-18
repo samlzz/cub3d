@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:34:03 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 10:02:53 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 10:07:48 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,7 @@
 # define ERR_USR_INPUT	 "Error: a misconfiguration was detected in .cub file"
 # define ERR_MAP_OPEN	 "Error: the walkables parts of map must be \
 surrounded by wall"
+
+void	open_err(const char *filename);
 
 #endif

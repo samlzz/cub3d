@@ -6,13 +6,16 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:41:31 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 14:54:06 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 10:21:19 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <asm-generic/errno.h>
+#include <errno.h>
 #include <limits.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "str_lst.h"
@@ -25,13 +28,18 @@ t_strlst	*strlst_new(char *str)
 
 	new = ft_calloc(1, sizeof (t_strlst));
 	if (!new)
-		return (NULL);
+		return (perror("cub3d: strlst_new: malloc"), NULL);
 	new->str = str;
 	if (str)
 	{
 		tmp = ft_strlen(str);
 		if (tmp > INT_MAX)
-			return (free(new), NULL);
+		{
+			errno = EOVERFLOW;
+			perror("cub3d: strlstr_new");
+			free(new);
+			return (NULL);
+		}
 		new->len = (int32_t)tmp;
 	}
 	return (new);

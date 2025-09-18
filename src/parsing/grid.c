@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:29:49 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 16:10:52 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 10:16:08 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "cubmap.h"
@@ -81,13 +82,16 @@ int16_t	parse_grid(int fd, t_grid *out)
 	t_strlst	*head;
 	int16_t		code;
 
-	code = 0;
 	head = _retrieve_nested_lines(fd, &out->dim.y);
 	if (!head)
 		return (1 + (out->dim.y == -2));
 	out->grid = ft_calloc(out->dim.y + 1, sizeof (char *));
 	if (!out->grid)
-		return (strlst_clear(head), 1);
+	{
+		perror("cub3d: parse_grid: malloc");
+		strlst_clear(head);
+		return (1);
+	}
 	code = _fill_grid(out, head);
 	strlst_clear(head);
 	if (!code)

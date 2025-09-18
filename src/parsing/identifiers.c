@@ -6,13 +6,14 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:54:51 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 16:08:13 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 10:13:45 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "libft.h"
@@ -43,14 +44,14 @@ static inline int16_t	_dispatch_textures(char **tex_paths, const char *id, size_
 		len++;
 	tex_paths[tex_dir] = ft_substr(id, 0, len);
 	if (!tex_paths[tex_dir])
-		return (1);
+		return (perror("cub3d: parse_identifiers: malloc"), 1);
 	return (!(*ft_skip_sp(id + len) == '\0'));
 }
 
 static int16_t	_fill_identifiers(const char *ln, t_map *m)
 {
-	size_t			n;
-	int16_t			code;
+	size_t	n;
+	int16_t	code;
 	
 	ln = ft_skip_sp(ln);
 	n = 0;

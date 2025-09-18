@@ -6,10 +6,11 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:29:02 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 16:07:17 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 10:26:42 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "libft.h"
@@ -25,7 +26,7 @@ static inline int16_t	_fill_norm_row(const char *row, int32_t tot_width,
 
 	*dest = malloc((tot_width + 1) * sizeof (char));
 	if (!*dest)
-		return (1);
+		return (perror("cub3d: get_normalized_grid: malloc"), 1);
 	ft_memset(*dest, ' ', tot_width);
 	(*dest)[tot_width] = '\0';
 	if (!row)
@@ -46,11 +47,12 @@ t_grid	*get_normalized_grid(const t_grid *usr_map)
 
 	normalized = ft_calloc(1, sizeof (t_grid));
 	if (!normalized)
-		return (NULL);
+		return (perror("cub3d: get_normalized_grid: calloc"), NULL);
 	normalized->dim = (t_vec2i){usr_map->dim.x + 2, usr_map->dim.y + 2};
 	normalized->grid = ft_calloc(normalized->dim.y + 1, sizeof (char *));
 	if (!normalized->grid)
-		return (free(normalized), NULL);
+		return (perror("cub3d: get_normalized_grid: calloc"),
+			free(normalized), NULL);
 	y = 0;
 	while (y < normalized->dim.y)
 	{
