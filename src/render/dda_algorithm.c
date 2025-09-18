@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   dda_algorithm.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 09:13:59 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 15:49:02 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/18 16:23:11 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
-#include "loop/loop.h"
+#include "ft_mlx_img.h"
 #include "render.h"
+#include "vec/vec.h"
 
 void	deduce_perp_wall_dist(t_data *data, t_dda_data *dda)
 {
@@ -95,12 +96,14 @@ void 	deduce_texture_related_data(t_data *data, t_dda_data *dda)
 		dda->tex_x = dda->tex_img->width - dda->tex_x - 1;
 	dda->tex_step = (double)dda->tex_img->height
 		/ dda->line_height;
-	dda->tex_pos = (dda->draw_start - WINDOW_HEIGHT / 2 + dda->line_height / 2)
-		* dda->tex_step;
-	
+	dda->tex_pos =
+		(dda->draw_start - (float)WIN_HEIGHT / 2 + (float)dda->line_height / 2)
+			* dda->tex_step;
 }
 
-
+/*
+ ? & mask (8355711) => 01111111011111110111111101111111
+*/
 void	dda_algorithm(t_data *data, t_dda_data *dda)
 {
 	init_dda(data, dda);
@@ -120,13 +123,10 @@ void	dda_algorithm(t_data *data, t_dda_data *dda)
 			dda->tex_y = dda->tex_img->height - 1;
 		dda->tex_pos += dda -> tex_step;
 		dda->color = *(uint32_t *)(dda->tex_img->data_addr + (dda->tex_img->line_len) * dda->tex_y + dda->tex_x * dda->tex_img->bpp / 8);
-		if( dda->side == 1)
+		if (dda->side == 1)
 			dda->color = (dda->color >> 1) & 8355711;
-		put_pixel_in_buffer(&data->mlx.img, dda->x, dda->y, dda->color);
+		ft_mlx_img_put_px(&data->mlx.img, (t_vec2i){dda->x, dda->y}, dda->color);
 		dda->y++;
 	}
-	// draw_wall_bend(data, dda);
-
-
 	// data->camera.zbuf = dda->perp_wall_dist;
 }

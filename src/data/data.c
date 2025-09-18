@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 15:25:47 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/18 16:36:50 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	data_init(t_data *data)
 {
 	if (install_mlx(&data->mlx, (t_vec2i){WIN_WIDTH, WIN_HEIGHT}))
 		clear_data(data, true, EC_MLX_INIT_ERROR);
+	if (load_cardinal_textures(&data->map, data->assets.cardinal_textures, &data->mlx))
+		clear_data(data, true, EC_OPEN_TEXTURE_FAILURE);
 	install_hooks(data);
 	install_frame_engine(data);
 	camera_init(&data->camera, data->map.g);
@@ -29,11 +31,11 @@ void	data_init(t_data *data)
 static void	_fatal_clear_mlx(t_mlx *mlx)
 {
 	mlx_do_key_autorepeaton(mlx->display);
-	if (mlx->display && mlx->img.image)
+	if (mlx->display && mlx->img.image_ptr)
 	{
 		mlx_destroy_image(mlx->display,
-			mlx->img.image);
-		mlx->img.image = NULL;
+			mlx->img.image_ptr);
+		mlx->img.image_ptr = NULL;
 	}
 	if (mlx->display && mlx->window)
 	{
@@ -49,23 +51,10 @@ static void	_fatal_clear_mlx(t_mlx *mlx)
 	}
 }
 
-static void	_fatal_clear_cardinal_textures_(t_mlx *mlx, t_img cardinal_textures[])
-{
-	int	i;
-
-	i = 0;
-	while (i < DIR_MAX && cardinal_textures[i].image_ptr != NULL)
-	{
-		mlx_destroy_image(mlx->display, cardinal_textures[i].image_ptr);
-		cardinal_textures[i].image_ptr = NULL;
-		i++;
-	}
-}
-
 void	clear_data(t_data *data, bool fatal, int16_t exit_code)
 {
 	if (fatal)
-		_fatal_clear_cardinal_textures_(&data->mlx,
+		fatal_clear_cardinal_textures(&data->mlx,
 			data->assets.cardinal_textures);
 	if (fatal)
 		_fatal_clear_mlx(&data->mlx);

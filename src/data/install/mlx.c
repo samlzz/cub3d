@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 19:15:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/17 17:47:05 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 16:12:20 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 
 int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i screen_dim)
 {
-	img->image = mlx_new_image(mlx->display, screen_dim.x, screen_dim.y);
-	if (!img->image)
+	img->image_ptr = mlx_new_image(mlx->display, screen_dim.x, screen_dim.y);
+	if (!img->image_ptr)
 		return (1);
-	img->data_addr = (int8_t *)mlx_get_data_addr(img->image, 
+	img->data_addr = mlx_get_data_addr(img->image_ptr,
 		&img->bpp, &img->line_len, &img->endian);
 	if (!img->data_addr)
 		return (1);

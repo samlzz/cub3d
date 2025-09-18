@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_dda.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 14:53:43 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 10:40:54 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/18 16:24:00 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <math.h>
 
 #include "render.h"
 
@@ -45,7 +47,7 @@ static void	_init_delta_dit(t_data *data, t_dda_data *dda)
 	if (dda->ray_dir.x == 0)
 	{
 		if (dda->ray_dir.y == 0)
-			clear_data(data, true, DDA_RAYDIR_VEC_ZERO);
+			clear_data(data, true, EC_DDA_RAYDIR_VEC_ZERO);
 		dda->delta_dist.x = BIG;
 	}
 	else

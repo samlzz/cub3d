@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubmap.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 15:18:48 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/18 16:09:49 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdint.h>
 
 # include "color.h"
+# include "vec/vec.h"
 
 typedef enum e_directions	t_directions;
 typedef struct s_grid		t_grid;

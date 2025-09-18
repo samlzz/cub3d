@@ -18,6 +18,7 @@ FILES =	cubmap.c \
 		main.c \
 		data/camera.c \
 		data/camera_init.c \
+		data/cardinal_textures.c \
 		data/data.c \
 		data/install/hooks.c \
 		data/install/mlx.c \
@@ -39,7 +40,9 @@ FILES =	cubmap.c \
 		parsing/parse_utils.c \
 		parsing/parser.c \
 		render/dda_algorithm.c \
+		render/dda_loop.c \
 		render/draw.c \
+		render/init_dda.c \
 		render/render_frame.c \
 		test/print_cubmap.c
 ### END ###

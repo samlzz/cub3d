@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 15:34:44 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/18 16:35:21 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,6 @@ void	install_hooks(t_data *data);
 void	install_frame_engine(t_data *data);
 int16_t	load_cardinal_textures(t_map *map, t_img cardinal_textures[],
 			t_mlx *mlx);
-void	clear_cardinal_textures(t_mlx *mlx, t_img cardinal_textures[],
-			bool fatal);
+void	fatal_clear_cardinal_textures(t_mlx *mlx, t_img cardinal_textures[]);
 
 #endif
