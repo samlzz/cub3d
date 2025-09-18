@@ -175,6 +175,7 @@ clean:
 .PHONY: fclean
 fclean: clean
 	$(P)$(RM) $(OUT)
+	$(P)$(RM) $(LIBFT)/libft.a
 	$(call clr_print,$(CYAN),executables files cleaned!)
 
 .PHONY: re

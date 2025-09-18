@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 01:01:59 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/11 14:16:27 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 11:04:36 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,14 @@ ssize_t	ft_getdelim(char **lineptr, int delim, int fd)
 	eof_reached = false;
 	data.size = BUFFER_SIZE;
 	data.content = (char *)(&delim);
-	if (!_get_buff_w_ln(fd, &stash, &eof_reached, data))
+	if (!_get_buff_w_ln(fd, &stash, &eof_reached, data)
+		&& !eof_reached)
 	{
 		return (free_for_quit_gnl(&stash));
 	}
 	if (eof_reached && (!stash.content || !*stash.content))
 	{
-		return (free_for_quit_gnl(&stash));
+		return (free_for_quit_gnl(&stash), 0);
 	}
 	return (_extract_ln_from_buff(&stash, lineptr, delim));
 }

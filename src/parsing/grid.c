@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:29:49 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 10:16:08 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 12:01:44 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,17 @@ static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size)
 	char		*line;
 	t_strlst	*head;
 	bool		flags[2];
+	ssize_t		gnl_ret;
 
 	head = NULL;
 	ft_bzero(flags, 2 * sizeof (bool));
-	while (ft_getline(&line, fd) > 0)
+	while (1)
 	{
+		gnl_ret = ft_getline(&line, fd);
+		if (gnl_ret < 0)
+			return (strlst_clear(head), *size = -1, NULL);
 		if (!line)
-			return (strlst_clear(head), NULL);
+			break ;
 		if (ft_isln_empty(line))
 		{
 			if (flags[MAP_BEGIN])
@@ -47,10 +51,10 @@ static t_strlst	*_retrieve_nested_lines(int fd, int32_t	*size)
 			continue ;
 		}
 		if (flags[SEEN_TRAILING_BLANK])
-			return (strlst_clear(head), free(line), *size = -2, NULL);
+			return (strlst_clear(head), free(line), NULL);
 		flags[MAP_BEGIN] = true;
 		if (strlst_add_node(&head, line, size))
-			return (strlst_clear(head), free(line), NULL);
+			return (strlst_clear(head), free(line), *size = -1, NULL);
 	}
 	return (head);
 }
@@ -84,7 +88,7 @@ int16_t	parse_grid(int fd, t_grid *out)
 
 	head = _retrieve_nested_lines(fd, &out->dim.y);
 	if (!head)
-		return (1 + (out->dim.y == -2));
+		return (1 + (out->dim.y != -1));
 	out->grid = ft_calloc(out->dim.y + 1, sizeof (char *));
 	if (!out->grid)
 	{
