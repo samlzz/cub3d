@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:39:11 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 16:37:49 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 09:57:42 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <unistd.h>
 
 #include "cubmap.h"
+#include "error.h"
 #include "libft.h"
 #include "parser.h"
 
@@ -42,6 +43,17 @@ int16_t	parse_cub(const char *map_path, t_map *out)
 	code = parse_grid(fd, &out->g);
 	close(fd);
 	return (code);
+}
+
+void	parse_err_print(int16_t code, t_map *to_free)
+{
+	free_map(to_free);
+	if (code == 1)
+		return ;
+	else if (code == 2)
+		return (ft_putendl_fd(ERR_USR_INPUT, 2));
+	else if (code == 3)
+		return (ft_putendl_fd(ERR_WRONG_USAGE, 2));
 }
 
 bool	is_dot_cub(const char *path)
