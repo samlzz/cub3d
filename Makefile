@@ -2,7 +2,7 @@
 #* >> USER CONFIGURATION (MANDATORY)
 # =============================================================================
 
-NAME      ?= cub3d
+NAME      = cub3d
 ifeq ($(NAME),)
     $(error NAME is empty: please define executable name)
 endif
@@ -70,7 +70,7 @@ endif
 AR        = ar rcs
 
 CC        = cc
-CFLAGS    = -Wall -Wextra -Werror
+CFLAGS    = -Wall -Wextra -Werror -g3
 
 CXX       = c++
 CXXFLAGS  = -Wall -Wextra -Werror -std=c++98

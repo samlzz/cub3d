@@ -1,8 +1,7 @@
 NO ./assets/texture/NSEW/N.xpm
-SO ./assets/texture/one_purple_pixel.xpm
+SO ./assets/texture/NSEW/S.xpm
 WE ./assets/texture/one_purple_pixel.xpm
-EA ./Makefile
-
+EA ./assets/texture/one_purple_pixel.xpm
 F 220,100,0
 C 225,30,0
 
