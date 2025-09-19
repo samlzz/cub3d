@@ -1,10 +1,10 @@
 F 76,76,76
 C 99,99,99
 
-NO assets/tile085.xpm
-SO assets/tile065.xpm
-WE assets/tile085.xpm
-EA assets/tile065.xpm
+NO ./assets/texture/NSEW/N.xpm
+SO ./assets/texture/NSEW/S.xpm
+WE ./assets/texture/NSEW/W.xpm
+EA ./assets/texture/NSEW/E.xpm
 
 
 11111111111111111111111111111111111111111111
