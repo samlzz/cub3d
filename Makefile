@@ -26,7 +26,6 @@ FILES =	cubmap.c \
 		lib/ft_mlx_img.c \
 		lib/str_lst.c \
 		lib/vec/ftmath_utils.c \
-		lib/vec/print_vec.c \
 		lib/vec/vec_edit.c \
 		loop/app_loop_hook.c \
 		loop/app_update.c \
@@ -45,7 +44,10 @@ FILES =	cubmap.c \
 		parsing/map_validate.c \
 		parsing/parse_utils.c \
 		parsing/parser.c \
-		test/print_cubmap.c
+		 \
+		test/print/print_cubmap.c \
+		test/print/print_events.c \
+		test/print/print_vec.c
 ### END ###
 ifeq ($(FILES),)
     $(error FILES is empty: please define source files)

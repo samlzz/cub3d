@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:23:12 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/17 17:45:20 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/19 10:47:44 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,8 @@ void	vec2d_rotate(t_vec2d *vec, double angle);
 t_vec2d	vec2d_sum(t_vec2d vec1, t_vec2d vec2);
 t_vec2d	vec2d_scalar_mult(t_vec2d vec, double scalar);
 
-void	vec2d_print(t_vec2d vec, char *name);
-
 /* vector of integer */
 t_vec2i	vec2i_sum(t_vec2i vec1, t_vec2i vec2);
 t_vec2i	vec2i_scalar_mult(t_vec2i vec, int32_t scalar);
-
-void	vec2i_print(t_vec2i vec, char *name);
 
 #endif

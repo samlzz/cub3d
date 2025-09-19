@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:50:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/16 16:22:16 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/19 10:51:43 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,23 @@
 typedef struct s_camera	t_camera;
 typedef struct s_map	t_map;
 typedef struct s_grid	t_grid;
+typedef struct s_vec2d	t_vec2d;
+typedef struct s_vec2i	t_vec2i;
 
-// *Debug
-
-# ifndef UNTEXTURED_RAYCASTING_DEBUG
-#  define UNTEXTURED_RAYCASTING_DEBUG 0
-# endif
-
-// *Functions
-/*camera*/
-void	test_camera_rotation(void);
-void	test_get_time(void);
+// *Print Functions
 
 /*map*/
 void	print_grid(const t_grid *g);
 void	print_map(const t_map *m);
+
+/*events*/
+void	print_key_event(int keycode, const char *event);
+
+/*vec*/
+
+void	vec2d_print(t_vec2d vec, char *name);
+void	vec2i_print(t_vec2i vec, char *name);
+
+void	camera_print(t_camera camera);
 
 #endif

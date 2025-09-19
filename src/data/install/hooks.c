@@ -3,55 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:38:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 15:37:19 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/19 10:54:38 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <X11/X.h>
-#include <stdio.h>
 
 #include "mlx.h"
 #include "../data.h"
-#include "test/test.h"
-
-/*
- * Debug helper: print key events to stderr (fd 2)
- */
-static void	print_event(int keycode, const char *event)
-{
-	const char	*keyname;
-
-	if (keycode == KEY_W)
-		keyname = "W";
-	else if (keycode == KEY_A)
-		keyname = "A";
-	else if (keycode == KEY_S)
-		keyname = "S";
-	else if (keycode == KEY_D)
-		keyname = "D";
-	else if (keycode == KEY_LEFT)
-		keyname = "LEFT";
-	else if (keycode == KEY_RIGHT)
-		keyname = "RIGHT";
-	else if (keycode == KEY_ESC)
-		keyname = "ESC";
-	else if (keycode == E_DESTROY_NOTIFY)
-		return ((void)fprintf(stderr, "destroy notify event ocured\n"));
-	else
-		keyname = "UNKNOWN";
-	fprintf(stderr, "[event] key %s: %s\n", keyname, event);
-}
+#include "test/debug.h"
 
 /* 
  * Handle key press event: update input state in t_inputs
  */
 static int	on_key_press(int keycode, t_data *data)
 {
-	// if (UNTEXTURED_RAYCASTING_DEBUG)
-		// print_event(keycode, "press");
+	if (LOOP_PRINT_KEY_EVENT)
+		print_key_event(keycode, "onKeyPress");
 	if (keycode == KEY_ESC)
 		clear_data(data, true, EC_SUCCESS);
 	if (keycode == KEY_W)
@@ -74,8 +45,8 @@ static int	on_key_press(int keycode, t_data *data)
  */
 static int	on_key_release(int keycode, t_data *data)
 {
-	// if (UNTEXTURED_RAYCASTING_DEBUG)
-		// print_event(keycode, "release");
+	if (LOOP_PRINT_KEY_EVENT)
+		print_key_event(keycode, "onKeyRelease");
 	if (keycode == KEY_W)
 		data->inputs.forward = false;
 	else if (keycode == KEY_S)
@@ -96,8 +67,6 @@ Handle window close event: clean resources and exit
 */
 static int	on_destroy_notify(t_data *data)
 {
-	if (UNTEXTURED_RAYCASTING_DEBUG)
-		print_event(E_DESTROY_NOTIFY, "destroy_notify");
 	clear_data(data, true, EC_SUCCESS);
 	return (0);
 }
