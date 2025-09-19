@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:29:02 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 10:26:42 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/18 12:14:31 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdlib.h>
 
 #include "libft.h"
+#include "test/debug.h"
 #include "vec/vec.h"
 #include "parser.h"
 #include "parse_utils.h"
@@ -118,6 +119,8 @@ int16_t	validate_map_closed(const t_grid *usr_map)
 	n = get_normalized_grid(usr_map);
 	if (!n)
 		return (1);
+	if (PARSING_PRINT_NORMALIZED_GRID)
+		print_grid(n);
 	i.y = 1;
 	has_walbkable = false;
 	usr_occurences = 0;

@@ -185,6 +185,10 @@ fclean: clean
 .PHONY: re
 re: fclean all
 
+.PHONY: debug
+debug: CFLAGS += -DDEBUG_MODE
+debug: re
+
 .PHONY: run
 run: $(OUT)
 ifneq ($(suffix $(NAME)), .a)

@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:15:11 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 17:35:18 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/19 10:57:47 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <math.h>
 
 #include "loop.h"
-#include "test/test.h"
+#include "test/debug.h"
 
 static void	_block_log_(int32_t x, int32_t y, char c, char *reason)
 {

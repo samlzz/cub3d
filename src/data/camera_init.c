@@ -6,11 +6,9 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:44:59 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 17:05:58 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/19 11:14:36 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 #include "cubmap.h"
 #include "data.h"
@@ -40,12 +38,8 @@ static inline void	_set_up_camera_vecs(t_camera *c, int32_t map_h, t_vec2i pos, 
 {
 	double	th;
 
-	if (UNTEXTURED_RAYCASTING_DEBUG)
-		fprintf(stderr, "x = %d, y = %d\n", pos.x, pos.y);
 	c->pos.x = (double)pos.x + 0.5;
 	c->pos.y = (double)(map_h - (pos.y + 1)) + 0.5; // ?dimension va de 1 a dim.y. , y va de 0 a dim.y -1 , donc je fais + 1 dans le calcule
-	if (UNTEXTURED_RAYCASTING_DEBUG)
-		fprintf(stderr, "camera.pos.x = %f, camera.pos.y = %f\n", c->pos.x, c->pos.y);
 	if (_dir_to_angle(dir, &th))
 		return ;
 	c->dir = (t_vec2d){1, 0};
@@ -64,8 +58,6 @@ static void	deduce_cam_setting_from_player_pos(t_camera *cam, const t_grid map)
 	{
 		i.x = 0;
 		row = map.grid[i.y];
-		if (UNTEXTURED_RAYCASTING_DEBUG)
-				fprintf(stderr, "%s\n", row);
 		while (i.x < map.dim.x && row[i.x])
 		{
 			c = row[i.x];

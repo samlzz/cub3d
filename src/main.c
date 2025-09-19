@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:34:03 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 15:22:15 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/19 10:41:34 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include "error.h"
 #include "data/data.h"
 #include "parsing/parser.h"
+#include "test/debug.h"
 #include "test/test.h"
 
 void	show_cardinal_textures(t_mlx *mlx, t_img cardinal_textures[])
@@ -48,10 +49,13 @@ int	main(int32_t ac, char *av[])
 	code = parse_cub(av[1], &data.map);
 	if (code)
 		return (parse_err_print(code, &data.map), code);
-	print_map(&data.map);
-	data_init(&data);
-	// show_cardinal_textures(&data.mlx, data.assets.cardinal_textures);
-	mlx_loop(data.mlx.display);
+	if (PARSING_PRINT_GRID)
+		print_map(&data.map);
+	if (!PARSING_ONLY)
+	{
+		data_init(&data);
+		mlx_loop(data.mlx.display);
+	}
 	clear_data(&data, true, EC_SUCCESS);
 	return (0);
 }

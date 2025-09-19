@@ -6,11 +6,13 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:09:09 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 17:31:39 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/19 11:03:00 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "data/camera.h"
 #include "loop.h"
+#include "test/debug.h"
 #include "test/test.h"
 #include "vec/vec.h"
 
@@ -41,7 +43,7 @@ static void	update_position(t_data *data, double time_delta_beetwen_frame)
 	try_move_and_update_pos(data, move_try);
 }
 
-static void	update_angle(t_data *data, double time_delta_beetwen_frame)
+static void	update_angles(t_data *data, double time_delta_beetwen_frame)
 {
 	double	angle_delta;
 
@@ -52,9 +54,11 @@ static void	update_angle(t_data *data, double time_delta_beetwen_frame)
 
 int	app_update(t_data *data, double time_delta_beetwen_frame)
 {
+	if (LOOP_PRINT_CAM_VECS_BEFORE_UPD)
+		camera_print(data->camera);
 	update_position(data, time_delta_beetwen_frame);
-	update_angle(data, time_delta_beetwen_frame);
-	if (UNTEXTURED_RAYCASTING_DEBUG)
+	update_angles(data, time_delta_beetwen_frame);
+	if (LOOP_PRINT_CAM_VECS_AFTER_UPD)
 		camera_print(data->camera);
 	return (0);
 }
