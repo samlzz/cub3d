@@ -1,7 +1,7 @@
-NO assets/tile085.xpm
-SO assets/tile065.xpm
-WE assets/tile085.xpm
-EA assets/tile065.xpm
+NO assets/texture/one_purple_pixel.xpm
+SO assets/texture/one_purple_pixel.xpm
+WE assets/texture/one_purple_pixel.xpm
+EA assets/texture/one_purple_pixel.xpm
 
 
 F 0,0,0
@@ -26,6 +26,6 @@ C 0,0,0
 101011111111111010101
 100010000000000010001
 101010111011111111101
-1N1000001000000000001
+1S1000001000000000001
 111111111111111111111
 

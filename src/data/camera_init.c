@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   camera_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:44:59 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 17:05:58 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/19 13:04:33 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ static int16_t	_dir_to_angle(char direction, double *theta)
 	if (direction == 'E')
 		*theta = 0.0;
 	else if (direction == 'N')
-		*theta = -M_PI / 2.0;
+		*theta = M_PI / 2.0;
 	else if (direction == 'W')
 		*theta = M_PI;
 	else if (direction == 'S')
-		*theta = M_PI / 2.0;
+		*theta = -M_PI / 2.0;
 	else
 		return (1);
 	return (0);
