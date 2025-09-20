@@ -27,7 +27,8 @@ FILES =	cubmap.c \
 		lib/str_lst.c \
 		lib/vec/ftmath_utils.c \
 		lib/vec/print_vec.c \
-		lib/vec/vec_edit.c \
+		lib/vec/vec2d.c \
+		lib/vec/vec2i.c \
 		loop/app_loop_hook.c \
 		loop/app_update.c \
 		loop/clamp_move_try_length.c \
