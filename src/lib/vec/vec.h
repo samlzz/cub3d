@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:23:12 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/20 11:28:32 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/20 22:02:21 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ void	vec2d_print(t_vec2d vec, char *name);
 
 /* vector of integer */
 t_vec2i	vec2i_sum(t_vec2i vec1, t_vec2i vec2);
-t_vec2i	vec2i_scalar_mult(t_vec2i vec, int32_t scalar);
+t_vec2i	vec2i_minus(t_vec2i vec1, t_vec2i vec2);
+t_vec2i	vec2i_scalar_mult(t_vec2i vec, double scalar);
+t_vec2i	vec2i_clamp(t_vec2i vec, t_vec2i min, t_vec2i max);
 
 void	vec2i_print(t_vec2i vec, char *name);
 
