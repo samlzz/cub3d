@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:30:20 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 17:27:36 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/19 17:17:38 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	draw_vline(t_data *data, t_line line, uint32_t color)
 	y = line.y0;
 	while (y < line.y1)
 	{
-		ft_mlx_img_put_px(&data->mlx.img, (t_vec2i){line.column, y}, color);
+		ft_mlx_img_put_px(&data->mlx.game, (t_vec2i){line.column, y}, color);
 		y++;
 	}
 }
@@ -64,7 +64,7 @@ void	draw_bend_with_textue(t_data *data, t_dda_data *dda)
 				+ calcul_offset_from_tex_data(dda));
 		if (dda->side == 1)
 			dda->color = (dda->color >> 1) & 8355711;
-		ft_mlx_img_put_px(&data->mlx.img, (t_vec2i){dda->x, dda->y},
+		ft_mlx_img_put_px(&data->mlx.game, (t_vec2i){dda->x, dda->y},
 			dda->color);
 		dda->y++;
 	}

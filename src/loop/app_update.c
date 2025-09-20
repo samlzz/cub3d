@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:09:09 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 17:31:39 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/20 11:26:28 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,10 @@ static void	update_angle(t_data *data, double time_delta_beetwen_frame)
 	camera_rotate(&data->camera, angle_delta);
 }
 
-int	app_update(t_data *data, double time_delta_beetwen_frame)
+void app_update(t_data *data, double time_delta_beetwen_frame)
 {
 	update_position(data, time_delta_beetwen_frame);
 	update_angle(data, time_delta_beetwen_frame);
 	if (UNTEXTURED_RAYCASTING_DEBUG)
 		camera_print(data->camera);
-	return (0);
 }

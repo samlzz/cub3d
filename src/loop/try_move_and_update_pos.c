@@ -6,15 +6,17 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:15:11 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 17:35:18 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/20 11:09:13 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <math.h>
 
+#include "cubmap.h"
 #include "loop.h"
 #include "test/test.h"
+#include "vec/ftmath_utils.h"
 
 static void	_block_log_(int32_t x, int32_t y, char c, char *reason)
 {
@@ -27,16 +29,15 @@ static void	_block_log_(int32_t x, int32_t y, char c, char *reason)
 	}
 }
 
-static bool	_is_blocking_(t_data *data, int32_t x, int32_t y)
+static bool	_is_blocking_(t_grid *map, int32_t x, int32_t y)
 {
 	char	c;
 
-	c = data->map.g.grid[y][x];
 	if (x < 0 || y < 0)
-		return (_block_log_(x, y, c, "< 0"), true);
-	if (x >= data->map.g.dim.x
-		|| y >= data->map.g.dim.y)
-		return (_block_log_(x, y, c, "> dim"), true);
+		return (_block_log_(x, y, '#', "< 0"), true);
+	if (x >= map->dim.x || y >= map->dim.y)
+		return (_block_log_(x, y, '#', "> dim"), true);
+	c = map->grid[y][x];
 	if (c == '1' || c == '\n' || c == '\0' || c == ' ')
 		return (_block_log_(x, y, c, "unwalkable char"), true);
 	return (false);

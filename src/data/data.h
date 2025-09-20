@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/19 12:50:41 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/20 16:43:18 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # include "camera.h"
 # include "cubmap.h"
+#include "vec/vec.h"
 
 # ifndef WIN_HEIGHT
 #  define WIN_HEIGHT	700
@@ -29,7 +30,11 @@
 #  define WIN_NAME		"cub3d"
 # endif
 # ifndef FOV_FACTOR
-#  define FOV_FACTOR		0.66
+#  define FOV_FACTOR	0.66
+# endif
+
+# ifndef MINIMAP_SCALE
+#  define MINIMAP_SCALE	10
 # endif
 
 # ifdef __linux__
@@ -91,16 +96,18 @@ struct s_mlx
 {
 	void	*window;
 	void	*display;
-	t_img	img;
+	t_img	game;
+	t_img	minimap;
+	t_vec2i	minimap_pos;
 };
 
 struct s_data
 {
-	struct s_camera	camera;
-	t_mlx			mlx;
-	t_inputs		inputs;
-	t_map			map;
-	t_assets		assets;
+	t_camera	camera;
+	t_mlx		mlx;
+	t_inputs	inputs;
+	t_map		map;
+	t_assets	assets;
 };
 
 enum e_exit_code
@@ -118,7 +125,7 @@ void	clear_data(t_data *data, bool fatal, int16_t exit_code);
 
 // * Install
 
-int16_t	install_mlx(t_mlx *mlx, t_vec2i screen);
+int16_t	install_mlx(t_mlx *mlx, t_vec2i screen, t_vec2i map);
 int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i img_dim);
 
 void	install_hooks(t_data *data);
