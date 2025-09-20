@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_img.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:41:20 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 15:47:01 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/19 17:15:05 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 typedef struct s_img	t_img;
 
 void	ft_mlx_img_put_px(t_img *img, t_vec2i pos, uint32_t color);
-void	ft_mlx_img_fill(t_img *img, t_vec2i start, const t_vec2i end, const t_color filled);
+void	ft_mlx_img_put_square(t_img *img, t_vec2i start,
+			const t_vec2i end, const t_color filled);
+void	ft_mlx_img_fill(t_img *img, t_vec2i start, const t_color filled);
 
 #endif

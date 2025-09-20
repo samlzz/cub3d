@@ -16,13 +16,14 @@
 #include "vec/vec.h"
 #include <stdint.h>
 
-int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i screen_dim)
+int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i img_dim)
 {
-	img->image_ptr = mlx_new_image(mlx->display, screen_dim.x, screen_dim.y);
+	img->image_ptr = mlx_new_image(mlx->display, img_dim.x, img_dim.y);
 	if (!img->image_ptr)
 		return (1);
 	img->data_addr = mlx_get_data_addr(img->image_ptr,
 		&img->bpp, &img->line_len, &img->endian);
+	img->dim = img_dim;
 	if (!img->data_addr)
 		return (1);
 	return (0);

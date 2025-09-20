@@ -30,11 +30,11 @@ void	draw_vline(t_data *data, t_line line, uint32_t color)
 
 void	draw_clear(t_img *img, uint32_t ceil_color, uint32_t floor_color)
 {
-	ft_mlx_img_fill(img,
+	ft_mlx_img_put_square(img,
 		(t_vec2i){0, 0},
 		(t_vec2i){WIN_WIDTH, WIN_HEIGHT / 2},
 		(t_color){.value = ceil_color});
-	ft_mlx_img_fill(img,
+	ft_mlx_img_put_square(img,
 		(t_vec2i){0, WIN_HEIGHT / 2},
 		(t_vec2i){WIN_WIDTH, WIN_HEIGHT},
 		(t_color){.value = floor_color});
@@ -57,8 +57,8 @@ void	draw_bend_with_textue(t_data *data, t_dda_data *dda)
 		dda->tex_y = (int)dda->tex_pos;
 		if (dda->tex_y < 0)
 			dda->tex_y = 0;
-		if (dda->tex_y > dda->tex_img->height - 1)
-			dda->tex_y = dda->tex_img->height - 1;
+		if (dda->tex_y > dda->tex_img->dim.y - 1)
+			dda->tex_y = dda->tex_img->dim.y - 1;
 		dda->tex_pos += dda -> tex_step;
 		dda->color = *(uint32_t *)(dda->tex_img->data_addr
 				+ calcul_offset_from_tex_data(dda));

@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 14:29:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 16:40:34 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/19 17:16:39 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ t_img	open_xpm_and_get_its_data(char *path, t_mlx *mlx)
 {
 	t_img	img;
 
-	img.image_ptr = mlx_xpm_file_to_image(mlx->display, path, &img.width,
-			&img.height);
+	img.image_ptr = mlx_xpm_file_to_image(mlx->display, path, &img.dim.x,
+			&img.dim.y);
 	if (img.image_ptr == NULL)
 		return (open_err(path), img);
 	img.data_addr = mlx_get_data_addr(img.image_ptr, &img.bpp, &img.line_len,

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deduce_after_loop.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 17:20:29 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 17:36:26 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/19 17:18:31 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@ void	deduce_wall_x(t_data *data, t_dda_data *dda)
 void	deduce_texture_related_data(t_data *data, t_dda_data *dda)
 {
 	dda->tex_img = &data->assets.cardinal_textures[dda->wall_orientation];
-	dda->tex_x = (int)(dda->wall_x * (double)dda->tex_img->width);
+	dda->tex_x = (int)(dda->wall_x * (double)dda->tex_img->dim.x);
 	if ((dda->side == 0 && dda->ray_dir.x > 0)
 		|| (dda->side == 1 && dda->ray_dir.y < 0))
-		dda->tex_x = dda->tex_img->width - dda->tex_x - 1;
-	dda->tex_step = (double)dda->tex_img->height
+		dda->tex_x = dda->tex_img->dim.x - dda->tex_x - 1;
+	dda->tex_step = (double)dda->tex_img->dim.y
 		/ dda->line_height;
 	dda->tex_pos = \
 		(dda->draw_start - (float)WIN_HEIGHT / 2 + (float)dda->line_height / 2)

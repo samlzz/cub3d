@@ -69,8 +69,7 @@ struct s_img
 	int32_t	bpp;
 	int32_t	endian;
 	int32_t	line_len;
-	int32_t	width;
-	int32_t	height;
+	t_vec2i	dim;
 };
 
 struct s_assets
@@ -120,7 +119,7 @@ void	clear_data(t_data *data, bool fatal, int16_t exit_code);
 // * Install
 
 int16_t	install_mlx(t_mlx *mlx, t_vec2i screen);
-int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i screen_dim);
+int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i img_dim);
 
 void	install_hooks(t_data *data);
 

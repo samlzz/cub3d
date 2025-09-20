@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_img.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:25:40 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 15:56:05 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/20 11:14:06 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_mlx_img.h"
 #include <stdint.h>
 
 #include "color.h"
@@ -21,14 +22,14 @@ void	ft_mlx_img_put_px(t_img *img, t_vec2i pos, uint32_t color)
 	size_t	offset;
 	char	*dst;
 
-	if ((unsigned)pos.x >= WIN_WIDTH || (unsigned)pos.y >= WIN_HEIGHT)
+	if (pos.x >= img->dim.x || pos.y >= img->dim.x)
 		return ;
 	offset = pos.y * img->line_len + pos.x * (img->bpp / 8);
 	dst = img->data_addr + offset;
 	*(uint32_t *)dst = color;
 }
 
-void	ft_mlx_img_fill(t_img *img, t_vec2i start,
+void	ft_mlx_img_put_square(t_img *img, t_vec2i start,
 			const t_vec2i end, const t_color filled)
 {
 	int32_t	w;
@@ -44,4 +45,9 @@ void	ft_mlx_img_fill(t_img *img, t_vec2i start,
 		}
 		start.y++;
 	}
+}
+
+void	ft_mlx_img_fill(t_img *img, t_vec2i start, const t_color filled)
+{
+	ft_mlx_img_put_square(img, start, img->dim, filled);
 }
