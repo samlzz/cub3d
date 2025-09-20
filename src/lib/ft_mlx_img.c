@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:25:40 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/20 11:14:06 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/20 22:36:03 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	ft_mlx_img_put_px(t_img *img, t_vec2i pos, uint32_t color)
 	size_t	offset;
 	char	*dst;
 
-	if (pos.x >= img->dim.x || pos.y >= img->dim.x)
+	if (pos.x < 0 || pos.y < 0
+		|| pos.x >= img->dim.x
+		|| pos.y >= img->dim.y)
 		return ;
 	offset = pos.y * img->line_len + pos.x * (img->bpp / 8);
 	dst = img->data_addr + offset;
