@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 17:27:39 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/21 00:05:40 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ struct s_dda_data
 };
 
 void	render_frame(t_data *data);
+void	render_minimap(t_img *minimap, const t_grid *grid, const t_camera *cam);
+void	render_minimap_player(t_img *minimap, t_vec2i start, int32_t grid_height, const t_camera *cam);
+
+// *DDA
 void	init_dda(t_data *data, t_dda_data *dda);
 void	dda_loop(t_data *data, t_dda_data *dda);
 void	dda_algorithm(t_data *data, t_dda_data *dda);

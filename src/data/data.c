@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/19 17:24:51 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/20 22:48:15 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void	data_init(t_data *data)
 {
 	if (install_mlx(
 		&data->mlx,
-		(t_vec2i){WIN_WIDTH, WIN_HEIGHT},
-		data->map.g.dim)
+		(t_vec2i){WIN_WIDTH, WIN_HEIGHT})
 	)
 		clear_data(data, true, EC_MLX_INIT_ERROR);
 	if (load_cardinal_textures(

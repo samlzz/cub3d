@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 19:15:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/19 19:24:24 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/20 22:47:54 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i img_dim)
 	return (0);
 }
 
-int16_t	install_mlx(t_mlx *mlx, t_vec2i screen, t_vec2i map)
+int16_t	install_mlx(t_mlx *mlx, t_vec2i screen)
 {
 	t_vec2i	dim;
 
@@ -42,7 +42,9 @@ int16_t	install_mlx(t_mlx *mlx, t_vec2i screen, t_vec2i map)
 		return (1);
 	if (install_mlx_img(mlx, &mlx->game, screen))
 		return (1);
-	dim = vec2i_scalar_mult(map, MINIMAP_SCALE);
+	dim = vec2i_scalar_mult(
+		(t_vec2i){MINIMAP_RADIUS * 2 + 1, MINIMAP_RADIUS * 2 + 1},
+		MINIMAP_SCALE);
 	if (install_mlx_img(mlx, &mlx->minimap, dim))
 		return (1);
 	mlx->minimap_pos.y = 0;

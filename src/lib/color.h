@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/19 19:33:21 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/20 23:44:29 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,37 @@
 # include <stdint.h>
 
 // ?Ceiling
-# define C_SKY_BLUE		0x87CEEB
-# define C_LIGHT_GRAY	0xD3D3D3
-# define C_BEIGE		0xF5F5DC
+# define C_SKY_BLUE			0x87CEEB
+# define C_LIGHT_GRAY		0xD3D3D3
+# define C_BEIGE			0xF5F5DC
 
 // ?Ground
-# define C_DARK_GRAY	0x2F4F4F
-# define C_BROWN		0x8B4513
-# define C_SAND			0xC2B280
+# define C_DARK_GRAY		0x2F4F4F
+# define C_BROWN			0x8B4513
+# define C_SAND				0xC2B280
 
 // ?Walls
-# define C_RED			0xFF0000
-# define C_GREEN		0x00FF00
-# define C_BLUE		 	0x0000FF
-# define C_YELLOW		0xFFFF00
-# define C_PURPLE		0x800080
-# define C_CYAN			0x00FFFF
-# define C_ORANGE		0xFFA500
-# define C_WHITE		0xFFFFFF
-# define C_BLACK		0x000000
+# define C_RED				0xFF0000
+# define C_GREEN			0x00FF00
+# define C_BLUE		 		0x0000FF
+# define C_YELLOW			0xFFFF00
+# define C_PURPLE			0x800080
+# define C_CYAN				0x00FFFF
+# define C_ORANGE			0xFFA500
+# define C_WHITE			0xFFFFFF
+# define C_BLACK			0x000000
 
-# define C_SPAWN		C_SKY_BLUE
-# define C_PLAYER		0x00EE0011
+# define C_SPAWN			C_SKY_BLUE
+# define C_PLAYER			0x00EE0011
 
-# define SOUTH_COLOR	C_ORANGE
-# define NORTH_COLOR	C_BLUE
-# define EST_COLOR		C_GREEN
-# define WEST_COLOR		C_PURPLE
-# define CEILING_COLOR	C_BLACK
-# define FLOOR_COLOR	C_WHITE
+# define C_PLAYER_DIR_ARROW	C_WHITE
+
+# define SOUTH_COLOR		C_ORANGE
+# define NORTH_COLOR		C_BLUE
+# define EST_COLOR			C_GREEN
+# define WEST_COLOR			C_PURPLE
+# define CEILING_COLOR		C_BLACK
+# define FLOOR_COLOR		C_WHITE
 
 /* --- Compat endianness (Linux/macOS) --- */
 # if !defined(__BYTE_ORDER__)
