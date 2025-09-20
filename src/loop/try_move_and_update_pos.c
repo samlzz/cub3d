@@ -43,7 +43,7 @@ static bool	_is_blocking_(t_data *data, int32_t x, int32_t y)
 }
 
 
-static bool	_can_stand_at_(t_data *data, double x, double y, double r)
+static bool	_can_stand_at_(t_grid *map, double x, double y, double r)
 {
 	int32_t	minx;
 	int32_t	maxx;
@@ -52,12 +52,12 @@ static bool	_can_stand_at_(t_data *data, double x, double y, double r)
 
 	minx = (int32_t)floor(x - r - EPS);
 	maxx = (int32_t)floor(x + r + EPS);
-	miny = row_from_worldY(data, y + r + EPS);
-	maxy = row_from_worldY(data, y - r - EPS);
-	if (_is_blocking_(data, minx, miny)
-		|| _is_blocking_(data, minx, maxy)
-		|| _is_blocking_(data, maxx, miny)
-		|| _is_blocking_(data, maxx, maxy))
+	miny = get_y_pos(map->dim.y, y + r + EPS);
+	maxy = get_y_pos(map->dim.y, y - r - EPS);
+	if (_is_blocking_(map, minx, miny)
+		|| _is_blocking_(map, minx, maxy)
+		|| _is_blocking_(map, maxx, miny)
+		|| _is_blocking_(map, maxx, maxy))
 		return (false);
 	else
 		return (true);
@@ -72,10 +72,10 @@ void	try_move_and_update_pos(t_data *data, t_vec2d move_try)
 	player_radius = PLAYER_RADIUS;
 	try_x = data->camera.pos.x + move_try.x;
 	try_y = data->camera.pos.y;
-	if (_can_stand_at_(data, try_x, try_y, player_radius))
+	if (_can_stand_at_(&data->map.g, try_x, try_y, player_radius))
 		data->camera.pos.x = try_x;
 	try_x = data->camera.pos.x;
 	try_y = data->camera.pos.y + move_try.y;
-	if (_can_stand_at_(data, try_x, try_y, player_radius))
+	if (_can_stand_at_(&data->map.g, try_x, try_y, player_radius))
 		data->camera.pos.y = try_y;
 }

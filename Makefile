@@ -33,7 +33,6 @@ FILES =	cubmap.c \
 		loop/app_update.c \
 		loop/clamp_move_try_length.c \
 		loop/get_time.c \
-		loop/row_from_worldY.c \
 		loop/try_move_and_update_pos.c \
 		loop/render/dda_algorithm.c \
 		loop/render/dda_loop.c \

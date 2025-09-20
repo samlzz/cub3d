@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:07:26 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/17 17:45:07 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/20 11:00:34 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ double	ftm_clamp(double val, double min, double max);
 double	ftm_rad_to_deg(double angle);
 double	ftm_deg_to_rad(double angle);
 
+int32_t	get_y_pos(int32_t map_height, double dev_y);
 
 #endif

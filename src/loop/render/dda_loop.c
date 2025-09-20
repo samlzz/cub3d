@@ -6,19 +6,19 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 14:54:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 16:49:39 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/20 15:13:52 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "loop/loop.h"
 #include "render.h"
+#include "vec/ftmath_utils.h"
 
 static bool	wall_has_been_hit(t_data *data, t_dda_data *dda)
 {
 	char	cell;
 	t_vec2i	cubpos;
 
-	cubpos.y = (int32_t)row_from_worldY(data, dda->map.y);
+	cubpos.y = get_y_pos(data->map.g.dim.y, dda->map.y);
 	if (cubpos.y < 0 || cubpos.y >= data->map.g.dim.y)
 		return (true);
 	cubpos.x = (int32_t)dda->map.x;
