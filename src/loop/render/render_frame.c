@@ -29,7 +29,7 @@ void	render_frame(t_data *data)
 {
 	t_dda_data	dda;
 
-	draw_clear(&data->mlx.img, SKY_BLUE, DARK_GRAY);
+	draw_clear(&data->mlx.img, C_SKY_BLUE, C_BROWN);
 	dda.x = 0;
 	while (dda.x < WIN_WIDTH)
 	{
