@@ -6,12 +6,13 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 19:34:46 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/19 19:40:14 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/21 07:45:48 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <math.h>
+#include <stdbool.h>
 
 #include "vec.h"
 
@@ -46,11 +47,19 @@ t_vec2d	vec2d_scalar_mult(t_vec2d vec, double scalar)
 	return (result);
 }
 
-t_vec2i	vec2d_floor(t_vec2d vec)
+t_vec2i	vec2d_round(t_vec2d vec, bool round_greater)
 {
-	t_vec2i	round;
+	t_vec2i	rounded;
 
-	round.x = floor(vec.x);
-	round.y = floor(vec.y);
-	return (round);
+	if (round_greater)
+	{
+		rounded.x = round(vec.x);
+		rounded.y = round(vec.y);
+	}
+	else
+	{
+		rounded.x = floor(vec.x);
+		rounded.y = floor(vec.y);
+	}
+	return (rounded);
 }
