@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:23:12 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/20 22:02:21 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/21 07:46:09 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 
 # include <stddef.h>
 # include <stdint.h>
+# include <stdbool.h>
 
 typedef struct s_vec2i		t_vec2i;
 typedef struct s_vec2d		t_vec2d;
+typedef struct s_vec2v		t_vec2v;
 
 struct s_vec2i
 {
@@ -29,6 +31,12 @@ struct s_vec2d
 {
 	double	x;
 	double	y;
+};
+
+struct s_vec2v
+{
+	t_vec2i	a;
+	t_vec2i	b;
 };
 
 // *Functions
