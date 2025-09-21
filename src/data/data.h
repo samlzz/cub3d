@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/20 23:52:47 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/21 09:39:00 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,34 +21,32 @@
 #include "vec/vec.h"
 
 # ifndef WIN_HEIGHT
-#  define WIN_HEIGHT		700
+#  define WIN_HEIGHT	700
 # endif
 # ifndef WIN_WIDTH
-#  define WIN_WIDTH			1100
+#  define WIN_WIDTH		1100
 # endif
 # ifndef WIN_NAME
-#  define WIN_NAME			"cub3d"
+#  define WIN_NAME		"cub3d"
 # endif
 # ifndef FOV_FACTOR
-#  define FOV_FACTOR		0.66
+#  define FOV_FACTOR	0.66
 # endif
 
 # ifndef MINIMAP_SCALE
-#  define MINIMAP_SCALE		10
+#  define MINIMAP_SCALE			12
 # endif
 # ifndef MINIMAP_RADIUS
-#  define MINIMAP_RADIUS	5
+#  define MINIMAP_RADIUS		8
 # endif
 # ifndef MINIMAP_PLAYER_RADIUS
-#  define MINIMAP_PLAYER_RADIUS	5
+#  define MINIMAP_PLAYER_RADIUS	4
 # endif
 # define MINIMAP_ARROW_DEPTH	1.2
-# define MINIMAP_ARROW_LEN		0.5
+# define MINIMAP_ARROW_LEN		0.4
 # define MINIMAP_ARROW_WIDTH	0.5
 
-# define MINIMAP_BORDER_W	2
-# define MINIMAP_BORDER_H	2
-
+# define MINIMAP_BG_COLOR		0x000000
 
 # ifdef __linux__
 

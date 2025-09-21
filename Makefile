@@ -40,6 +40,7 @@ FILES =	cubmap.c \
 		loop/render/deduce_after_loop.c \
 		loop/render/draw.c \
 		loop/render/init_dda.c \
+		loop/render/minimap_player.c \
 		loop/render/render_frame.c \
 		loop/render/render_minimap.c \
 		parsing/grid.c \

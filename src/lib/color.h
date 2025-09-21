@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 15:46:26 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/20 23:44:29 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/21 08:00:11 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@
 # define C_BLACK			0x000000
 
 # define C_SPAWN			C_SKY_BLUE
-# define C_PLAYER			0x00EE0011
+//# define C_PLAYER			0x00EE0011
+# define C_PLAYER			C_BLACK
 
-# define C_PLAYER_DIR_ARROW	C_WHITE
+# define C_PLAYER_DIR_ARROW	C_BLACK
 
 # define SOUTH_COLOR		C_ORANGE
 # define NORTH_COLOR		C_BLUE

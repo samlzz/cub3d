@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/21 00:05:40 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/21 07:33:07 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,20 @@
 typedef struct s_img		t_img;
 typedef struct s_line		t_line;
 typedef struct s_dda_data	t_dda_data;
+typedef struct s_arrow_len t_arrow_len;
 
 struct s_line
 {
 	int	column;
 	int	y0;
 	int	y1;
+};
+
+struct s_arrow_len
+{
+	double arrow_depth;
+	double head_len;
+	double head_wid;
 };
 
 struct s_dda_data
