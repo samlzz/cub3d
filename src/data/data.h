@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/25 18:01:56 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 22:20:35 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	clear_data(t_data *data, bool fatal, int16_t exit_code);
 
 // * Install
 
-int16_t	install_mlx(t_mlx *mlx, t_vec2i screen);
+int16_t	install_mlx(t_mlx *mlx, t_vec2i screen, t_vec2i grid);
 int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i img_dim);
 
 void	install_hooks(t_data *data);

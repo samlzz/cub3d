@@ -27,6 +27,7 @@ FILES =	cubmap.c \
 		lib/ft_mlx_img_putline.c \
 		lib/ft_mlx_img_puttriangle.c \
 		lib/str_lst.c \
+		lib/vec/ftmath_conversions.c \
 		lib/vec/ftmath_utils.c \
 		lib/vec/print_vec.c \
 		lib/vec/vec2d.c \

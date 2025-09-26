@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:50:19 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/25 18:02:31 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 22:09:27 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define MINIMAP_ARROW_LEN		0.4
 # define MINIMAP_ARROW_WIDTH	0.5
 # define MINIMAP_ARROW_THICK	3
-# define MINIMAP_ARROW_BORDER	2
+# define MINIMAP_ARROW_BORDER	0
 
 # define MINIMAP_BG_COLOR		0x000000
 
