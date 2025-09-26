@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 19:35:24 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/20 22:02:10 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/25 16:47:08 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,10 @@ t_vec2i	vec2i_clamp(t_vec2i vec, t_vec2i min, t_vec2i max)
 	vec.x = ftm_clamp(vec.x, min.x, max.x);
 	vec.y = ftm_clamp(vec.y, min.y, max.y);
 	return (vec);
+}
+
+void	vec2i_swap(t_vec2i *v1, t_vec2i *v2)
+{
+	ftm_swap(&v1->x, &v2->x);
+	ftm_swap(&v1->y, &v2->y);
 }

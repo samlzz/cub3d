@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 19:34:46 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/21 07:45:48 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/25 16:43:51 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,9 @@ t_vec2i	vec2d_round(t_vec2d vec, bool round_greater)
 		rounded.y = floor(vec.y);
 	}
 	return (rounded);
+}
+
+inline double	vec2d_get_norm(t_vec2d vec)
+{
+	return (sqrt(vec.x * vec.x + vec.y * vec.y));
 }

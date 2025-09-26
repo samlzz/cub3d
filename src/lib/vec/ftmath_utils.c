@@ -6,14 +6,13 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:08:23 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/20 11:21:05 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 14:16:06 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdint.h>
 
 #include "ftmath_utils.h"
-#include "vec.h"
 
 inline double	ftm_clamp(double val, double min, double max)
 {
@@ -35,9 +34,13 @@ inline double	ftm_rad_to_deg(double angle)
 	return (angle * 180 / M_PI);
 }
 
-inline double	vec2d_get_norm(t_vec2d vec)
+inline void	ftm_swap(int32_t *a, int32_t *b)
 {
-	return (sqrt(vec.x * vec.x + vec.y * vec.y));
+	int32_t	tmp;
+
+	tmp = *b;
+	*b = *a;
+	*a = tmp;
 }
 
 inline int32_t	get_y_pos(int32_t map_height, double dev_y)

@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:07:26 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/20 11:00:34 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/25 16:45:48 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,13 @@
 # include <stdint.h>
 # include <math.h>
 
-# include "vec.h"
-
 # ifndef M_PI
 #  define M_PI 3.14159265358979323846
 # endif
 
-double	vec2d_get_norm(t_vec2d vec);
+void	ftm_swap(int32_t *a, int32_t *b);
 
 // *To manipulate angle of t_vec2d:
-
 double	ftm_clamp(double val, double min, double max);
 /* Conversions */
 double	ftm_rad_to_deg(double angle);

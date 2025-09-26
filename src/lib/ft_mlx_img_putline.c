@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 07:19:31 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/21 07:30:03 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 14:05:32 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-static void	slope_less_one(t_img *img, t_vec2i d, t_vec2v line, t_color color)
+static void	slope_less_one(t_img *img, t_vec2i d, t_vec2iv2 line, t_color color)
 {
 	int32_t	decision;
 	int32_t	i;
@@ -42,7 +42,7 @@ static void	slope_less_one(t_img *img, t_vec2i d, t_vec2v line, t_color color)
 	}
 }
 
-static void	slope_greater_one(t_img *img, t_vec2i d, t_vec2v line, t_color color)
+static void	slope_greater_one(t_img *img, t_vec2i d, t_vec2iv2 line, t_color color)
 {
 	int32_t	decision;
 	int32_t	i;
@@ -69,9 +69,9 @@ static void	slope_greater_one(t_img *img, t_vec2i d, t_vec2v line, t_color color
 
 int32_t	ft_mlx_img_put_line(t_img *img, t_vec2i start, t_vec2i end, t_color color)
 {
-	t_vec2v	line;
-	t_vec2i	delta;
-	int32_t	px_count;
+	t_vec2iv2	line;
+	t_vec2i		delta;
+	int32_t		px_count;
 
 	line.a = start;
 	line.b = end;
