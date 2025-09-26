@@ -36,9 +36,9 @@ FILES =	cubmap.c \
 		loop/get_time.c \
 		loop/try_move_and_update_pos.c \
 		loop/render/dda_algorithm.c \
+		loop/render/dda_draw.c \
 		loop/render/dda_loop.c \
 		loop/render/deduce_after_loop.c \
-		loop/render/draw.c \
 		loop/render/init_dda.c \
 		loop/render/minimap_player.c \
 		loop/render/render_frame.c \

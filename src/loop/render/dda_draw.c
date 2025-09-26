@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   dda_draw.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:30:20 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/19 17:17:38 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 14:12:22 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,6 @@
 #include "ft_mlx_img.h"
 #include "data/data.h"
 #include "render.h"
-
-void	draw_vline(t_data *data, t_line line, uint32_t color)
-{
-	int		y;
-
-	y = line.y0;
-	while (y < line.y1)
-	{
-		ft_mlx_img_put_px(&data->mlx.game, (t_vec2i){line.column, y}, color);
-		y++;
-	}
-}
 
 void	draw_clear(t_img *img, uint32_t ceil_color, uint32_t floor_color)
 {
@@ -40,7 +28,7 @@ void	draw_clear(t_img *img, uint32_t ceil_color, uint32_t floor_color)
 		(t_color){.value = floor_color});
 }
 
-static uint32_t	calcul_offset_from_tex_data(t_dda_data	*dda)
+static inline uint32_t	_calcul_offset_from_tex_data(t_dda_data	*dda)
 {
 	return ((dda->tex_img->line_len) * dda->tex_y
 		+ dda->tex_x * dda->tex_img->bpp / 8);
@@ -61,12 +49,24 @@ void	draw_bend_with_textue(t_data *data, t_dda_data *dda)
 			dda->tex_y = dda->tex_img->dim.y - 1;
 		dda->tex_pos += dda -> tex_step;
 		dda->color = *(uint32_t *)(dda->tex_img->data_addr
-				+ calcul_offset_from_tex_data(dda));
+				+ _calcul_offset_from_tex_data(dda));
 		if (dda->side == 1)
 			dda->color = (dda->color >> 1) & 8355711;
 		ft_mlx_img_put_px(&data->mlx.game, (t_vec2i){dda->x, dda->y},
 			dda->color);
 		dda->y++;
+	}
+}
+
+static void	_draw_vline(t_data *data, t_ddaline line, uint32_t color)
+{
+	int		y;
+
+	y = line.y0;
+	while (y < line.y1)
+	{
+		ft_mlx_img_put_px(&data->mlx.game, (t_vec2i){line.column, y}, color);
+		y++;
 	}
 }
 
@@ -76,7 +76,7 @@ function contextual to untextured_dda algorithm, not re usable outside
 void	draw_bend_without_texture(t_data *data, t_dda_data *dda)
 {
 	int32_t		color;
-	t_line		line;
+	t_ddaline		line;
 
 	if (dda->side == 0)
 	{
@@ -92,5 +92,5 @@ void	draw_bend_without_texture(t_data *data, t_dda_data *dda)
 	line.column = dda->x;
 	line.y0 = dda->draw_start;
 	line.y1 = dda->draw_end;
-	draw_vline(data, line, color);
+	_draw_vline(data, line, color);
 }

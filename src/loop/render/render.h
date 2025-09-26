@@ -22,11 +22,11 @@
 # define BIG 1e30
 
 typedef struct s_img		t_img;
-typedef struct s_line		t_line;
+typedef struct s_ddaline	t_ddaline;
 typedef struct s_dda_data	t_dda_data;
 typedef struct s_arrow_len t_arrow_len;
 
-struct s_line
+struct s_ddaline
 {
 	int	column;
 	int	y0;
@@ -52,7 +52,7 @@ struct s_dda_data
 	int32_t			draw_end;
 	double			perp_wall_dist;
 	bool			side;
-	t_line			line;
+	t_ddaline		line;
 	int32_t			x;
 	double			wall_x;	
 	int32_t			tex_x;	
@@ -83,8 +83,6 @@ void	deduce_texture_related_data(t_data *data, t_dda_data *dda);
 
 // Draw
 void	draw_clear(t_img *img, uint32_t ceil_color, uint32_t floor_color);
-void	draw_vline(t_data *data, t_line line, uint32_t color);
 void	draw_bend_with_textue(t_data *data, t_dda_data *dda);
-void	draw_bend_without_texture(t_data *data, t_dda_data *dda);
 
 #endif
