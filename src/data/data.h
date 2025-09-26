@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/21 09:39:00 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/25 18:01:56 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,6 @@
 # ifndef FOV_FACTOR
 #  define FOV_FACTOR	0.66
 # endif
-
-# ifndef MINIMAP_SCALE
-#  define MINIMAP_SCALE			12
-# endif
-# ifndef MINIMAP_RADIUS
-#  define MINIMAP_RADIUS		8
-# endif
-# ifndef MINIMAP_PLAYER_RADIUS
-#  define MINIMAP_PLAYER_RADIUS	4
-# endif
-# define MINIMAP_ARROW_DEPTH	1.2
-# define MINIMAP_ARROW_LEN		0.4
-# define MINIMAP_ARROW_WIDTH	0.5
-
-# define MINIMAP_BG_COLOR		0x000000
 
 # ifdef __linux__
 

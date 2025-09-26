@@ -6,18 +6,17 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:25 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/20 23:31:00 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/25 17:51:42 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdint.h>
 
-#include "color.h"
-#include "cubmap.h"
 #include "data/data.h"
-#include "vec/vec.h"
 #include "data/camera.h"
+#include "vec/vec.h"
 #include "render.h"
+#include "minimap.h"
 
 static	t_vec2d	get_ray_dir(t_camera *cam, int32_t x)
 {

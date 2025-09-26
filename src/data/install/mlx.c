@@ -6,15 +6,17 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 19:15:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/20 22:47:54 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/25 18:07:16 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdint.h>
 
 #include "mlx.h"
 #include "../data.h"
 #include "loop/loop.h"
 #include "vec/vec.h"
-#include <stdint.h>
+#include "loop/render/minimap.h"
 
 int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i img_dim)
 {

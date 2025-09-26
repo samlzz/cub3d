@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/21 07:33:07 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 14:11:49 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,12 @@
 typedef struct s_img		t_img;
 typedef struct s_ddaline	t_ddaline;
 typedef struct s_dda_data	t_dda_data;
-typedef struct s_arrow_len t_arrow_len;
 
 struct s_ddaline
 {
 	int	column;
 	int	y0;
 	int	y1;
-};
-
-struct s_arrow_len
-{
-	double arrow_depth;
-	double head_len;
-	double head_wid;
 };
 
 struct s_dda_data
@@ -66,8 +58,6 @@ struct s_dda_data
 };
 
 void	render_frame(t_data *data);
-void	render_minimap(t_img *minimap, const t_grid *grid, const t_camera *cam);
-void	render_minimap_player(t_img *minimap, t_vec2i start, int32_t grid_height, const t_camera *cam);
 
 // *DDA
 void	init_dda(t_data *data, t_dda_data *dda);
