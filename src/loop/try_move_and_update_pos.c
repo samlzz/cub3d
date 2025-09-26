@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   try_move_and_update_pos.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:15:11 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 17:35:18 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 17:38:38 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ static bool	_is_blocking_(t_data *data, int32_t x, int32_t y)
 	if (x >= data->map.g.dim.x
 		|| y >= data->map.g.dim.y)
 		return (_block_log_(x, y, c, "> dim"), true);
-	if (c == '1' || c == '\n' || c == '\0' || c == ' ')
+	if (c == '1' || c == '\n' || c == '\0' || c == ' '
+		|| (c == 'D' && data->map.doors[y][x].state == DOOR_CLOSED))
 		return (_block_log_(x, y, c, "unwalkable char"), true);
 	return (false);
 }

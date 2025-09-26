@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubmap.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 16:09:49 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 18:09:27 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 
 # include "color.h"
 # include "vec/vec.h"
+# include "door/door.h"
 
 typedef enum e_directions	t_directions;
 typedef struct s_grid		t_grid;
 typedef struct s_map		t_map;
+typedef struct s_door		t_door;
 
 enum e_directions
 {
@@ -28,7 +30,7 @@ enum e_directions
 	DIR_S,
 	DIR_E,
 	DIR_W,
-	DIR_MAX
+	DIR_MAX,
 };
 
 struct s_grid
@@ -40,10 +42,10 @@ struct s_grid
 struct s_map
 {
 	t_grid		g;
+	t_door		**doors;
 	char		*tex_paths[DIR_MAX];
 	t_color		*floor_colr;
 	t_color		*ceil_colr;
-	// t_player	player;
 };
 
 void	free_map(t_map *m);

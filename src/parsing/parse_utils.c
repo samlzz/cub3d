@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:22:45 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/13 18:03:42 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 18:44:23 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ bool	ft_isln_empty(const char *ln)
 {
 	size_t	i;
 	size_t	len;
-	
+
 	len = ft_strlen(ln);
 	i = 0;
 	while (ft_isspace(ln[i]))
@@ -61,6 +61,7 @@ bool	ft_isln_valid(const char *ln)
 		&& (ft_is_walkable(ln[i])
 			|| ln[i] == ' '
 			|| ln[i] == '1'
+			|| ln[i] == 'D'
 			|| ln[i] == '\n')
 	)
 		i++;

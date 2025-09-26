@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:29:02 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 10:26:42 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 18:46:10 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ static inline int16_t	_check_pos(const t_grid *n, const t_vec2i *pos,
 	if (!ft_is_walkable(v))
 		return (0);
 	*has_walbkable = true;
-	if (v != '0')
+	if (v != '0' && v != 'D')
 		(*usr_occ)++;
 	if (*usr_occ > 1)
 		return (2);

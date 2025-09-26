@@ -39,6 +39,9 @@ void	clamp_move_try_length(t_vec2d *move_try,
 			double time_delta_beetwen_frame);
 void	try_move_and_update_pos(t_data *data, t_vec2d move_try);
 int		row_from_worldY(const t_data *data, double y);
+bool	player_target_is_a_reachable_door(t_data *data,
+			t_vec2i *player_target);
+bool	player_target_is_a_reachable_door(t_data *data, t_vec2i *player_target);
 
 
 #endif

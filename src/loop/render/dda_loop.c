@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   dda_loop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 14:54:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 16:49:39 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 16:57:36 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "loop/loop.h"
 #include "render.h"
+#include "door/door.h"
 
 static bool	wall_has_been_hit(t_data *data, t_dda_data *dda)
 {
@@ -25,6 +26,9 @@ static bool	wall_has_been_hit(t_data *data, t_dda_data *dda)
 	if (cubpos.x < 0 || cubpos.x >= data->map.g.dim.x)
 		return (true);
 	cell = data->map.g.grid[cubpos.y][cubpos.x];
+	if (cell == 'D'
+		&& data->map.doors[cubpos.y][cubpos.x].state == DOOR_CLOSED)
+		return (true);
 	if (cell == '1')
 		return (true);
 	return (false);

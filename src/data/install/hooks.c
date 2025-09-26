@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:38:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 15:37:19 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/26 18:46:57 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ static int	on_key_press(int keycode, t_data *data)
 		// print_event(keycode, "press");
 	if (keycode == KEY_ESC)
 		clear_data(data, true, EC_SUCCESS);
-	if (keycode == KEY_W)
+	if (keycode == KEY_E)
+		data->inputs.try_to_interact_with_door = true;
+	else if (keycode == KEY_W)
 		data->inputs.forward = true;
 	else if (keycode == KEY_S)
 		data->inputs.backward = true;

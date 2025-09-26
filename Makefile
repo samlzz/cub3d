@@ -22,6 +22,9 @@ FILES =	cubmap.c \
 		data/data.c \
 		data/install/hooks.c \
 		data/install/mlx.c \
+		door/change_door_state.c \
+		door/fatal_clear_doors.c \
+		door/install_doors.c \
 		lib/color.c \
 		lib/ft_mlx_img.c \
 		lib/str_lst.c \
@@ -32,6 +35,7 @@ FILES =	cubmap.c \
 		loop/app_update.c \
 		loop/clamp_move_try_length.c \
 		loop/get_time.c \
+		loop/player_target_is_a_reachable_door.c \
 		loop/row_from_worldY.c \
 		loop/try_move_and_update_pos.c \
 		loop/render/dda_algorithm.c \
@@ -129,7 +133,7 @@ endif
 
 OUT := $(if $(BIN_DIR),$(BIN_DIR),./)$(NAME)
 
-export VERBOSE    ?= false
+export VERBOSE    ?= true
 export P := @
 ifeq ($(VERBOSE),true)
 	P :=

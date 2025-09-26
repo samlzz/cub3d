@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 16:36:50 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 18:07:37 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,17 @@
 #include "mlx.h"
 #include "data.h"
 #include "vec/vec.h"
+#include "door/door.h"
 
 void	data_init(t_data *data)
 {
 	if (install_mlx(&data->mlx, (t_vec2i){WIN_WIDTH, WIN_HEIGHT}))
 		clear_data(data, true, EC_MLX_INIT_ERROR);
-	if (load_cardinal_textures(&data->map, data->assets.cardinal_textures, &data->mlx))
+	if (load_cardinal_textures(&data->map, data->assets.cardinal_textures,
+			&data->mlx))
 		clear_data(data, true, EC_OPEN_TEXTURE_FAILURE);
+	if (install_doors(&data->map.g, &data->map.doors))
+		clear_data(data, true, EC_INSTALLING_DOOR_FAILURE);
 	install_hooks(data);
 	install_frame_engine(data);
 	camera_init(&data->camera, data->map.g);
@@ -58,6 +62,8 @@ void	clear_data(t_data *data, bool fatal, int16_t exit_code)
 			data->assets.cardinal_textures);
 	if (fatal)
 		_fatal_clear_mlx(&data->mlx);
+	if (fatal)
+		fatal_clear_doors(&data->map.doors);
 	free_map(&data->map);
 	if (fatal)
 		exit(exit_code);

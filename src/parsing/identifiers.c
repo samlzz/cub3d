@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identifiers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:54:51 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 10:39:45 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 18:46:03 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int16_t	_fill_identifiers(const char *ln, t_map *m)
 {
 	size_t	n;
 	int16_t	code;
-	
+
 	ln = ft_skip_sp(ln);
 	n = 0;
 	while (ln && !ft_isspace(ln[n]))

@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/19 12:50:41 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/26 18:04:18 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <stdbool.h>
 # include <stdint.h>
 
-# include "camera.h"
 # include "cubmap.h"
+# include "camera.h"
 
 # ifndef WIN_HEIGHT
 #  define WIN_HEIGHT	700
@@ -34,13 +34,14 @@
 
 # ifdef __linux__
 
-#  define KEY_ESC    65307
-#  define KEY_W      119
-#  define KEY_A      97
-#  define KEY_S      115
-#  define KEY_D      100
-#  define KEY_LEFT   65361
-#  define KEY_RIGHT  65363
+#  define KEY_ESC			65307
+#  define KEY_W				119
+#  define KEY_A				97
+#  define KEY_S				115
+#  define KEY_D				100
+#  define KEY_LEFT			65361
+#  define KEY_RIGHT			65363
+#  define KEY_E				101
 #  define E_DESTROY_NOTIFY -1
 
 # else
@@ -86,6 +87,7 @@ struct s_inputs
 	bool	right;
 	bool	turn_left;
 	bool	turn_right;
+	bool	try_to_interact_with_door;
 };
 
 struct s_mlx
@@ -111,6 +113,7 @@ enum e_exit_code
 	EC_MLX_INIT_ERROR,
 	EC_DDA_RAYDIR_VEC_ZERO,
 	EC_OPEN_TEXTURE_FAILURE,
+	EC_INSTALLING_DOOR_FAILURE,
 };
 
 void	data_init(t_data *data);
