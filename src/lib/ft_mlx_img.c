@@ -6,13 +6,15 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:25:40 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/26 14:27:07 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 21:58:58 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include <stdint.h>
 
 #include "color.h"
+#include "loop/render/minimap.h"
 #include "vec/ftmath_utils.h"
 #include "vec/vec.h"
 #include "data/data.h"
@@ -32,8 +34,8 @@ void	ft_mlx_img_put_px(t_img *img, t_vec2i pos, uint32_t color)
 	*(uint32_t *)dst = color;
 }
 
-/* draw a horizontale line from yline.a.x to yline.b.x
-	doesn't draw anything if yline.a.y != yline.b.y 
+/* draw a horizontale line from xline.a.x to xline.b.x
+	doesn't draw anything if xline.a.y != xline.b.y 
 */
 void	ft_mlx_img_put_span(t_img *img, t_vec2iv2 xline, t_color color)
 {
@@ -51,29 +53,33 @@ void	ft_mlx_img_put_span(t_img *img, t_vec2iv2 xline, t_color color)
 	}
 }
 
-
-void	ft_mlx_img_put_sphere(t_img *img, t_vec2i center, int32_t diameter, 
+void	ft_mlx_img_put_sphere(t_img *img, t_vec2i center, int32_t diameter,
 	t_color color)
 {
-	int32_t	r;
-	int32_t	r_square;
-	t_vec2i	delta;
+	double	r;
+	int32_t	ymax;
+	t_vec2i	curr;
+	double	xr;
+	double	yc;
 
+	if (diameter <= 0)
+		return ;
 	if (diameter == 1)
-		ft_mlx_img_put_px(img, center, color.value);
-	r = (diameter - 1) / 2;
-	r_square = r * r;
-	delta.y = -r;
-	while (delta.y <= r)
+		return (ft_mlx_img_put_px(img, center, color.value));
+	r = (double)diameter * 0.5;
+	ymax = (int32_t)floor(r - LITTLE);
+	curr.y = (int32_t)floor(-r);
+	r *= r;
+	while (curr.y <= ymax)
 	{
-		delta.x = -r;
-		while (delta.x <= r)
-		{
-			if (delta.x * delta.x + delta.y * delta.y <= r_square)
-				ft_mlx_img_put_px(img, vec2i_sum(center, delta), color.value);
-			delta.x++;
-		}
-		delta.y++;
+		yc = (double)curr.y + 0.5;
+		xr = sqrt(r - yc * yc);
+		curr.x = (int32_t)floor(xr - 0.5);
+		ft_mlx_img_put_span(img, (t_vec2iv2){
+			(t_vec2i){ center.x - curr.x, center.y + curr.y},
+			vec2i_sum(center, curr)
+		}, color);
+		curr.y++;
 	}
 }
 
