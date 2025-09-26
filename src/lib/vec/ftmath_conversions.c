@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftmath_utils.c                                     :+:      :+:    :+:   */
+/*   ftmath_conversions.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:08:23 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/26 22:18:09 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 22:16:33 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdint.h>
-
 #include "ftmath_utils.h"
 
-inline double	ftm_clamp(double val, double min, double max)
+inline double	ftm_deg_to_rad(double angle)
 {
-	if (val > max)
-		return (max);
-	else if (val < min)
-		return (min);
-	else
-		return (val);
+	return (angle * M_PI / 180);
 }
 
-inline void	ftm_swap(int32_t *a, int32_t *b)
+inline double	ftm_rad_to_deg(double angle)
 {
-	int32_t	tmp;
-
-	tmp = *b;
-	*b = *a;
-	*a = tmp;
+	return (angle * 180 / M_PI);
 }
 
-inline int32_t	ftm_min(int32_t a, int32_t b)
+inline int32_t	get_y_pos(int32_t map_height, double dev_y)
 {
-	if (a < b)
-		return (a);
-	else
-		return (b);
+	return (map_height - 1 - (int32_t)floor(dev_y));
 }

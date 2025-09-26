@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:07:26 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/25 16:45:48 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 22:17:31 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 # endif
 
 void	ftm_swap(int32_t *a, int32_t *b);
-
-// *To manipulate angle of t_vec2d:
 double	ftm_clamp(double val, double min, double max);
+int32_t	ftm_min(int32_t a, int32_t b);
+
 /* Conversions */
 double	ftm_rad_to_deg(double angle);
 double	ftm_deg_to_rad(double angle);
