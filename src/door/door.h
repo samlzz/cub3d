@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 11:30:55 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/26 18:07:31 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/27 16:01:05 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define DOORS_H
 
 // # define DOOR_TIME_TO_OPEN 0.7
-# define DOOR_DISTANCE_TO_BE_ABLE_TO_INTERACT 1.5
+# define DOOR_DISTANCE_MAX_TO_BE_ABLE_TO_INTERACT 1.5
 
 # include <stdbool.h>
 

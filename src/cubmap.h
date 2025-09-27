@@ -6,12 +6,14 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/26 18:09:27 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/27 15:57:15 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBMAP_H
 # define CUBMAP_H
+
+# define DOOR_PATH "./assets/texture/DOOM/door/green_organic.xpm"
 
 # include <stdint.h>
 

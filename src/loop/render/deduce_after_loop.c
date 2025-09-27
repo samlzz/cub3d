@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 17:20:29 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 17:36:26 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/27 15:44:18 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,16 @@ void	deduce_wall_x(t_data *data, t_dda_data *dda)
 
 void	deduce_texture_related_data(t_data *data, t_dda_data *dda)
 {
-	dda->tex_img = &data->assets.cardinal_textures[dda->wall_orientation];
+	if (dda->target == 'D')
+		dda->tex_img = &data->assets.door;
+	else
+		dda->tex_img = &data->assets.cardinal_textures[dda->wall_orientation];
 	dda->tex_x = (int)(dda->wall_x * (double)dda->tex_img->width);
 	if ((dda->side == 0 && dda->ray_dir.x > 0)
 		|| (dda->side == 1 && dda->ray_dir.y < 0))
 		dda->tex_x = dda->tex_img->width - dda->tex_x - 1;
 	dda->tex_step = (double)dda->tex_img->height
-		/ dda->line_height;
+	/ dda->line_height;
 	dda->tex_pos = \
 		(dda->draw_start - (float)WIN_HEIGHT / 2 + (float)dda->line_height / 2)
 		* dda->tex_step;

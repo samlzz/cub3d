@@ -20,6 +20,7 @@ FILES =	cubmap.c \
 		data/camera_init.c \
 		data/cardinal_textures.c \
 		data/data.c \
+		data/door_texture.c \
 		data/install/hooks.c \
 		data/install/mlx.c \
 		door/change_door_state.c \

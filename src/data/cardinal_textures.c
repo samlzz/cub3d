@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cardinal_textures.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 14:29:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 16:40:34 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 15:48:19 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "cubmap.h"
 #include "data.h"
 
-bool	_file_found_and_readable_(char *path)
+bool	file_found_and_readable(char *path)
 {
 	int	fd;
 
@@ -49,7 +49,7 @@ int16_t	load_cardinal_textures(t_map *map, t_img cardinal_textures[],
 	i = 0;
 	while (i < DIR_MAX)
 	{
-		if (_file_found_and_readable_(map->tex_paths[i]) == false)
+		if (file_found_and_readable(map->tex_paths[i]) == false)
 			return (EC_OPEN_TEXTURE_FAILURE);
 		cardinal_textures[i]
 			= open_xpm_and_get_its_data(map->tex_paths[i], mlx);

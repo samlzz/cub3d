@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:30:20 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 17:27:36 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/27 15:27:54 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ft_mlx_img.h"
 #include "data/data.h"
 #include "render.h"
+#include "vec/ftmath_utils.h"
 
 void	draw_vline(t_data *data, t_line line, uint32_t color)
 {
@@ -51,6 +52,7 @@ function contextual to textured_dda algorithm, not re usable outside
 */
 void	draw_bend_with_textue(t_data *data, t_dda_data *dda)
 {
+
 	dda->y = dda->draw_start;
 	while (dda->y < dda->draw_end)
 	{
@@ -64,6 +66,9 @@ void	draw_bend_with_textue(t_data *data, t_dda_data *dda)
 				+ calcul_offset_from_tex_data(dda));
 		if (dda->side == 1)
 			dda->color = (dda->color >> 1) & 8355711;
+		// fog_factor = 1.0 / (1.0 + (dda->perp_wall_dist * FOG_DENSITY));
+		// fog_factor = ftm_clamp(fog_factor, 0.0, 1.0);
+		// dda->color = (1 - fog_factor) * FOG_COLOR + fog_factor * dda->color;
 		ft_mlx_img_put_px(&data->mlx.img, (t_vec2i){dda->x, dda->y},
 			dda->color);
 		dda->y++;

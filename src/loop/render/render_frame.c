@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:25 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/26 16:37:41 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/27 15:27:41 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	render_frame(t_data *data)
 {
 	t_dda_data	dda;
 
-	draw_clear(&data->mlx.img, SKY_BLUE, DARK_GRAY);
+	draw_clear(&data->mlx.img, data->map.ceil_colr->value, data->map.floor_colr->value);
 	dda.x = 0;
 	while (dda.x < WIN_WIDTH)
 	{

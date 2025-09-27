@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/26 18:07:37 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/27 15:47:27 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	data_init(t_data *data)
 		clear_data(data, true, EC_MLX_INIT_ERROR);
 	if (load_cardinal_textures(&data->map, data->assets.cardinal_textures,
 			&data->mlx))
+		clear_data(data, true, EC_OPEN_TEXTURE_FAILURE);
+	if (load_door_texture(&data->assets.door,
+		&data->mlx))
 		clear_data(data, true, EC_OPEN_TEXTURE_FAILURE);
 	if (install_doors(&data->map.g, &data->map.doors))
 		clear_data(data, true, EC_INSTALLING_DOOR_FAILURE);
@@ -61,10 +64,11 @@ void	clear_data(t_data *data, bool fatal, int16_t exit_code)
 		fatal_clear_cardinal_textures(&data->mlx,
 			data->assets.cardinal_textures);
 	if (fatal)
+		fatal_clear_door_texture(&data->mlx, &data->assets.door);
+	if (fatal)
 		_fatal_clear_mlx(&data->mlx);
 	if (fatal)
-		fatal_clear_doors(&data->map.doors);
-	free_map(&data->map);
+		free_map(&data->map);
 	if (fatal)
 		exit(exit_code);
 }

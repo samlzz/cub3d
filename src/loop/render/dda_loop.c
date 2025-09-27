@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 14:54:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/26 16:57:36 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/27 15:32:47 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static bool	wall_has_been_hit(t_data *data, t_dda_data *dda)
 	if (cubpos.x < 0 || cubpos.x >= data->map.g.dim.x)
 		return (true);
 	cell = data->map.g.grid[cubpos.y][cubpos.x];
+	dda->target = cell;
 	if (cell == 'D'
 		&& data->map.doors[cubpos.y][cubpos.x].state == DOOR_CLOSED)
 		return (true);

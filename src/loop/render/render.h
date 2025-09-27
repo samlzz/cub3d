@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 17:27:39 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/27 15:31:32 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include "data/data.h"
 
 # define BIG 1e30
+# define FOG_DENSITY 0.1
+# define FOG_COLOR BLACK
 
 typedef struct s_img		t_img;
 typedef struct s_line		t_line;
@@ -55,6 +57,7 @@ struct s_dda_data
 	int32_t			y;
 	t_img			*tex_img;
 	uint32_t		color;
+	char			target;
 };
 
 void	render_frame(t_data *data);

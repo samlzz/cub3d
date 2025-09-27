@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/26 18:04:18 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/27 15:48:33 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ struct s_img
 struct s_assets
 {
 	t_img	cardinal_textures[DIR_MAX];
+	t_img	door;
 };
 
 struct s_inputs
@@ -131,5 +132,9 @@ void	install_frame_engine(t_data *data);
 int16_t	load_cardinal_textures(t_map *map, t_img cardinal_textures[],
 			t_mlx *mlx);
 void	fatal_clear_cardinal_textures(t_mlx *mlx, t_img cardinal_textures[]);
-
+t_img	open_xpm_and_get_its_data(char *path, t_mlx *mlx);
+int16_t	load_door_texture(t_img *door_texture,
+			t_mlx *mlx);
+void	fatal_clear_door_texture(t_mlx *mlx, t_img *door_texture);
+bool	file_found_and_readable(char *path);
 #endif
