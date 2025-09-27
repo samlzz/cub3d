@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/26 22:21:44 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 15:55:20 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	data_init(t_data *data)
 	if (install_mlx(
 		&data->mlx,
 		(t_vec2i){WIN_WIDTH, WIN_HEIGHT},
+		&data->inputs.cursor,
 		data->map.g.dim
 	))
 		clear_data(data, true, EC_MLX_INIT_ERROR);
@@ -40,11 +41,8 @@ void	data_init(t_data *data)
 static void	_fatal_clear_mlx(t_mlx *mlx)
 {
 	mlx_do_key_autorepeaton(mlx->display);
-	if (!mlx->display)
-		return ;
-	if (mlx->game.image_ptr)
-		mlx_destroy_image(mlx->display,
-			mlx->game.image_ptr);
+	if (mlx->display && mlx->game.image_ptr)
+		mlx_destroy_image(mlx->display, mlx->game.image_ptr);
 	if (mlx->minimap.image_ptr)
 		mlx_destroy_image(mlx->display, mlx->minimap.image_ptr);
 	if (mlx->window)

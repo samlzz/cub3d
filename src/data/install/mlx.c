@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 19:15:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/26 22:25:01 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 15:51:36 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,15 @@ int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i img_dim)
 	return (0);
 }
 
+void	install_mouse(t_mlx *mlx, t_mouse *cursor)
+{
+	mlx_mouse_hide(mlx->display, mlx->window);
+	cursor->hidden = true;
+	cursor->pos = (t_vec2i){WIN_WIDTH / 2, WIN_HEIGHT / 2};
+	cursor->pending_recenter = true;
+	mlx_mouse_move(mlx->display, mlx->window, cursor->pos.x, cursor->pos.y);
+}
+
 static inline t_vec2i	_get_minimap_dim(t_vec2i grid_dim)
 {
 	t_vec2i	dim;
@@ -43,7 +52,7 @@ static inline t_vec2i	_get_minimap_dim(t_vec2i grid_dim)
 	return (vec2i_scalar_mult(dim, MINIMAP_SCALE));
 }
 
-int16_t	install_mlx(t_mlx *mlx, t_vec2i screen, t_vec2i grid)
+int16_t	install_mlx(t_mlx *mlx, t_vec2i screen, t_mouse *cursor, t_vec2i grid)
 {
 	t_vec2i	dim;
 
@@ -62,6 +71,7 @@ int16_t	install_mlx(t_mlx *mlx, t_vec2i screen, t_vec2i grid)
 	mlx->minimap_pos.y = 0;
 	mlx->minimap_pos.x = WIN_WIDTH - dim.x;
 	mlx_do_key_autorepeatoff(mlx->display);
+	install_mouse(mlx, cursor);
 	return (0);
 }
 

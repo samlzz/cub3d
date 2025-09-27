@@ -1,7 +1,7 @@
-NO assets/texture/one_purple_pixel.xpm
-SO assets/texture/one_purple_pixel.xpm
-WE assets/texture/one_purple_pixel.xpm
-EA assets/texture/one_purple_pixel.xpm
+NO ./assets/texture/NSEW/N.xpm
+SO ./assets/texture/NSEW/S.xpm
+WE ./assets/texture/NSEW/W.xpm
+EA ./assets/texture/NSEW/E.xpm
 
 
 F   69, 222, 199
