@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 16:32:45 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 13:53:23 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 14:02:31 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,17 @@ static void	_bbox_from_tri(t_vec2iv3 t, t_vec2i img, t_vec2i *mn, t_vec2i *mx)
 
 static inline bool	_is_px_printable(t_vec2iv3 tri, t_vec2i curr_p, uint8_t tl)
 {
-	t_vec3l	e;
+	int64_t	e0;
+	int64_t	e1;
+	int64_t	e2;
 
-	e.x = _edge_fn(tri.a, tri.b, curr_p);
-	e.y = _edge_fn(tri.b, tri.c, curr_p);
-	e.z = _edge_fn(tri.c, tri.a, curr_p);
+	e0 = _edge_fn(tri.a, tri.b, curr_p);
+	e1 = _edge_fn(tri.b, tri.c, curr_p);
+	e2 = _edge_fn(tri.c, tri.a, curr_p);
 	return (
-		(e.x > 0 || (!e.x && (tl >> AB) & 1))
-		&& (e.y > 0 || (!e.y && (tl >> BC) & 1))
-		&& (e.z > 0 || (!e.z && (tl >> CA) & 1))
+		(e0 > 0 || (!e0 && (tl >> AB) & 1))
+		&& (e1 > 0 || (!e1 && (tl >> BC) & 1))
+		&& (e2 > 0 || (!e2 && (tl >> CA) & 1))
 	);
 }
 
