@@ -23,10 +23,11 @@ FILES =	cubmap.c \
 		data/install/hooks.c \
 		data/install/mlx.c \
 		lib/color.c \
-		lib/ft_mlx_img.c \
-		lib/ft_mlx_img_putrect.c \
-		lib/ft_mlx_img_puttriangle.c \
 		lib/str_lst.c \
+		lib/ft_mlx/ft_mlx_img.c \
+		lib/ft_mlx/ft_mlx_img_putrect.c \
+		lib/ft_mlx/ft_mlx_img_puttriangle.c \
+		lib/ft_mlx/ft_mlx_texture.c \
 		lib/vec/ftmath_comp.c \
 		lib/vec/ftmath_utils.c \
 		lib/vec/print_vec.c \

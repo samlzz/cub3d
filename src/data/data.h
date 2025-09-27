@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 15:53:23 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 21:13:39 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "camera.h"
 # include "cubmap.h"
 # include "vec/vec.h"
-# include "ft_mlx_img.h"
+# include "ft_mlx/ft_mlx_img.h"
 
 # ifndef WIN_HEIGHT
 #  define WIN_HEIGHT	700

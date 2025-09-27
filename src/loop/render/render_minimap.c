@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 22:53:10 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 20:04:02 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 21:18:29 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "parsing/parse_utils.h"
 #include "color.h"
 #include "data/data.h"
-#include "ft_mlx_img.h"
+#include "ft_mlx/ft_mlx_img.h"
 #include "vec/ftmath_utils.h"
 #include "vec/vec.h"
 #include "minimap.h"

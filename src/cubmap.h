@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 16:09:49 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 21:17:18 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ struct s_map
 	char		*tex_paths[DIR_MAX];
 	t_color		*floor_colr;
 	t_color		*ceil_colr;
-	// t_player	player;
 };
 
 void	free_map(t_map *m);

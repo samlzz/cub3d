@@ -2,7 +2,7 @@
 /* Helpers triangle pour flèche de direction (norme 42 friendly)             */
 /* ************************************************************************** */
 
-#include "ft_mlx_img.h"
+#include "ft_mlx/ft_mlx_img.h"
 #include "color.h"
 #include "minimap.h"
 #include "vec/vec.h"
