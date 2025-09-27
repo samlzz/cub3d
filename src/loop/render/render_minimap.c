@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 22:53:10 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 15:26:25 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 20:04:02 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static inline char	_safe_get_cell(const t_grid *g, t_vec2i p)
 	const char	*row;
 	int32_t		len;
 
-	if (p.x < 0 || p.y < 0 || p.y > g->dim.y)
+	if (p.x < 0 || p.y < 0 || p.y >= g->dim.y)
 		return (' ');
 	row = g->grid[p.y];
 	if (!row)
