@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 15:48:33 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/27 18:09:48 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # include "cubmap.h"
 # include "camera.h"
+# include "animated_asset/animated_asset.h"
 
 # ifndef WIN_HEIGHT
 #  define WIN_HEIGHT	700
@@ -78,6 +79,7 @@ struct s_assets
 {
 	t_img	cardinal_textures[DIR_MAX];
 	t_img	door;
+	t_img	mewtwo[MEWTWO_SPRITE_NB];
 };
 
 struct s_inputs
