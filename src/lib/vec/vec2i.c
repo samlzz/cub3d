@@ -6,12 +6,13 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 19:35:24 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/25 16:47:08 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:52:04 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vec.h"
 #include "vec/ftmath_utils.h"
+#include <stdint.h>
 
 t_vec2i	vec2i_sum(t_vec2i vec1, t_vec2i vec2)
 {
