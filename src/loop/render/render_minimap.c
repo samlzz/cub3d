@@ -6,18 +6,18 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 22:53:10 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/25 17:55:42 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:31:13 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdint.h>
 
 #include "color.h"
-#include "data/data.h"
 #include "ft_mlx_img.h"
 #include "vec/ftmath_utils.h"
 #include "vec/vec.h"
 #include "minimap.h"
+#include "cubmap.h"
 
 static inline void	_fill_one_square(t_img *img, t_vec2i square_pos,
 	int32_t size, t_color color)

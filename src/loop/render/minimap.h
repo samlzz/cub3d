@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:50:19 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/26 22:09:27 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:30:39 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # include "color.h"
 # include "ft_mlx_img.h"
-# include "data/data.h"
+# include "data/camera.h"
 
 # ifndef MINIMAP_SCALE
 #  define MINIMAP_SCALE			12

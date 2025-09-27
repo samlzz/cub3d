@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:41:20 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/26 14:27:21 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 23:03:46 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,17 @@
 # include "vec/vec.h"
 
 typedef struct s_img		t_img;
+
+struct s_img
+{
+	void	*image_ptr;
+	char	*data_addr;
+	int32_t	bpp;
+	int32_t	endian;
+	int32_t	line_len;
+	t_vec2i	dim;
+};
+
 
 void	ft_mlx_img_put_px(t_img *img, t_vec2i pos, uint32_t color);
 

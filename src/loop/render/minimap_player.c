@@ -6,13 +6,12 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:33:52 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/25 18:08:56 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:31:21 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "color.h"
-#include "data/data.h"
 #include "ft_mlx_img.h"
 #include "minimap.h"
 #include "vec/vec.h"

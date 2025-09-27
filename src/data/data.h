@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/26 22:20:35 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/26 23:04:23 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 # include "camera.h"
 # include "cubmap.h"
-#include "vec/vec.h"
+# include "vec/vec.h"
+# include "ft_mlx_img.h"
 
 # ifndef WIN_HEIGHT
 #  define WIN_HEIGHT	700
@@ -57,21 +58,10 @@
 */
 # endif
 
-typedef struct s_img	t_img;
 typedef struct s_inputs	t_inputs;
 typedef struct s_mlx	t_mlx;
 typedef struct s_data	t_data;
 typedef struct s_assets	t_assets;
-
-struct s_img
-{
-	void	*image_ptr;
-	char	*data_addr;
-	int32_t	bpp;
-	int32_t	endian;
-	int32_t	line_len;
-	t_vec2i	dim;
-};
 
 struct s_assets
 {

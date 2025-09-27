@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:25:40 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/26 21:58:58 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:29:54 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include "loop/render/minimap.h"
 #include "vec/ftmath_utils.h"
 #include "vec/vec.h"
-#include "data/data.h"
 #include "ft_mlx_img.h"
 
 void	ft_mlx_img_put_px(t_img *img, t_vec2i pos, uint32_t color)

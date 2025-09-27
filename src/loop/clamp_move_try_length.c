@@ -6,12 +6,11 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:19:20 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 17:45:49 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:31:32 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "loop.h"
-#include "vec/ftmath_utils.h"
 
 static inline double	_square_(double x)
 {
