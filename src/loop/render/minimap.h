@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:50:19 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 14:17:45 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 14:33:24 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdint.h>
 
 # include "color.h"
+# include "data/data.h"
 # include "ft_mlx_img.h"
 # include "data/camera.h"
 
@@ -61,8 +62,7 @@ struct s_border
 	t_color	color;
 };
 
-void		render_minimap(t_img *minimap, const t_grid *grid,
-				const t_camera *cam);
+void	render_minimap(t_mlx *mlx, const t_grid *grid, const t_camera *cam);
 void		render_minimap_player(t_img *minimap, t_vec2i start,
 				int32_t grid_height, const t_camera *cam);
 

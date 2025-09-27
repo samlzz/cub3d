@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:25 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/25 17:51:42 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 14:53:08 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	render_frame(t_data *data)
 {
 	t_dda_data	dda;
 
-	render_minimap(&data->mlx.minimap, &data->map.g, &data->camera);
 	draw_clear(&data->mlx.game, C_SKY_BLUE, C_BROWN);
 	dda.x = 0;
 	while (dda.x < WIN_WIDTH)
@@ -40,4 +39,5 @@ void	render_frame(t_data *data)
 		dda_algorithm(data, &dda);
 		dda.x++;
 	}
+	render_minimap(&data->mlx, &data->map.g, &data->camera);
 }

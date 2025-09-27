@@ -6,13 +6,17 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 22:53:10 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 14:19:41 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 15:26:25 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
 #include <stdint.h>
 
+#include "libft.h"
+#include "parsing/parse_utils.h"
 #include "color.h"
+#include "data/data.h"
 #include "ft_mlx_img.h"
 #include "vec/ftmath_utils.h"
 #include "vec/vec.h"
@@ -31,16 +35,41 @@ static inline void	_fill_one_square(t_img *img, t_vec2i square_pos,
 	ft_mlx_img_put_square(img, start_px, end_px, color);
 }
 
-static inline t_color	_find_color(char cell)
+static inline char	_safe_get_cell(const t_grid *g, t_vec2i p)
+{
+	const char	*row;
+	int32_t		len;
+
+	if (p.x < 0 || p.y < 0 || p.y > g->dim.y)
+		return (' ');
+	row = g->grid[p.y];
+	if (!row)
+		return (' ');
+	len = (int32_t)ft_strlen(row);
+	if (p.x >= len)
+		return (' ');
+	return (row[p.x]);
+}
+
+static t_color	_find_color(t_mlx *mlx, char cell, t_vec2i i)
 {
 	t_color	color;
+	t_vec2i	offset;
+	t_vec2i	bck_px;
 
 	if (cell == '1')
 		color.value = C_DARK_GRAY;
 	else if (cell == '0')
 		color.value = C_LIGHT_GRAY;
+	else if (ft_is_walkable(cell))
+		color.value = C_RED;
 	else
-		color.value = C_SPAWN;
+	{
+		offset.x = i.x * MINIMAP_SCALE + MINIMAP_SCALE / 2;
+		offset.y = i.y * MINIMAP_SCALE + MINIMAP_SCALE / 2;
+		bck_px = vec2i_sum(mlx->minimap_pos, offset);
+		color.value = ft_mlx_img_get_px(&mlx->game, bck_px);
+	}
 	return (color);
 }
 
@@ -69,37 +98,14 @@ static t_vec2i	_get_grid_start(t_vec2i minimap_dim, t_vec2i grid_dim,
 	return (vec2i_clamp(start, (t_vec2i){0}, max_start));
 }
 
-static void	_put_minimap_border(t_img *minimap, int32_t thick, t_color color)
-{
-	t_vec2i	top_l;
-	t_vec2i	a;
-	t_vec2i	b;
-
-	if (thick <= 0)
-		return ;
-	top_l = (t_vec2i){0};
-	a = top_l;
-	b = (t_vec2i){minimap->dim.x, top_l.y + thick};
-	ft_mlx_img_put_square(minimap, a, b, color);
-	a = (t_vec2i){top_l.x, minimap->dim.y - thick};
-	b = minimap->dim;
-	ft_mlx_img_put_square(minimap, a, b, color);
-	a = (t_vec2i){top_l.x, top_l.y + thick};
-	b = (t_vec2i){top_l.x + thick, minimap->dim.y - thick};
-	ft_mlx_img_put_square(minimap, a, b, color);
-	a = (t_vec2i){minimap->dim.x - thick, top_l.y + thick};
-	b = (t_vec2i){minimap->dim.x, minimap->dim.y - thick};
-	ft_mlx_img_put_square(minimap, a, b, color);
-}
-
-void	render_minimap(t_img *minimap, const t_grid *grid, const t_camera *cam)
+void	render_minimap(t_mlx *mlx, const t_grid *grid, const t_camera *cam)
 {
 	t_vec2i	tiles_dim;
 	t_vec2i	start;
 	t_vec2i	i;
 	t_vec2i	curr;
 
-	start = _get_grid_start(minimap->dim, grid->dim, cam->pos, &tiles_dim);
+	start = _get_grid_start(mlx->minimap.dim, grid->dim, cam->pos, &tiles_dim);
 	i.y = 0;
 	while (i.y < tiles_dim.y)
 	{
@@ -110,12 +116,13 @@ void	render_minimap(t_img *minimap, const t_grid *grid, const t_camera *cam)
 			curr.x = i.x + start.x;
 			if (curr.x >= 0 && curr.y >= 0
 				&& curr.x < grid->dim.x && curr.y < grid->dim.y)
-				_fill_one_square(minimap, i, MINIMAP_SCALE,
-					_find_color(grid->grid[curr.y][curr.x]));
+				_fill_one_square(&mlx->minimap, i, MINIMAP_SCALE,
+					_find_color(mlx, _safe_get_cell(grid, curr), i));
 			i.x++;
 		}
 		i.y++;
 	}
-	render_minimap_player(minimap, start, grid->dim.y, cam);
-	_put_minimap_border(minimap, MINIMAP_BORDER_PX, (t_color){.value=MINIMAP_BORDER_COLOR});
+	render_minimap_player(&mlx->minimap, start, grid->dim.y, cam);
+	ft_mlx_img_put_rect(&mlx->minimap, MINIMAP_BORDER_PX,
+		(t_color){.value=MINIMAP_BORDER_COLOR});
 }
