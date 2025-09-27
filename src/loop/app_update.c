@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:09:09 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 15:54:31 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/27 17:04:12 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 #include "door/door.h"
 #include "render/render.h"
 
-static inline double	get_side_move_sclar(t_data *data, double time_delta_beetwen_frame)
+static inline double	get_side_move_sclar(t_data *data,
+							double time_delta_beetwen_frame)
 {
 	return ((double)(data->inputs.right - data->inputs.left)
 		* MOVE_SPEED * time_delta_beetwen_frame);
 }
 
-static inline double	get_upfront_move_sclar(t_data *data, double time_delta_beetwen_frame)
+static inline double	get_upfront_move_sclar(t_data *data,
+							double time_delta_beetwen_frame)
 {
 	return ((double)(data->inputs.forward - data->inputs.backward)
 			* MOVE_SPEED * time_delta_beetwen_frame);
@@ -55,17 +57,14 @@ static void	update_angle(t_data *data, double time_delta_beetwen_frame)
 int	app_update(t_data *data, double time_delta_beetwen_frame)
 {
 	t_vec2i		player_target;
-	t_vec2i		player_pos;
-	
+
 	if (data->inputs.try_to_interact_with_door == true)
 	{
-		player_pos.x = (int)data->camera.pos.x;
-		player_pos.y = (int)row_from_worldY(data, data->camera.pos.y);
 		if (player_target_is_a_reachable_door(data, &player_target) == true)
-			change_door_state(&data->map.doors[player_target.y][player_target.x]);
+			change_door_state(&data->map.doors[player_target.y] \
+													[player_target.x]);
 		data->inputs.try_to_interact_with_door = false;
 	}
-	(void)player_pos;
 	update_position(data, time_delta_beetwen_frame);
 	update_angle(data, time_delta_beetwen_frame);
 	if (UNTEXTURED_RAYCASTING_DEBUG)

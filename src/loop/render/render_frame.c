@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:25 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 15:27:41 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/27 16:35:06 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "data/camera.h"
 #include "render.h"\
 
-static	t_vec2d	get_ray_dir(t_camera *cam, int32_t x)
+t_vec2d	get_ray_dir(t_camera *cam, int32_t x)
 {
 	double	camera_x;
 

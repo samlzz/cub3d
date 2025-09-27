@@ -37,6 +37,7 @@ FILES =	cubmap.c \
 		loop/clamp_move_try_length.c \
 		loop/get_time.c \
 		loop/player_target_is_a_reachable_door.c \
+		loop/player_wont_get_stuck_if_door_is_closing.c \
 		loop/row_from_worldY.c \
 		loop/try_move_and_update_pos.c \
 		loop/render/dda_algorithm.c \

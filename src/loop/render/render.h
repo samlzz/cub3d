@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 15:31:32 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/27 16:35:20 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ struct s_dda_data
 	char			target;
 };
 
+t_vec2d	get_ray_dir(t_camera *cam, int32_t x);
 void	render_frame(t_data *data);
 void	init_dda(t_data *data, t_dda_data *dda);
 void	dda_loop(t_data *data, t_dda_data *dda);

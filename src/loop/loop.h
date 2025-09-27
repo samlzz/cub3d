@@ -15,6 +15,7 @@
 
 # include "vec/vec.h"
 # include "data/data.h"
+# include "render/render.h"
 
 # define MOVE_SPEED 		3.0
 # define ROT_SPEED 			2.0
@@ -42,6 +43,7 @@ int		row_from_worldY(const t_data *data, double y);
 bool	player_target_is_a_reachable_door(t_data *data,
 			t_vec2i *player_target);
 bool	player_target_is_a_reachable_door(t_data *data, t_vec2i *player_target);
-
+bool	player_wont_get_stuck_if_door_is_closing(
+			t_data *data, t_vec2i *player_target);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 15:47:27 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/27 16:47:12 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	data_init(t_data *data)
 			&data->mlx))
 		clear_data(data, true, EC_OPEN_TEXTURE_FAILURE);
 	if (load_door_texture(&data->assets.door,
-		&data->mlx))
+			&data->mlx))
 		clear_data(data, true, EC_OPEN_TEXTURE_FAILURE);
 	if (install_doors(&data->map.g, &data->map.doors))
 		clear_data(data, true, EC_INSTALLING_DOOR_FAILURE);
