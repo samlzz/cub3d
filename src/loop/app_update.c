@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:09:09 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 15:55:36 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 20:07:14 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,4 @@ void app_update(t_data *data, double time_delta_beetwen_frame)
 {
 	update_position(data, time_delta_beetwen_frame);
 	update_angle(&data->camera, &data->inputs, time_delta_beetwen_frame);
-	if (UNTEXTURED_RAYCASTING_DEBUG)
-		camera_print(data->camera);
 }

@@ -6,14 +6,13 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:38:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/18 23:44:21 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 20:09:00 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <X11/X.h>
 #include <X11/Xutil.h>
 #include <stdint.h>
-#include <stdio.h>
 
 #include "data/camera.h"
 #include "mlx.h"
@@ -75,7 +74,6 @@ int	on_mouse_move(int32_t x, int32_t y, t_data *data)
 {
 	t_mouse	*cursor;
 
-	vec2d_print((t_vec2d){x, y}, "Mouse pos");
 	cursor = &data->inputs.cursor;
 	if (cursor->pending_recenter)
 	{

@@ -6,11 +6,10 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:15:11 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/20 11:09:13 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 20:13:56 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <math.h>
 
 #include "cubmap.h"
@@ -18,31 +17,15 @@
 #include "test/test.h"
 #include "vec/ftmath_utils.h"
 
-static void	_block_log_(int32_t x, int32_t y, char c, char *reason)
-{
-	if (UNTEXTURED_RAYCASTING_DEBUG)
-	{
-		fprintf(stderr, "(%i,%i) blocking mouvement\n", x, y);
-		fprintf(stderr, "c = %c\n", c);
-		fprintf(stderr, "reason : %s\n", reason);
-		fflush(stderr);
-	}
-}
-
 static bool	_is_blocking_(t_grid *map, int32_t x, int32_t y)
 {
 	char	c;
 
-	if (x < 0 || y < 0)
-		return (_block_log_(x, y, '#', "< 0"), true);
-	if (x >= map->dim.x || y >= map->dim.y)
-		return (_block_log_(x, y, '#', "> dim"), true);
+	if (x < 0 || y < 0 || x >= map->dim.x || y >= map->dim.y)
+		return (true);
 	c = map->grid[y][x];
-	if (c == '1' || c == '\n' || c == '\0' || c == ' ')
-		return (_block_log_(x, y, c, "unwalkable char"), true);
-	return (false);
+	return (c == '1' || c == '\n' || c == '\0' || c == ' ');
 }
-
 
 static bool	_can_stand_at_(t_grid *map, double x, double y, double r)
 {
