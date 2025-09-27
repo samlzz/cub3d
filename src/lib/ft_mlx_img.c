@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:25:40 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 13:29:54 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 15:24:50 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,19 @@ void	ft_mlx_img_put_px(t_img *img, t_vec2i pos, uint32_t color)
 	offset = pos.y * img->line_len + pos.x * (img->bpp / 8);
 	dst = img->data_addr + offset;
 	*(uint32_t *)dst = color;
+}
+
+uint32_t	ft_mlx_img_get_px(const t_img *img, t_vec2i pos)
+{
+	size_t	offset;
+	char	*src;
+
+	if (pos.x < 0 || pos.y < 0
+		|| pos.x >= img->dim.x || pos.y >= img->dim.y)
+		return (0);
+	offset = pos.y * img->line_len + pos.x * (img->bpp / 8);
+	src = img->data_addr + offset;
+	return (*(uint32_t *)src);
 }
 
 /* draw a horizontale line from xline.a.x to xline.b.x
@@ -80,27 +93,4 @@ void	ft_mlx_img_put_sphere(t_img *img, t_vec2i center, int32_t diameter,
 		}, color);
 		curr.y++;
 	}
-}
-
-void	ft_mlx_img_put_square(t_img *img, t_vec2i start,
-			const t_vec2i end, const t_color filled)
-{
-	int32_t	w;
-
-	w = start.x;
-	while (start.y < end.y)
-	{
-		start.x = w;
-		while (start.x < end.x)
-		{
-			ft_mlx_img_put_px(img, start, filled.value);
-			start.x++;
-		}
-		start.y++;
-	}
-}
-
-void	ft_mlx_img_fill(t_img *img, t_vec2i start, const t_color filled)
-{
-	ft_mlx_img_put_square(img, start, img->dim, filled);
 }
