@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:50:19 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 13:30:39 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 14:17:45 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@
 # ifndef MINIMAP_RADIUS
 #  define MINIMAP_RADIUS		8
 # endif
+# ifndef MINIMAP_BORDER_PX
+#  define MINIMAP_BORDER_PX 	3
+# endif
+# ifndef MINIMAP_BORDER_COLOR
+#  define MINIMAP_BORDER_COLOR	C_WHITE
+# endif
+
 # ifndef MINIMAP_PLAYER_RADIUS
 #  define MINIMAP_PLAYER_RADIUS	4
 # endif
@@ -32,9 +39,8 @@
 # define MINIMAP_ARROW_LEN		0.4
 # define MINIMAP_ARROW_WIDTH	0.5
 # define MINIMAP_ARROW_THICK	3
-# define MINIMAP_ARROW_BORDER	0
 
-# define MINIMAP_BG_COLOR		0x000000
+# define MINIMAP_ARROW_BORDER	0
 
 
 # define LITTLE 1e-9

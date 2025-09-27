@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 22:53:10 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 13:31:13 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/27 14:19:41 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,29 @@ static t_vec2i	_get_grid_start(t_vec2i minimap_dim, t_vec2i grid_dim,
 	return (vec2i_clamp(start, (t_vec2i){0}, max_start));
 }
 
+static void	_put_minimap_border(t_img *minimap, int32_t thick, t_color color)
+{
+	t_vec2i	top_l;
+	t_vec2i	a;
+	t_vec2i	b;
+
+	if (thick <= 0)
+		return ;
+	top_l = (t_vec2i){0};
+	a = top_l;
+	b = (t_vec2i){minimap->dim.x, top_l.y + thick};
+	ft_mlx_img_put_square(minimap, a, b, color);
+	a = (t_vec2i){top_l.x, minimap->dim.y - thick};
+	b = minimap->dim;
+	ft_mlx_img_put_square(minimap, a, b, color);
+	a = (t_vec2i){top_l.x, top_l.y + thick};
+	b = (t_vec2i){top_l.x + thick, minimap->dim.y - thick};
+	ft_mlx_img_put_square(minimap, a, b, color);
+	a = (t_vec2i){minimap->dim.x - thick, top_l.y + thick};
+	b = (t_vec2i){minimap->dim.x, minimap->dim.y - thick};
+	ft_mlx_img_put_square(minimap, a, b, color);
+}
+
 void	render_minimap(t_img *minimap, const t_grid *grid, const t_camera *cam)
 {
 	t_vec2i	tiles_dim;
@@ -76,7 +99,6 @@ void	render_minimap(t_img *minimap, const t_grid *grid, const t_camera *cam)
 	t_vec2i	i;
 	t_vec2i	curr;
 
-	ft_mlx_img_fill(minimap, (t_vec2i){0}, (t_color){.value=C_BLACK});
 	start = _get_grid_start(minimap->dim, grid->dim, cam->pos, &tiles_dim);
 	i.y = 0;
 	while (i.y < tiles_dim.y)
@@ -95,4 +117,5 @@ void	render_minimap(t_img *minimap, const t_grid *grid, const t_camera *cam)
 		i.y++;
 	}
 	render_minimap_player(minimap, start, grid->dim.y, cam);
+	_put_minimap_border(minimap, MINIMAP_BORDER_PX, (t_color){.value=MINIMAP_BORDER_COLOR});
 }
