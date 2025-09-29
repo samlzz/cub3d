@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:29:02 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 10:26:42 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/28 18:48:41 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 #include <stdlib.h>
 
 #include "libft.h"
+#include "parsing/fields.h"
 #include "vec/vec.h"
-#include "parser.h"
 #include "parse_utils.h"
+#include "parse_err.h"
+#include "cubmap.h"
 
 static inline int16_t	_fill_norm_row(const char *row, int32_t tot_width,
 	char **dest)
@@ -89,35 +91,33 @@ static bool	_check_neighbors(const t_grid n, const t_vec2i pos)
 	return (false);
 }
 
-static inline int16_t	_check_pos(const t_grid *n, const t_vec2i *pos, 
+static inline t_parse_err	_check_pos(const t_grid *n, const t_vec2i *pos, 
 	bool *has_walbkable, int32_t *usr_occ)
 {
 	char	v;
 
 	v = n->grid[pos->y][pos->x];
 	if (!ft_is_walkable(v))
-		return (0);
+		return (PE_OK);
 	*has_walbkable = true;
 	if (v != '0')
 		(*usr_occ)++;
 	if (*usr_occ > 1)
-		return (2);
+		return (PE_U_MAP_PLAYER_MANY);
 	if (_check_neighbors(*n, *pos))
-		return (3);
+		return (PE_U_MAP_OPEN);
 	return (0);
 }
 
-int16_t	validate_map_closed(const t_grid *usr_map)
+t_parse_err	validate_map_closed(const t_grid *normalized)
 {
-	t_grid	*n;
-	t_vec2i	i;
-	int32_t	usr_occurences;
-	bool	has_walbkable;
-	int16_t	code;
+	const t_grid	*n;
+	t_vec2i			i;
+	int32_t			usr_occurences;
+	bool			has_walbkable;
+	t_parse_err		code;
 
-	n = get_normalized_grid(usr_map);
-	if (!n)
-		return (1);
+	n = normalized;
 	i.y = 1;
 	has_walbkable = false;
 	usr_occurences = 0;
@@ -128,10 +128,12 @@ int16_t	validate_map_closed(const t_grid *usr_map)
 		{
 			code = _check_pos(n, &i, &has_walbkable, &usr_occurences);
 			if (code)
-				return (free_grid(n), free(n), code);
+				return (code);
 			i.x++;
 		}
 		i.y++;
 	}
-	return (free_grid(n), free(n), (2 * (!has_walbkable || !usr_occurences)));
+	if (!usr_occurences)
+		return (PE_U_MAP_PLAYER_MISSING);
+	return (PE_U_MAP_NO_WALKABLE * !has_walbkable);
 }

@@ -14,7 +14,6 @@ BIN_DIR   =
 
 ### UFILES_START ###
 FILES =	cubmap.c \
-		error.c \
 		main.c \
 		data/camera.c \
 		data/camera_init.c \
@@ -46,11 +45,14 @@ FILES =	cubmap.c \
 		loop/render/minimap_player.c \
 		loop/render/render_frame.c \
 		loop/render/render_minimap.c \
-		parsing/grid.c \
-		parsing/identifiers.c \
+		parsing/fields.c \
+		parsing/fields_get.c \
 		parsing/map_validate.c \
+		parsing/parse_err.c \
+		parsing/parse_map.c \
 		parsing/parse_utils.c \
 		parsing/parser.c \
+		parsing/parser_wrapper.c \
 		test/print_cubmap.c
 ### END ###
 ifeq ($(FILES),)

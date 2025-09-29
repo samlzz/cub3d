@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:22:45 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/13 18:03:42 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/28 18:00:50 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ bool	ft_is_walkable(char c)
 	return (c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W');
 }
 
-bool	ft_isln_valid(const char *ln)
+bool	ft_isln_valid(const char *ln, size_t *err_idx)
 {
 	size_t	i;
 
@@ -64,5 +64,7 @@ bool	ft_isln_valid(const char *ln)
 			|| ln[i] == '\n')
 	)
 		i++;
+	if (!ln[i] && err_idx)
+		*err_idx = i;
 	return (ln[i] == '\0');
 }

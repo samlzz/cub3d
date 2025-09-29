@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 00:21:33 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 09:57:48 by sliziard         ###   ########.fr       */
+/*   Created: 2025/09/27 22:10:36 by sliziard          #+#    #+#             */
+/*   Updated: 2025/09/28 18:48:48 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,37 @@
 # define PARSER_H
 
 # include <stdbool.h>
-# include <stdint.h>
 
 # include "cubmap.h"
+# include "fields.h"
+# include "parse_err.h"
 
-// *External
+typedef enum e_parse_phase	t_parse_phase;
+typedef struct s_parser		t_parser;
 
-bool	is_dot_cub(const char *path);
-int16_t	parse_cub(const char *map_path, t_map *out);
-void	parse_err_print(int16_t code, t_map *to_free);
+enum	e_parse_phase
+{
+	PPH_HEADER = 0,
+	PPH_MAP
+};
 
+struct s_parser
+{
+	t_map			*out;
+	t_field			specs[FI__COUNT];
+	bool			seen[FI__COUNT];
+	t_parse_phase	phase;
+	struct s_diag	diag;
+};
 
-// *Internal
+int16_t		parse_cub(const char *map_path, t_map *out);
+bool		is_dot_cub(const char *path);
 
-// identifiers
-int16_t	parse_identifiers(int fd, t_map *m);
+t_parse_err	parse_map_flow(int fd, char *first_line, t_parser *p);
+t_parse_err	validate_map_closed(const t_grid *normalized);
+t_grid		*get_normalized_grid(const t_grid *usr_map);
 
-// grid
-int16_t	parse_grid(int fd, t_grid *out);
-void	free_grid(t_grid *g);
-
-int16_t	validate_map_closed(const t_grid *usr_map);
+t_parse_err	parse_color_wrap(const char *after_id, void *color, struct s_diag *d);
+t_parse_err	parse_texture_wrap(const char *after_id, void *tex_path, struct s_diag *d);
 
 #endif
