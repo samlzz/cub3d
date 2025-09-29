@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:17:11 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 12:39:46 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 13:04:25 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static inline t_parse_err	_handle_eof_err(t_parser *p)
 	p->diag.what = ft_strdup("unexpected end of file");
 	if (!p->diag.what)
 		return (perror("cub3d: parse_cub: ft_strdup"), PE_INTERNAL);
-	return (PE_U_MALFORMED);
+	return (PE_U_MAP_MISSING);
 }
 
 static t_parse_err	_parse_header_flow(int fd, t_parser *p, char **trailing_line)

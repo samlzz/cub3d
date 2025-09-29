@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 00:10:29 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 12:46:33 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 13:33:01 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,10 @@ t_parse_err	parse_color_wrap(const char *after_id, void *color, struct s_diag *d
 	if (code == 0)
 		return (PE_OK);
 	if (code == 1)
-		return (PE_INTERNAL);
-	if (code == 2)
 		d->what = ft_strdup("unexpected separator between digits");
-	else if (code == 3)
+	else if (code == 2)
 		d->what = ft_strdup("RGB component out of range (0..255)");
-	else if (code == 4)
+	else if (code == 3)
 		d->what = ft_strdup("trailing content after color");
 	if (!d->what)
 		return (perror("cub3d: parse_color"), PE_INTERNAL);
