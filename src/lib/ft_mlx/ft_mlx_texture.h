@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 21:12:45 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/28 19:18:15 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 13:08:12 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_texture	t_texture;
 struct s_texture
 {
 	char		*path;
-	t_img		img;
+	t_img		*img;
 };
 
 int16_t	ft_mlx_texture_load(t_texture *tex, t_mlx *mlx);
