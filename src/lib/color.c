@@ -6,17 +6,15 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:17:58 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/18 10:12:39 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/28 03:12:05 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
-#include <stdio.h>
 #include <stdlib.h>
 
-#include "libft.h"
 #include "color.h"
 #include "parsing/parse_utils.h"
 
@@ -57,35 +55,39 @@ static bool	expect_comma(const char **ps)
 	return (true);
 }
 
-int16_t	parse_rgb_triplet(const char *s, const char **end, t_color **out)
+/* Parse in *out an RGB color like: *RR*,*GG*,*BB* * => n-spaces 
+return 0 in case of success
+		1 if separators wasn't formated as expected (commat surrounded by n-spaces)
+		2 if numbers wasn't in expected format (3 unsigned char)
+*/
+int16_t	parse_rgb_triplet(const char *s, const char **end, t_color *out)
 {
-	t_color		*c;
 	uint8_t		*triplet[3];
 	uint8_t		i;
 
-	c = ft_calloc(1, sizeof (t_color));
-	if (!c)
-		return (perror("cub3d: parse_rgb_triplet: malloc"), 1);
-	triplet[0] = &c->code.r;
-	triplet[1] = &c->code.g;
-	triplet[2] = &c->code.b;
+	triplet[0] = &out->code.r;
+	triplet[1] = &out->code.g;
+	triplet[2] = &out->code.b;
 	i = 0;
 	while (i < 3)
 	{
 		s = ft_skip_sp(s);
 		if (ft_ato_u8(&s, triplet[i]))
-			return (free(c), 2);
+			return (2);
 		if (i != 2 && !expect_comma(&s))
-			return (free(c), 2);
+			return (1);
 		i++;
 	}
 	if (end)
 		*end = ft_skip_sp(s);
-	*out = c;
 	return (0);
 }
 
-int16_t	parse_rgb_line(const char *s, t_color **out)
+/* Act as a wrapper of parse_rgb_triplet
+check if the string s was completly consumed by it,
+	if not return error code 3
+*/
+int16_t	parse_rgb_line(const char *s, t_color *out)
 {
 	const char	*end;
 	int16_t		code;
@@ -95,10 +97,6 @@ int16_t	parse_rgb_line(const char *s, t_color **out)
 	if (code)
 		return (code);
 	if (end && *end)
-	{
-		free(*out);
-		*out = NULL;
-		return (2);
-	}
+		return (3);
 	return (0);
 }
