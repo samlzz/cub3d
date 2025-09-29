@@ -4,7 +4,7 @@
 #include "color.h"
 #include "cubmap.h"
 
-static void	print_color(const char *label, t_color *c)
+static void	print_color(const char *label, const t_color *c)
 {
 	if (!c)
 		printf("%s: (null)\n", label);
@@ -43,16 +43,17 @@ void	print_map(const t_map *m)
 		return ;
 	}
 	printf("=== t_map ===\n");
-	for (int d = 0; d < DIR_MAX; d++)
+	for (int d = 0; d < TEX__COUNT; d++)
 	{
-		dir = (d == DIR_N) ? "NO" :
-				(d == DIR_S) ? "SO" :
-				(d == DIR_E) ? "EA" : "WE";
-		printf("Texture %-2s: %s\n", dir,
-			m->tex_paths[d] ? m->tex_paths[d] : "(null)");
+		dir = (d == TEX_N) ? "NO" :
+				(d == TEX_S) ? "SO" :
+				(d == TEX_E) ? "EA" :
+				(d == TEX_W) ? "WE" : "DOOR";
+		printf("Texture %-2s: %s\n", dir, m->textures[d].path);
 	}
-	print_color("Floor", m->floor_colr);
-	print_color("Ceil ", m->ceil_colr);
+	print_color("Floor", &m->floor_colr);
+	print_color("Ceil ", &m->ceil_colr);
 	print_grid(&m->g);
 	printf("=============\n");
 }
+

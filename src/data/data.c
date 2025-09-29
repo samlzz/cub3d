@@ -6,12 +6,14 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 15:55:20 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/28 19:36:33 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdint.h>
 #include <stdlib.h>
 
+#include "ft_mlx/ft_mlx_texture.h"
 #include "libft.h"
 #include "cubmap.h"
 #include "mlx.h"
@@ -26,13 +28,9 @@ void	data_init(t_data *data)
 		&data->inputs.cursor,
 		data->map.g.dim
 	))
-		clear_data(data, true, EC_MLX_INIT_ERROR);
-	if (load_cardinal_textures(
-		&data->map,
-		data->assets.cardinal_textures,
-		&data->mlx
-	))
-		clear_data(data, true, EC_OPEN_TEXTURE_FAILURE);
+		data_exit(data, EC_MLX_INIT_ERROR);
+	if (ft_mlx_textures_load_list(data->map.textures, DIR_MAX, &data->mlx))
+		data_exit(data, EC_OPEN_TEXTURE_FAILURE);
 	install_hooks(data);
 	install_frame_engine(data);
 	camera_init(&data->camera, data->map.g);
@@ -53,14 +51,10 @@ static void	_fatal_clear_mlx(t_mlx *mlx)
 	ft_bzero(mlx, sizeof (t_mlx));
 }
 
-void	clear_data(t_data *data, bool fatal, int16_t exit_code)
+void	data_exit(t_data *data, t_init_error code)
 {
-	if (fatal)
-		fatal_clear_cardinal_textures(&data->mlx,
-			data->assets.cardinal_textures);
-	if (fatal)
-		_fatal_clear_mlx(&data->mlx);
-	free_map(&data->map);
-	if (fatal)
-		exit(exit_code);
+	free_map(&data->map, &data->mlx);
+	_fatal_clear_mlx(&data->mlx);
+	// todo: handle err message depends on code
+	exit(code);
 }

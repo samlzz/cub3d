@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 21:17:18 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/28 19:20:32 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@
 # include <stdint.h>
 
 # include "color.h"
+# include "ft_mlx/ft_mlx_texture.h"
 # include "vec/vec.h"
 
 typedef enum e_directions	t_directions;
+typedef enum e_texture_id	t_texture_id;
 typedef struct s_grid		t_grid;
 typedef struct s_map		t_map;
 
@@ -31,6 +33,16 @@ enum e_directions
 	DIR_MAX
 };
 
+enum e_texture_id
+{
+	TEX_N = DIR_N,
+	TEX_S = DIR_S,
+	TEX_E = DIR_E,
+	TEX_W = DIR_W,
+	TEX_DOOR,
+	TEX__COUNT
+};
+
 struct s_grid
 {
 	char	**grid;
@@ -40,11 +52,12 @@ struct s_grid
 struct s_map
 {
 	t_grid		g;
-	char		*tex_paths[DIR_MAX];
-	t_color		*floor_colr;
-	t_color		*ceil_colr;
+	t_texture	textures[TEX__COUNT];
+	t_color		floor_colr;
+	t_color		ceil_colr;
 };
 
-void	free_map(t_map *m);
+void	free_map(t_map *m, t_mlx *mlx);
+void	free_grid(t_grid *g);
 
 #endif

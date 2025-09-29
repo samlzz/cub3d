@@ -18,7 +18,6 @@ FILES =	cubmap.c \
 		main.c \
 		data/camera.c \
 		data/camera_init.c \
-		data/cardinal_textures.c \
 		data/data.c \
 		data/install/hooks.c \
 		data/install/mlx.c \

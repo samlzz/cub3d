@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 21:13:39 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/28 19:25:51 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,13 @@
 */
 # endif
 
-typedef struct s_img	t_img;
-typedef struct s_assets	t_assets;
-typedef struct s_mouse	t_mouse;
-typedef struct s_inputs	t_inputs;
-typedef struct s_mlx	t_mlx;
-typedef struct s_data	t_data;
+typedef struct s_img		t_img;
 
-struct s_assets
-{
-	t_img	cardinal_textures[DIR_MAX];
-};
+typedef struct s_mouse		t_mouse;
+typedef struct s_inputs		t_inputs;
+typedef struct s_mlx		t_mlx;
+typedef struct s_data		t_data;
+typedef enum e_init_error	t_init_error;
 
 struct s_mouse
 {
@@ -106,10 +102,9 @@ struct s_data
 	t_mlx		mlx;
 	t_inputs	inputs;
 	t_map		map;
-	t_assets	assets;
 };
 
-enum e_exit_code
+enum e_init_error
 {
 	EC_SUCCESS,
 	EC_DESTROY_NOTIFY,
@@ -119,8 +114,7 @@ enum e_exit_code
 };
 
 void	data_init(t_data *data);
-
-void	clear_data(t_data *data, bool fatal, int16_t exit_code);
+void	data_exit(t_data *data, t_init_error code);
 
 // * Install
 
@@ -130,8 +124,5 @@ int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i img_dim);
 void	install_hooks(t_data *data);
 
 void	install_frame_engine(t_data *data);
-int16_t	load_cardinal_textures(t_map *map, t_img cardinal_textures[],
-			t_mlx *mlx);
-void	fatal_clear_cardinal_textures(t_mlx *mlx, t_img cardinal_textures[]);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:38:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 20:09:00 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/28 19:26:52 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 static int	on_key_press(int keycode, t_data *data)
 {
 	if (keycode == XK_Escape)
-		clear_data(data, true, EC_SUCCESS);
+		data_exit(data, EC_SUCCESS);
 	if (keycode == KEY_W)
 		data->inputs.forward = true;
 	else if (keycode == KEY_S)
@@ -66,7 +66,7 @@ Handle window close event: clean resources and exit
 */
 static int	on_destroy_notify(t_data *data)
 {
-	clear_data(data, true, EC_SUCCESS);
+	data_exit(data, EC_SUCCESS);
 	return (0);
 }
 
