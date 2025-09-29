@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   door.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 11:30:55 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 16:01:05 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/29 20:50:27 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@
 # define DOOR_DISTANCE_MAX_TO_BE_ABLE_TO_INTERACT 1.5
 
 # include <stdbool.h>
+# include <stdint.h>
 
-# include "cubmap.h"
-# include "vec/vec.h"
+typedef struct s_grid		t_grid;
 
 typedef enum e_door_state	t_door_state;
-typedef struct s_grid		t_grid;
 typedef struct s_door		t_door;
 
 enum e_door_state

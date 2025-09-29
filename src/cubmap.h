@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 19:00:03 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 21:25:30 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include "ft_mlx/ft_mlx_texture.h"
 # include "vec/vec.h"
 # include "door/door.h"
-# include "animated_asset/animated_asset.h"
 
 typedef enum e_directions	t_directions;
 typedef enum e_texture_id	t_texture_id;
@@ -61,9 +60,9 @@ struct s_map
 	t_color		floor_colr;
 	t_color		ceil_colr;
 	t_door		**doors;
-	t_sprite	sprites[SPRITE_NB];
-	int			sprite_order[SPRITE_NB];
-	double		sprite_distance_square[SPRITE_NB];
+	// t_sprite	sprites[SPRITE_NB];
+	// int			sprite_order[SPRITE_NB];
+	// double		sprite_distance_square[SPRITE_NB];
 };
 
 void	free_map(t_map *m, t_mlx *mlx);

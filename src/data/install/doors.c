@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   install_doors.c                                    :+:      :+:    :+:   */
+/*   doors.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 14:13:13 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/26 18:09:54 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/29 20:42:01 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "door.h"
-#include "cubmap.h"
+#include <stdlib.h>
+
 #include "libft.h"
+#include "cubmap.h"
 
 static void	_fill_row(t_door *doors_row, char *grid_row)
 {
@@ -34,9 +35,9 @@ static void	_fill_row(t_door *doors_row, char *grid_row)
 install another grid in the t_map structure
 in witch each case in door grid has its coresponding case in map grid
 if the case in map grid contain NO 'D' => then the case in door case
-										  has a state of DOOR_NO_DOOR
+									has a state of DOOR_NO_DOOR
 if the case in map grid contain 'D' => then the case in door case
-									   has a state DIFFERENT from DOOR_NO_DOOR
+									has a state DIFFERENT from DOOR_NO_DOOR
 */
 int16_t	install_doors(t_grid *grid, t_door ***doors)
 {
@@ -44,17 +45,35 @@ int16_t	install_doors(t_grid *grid, t_door ***doors)
 	int32_t	row_len;
 
 	i = 0;
-	(*doors) = ft_calloc(sizeof(t_door *), grid->dim.y + 1);
+	(*doors) = ft_calloc(grid->dim.y + 1, sizeof(t_door *));
 	if (!(*doors))
 		return (1);
 	while (i < grid->dim.y)
 	{
 		row_len = ft_strlen(grid->grid[i]);
-		(*doors)[i] = ft_calloc(sizeof(t_door), row_len + 1);
+		(*doors)[i] = ft_calloc(row_len + 1, sizeof(t_door));
 		if (!(*doors)[i])
 			return (1);
 		_fill_row((*doors)[i], grid->grid[i]);
 		i++;
 	}
 	return (0);
+}
+
+void	uninstall_doors(t_door ***doors)
+{
+	size_t	i;
+
+	if (*doors)
+	{
+		i = 0;
+		while ((*doors)[i])
+		{
+			free((*doors)[i]);
+			(*doors)[i] = NULL;
+			i++;
+		}
+		free(*doors);
+		(*doors) = NULL;
+	}
 }
