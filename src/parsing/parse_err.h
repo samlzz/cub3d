@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 23:12:46 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/28 18:42:29 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 11:21:14 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ enum e_parse_err
 	PE_U_MAP_PLAYER_MANY,
 	PE_U_MAP_OPEN,
 	PE_U_MAP_NO_WALKABLE,
+	PE_U_TRAILING_CONTENT,
 	PE__COUNT
 };
 

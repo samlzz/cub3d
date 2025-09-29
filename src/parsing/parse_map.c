@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 17:21:24 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/28 18:48:56 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 12:31:00 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,56 +14,25 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-#include "cubmap.h"
 #include "libft.h"
-#include "ft_gnl.h"
-#include "parsing/parse_err.h"
 #include "str_lst.h"
 #include "fields.h"
-#include "parser.h"
+#include "cubmap.h"
 #include "parse_utils.h"
-
-/* Retrieve files content in a nested list
-	Increment size but not initialize it, it's caller responsability
-	If an empty line occurs in the middle of the map content:
-		kepp *size value
-	If an internal error occurs:
-		set *size to -1
-	and return NULL
-	*/
-static t_strlst	*_retrieve_map_lines(int fd, char *first_ln, int32_t *size)
-{
-	t_strlst	*head;
-	char		*line;
-	ssize_t		gnl_ret;
-	bool		trailing_blank;
-
-	head = NULL;
-	trailing_blank = false;
-	line = first_ln;
-	while (line)
-	{
-		if (ft_isln_empty(line))
-		{
-			trailing_blank = true;
-			free(line);
-		}
-		else if (trailing_blank)
-			return (strlst_clear(head), free(line), NULL);
-		else if (strlst_add_node(&head, line, size))
-			return (strlst_clear(head), free(line), *size = -1, NULL);
-		gnl_ret = ft_getline(&line, fd);
-		if (gnl_ret < 0)
-			return (strlst_clear(head), *size = -1, NULL);
-	}
-	return (head);
-}
+#include "parse_err.h"
+#include "parser.h"
 
 static inline t_parse_err	_handle_invalid_map_ln(struct s_diag *d, int32_t i, char c_err)
 {
+	char	inv_char[4];
+
+	ft_memset(inv_char, '\'', 4);
+	inv_char[1] = c_err;
+	inv_char[3] = 0;
 	d->file_line = i;
-	d->what = ft_strjoin("invalid character in map content: ", &c_err);
+	d->what = ft_strjoin(inv_char, " is an invalid map character");
 	if (!d->what)
 		return (perror("cub3d: parse_grid: malloc"), PE_INTERNAL);
 	return (PE_U_MALFORMED);
@@ -76,7 +45,7 @@ static t_parse_err	_parse_grid(t_strlst *lines, int32_t count, t_grid *grid, str
 
 	grid->dim.y = count;
 	grid->grid = ft_calloc(count + 1, sizeof (char *));
-	if (!grid)
+	if (!grid->grid)
 		return (perror("cub3d: parse_grid: malloc"), PE_INTERNAL);
 	grid->dim.x = INT_MIN;
 	i = 0;
@@ -97,30 +66,19 @@ static t_parse_err	_parse_grid(t_strlst *lines, int32_t count, t_grid *grid, str
 	return (PE_OK);
 }
 
-t_parse_err	parse_map_flow(int fd, char *first_line, t_parser *p)
+t_parse_err	parse_map(t_strlst *content, int32_t size, t_grid *out, struct s_diag *d)
 {
 	t_parse_err	code;
-	t_strlst	*head;
-	t_grid		*normalized;
-	int32_t		lines_count;
-
-	lines_count = 0;
-	head = _retrieve_map_lines(fd, first_line, &lines_count);
-	if (!head && lines_count == -1)
-		return (PE_INTERNAL);
-	else if (!head)
-	{
-		p->diag.file_line = lines_count;
-		p->diag.what = ft_strdup("emtpy line in map content");
-		return (PE_U_MALFORMED);
-	}
-	code = _parse_grid(head, lines_count, &p->out->g, &p->diag);
-	strlst_clear(head);
+	t_grid		*n;
+	
+	code = _parse_grid(content, size, out, d);
 	if (code)
 		return (code);
-	normalized = get_normalized_grid(&p->out->g);
-	if (!normalized)
+	n = get_normalized_grid(out);
+	if (!n)
 		return (PE_INTERNAL);
-	code = validate_map_closed(normalized);
-	return (free_grid(normalized), free(normalized), code);
+	code = validate_map_closed(n);
+	free_grid(n);
+	free(n);
+	return (code);
 }

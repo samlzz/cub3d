@@ -46,9 +46,9 @@ FILES =	cubmap.c \
 		loop/render/render_frame.c \
 		loop/render/render_minimap.c \
 		parsing/fields.c \
-		parsing/fields_get.c \
 		parsing/map_validate.c \
 		parsing/parse_err.c \
+		parsing/parse_flow.c \
 		parsing/parse_map.c \
 		parsing/parse_utils.c \
 		parsing/parser.c \

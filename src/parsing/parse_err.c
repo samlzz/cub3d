@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 10:05:42 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 08:49:46 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 11:22:03 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ const char	*pe_str(t_parse_err code)
 		"missing player on map",
 		"too many players on map",
 		"map must be surrounded by walls",
-		"map must contains at least one walkable tile"
+		"map must contains at least one walkable tile",
+		"unexpected trailing content"
 	};
 	int32_t				idx;
 
