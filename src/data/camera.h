@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:56:57 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 17:27:45 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/29 12:37:28 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CAMERA_H
 
 # include "vec/vec.h"
-# include "data.h"
+# include "window.h"
 
 typedef struct s_data	t_data;
 typedef struct s_grid	t_grid;
@@ -28,7 +28,6 @@ struct s_camera
 	double	current_frame_time;
 	double	last_frame_time;
 	double	fov_factor;
-	double	zbuf[WIN_WIDTH];
 };
 
 void	camera_init(t_camera *cam, const t_grid map);

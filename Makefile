@@ -16,6 +16,8 @@ BIN_DIR   =
 FILES =	cubmap.c \
 		error.c \
 		main.c \
+		animated_asset/clear_animated_assets.c \
+		animated_asset/load_animated_assets.c \
 		data/camera.c \
 		data/camera_init.c \
 		data/cardinal_textures.c \

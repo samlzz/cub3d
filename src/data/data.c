@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 16:47:12 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/29 11:29:45 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include "data.h"
 #include "vec/vec.h"
 #include "door/door.h"
+#include "animated_asset/animated_asset.h"
+#include "window.h"
 
 void	data_init(t_data *data)
 {
@@ -28,8 +30,11 @@ void	data_init(t_data *data)
 	if (load_door_texture(&data->assets.door,
 			&data->mlx))
 		clear_data(data, true, EC_OPEN_TEXTURE_FAILURE);
+	if (load_animated_assets(&data->assets, &data->mlx))
+		clear_data(data, true, EC_OPEN_TEXTURE_FAILURE);
 	if (install_doors(&data->map.g, &data->map.doors))
 		clear_data(data, true, EC_INSTALLING_DOOR_FAILURE);
+	build_all_sprites(&data->map.sprites, &data->assets);
 	install_hooks(data);
 	install_frame_engine(data);
 	camera_init(&data->camera, data->map.g);
@@ -65,6 +70,8 @@ void	clear_data(t_data *data, bool fatal, int16_t exit_code)
 			data->assets.cardinal_textures);
 	if (fatal)
 		fatal_clear_door_texture(&data->mlx, &data->assets.door);
+	if (fatal)
+		fatal_clear_animated_assets(&data->mlx, &data->assets);
 	if (fatal)
 		_fatal_clear_mlx(&data->mlx);
 	if (fatal)

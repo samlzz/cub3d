@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 15:57:15 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/29 15:27:47 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "color.h"
 # include "vec/vec.h"
 # include "door/door.h"
+# include "animated_asset/animated_asset.h"
 
 typedef enum e_directions	t_directions;
 typedef struct s_grid		t_grid;
@@ -48,7 +49,10 @@ struct s_map
 	char		*tex_paths[DIR_MAX];
 	t_color		*floor_colr;
 	t_color		*ceil_colr;
-};
+	t_sprite	sprites[SPRITE_NB];
+	int			sprite_order[SPRITE_NB];
+	double		sprite_distance_square[SPRITE_NB];
+}
 
 void	free_map(t_map *m);
 

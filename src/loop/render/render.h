@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 16:35:20 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/29 13:01:50 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 typedef struct s_img		t_img;
 typedef struct s_line		t_line;
 typedef struct s_dda_data	t_dda_data;
+typedef struct s_asset_data	t_asset_data;
 
 struct s_line
 {
@@ -58,6 +59,20 @@ struct s_dda_data
 	t_img			*tex_img;
 	uint32_t		color;
 	char			target;
+};
+
+struct s_asset_data
+{
+	int32_t	i;
+	int32_t	printed_sprit_index;
+	t_vec2d	camera_space_coordinate;
+	int32_t	sprite_center_x_screen_space;
+	int32_t	sprite_height;
+	int32_t	sprite_width;
+	t_vec2i	left_bound;
+	t_vec2i	right_bound;
+	t_img	frame_asset_img;
+	int32_t	frame_index;
 };
 
 t_vec2d	get_ray_dir(t_camera *cam, int32_t x);

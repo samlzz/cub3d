@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 18:09:48 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/29 12:41:41 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,6 @@
 # include "cubmap.h"
 # include "camera.h"
 # include "animated_asset/animated_asset.h"
-
-# ifndef WIN_HEIGHT
-#  define WIN_HEIGHT	700
-# endif
-# ifndef WIN_WIDTH
-#  define WIN_WIDTH		1100
-# endif
-# ifndef WIN_NAME
-#  define WIN_NAME		"cub3d"
-# endif
-# ifndef FOV_FACTOR
-#  define FOV_FACTOR		0.66
-# endif
 
 # ifdef __linux__
 
@@ -63,6 +50,7 @@ typedef struct s_inputs	t_inputs;
 typedef struct s_mlx	t_mlx;
 typedef struct s_data	t_data;
 typedef struct s_assets	t_assets;
+typedef struct s_camera	t_camera;
 
 struct s_img
 {
@@ -79,7 +67,8 @@ struct s_assets
 {
 	t_img	cardinal_textures[DIR_MAX];
 	t_img	door;
-	t_img	mewtwo[MEWTWO_SPRITE_NB];
+	t_img	mewtwo_imgs[MEWTWO_SPRITE_NB];
+	char	mewtwo_paths[MEWTWO_SPRITE_NB][ASSET_PATH_SIZE];
 };
 
 struct s_inputs
@@ -102,11 +91,12 @@ struct s_mlx
 
 struct s_data
 {
-	struct s_camera	camera;
+	t_camera		camera;
 	t_mlx			mlx;
 	t_inputs		inputs;
 	t_map			map;
 	t_assets		assets;
+	double			zbuf[WIN_WIDTH];
 };
 
 enum e_exit_code
@@ -139,4 +129,9 @@ int16_t	load_door_texture(t_img *door_texture,
 			t_mlx *mlx);
 void	fatal_clear_door_texture(t_mlx *mlx, t_img *door_texture);
 bool	file_found_and_readable(char *path);
+int16_t	load_animated_assets(t_assets *assets, t_mlx *mlx);
+void	install_mewtwo_assets_paths(char (*mewtwo_assets)[ASSET_PATH_SIZE]);
+void	fatal_clear_animated_assets(t_mlx *mlx, t_assets *assets);
+void	build_all_sprites(t_sprite sprites[SPRITE_NB], t_assets *assets);
+
 #endif
