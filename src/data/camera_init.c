@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:44:59 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 20:08:43 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 16:36:14 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "test/test.h"
 #include "vec/vec.h"
 #include "vec/ftmath_utils.h"
-#include "parsing/parse_utils.h"
 
 /* Return dedicated angle corresponding to go from EAST to `direction` */
 static int16_t	_dir_to_angle(char direction, double *theta)
@@ -61,7 +60,7 @@ static void	deduce_cam_setting_from_player_pos(t_camera *cam, const t_grid map)
 		while (i.x < map.dim.x && row[i.x])
 		{
 			c = row[i.x];
-			if (ft_is_walkable(c) && c != '0')
+			if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
 				_set_up_camera_vecs(cam, map.dim.y, i, c);
 			i.x++;
 		}

@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:29:02 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 16:20:11 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 16:35:15 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ static inline t_parse_err	_check_pos(const t_grid *n, const t_vec2i *pos,
 	if (!ft_is_walkable(v))
 		return (PE_OK);
 	*has_walkable = true;
-	if (v != '0')
+	if (v != '0' && v != 'D')
 		(*usr_occ)++;
 	if (*usr_occ > 1)
 		return (PE_U_MAP_PLAYER_MANY);

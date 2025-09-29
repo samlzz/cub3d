@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/28 19:36:33 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 16:01:31 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	data_init(t_data *data)
 		data->map.g.dim
 	))
 		data_exit(data, EC_MLX_INIT_ERROR);
-	if (ft_mlx_textures_load_list(data->map.textures, DIR_MAX, &data->mlx))
+	if (ft_mlx_textures_load_list(data->map.textures, TEX__COUNT, &data->mlx))
 		data_exit(data, EC_OPEN_TEXTURE_FAILURE);
 	install_hooks(data);
 	install_frame_engine(data);

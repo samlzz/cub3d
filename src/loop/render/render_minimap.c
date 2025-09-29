@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 22:53:10 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 21:18:29 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 16:37:01 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ static t_color	_find_color(t_mlx *mlx, char cell, t_vec2i i)
 		color.value = C_DARK_GRAY;
 	else if (cell == '0')
 		color.value = C_LIGHT_GRAY;
+	else if (cell == 'D')
+		color.value = C_GREEN;
 	else if (ft_is_walkable(cell))
 		color.value = C_RED;
 	else
