@@ -6,13 +6,14 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:30:20 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 21:17:47 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 18:59:06 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdint.h>
 
 #include "ft_mlx/ft_mlx_img.h"
+#include "data/window.h"
 #include "data/data.h"
 #include "render.h"
 

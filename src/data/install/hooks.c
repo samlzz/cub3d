@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:38:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/28 19:26:52 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 18:52:05 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ static int	on_key_press(int keycode, t_data *data)
 {
 	if (keycode == XK_Escape)
 		data_exit(data, EC_SUCCESS);
-	if (keycode == KEY_W)
+	if (keycode == KEY_E)
+		data->inputs.try_to_interact_with_door = true;
+	else if (keycode == KEY_W)
 		data->inputs.forward = true;
 	else if (keycode == KEY_S)
 		data->inputs.backward = true;

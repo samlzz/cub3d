@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 16:01:31 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 18:56:11 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 #include "mlx.h"
 #include "data.h"
 #include "vec/vec.h"
+#include "door/door.h"
+#include "animated_asset/animated_asset.h"
+#include "window.h"
 
 void	data_init(t_data *data)
 {
@@ -31,6 +34,11 @@ void	data_init(t_data *data)
 		data_exit(data, EC_MLX_INIT_ERROR);
 	if (ft_mlx_textures_load_list(data->map.textures, TEX__COUNT, &data->mlx))
 		data_exit(data, EC_OPEN_TEXTURE_FAILURE);
+	if (load_animated_assets(&data->assets, &data->mlx))
+		clear_data(data, true, EC_OPEN_TEXTURE_FAILURE);
+	if (install_doors(&data->map.g, &data->map.doors))
+		clear_data(data, true, EC_INSTALLING_DOOR_FAILURE);
+	build_all_sprites(&data->map.sprites, &data->assets);
 	install_hooks(data);
 	install_frame_engine(data);
 	camera_init(&data->camera, data->map.g);
@@ -54,6 +62,8 @@ static void	_fatal_clear_mlx(t_mlx *mlx)
 void	data_exit(t_data *data, t_init_error code)
 {
 	free_map(&data->map, &data->mlx);
+	fatal_clear_door_texture(&data->mlx, &data->assets.door);
+	fatal_clear_animated_assets(&data->mlx, &data->assets);
 	_fatal_clear_mlx(&data->mlx);
 	// todo: handle err message depends on code
 	exit(code);

@@ -15,11 +15,17 @@ BIN_DIR   =
 ### UFILES_START ###
 FILES =	cubmap.c \
 		main.c \
+		animated_asset/clear_animated_assets.c \
+		animated_asset/load_animated_assets.c \
 		data/camera.c \
 		data/camera_init.c \
 		data/data.c \
+		data/door_texture.c \
 		data/install/hooks.c \
 		data/install/mlx.c \
+		door/change_door_state.c \
+		door/fatal_clear_doors.c \
+		door/install_doors.c \
 		lib/color.c \
 		lib/str_lst.c \
 		lib/ft_mlx/ft_mlx_img.c \
@@ -35,6 +41,9 @@ FILES =	cubmap.c \
 		loop/app_update.c \
 		loop/clamp_move_try_length.c \
 		loop/get_time.c \
+		loop/player_target_is_a_reachable_door.c \
+		loop/player_wont_get_stuck_if_door_is_closing.c \
+		loop/row_from_worldY.c \
 		loop/try_move_and_update_pos.c \
 		loop/render/dda_algorithm.c \
 		loop/render/dda_draw.c \
@@ -137,7 +146,7 @@ endif
 
 OUT := $(if $(BIN_DIR),$(BIN_DIR),./)$(NAME)
 
-export VERBOSE    ?= false
+export VERBOSE    ?= true
 export P := @
 ifeq ($(VERBOSE),true)
 	P :=

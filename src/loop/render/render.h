@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/26 14:11:49 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 19:01:04 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@
 # include "data/data.h"
 
 # define BIG 1e30
+# define FOG_DENSITY 0.1
+# define FOG_COLOR BLACK
 
 typedef struct s_img		t_img;
 typedef struct s_ddaline	t_ddaline;
 typedef struct s_dda_data	t_dda_data;
+typedef struct s_asset_data	t_asset_data;
 
 struct s_ddaline
 {
@@ -55,8 +58,24 @@ struct s_dda_data
 	int32_t			y;
 	t_img			*tex_img;
 	uint32_t		color;
+	char			target;
 };
 
+struct s_asset_data
+{
+	int32_t	i;
+	int32_t	printed_sprit_index;
+	t_vec2d	camera_space_coordinate;
+	int32_t	sprite_center_x_screen_space;
+	int32_t	sprite_height;
+	int32_t	sprite_width;
+	t_vec2i	left_bound;
+	t_vec2i	right_bound;
+	t_img	frame_asset_img;
+	int32_t	frame_index;
+};
+
+t_vec2d	get_ray_dir(t_camera *cam, int32_t x);
 void	render_frame(t_data *data);
 
 // *DDA

@@ -40,4 +40,10 @@ void	clamp_move_try_length(t_vec2d *move_try,
 			double time_delta_beetwen_frame);
 void	try_move_and_update_pos(t_data *data, t_vec2d move_try);
 
+bool	player_target_is_a_reachable_door(t_data *data,
+			t_vec2i *player_target);
+bool	player_target_is_a_reachable_door(t_data *data, t_vec2i *player_target);
+bool	player_wont_get_stuck_if_door_is_closing(
+			t_data *data, t_vec2i *player_target);
+
 #endif

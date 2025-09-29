@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/28 19:25:51 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 19:17:05 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,21 @@
 # include <stdbool.h>
 # include <stdint.h>
 
-# include "camera.h"
 # include "cubmap.h"
-# include "vec/vec.h"
-# include "ft_mlx/ft_mlx_img.h"
-
-# ifndef WIN_HEIGHT
-#  define WIN_HEIGHT	700
-# endif
-# ifndef WIN_WIDTH
-#  define WIN_WIDTH		1100
-# endif
-# ifndef WIN_NAME
-#  define WIN_NAME		"cub3d"
-# endif
-
-# ifndef FOV_FACTOR
-#  define FOV_FACTOR	0.66
-# endif
-# ifndef MOUSE_SENSITIVITY
-#  define MOUSE_SENSITIVITY 0.0025 /* radians/pixel à ajuster */
-# endif
-
+# include "camera.h"
+# include "window.h"
+# include "animated_asset/animated_asset.h"
 
 # ifdef __linux__
 
-#  define KEY_W      119
-#  define KEY_A      97
-#  define KEY_S      115
-#  define KEY_D      100
+#  define KEY_ESC			65307
+#  define KEY_W				119
+#  define KEY_A				97
+#  define KEY_S				115
+#  define KEY_D				100
+#  define KEY_LEFT			65361
+#  define KEY_RIGHT			65363
+#  define KEY_E				101
 #  define E_DESTROY_NOTIFY -1
 
 # else
@@ -84,6 +70,7 @@ struct s_inputs
 	bool	right;
 	bool	turn_left;
 	bool	turn_right;
+	bool	try_to_interact_with_door;
 	t_mouse	cursor;
 };
 
@@ -102,6 +89,7 @@ struct s_data
 	t_mlx		mlx;
 	t_inputs	inputs;
 	t_map		map;
+	double		zbuf[WIN_WIDTH];
 };
 
 enum e_init_error
@@ -111,6 +99,7 @@ enum e_init_error
 	EC_MLX_INIT_ERROR,
 	EC_DDA_RAYDIR_VEC_ZERO,
 	EC_OPEN_TEXTURE_FAILURE,
+	EC_INSTALLING_DOOR_FAILURE,
 };
 
 void	data_init(t_data *data);
@@ -124,5 +113,15 @@ int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i img_dim);
 void	install_hooks(t_data *data);
 
 void	install_frame_engine(t_data *data);
+
+int16_t	load_door_texture(t_img *door_texture,
+			t_mlx *mlx);
+void	fatal_clear_door_texture(t_mlx *mlx, t_img *door_texture);
+bool	file_found_and_readable(char *path);
+
+int16_t	load_animated_assets(t_assets *assets, t_mlx *mlx);
+void	install_mewtwo_assets_paths(char (*mewtwo_assets)[ASSET_PATH_SIZE]);
+void	fatal_clear_animated_assets(t_mlx *mlx, t_assets *assets);
+void	build_all_sprites(t_sprite sprites[SPRITE_NB], t_assets *assets);
 
 #endif

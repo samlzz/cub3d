@@ -6,23 +6,28 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/28 19:20:32 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 19:00:03 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBMAP_H
 # define CUBMAP_H
 
+# define DOOR_PATH "./assets/texture/DOOM/door/green_organic.xpm"
+
 # include <stdint.h>
 
 # include "color.h"
 # include "ft_mlx/ft_mlx_texture.h"
 # include "vec/vec.h"
+# include "door/door.h"
+# include "animated_asset/animated_asset.h"
 
 typedef enum e_directions	t_directions;
 typedef enum e_texture_id	t_texture_id;
 typedef struct s_grid		t_grid;
 typedef struct s_map		t_map;
+typedef struct s_door		t_door;
 
 enum e_directions
 {
@@ -30,7 +35,7 @@ enum e_directions
 	DIR_S,
 	DIR_E,
 	DIR_W,
-	DIR_MAX
+	DIR_MAX,
 };
 
 enum e_texture_id
@@ -55,6 +60,10 @@ struct s_map
 	t_texture	textures[TEX__COUNT];
 	t_color		floor_colr;
 	t_color		ceil_colr;
+	t_door		**doors;
+	t_sprite	sprites[SPRITE_NB];
+	int			sprite_order[SPRITE_NB];
+	double		sprite_distance_square[SPRITE_NB];
 };
 
 void	free_map(t_map *m, t_mlx *mlx);
