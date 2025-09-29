@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 22:10:36 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 11:42:45 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 16:20:51 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ t_parse_err	parse_rest_wrap(int fd, char *first_ln, t_parser *p);
 t_parse_err	parse_map(t_strlst *content, int32_t size, t_grid *out, struct s_diag *d);
 
 t_grid		*get_normalized_grid(const t_grid *usr_map);
-t_parse_err	validate_map_closed(const t_grid *normalized);
+t_parse_err	validate_map_closed(const t_grid *normalized, int32_t *y_err);
 
 #endif
