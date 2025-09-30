@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 21:26:58 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 15:47:46 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:53:41 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef enum e_parse_err	t_parse_err;
 struct s_diag;
 struct s_parser;
 
+# ifdef CUB3D_BONUS
+
 enum e_field_id
 {
 	FI_INVALID = -1,
@@ -36,6 +38,21 @@ enum e_field_id
 	FI_MAP,
 	FI__COUNT
 };
+# else
+
+enum e_field_id
+{
+	FI_INVALID = -1,
+	FI_NO,
+	FI_SO,
+	FI_EA,
+	FI_WE,
+	FI_FLOOR,
+	FI_CEIL,
+	FI_MAP,
+	FI__COUNT
+};
+# endif
 
 enum e_field_kind
 {

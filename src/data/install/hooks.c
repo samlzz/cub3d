@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:38:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 14:40:56 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:39:17 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <X11/Xutil.h>
 #include <stdint.h>
 
+#include "cubmap.h"
 #include "data/camera.h"
 #include "mlx.h"
 #include "../data.h"
@@ -100,5 +101,6 @@ void	install_hooks(t_data *data)
 		&on_key_release, data);
 	mlx_hook(data->mlx.window, DestroyNotify, StructureNotifyMask,
 		&on_destroy_notify, data);
-	mlx_hook(data->mlx.window, MotionNotify, PointerMotionMask, &on_mouse_move, data);
+	if (CUB_BONUS)
+		mlx_hook(data->mlx.window, MotionNotify, PointerMotionMask, &on_mouse_move, data);
 }

@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:22:45 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 16:33:03 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:57:30 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdint.h>
 #include <stddef.h>
 
+#include "cubmap.h"
 #include "libft.h"
 
 bool	ft_isspace(int c)
@@ -49,8 +50,11 @@ bool	ft_isln_empty(const char *ln)
 
 bool	ft_is_walkable(char c)
 {
-	return (c == '0' || c == 'D'
-			|| c == 'N' || c == 'S' || c == 'E' || c == 'W');
+	if (CUB_BONUS)
+		return (c == '0' || c == 'D'
+				|| c == 'N' || c == 'S' || c == 'E' || c == 'W');
+	else
+		return (c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W');
 }
 
 bool	ft_isln_valid(const char *ln, size_t *err_idx)
