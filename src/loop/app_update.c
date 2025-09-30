@@ -6,14 +6,13 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:09:09 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:15:35 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:05:57 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data/camera.h"
 #include "data/data.h"
 #include "loop.h"
-#include "test/test.h"
 #include "vec/vec.h"
 
 static inline double	get_side_move_sclar(t_data *data,

@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:09:09 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:12:22 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:05:54 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include "data/camera.h"
 # include "data/data.h"
 # include "loop.h"
-# include "test/test.h"
 # include "vec/vec.h"
 # include "door/door.h"
 

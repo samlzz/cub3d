@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:34:03 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 14:40:48 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:05:06 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 #include "libft.h"
 #include "data/data.h"
 #include "parsing/parser.h"
-#include "test/test.h"
 
 #define ERR_WRONG_USAGE "Usage: ./cub3d <path_to_map_file>.cub"
 
@@ -35,7 +34,6 @@ int	main(int32_t ac, char *av[])
 	code = parse_cub(av[1], &data.map);
 	if (code)
 		return (free_map(&data.map, &data.mlx), code);
-	print_map(&data.map);
 	data_init(&data);
 	mlx_loop(data.mlx.display);
 	data_exit(&data, IE_SUCCESS);

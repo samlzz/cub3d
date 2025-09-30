@@ -6,14 +6,13 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:44:59 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 16:22:31 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:05:34 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cubmap.h"
 #include "window.h"
 #include "camera.h"
-#include "test/test.h"
 #include "vec/vec.h"
 #include "vec/ftmath_utils.h"
 

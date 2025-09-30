@@ -69,8 +69,7 @@ FILES =	cubmap.c \
 		parsing/parse_map.c \
 		parsing/parse_utils.c \
 		parsing/parser.c \
-		parsing/parser_wrapper.c \
-		test/print_cubmap.c
+		parsing/parser_wrapper.c
 ### END ###
 ifeq ($(FILES),)
     $(error FILES is empty: please define source files)
