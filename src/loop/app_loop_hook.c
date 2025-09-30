@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:07:14 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:41:11 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:57:53 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,5 @@ int	app_loop_hook(t_data *data)
 		data->mlx.minimap_pos.y);
 	return (0);
 }
-
 
 #endif

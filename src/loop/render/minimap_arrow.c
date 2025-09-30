@@ -6,11 +6,11 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 14:56:39 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:37:51 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:59:07 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifdef CUB3D_BONUS
+#ifdef CUB3D_BONUS
 
 # include <stdint.h>
 

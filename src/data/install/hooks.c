@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:38:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:31:29 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:03:18 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,6 @@ void	install_hooks(t_data *data)
 	mlx_hook(data->mlx.window, DestroyNotify, StructureNotifyMask,
 		&on_destroy_notify, data);
 	if (CUB_BONUS)
-		mlx_hook(data->mlx.window, MotionNotify, PointerMotionMask, &on_mouse_move, data);
+		mlx_hook(data->mlx.window, MotionNotify, PointerMotionMask,
+			&on_mouse_move, data);
 }

@@ -6,11 +6,11 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:33:52 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 17:37:30 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:59:27 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifdef CUB3D_BONUS
+#ifdef CUB3D_BONUS
 
 # include "color.h"
 # include "ft_mlx/ft_mlx_img.h"

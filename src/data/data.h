@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:31:23 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:02:47 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_inputs		t_inputs;
 typedef struct s_mlx		t_mlx;
 typedef struct s_data		t_data;
 
-#ifdef CUB3D_BONUS
+# ifdef CUB3D_BONUS
 
 typedef struct s_mouse		t_mouse;
 struct s_mouse
@@ -73,7 +73,7 @@ struct s_mlx
 	t_vec2i	minimap_pos;
 };
 
-#else
+# else
 
 struct s_inputs
 {
@@ -93,7 +93,7 @@ struct s_mlx
 	t_img	game;
 };
 
-#endif
+# endif
 
 struct s_data
 {
@@ -109,16 +109,16 @@ void	data_exit(t_data *data, t_init_error code);
 
 // * Install
 
-#ifdef CUB3D_BONUS
+# ifdef CUB3D_BONUS
 
 int16_t	install_mlx(t_mlx *mlx, t_vec2i screen, t_mouse *cursor, t_vec2i grid);
 
 int16_t	install_doors(t_grid *grid, t_door ***doors);
 void	uninstall_doors(t_door ***doors);
-#else
+# else
 
 int16_t	install_mlx(t_mlx *mlx, t_vec2i screen);
-#endif
+# endif
 
 int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i img_dim);
 

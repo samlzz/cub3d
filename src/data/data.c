@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:29:25 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:00:22 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ static void	_fatal_clear_mlx(t_mlx *mlx)
 void	data_init(t_data *data)
 {
 	if (install_mlx(
-		&data->mlx,
-		(t_vec2i){WIN_WIDTH, WIN_HEIGHT}
+			&data->mlx,
+			(t_vec2i){WIN_WIDTH, WIN_HEIGHT}
 	))
 		data_exit(data, IE_MLX_INIT_ERROR);
 	if (ft_mlx_textures_load_list(data->map.textures, TEX__COUNT, &data->mlx))

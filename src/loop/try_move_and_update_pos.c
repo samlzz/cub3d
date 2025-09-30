@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:15:11 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:42:20 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:58:35 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ static bool	_can_stand_at_(t_map *map, double x, double y, double r)
 	miny = get_y_pos(map->g.dim.y, y + r + EPS);
 	maxy = get_y_pos(map->g.dim.y, y - r - EPS);
 	if (_is_blocking_(&map->g, minx, miny)
-		|| _is_blocking_(&map->g,  minx, maxy)
-		|| _is_blocking_(&map->g,  maxx, miny)
-		|| _is_blocking_(&map->g,  maxx, maxy))
+		|| _is_blocking_(&map->g, minx, maxy)
+		|| _is_blocking_(&map->g, maxx, miny)
+		|| _is_blocking_(&map->g, maxx, maxy))
 		return (false);
 	else
 		return (true);

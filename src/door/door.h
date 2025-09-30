@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 11:30:55 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:06:32 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:57:19 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 # ifdef CUB3D_BONUS
 
 // # define DOOR_TIME_TO_OPEN 0.7
-# define DOOR_DISTANCE_MAX_TO_BE_ABLE_TO_INTERACT 1.5
+#  define DOOR_DISTANCE_MAX_TO_BE_ABLE_TO_INTERACT 1.5
 
-# include <stdbool.h>
-# include <stdint.h>
+#  include <stdbool.h>
+#  include <stdint.h>
 
 typedef struct s_grid		t_grid;
 

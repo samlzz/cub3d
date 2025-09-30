@@ -6,13 +6,13 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 16:09:20 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:33:17 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:00:11 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifdef CUB3D_BONUS
 
-#include "render.h"
+# include "render.h"
 
 static int	get_frame_index(t_data *data, int number_of_frame)
 {
