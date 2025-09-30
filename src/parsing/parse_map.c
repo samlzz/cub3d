@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 17:21:24 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 15:54:12 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 18:25:50 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@
 #include "parse_err.h"
 #include "parser.h"
 
-static inline t_parse_err	_handle_invalid_map_ln(struct s_diag *d,
-								int32_t i, char c_err)
+t_parse_err	handle_invalid_map_ln(struct s_diag *d, int32_t i, char c_err)
 {
 	char	inv_char[4];
 
@@ -43,7 +42,7 @@ static t_parse_err	_parse_grid(t_strlst *lines, int32_t count,
 						t_grid *grid, struct s_diag *d)
 {
 	int32_t	i;
-	size_t	err_idx;
+	int32_t	err_idx;
 
 	grid->dim.y = count;
 	grid->grid = ft_calloc(count + 1, sizeof (char *));
@@ -58,7 +57,7 @@ static t_parse_err	_parse_grid(t_strlst *lines, int32_t count,
 		if (grid->grid[i])
 		{
 			if (!ft_isln_valid(grid->grid[i], &err_idx))
-				return (_handle_invalid_map_ln(d, i, grid->grid[i][err_idx]));
+				return (handle_invalid_map_ln(d, i, grid->grid[i][err_idx]));
 			if (lines->len > grid->dim.x)
 				grid->dim.x = lines->len;
 		}
