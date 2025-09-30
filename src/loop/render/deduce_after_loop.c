@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 17:20:29 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 19:14:46 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/29 21:41:02 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ void	deduce_wall_x(t_data *data, t_dda_data *dda)
 void	deduce_texture_related_data(t_data *data, t_dda_data *dda)
 {
 	if (dda->target == 'D')
-		dda->tex_img = data->map.textures[TEX_DOOR].img;
+		dda->tex_img = &data->map.textures[TEX_DOOR].img;
 	else
-		dda->tex_img = data->map.textures[dda->wall_orientation].img;
+		dda->tex_img = &data->map.textures[dda->wall_orientation].img;
 	dda->tex_x = (int)(dda->wall_x * (double)dda->tex_img->dim.x);
 	if ((dda->side == 0 && dda->ray_dir.x > 0)
 		|| (dda->side == 1 && dda->ray_dir.y < 0))
