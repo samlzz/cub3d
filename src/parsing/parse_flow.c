@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:17:11 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 13:04:25 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 02:26:24 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,15 +93,15 @@ Handle errors
 */
 t_parse_err	parse_flow(int fd, t_parser *p)
 {
-	char			*not_consumed_line;
+	char			*trailing;
 	t_parse_err		code;
 	t_field_id		i;
 	t_rest_parser	rest_fn;
 
-	not_consumed_line = NULL;
-	code = _parse_header_flow(fd, p, &not_consumed_line);
+	trailing = NULL;
+	code = _parse_header_flow(fd, p, &trailing);
 	if (code)
-		return (code);
+		return (free(trailing), code);
 	i = -1;
 	rest_fn = NULL;
 	while (++i < FI__COUNT)
@@ -109,13 +109,13 @@ t_parse_err	parse_flow(int fd, t_parser *p)
 		if (p->specs[i].metadata.kind == FK_REST)
 			rest_fn = p->specs[i].parser.rest;
 		else if (p->specs[i].metadata.required && !p->seen[i])
-			return (p->diag.owner = i, PE_U_MISSING_REQUIRED);
+			return (free(trailing), p->diag.owner = i, PE_U_MISSING_REQUIRED);
 	}
-	if (rest_fn && not_consumed_line)
-		return (rest_fn(fd, not_consumed_line, p));
+	if (rest_fn && trailing)
+		return (rest_fn(fd, trailing, p));
 	if (rest_fn)
 		return (PE_U_MAP_MISSING);
-	if (not_consumed_line)
-		return (p->diag.what = not_consumed_line, PE_U_TRAILING_CONTENT);
+	if (trailing)
+		return (p->diag.what = trailing, PE_U_TRAILING_CONTENT);
 	return (PE_OK);
 }
