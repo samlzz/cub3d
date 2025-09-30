@@ -6,13 +6,14 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 20:42:49 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 02:05:08 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdint.h>
 #include <stdlib.h>
 
+#include "data/sprite.h"
 #include "ft_mlx/ft_mlx_texture.h"
 #include "libft.h"
 #include "cubmap.h"
@@ -32,9 +33,9 @@ void	data_init(t_data *data)
 		data_exit(data, EC_MLX_INIT_ERROR);
 	if (install_doors(&data->map.g, &data->map.doors))
 		data_exit(data, EC_INSTALLING_DOOR_FAILURE);
-	if (ft_mlx_textures_load_list(data->map.textures, TEX__COUNT, &data->mlx))
+	if (ft_mlx_textures_load_list(data->map.textures, TEX__COUNT, &data->mlx)
+		|| install_sprites_bank(&data->map.bank, &data->mlx))
 		data_exit(data, EC_OPEN_TEXTURE_FAILURE);
-	// todo: handle sprite
 	install_hooks(data);
 	install_frame_engine(data);
 	camera_init(&data->camera, data->map.g);
@@ -58,7 +59,7 @@ static void	_fatal_clear_mlx(t_mlx *mlx)
 void	data_exit(t_data *data, t_init_error code)
 {
 	uninstall_doors(&data->map.doors);
-	// todo: handle sprite
+	clear_sprite_bank(&data->map.bank, &data->mlx);
 	free_map(&data->map, &data->mlx);
 	_fatal_clear_mlx(&data->mlx);
 	// todo: handle err message depends on code

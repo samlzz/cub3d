@@ -18,9 +18,11 @@ FILES =	cubmap.c \
 		data/camera.c \
 		data/camera_init.c \
 		data/data.c \
+		data/sprite.c \
 		data/install/doors.c \
 		data/install/hooks.c \
 		data/install/mlx.c \
+		data/install/sprite_bank.c \
 		door/change_door_state.c \
 		lib/color.c \
 		lib/str_lst.c \
