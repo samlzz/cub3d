@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   render_a_sprite.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 11:46:11 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 15:43:49 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 17:36:12 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "data/window.h"
-#include "render.h"
-#include "vec/vec.h"
+#ifdef CUB3D_BONUS
+
+# include "data/window.h"
+# include "render.h"
+# include "vec/vec.h"
 
 /* --- 2.2: tailles & position écran --- */
 static void	get_sprite_size_and_location_on_window(
@@ -68,3 +70,5 @@ void	render_a_sprit(t_data *data, t_sprite_rendering_data *sprite_data,
 	select_sprite_frame_img(data, sprite_data, printed_sprite);
 	draw_sprite(data, sprite_data);
 }
+
+#endif

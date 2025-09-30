@@ -3,25 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   render_minimap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 22:53:10 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 14:58:38 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 17:34:41 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdint.h>
+#ifdef CUB3D_BONUS
 
-#include "libft.h"
-#include "parsing/parse_utils.h"
-#include "color.h"
-#include "data/data.h"
-#include "ft_mlx/ft_mlx_img.h"
-#include "vec/ftmath_utils.h"
-#include "vec/vec.h"
-#include "minimap.h"
-#include "cubmap.h"
+# include <stddef.h>
+# include <stdint.h>
+
+# include "libft.h"
+# include "parsing/parse_utils.h"
+# include "color.h"
+# include "data/data.h"
+# include "ft_mlx/ft_mlx_img.h"
+# include "vec/ftmath_utils.h"
+# include "vec/vec.h"
+# include "minimap.h"
+# include "cubmap.h"
 
 static inline void	_fill_one_square(t_img *img, t_vec2i square_pos,
 	int32_t size, t_color color)
@@ -124,3 +126,5 @@ void	render_minimap(t_mlx *mlx, const t_grid *grid, const t_camera *cam)
 	ft_mlx_img_put_rect(&mlx->minimap, MINIMAP_BORDER_PX,
 		(t_color){.value = MINIMAP_BORDER_COLOR});
 }
+
+#endif

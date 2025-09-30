@@ -6,16 +6,18 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 13:56:24 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 14:04:29 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:33:39 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#ifdef CUB3D_BONUS
 
-#include "data/camera.h"
-#include "data/sprite.h"
-#include "vec/ftmath_utils.h"
-#include "vec/vec.h"
+# include <stddef.h>
+
+# include "data/camera.h"
+# include "data/sprite.h"
+# include "vec/ftmath_utils.h"
+# include "vec/vec.h"
 
 void	set_up_sprites_for_sort(t_sprites_data *bank, t_camera *cam)
 {
@@ -51,3 +53,5 @@ void	sort_sprite(t_sprites_data *bank)
 		i++;
 	}
 }
+
+#endif

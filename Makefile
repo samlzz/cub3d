@@ -17,12 +17,14 @@ FILES =	cubmap.c \
 		main.c \
 		data/camera.c \
 		data/data.c \
+		data/data_bonus.c \
 		data/init_err.c \
 		data/sprite.c \
 		data/install/doors.c \
 		data/install/hooks.c \
 		data/install/mlx.c \
-		data/install/sprite_bank.c \
+		data/install/mlx_bonus.c \
+		data/install/sprite_bank_bonus.c \
 		door/change_door_state.c \
 		lib/color.c \
 		lib/str_lst.c \
@@ -38,6 +40,7 @@ FILES =	cubmap.c \
 		lib/vec/vec2i.c \
 		loop/app_loop_hook.c \
 		loop/app_update.c \
+		loop/app_update_bonus.c \
 		loop/clamp_move_try_length.c \
 		loop/get_time.c \
 		loop/player_target_is_a_reachable_door.c \
@@ -47,6 +50,7 @@ FILES =	cubmap.c \
 		loop/render/dda_draw.c \
 		loop/render/dda_loop.c \
 		loop/render/deduce_after_loop.c \
+		loop/render/deduce_after_loop_bonus.c \
 		loop/render/draw_sprite.c \
 		loop/render/init_dda.c \
 		loop/render/minimap_arrow.c \
@@ -58,6 +62,7 @@ FILES =	cubmap.c \
 		loop/render/select_sprite_frame_img.c \
 		loop/render/sprites_ditances.c \
 		parsing/fields.c \
+		parsing/fields_bonus.c \
 		parsing/map_validate.c \
 		parsing/parse_err.c \
 		parsing/parse_flow.c \
@@ -205,10 +210,6 @@ fclean: clean
 .PHONY: re
 re: fclean all
 
-.PHONY: run
-run: $(OUT)
-ifneq ($(suffix $(NAME)), .a)
-	$(OUT)
-else
-	@echo "Nothing to run for a static library: $(OUT)"
-endif
+.PHONY: bonus
+bonus: CFLAGS += -DCUB3D_BONUS
+bonus: re

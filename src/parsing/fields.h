@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 21:26:58 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 16:46:56 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:48:20 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,9 @@ struct s_field
 	t_parse_fn		parser;
 	void			*dst;
 };
+
+t_field_meta	fields_get_metadata(t_field_id id);
+void			*fields_get_dst(t_map *m, t_field_id id);
 
 void			fields_init(t_map *map, t_field *specs, t_field_id end);
 t_field_id		fields_get_by_key(const char *key, size_t len,

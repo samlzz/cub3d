@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_frame.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:25 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:19:49 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 17:35:54 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 #include "data/camera.h"
 #include "vec/vec.h"
 #include "render.h"
-#include "minimap.h"
+#ifdef CUB3D_BONUS
+# include "minimap.h"
+#endif
 
 t_vec2d	get_ray_dir(t_camera *cam, int32_t x)
 {

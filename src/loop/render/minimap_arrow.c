@@ -3,19 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_arrow.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 14:56:39 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 15:07:10 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 17:37:51 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mlx/ft_mlx_img.h"
-#include "color.h"
-#include "loop/loop.h"
-#include "minimap.h"
-#include "vec/vec.h"
-#include <stdint.h>
+# ifdef CUB3D_BONUS
+
+# include <stdint.h>
+
+# include "ft_mlx/ft_mlx_img.h"
+# include "color.h"
+# include "loop/loop.h"
+# include "minimap.h"
+# include "vec/vec.h"
 
 static inline t_vec2d	_tri_centroid(t_vec2iv3 tri)
 {
@@ -85,3 +88,5 @@ void	arrow_triangle_draw(t_img *minimap, t_vec2iv3 tri,
 	}
 	ft_mlx_img_put_triangle(minimap, tri, fill);
 }
+
+#endif

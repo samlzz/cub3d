@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 21:50:00 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 16:48:19 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:48:39 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # include <stdbool.h>
 
+# include "cubmap.h"
 # include "fields.h"
 
 t_field_meta	fields_get_metadata(t_field_id id)

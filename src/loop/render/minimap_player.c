@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_player.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:33:52 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 15:43:10 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 17:37:30 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
-#include "ft_mlx/ft_mlx_img.h"
-#include "loop/loop.h"
-#include "minimap.h"
-#include "vec/vec.h"
+# ifdef CUB3D_BONUS
+
+# include "color.h"
+# include "ft_mlx/ft_mlx_img.h"
+# include "loop/loop.h"
+# include "minimap.h"
+# include "vec/vec.h"
 
 static void	_draw_player_dir_triangle(t_img *minimap, const t_vec2d cam_dir,
 	const t_vec2i player)
@@ -60,3 +62,5 @@ void	render_minimap_player(t_img *minimap, t_vec2i start, int32_t grid_h,
 		(t_color){.value = C_PLAYER});
 	_draw_player_dir_triangle(minimap, cam->dir, player);
 }
+
+#endif

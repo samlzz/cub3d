@@ -6,14 +6,16 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:49:28 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 13:51:52 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:34:04 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#ifdef CUB3D_BONUS
 
-#include "render.h"
-#include "vec/vec.h"
+# include <stddef.h>
+
+# include "render.h"
+# include "vec/vec.h"
 
 static void	get_camera_space_coordinate(t_camera *cam, t_sprite *sprite,
 					t_vec2d *out)
@@ -58,3 +60,5 @@ void	render_sprites_in_fov(t_data *data)
 		i++;
 	}
 }
+
+#endif

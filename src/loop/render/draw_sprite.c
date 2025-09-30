@@ -3,18 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 16:11:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 15:10:07 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 17:38:28 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "data/window.h"
-#include "render.h"
-#include "ft_mlx/ft_mlx_img.h"
-#include "vec/vec.h"
-#include <stdint.h>
+#ifdef CUB3D_BONUS
+
+# include <stdint.h>
+
+# include "data/window.h"
+# include "render.h"
+# include "ft_mlx/ft_mlx_img.h"
+# include "vec/vec.h"
 
 static int	_get_tex_y(t_sprite_rendering_data *sprite_data,
 				int y, t_img *sprite_img)
@@ -75,3 +78,5 @@ void	draw_sprite(t_data *data, t_sprite_rendering_data *sprite_data)
 		band++;
 	}
 }
+
+#endif

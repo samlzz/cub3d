@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   deduce_after_loop_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 17:09:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:15:59 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 17:38:46 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubmap.h"
-#include "render.h"
-
 #ifdef CUB3D_BONUS
+
+# include "cubmap.h"
+# include "render.h"
 
 void	deduce_texture_related_data(t_data *data, t_dda_data *dda)
 {

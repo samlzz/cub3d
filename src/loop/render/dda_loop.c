@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   dda_loop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 14:54:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:06:43 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 17:38:57 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 #include "vec/ftmath_utils.h"
-#include "door/door.h"
 
 #ifdef CUB3D_BONUS
+
+# include "door/door.h"
 
 static bool	wall_has_been_hit(t_data *data, t_dda_data *dda)
 {

@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:38:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 16:52:06 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:31:29 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,7 @@ int	on_mouse_move(int32_t x, int32_t y, t_data *data)
 		cursor->pos.x, cursor->pos.y);
 	return (0);
 }
-#else
 
-int	on_mouse_move(int32_t x, int32_t y, t_data *data);
 #endif
 
 /*

@@ -6,9 +6,11 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 16:09:20 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 13:54:16 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:33:17 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifdef CUB3D_BONUS
 
 #include "render.h"
 
@@ -24,3 +26,5 @@ void	select_sprite_frame_img(t_data *data,
 	sprite_data->frame_asset_img
 		= sprite->frames[get_frame_index(data, sprite->count)];
 }
+
+#endif

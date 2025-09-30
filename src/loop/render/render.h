@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:11:01 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 17:32:23 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 typedef struct s_img					t_img;
 typedef struct s_ddaline				t_ddaline;
 typedef struct s_dda_data				t_dda_data;
-typedef struct s_sprite_rendering_data	t_sprite_rendering_data;
 
 struct s_ddaline
 {
@@ -61,21 +60,6 @@ struct s_dda_data
 	char			target;
 };
 
-struct s_sprite_rendering_data
-{
-	int32_t	i;
-	int32_t	printed_sprit_id;
-	t_vec2d	camera_space_coordinate;
-	int32_t	sprite_center_x_screen_space;
-	int32_t	sprite_height_on_window;
-	int32_t	sprite_width_on_window;
-	t_vec2i	left_bound;
-	t_vec2i	right_bound;
-	t_img	frame_asset_img;
-	int32_t	frame_index;
-	t_vec2i	tex_pos;
-};
-
 t_vec2d	get_ray_dir(t_camera *cam, int32_t x);
 void	render_frame(t_data *data);
 
@@ -95,9 +79,29 @@ void	deduce_texture_related_data(t_data *data, t_dda_data *dda);
 void	draw_clear(t_img *img, uint32_t ceil_color, uint32_t floor_color);
 void	draw_bend_with_textue(t_data *data, t_dda_data *dda);
 void	draw_bend_without_texture(t_data *data, t_dda_data *dda);
-void	draw_sprite(t_data *data, t_sprite_rendering_data *sprite_data);
 
 /*render sprite*/
+# ifdef CUB3D_BONUS
+
+typedef struct s_sprite_rendering_data	t_sprite_rendering_data;
+
+struct s_sprite_rendering_data
+{
+	int32_t	i;
+	int32_t	printed_sprit_id;
+	t_vec2d	camera_space_coordinate;
+	int32_t	sprite_center_x_screen_space;
+	int32_t	sprite_height_on_window;
+	int32_t	sprite_width_on_window;
+	t_vec2i	left_bound;
+	t_vec2i	right_bound;
+	t_img	frame_asset_img;
+	int32_t	frame_index;
+	t_vec2i	tex_pos;
+};
+
+void	draw_sprite(t_data *data, t_sprite_rendering_data *sprite_data);
+
 void	render_sprites_in_fov(t_data *data);
 void	set_up_sprites_for_sort(t_sprites_data *bank, t_camera *cam);
 void	sort_sprite(t_sprites_data *bank);
@@ -105,4 +109,6 @@ void	select_sprite_frame_img(t_data *data,
 			t_sprite_rendering_data *sprite_data, t_sprite *sprite);
 void	render_a_sprit(t_data *data, t_sprite_rendering_data *sprite_data,
 			t_sprite *printed_sprite);
+# endif
+
 #endif

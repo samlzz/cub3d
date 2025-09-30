@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   app_loop_hook.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:07:14 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 14:50:54 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 17:41:11 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,25 @@ static void	set_time_delta_beetwen_frame(t_data *data,
 	data->camera.last_frame_time = data->camera.current_frame_time;
 }
 
+#ifndef CUB3D_BONUS
+
+int	app_loop_hook(t_data *data)
+{
+	double	beetwen_frame;
+
+	set_time_delta_beetwen_frame(data, &beetwen_frame);
+	beetwen_frame = ftm_clamp(beetwen_frame, 0.0, DELTA_T_CLAMP_MAX);
+	app_update(data, beetwen_frame);
+	render_frame(data);
+	mlx_put_image_to_window(
+		data->mlx.display,
+		data->mlx.window,
+		data->mlx.game.image_ptr, 0, 0);
+	return (0);
+}
+
+#else
+
 int	app_loop_hook(t_data *data)
 {
 	double	beetwen_frame;
@@ -47,3 +66,6 @@ int	app_loop_hook(t_data *data)
 		data->mlx.minimap_pos.y);
 	return (0);
 }
+
+
+#endif
