@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 14:47:32 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 16:19:13 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "cubmap.h"
 # include "camera.h"
 # include "window.h"
+# include "init_err.h"
 
 # ifdef __linux__
 
@@ -40,7 +41,6 @@ typedef struct s_mouse		t_mouse;
 typedef struct s_inputs		t_inputs;
 typedef struct s_mlx		t_mlx;
 typedef struct s_data		t_data;
-typedef enum e_init_error	t_init_error;
 
 struct s_mouse
 {
@@ -78,16 +78,6 @@ struct s_data
 	t_inputs	inputs;
 	t_map		map;
 	double		zbuf[WIN_WIDTH];
-};
-
-enum e_init_error
-{
-	IE_SUCCESS,
-	IE_DESTROY_NOTIFY,
-	IE_MLX_INIT_ERROR,
-	IE_DDA_RAYDIR_VEC_ZERO,
-	IE_OPEN_TEXTURE_FAILURE,
-	IE_INSTALLING_DOOR_FAILURE,
 };
 
 void	data_init(t_data *data);

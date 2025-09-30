@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   data.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 15:46:45 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 16:19:08 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdint.h>
 #include <stdlib.h>
 
+#include "data/init_err.h"
 #include "data/sprite.h"
 #include "ft_mlx/ft_mlx_texture.h"
 #include "libft.h"
@@ -62,5 +63,5 @@ void	data_exit(t_data *data, t_init_error code)
 	clear_sprite_bank(&data->map.bank, &data->mlx);
 	free_map(&data->map, &data->mlx);
 	_fatal_clear_mlx(&data->mlx);
-	exit(code);
+	exit(ie_print_err(code));
 }

@@ -18,6 +18,7 @@ FILES =	cubmap.c \
 		data/camera.c \
 		data/camera_init.c \
 		data/data.c \
+		data/init_err.c \
 		data/sprite.c \
 		data/install/doors.c \
 		data/install/hooks.c \
