@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:32:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 14:47:06 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 16:39:26 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,29 +95,4 @@ void	sprite_free(t_sprite sprite, t_mlx *mlx)
 		i++;
 	}
 	free(sprite.frames);
-}
-
-static bool	is_a_sprit_char(char c)
-{
-	return (c != '1' && !ft_is_walkable(c) && !ft_isspace(c));
-}
-
-int32_t	sprite_get_nb_in_map(const t_grid g)
-{
-	int32_t	sprite_nb;
-	t_vec2i	index;
-
-	index.y = 0;
-	sprite_nb = 0;
-	while (index.y < g.dim.y)
-	{
-		while (g.grid[index.y][index.x])
-		{
-			if (is_a_sprit_char(g.grid[index.y][index.x]))
-				sprite_nb++;
-			index.x++;
-		}
-		index.y++;
-	}
-	return (sprite_nb);
 }

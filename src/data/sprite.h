@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:26:45 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 15:45:24 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 16:39:31 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ const t_sprite_meta	*sprites_get_metadata(size_t *count);
 int16_t				sprite_load(t_sprite *dst, const char *const *paths,
 						t_mlx *mlx);
 void				sprite_free(t_sprite sprite, t_mlx *mlx);
-
-int32_t				sprite_get_nb_in_map(const t_grid g);
 
 /* Install */
 int16_t				install_sprites_bank(t_sprites_data *bank, t_mlx *mlx);
