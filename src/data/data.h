@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 13:40:57 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:40:44 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,12 +93,12 @@ struct s_data
 
 enum e_init_error
 {
-	EC_SUCCESS,
-	EC_DESTROY_NOTIFY,
-	EC_MLX_INIT_ERROR,
-	EC_DDA_RAYDIR_VEC_ZERO,
-	EC_OPEN_TEXTURE_FAILURE,
-	EC_INSTALLING_DOOR_FAILURE,
+	IE_SUCCESS,
+	IE_DESTROY_NOTIFY,
+	IE_MLX_INIT_ERROR,
+	IE_DDA_RAYDIR_VEC_ZERO,
+	IE_OPEN_TEXTURE_FAILURE,
+	IE_INSTALLING_DOOR_FAILURE,
 };
 
 void	data_init(t_data *data);

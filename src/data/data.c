@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 02:05:08 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:40:52 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ void	data_init(t_data *data)
 		&data->inputs.cursor,
 		data->map.g.dim
 	))
-		data_exit(data, EC_MLX_INIT_ERROR);
+		data_exit(data, IE_MLX_INIT_ERROR);
 	if (install_doors(&data->map.g, &data->map.doors))
-		data_exit(data, EC_INSTALLING_DOOR_FAILURE);
+		data_exit(data, IE_INSTALLING_DOOR_FAILURE);
 	if (ft_mlx_textures_load_list(data->map.textures, TEX__COUNT, &data->mlx)
 		|| install_sprites_bank(&data->map.bank, &data->mlx))
-		data_exit(data, EC_OPEN_TEXTURE_FAILURE);
+		data_exit(data, IE_OPEN_TEXTURE_FAILURE);
 	install_hooks(data);
 	install_frame_engine(data);
 	camera_init(&data->camera, data->map.g);

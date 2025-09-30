@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 14:53:43 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/28 19:33:02 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:41:12 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	_init_delta_dit(t_data *data, t_dda_data *dda)
 	if (dda->ray_dir.x == 0)
 	{
 		if (dda->ray_dir.y == 0)
-			data_exit(data, EC_DDA_RAYDIR_VEC_ZERO);
+			data_exit(data, IE_DDA_RAYDIR_VEC_ZERO);
 		dda->delta_dist.x = BIG;
 	}
 	else

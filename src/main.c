@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:34:03 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/28 19:34:09 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:40:48 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,6 @@
 
 #define ERR_WRONG_USAGE "Usage: ./cub3d <path_to_map_file>.cub"
 
-void	show_cardinal_textures(t_mlx *mlx, t_img cardinal_textures[])
-{
-	int	i;
-
-	i = 0;
-	while (i < DIR_MAX)
-	{
-		if (i > 0)
-			sleep(1);
-		mlx_put_image_to_window(mlx->display, mlx->window,
-			cardinal_textures[i].image_ptr, 0, 0);
-		i++;
-	}
-}
-
 int	main(int32_t ac, char *av[])
 {
 	int16_t	code;
@@ -52,8 +37,7 @@ int	main(int32_t ac, char *av[])
 		return (free_map(&data.map, &data.mlx), code);
 	print_map(&data.map);
 	data_init(&data);
-	// show_cardinal_textures(&data.mlx, data.assets.cardinal_textures);
 	mlx_loop(data.mlx.display);
-	data_exit(&data, EC_SUCCESS);
+	data_exit(&data, IE_SUCCESS);
 	return (0);
 }
