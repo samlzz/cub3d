@@ -5,38 +5,78 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 16:55:15 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/17 17:38:24 by sliziard         ###   ########.fr       */
+/*   Created: 2025/09/10 14:44:59 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/30 16:22:31 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
+#include "cubmap.h"
+#include "window.h"
 #include "camera.h"
+#include "test/test.h"
 #include "vec/vec.h"
+#include "vec/ftmath_utils.h"
 
-/*angle is in radian*/
+/* Return dedicated angle corresponding to go from EAST to `direction` */
+static int16_t	_dir_to_angle(char direction, double *theta)
+{
+	if (direction == 'E')
+		*theta = 0.0;
+	else if (direction == 'N')
+		*theta = M_PI / 2.0;
+	else if (direction == 'W')
+		*theta = M_PI;
+	else if (direction == 'S')
+		*theta = -M_PI / 2.0;
+	else
+		return (1);
+	return (0);
+}
+
+static inline void	_set_up_camera_vecs(t_camera *c, int32_t map_h,
+						t_vec2i pos, char dir)
+{
+	double	th;
+
+	c->pos.x = (double)pos.x + 0.5;
+	c->pos.y = (double)(map_h - (pos.y + 1)) + 0.5;
+	if (_dir_to_angle(dir, &th))
+		return ;
+	c->dir = (t_vec2d){1, 0};
+	c->plane = (t_vec2d){0, -1};
+	camera_rotate(c, th);
+}
+
+static void	deduce_cam_setting_from_player_pos(t_camera *cam, const t_grid map)
+{
+	char	*row;
+	char	c;
+	t_vec2i	i;
+
+	i.y = 0;
+	while (i.y < map.dim.y)
+	{
+		i.x = 0;
+		row = map.grid[i.y];
+		while (i.x < map.dim.x && row[i.x])
+		{
+			c = row[i.x];
+			if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
+				_set_up_camera_vecs(cam, map.dim.y, i, c);
+			i.x++;
+		}
+		i.y++;
+	}
+}
+
+void	camera_init(t_camera *cam, const t_grid map)
+{
+	deduce_cam_setting_from_player_pos(cam, map);
+	cam->fov_factor = FOV_FACTOR;
+}
+
 void	camera_rotate(t_camera *camera, double angle)
 {
 	vec2d_rotate(&camera->dir, angle);
 	vec2d_rotate(&camera->plane, angle);
-}
-
-void	camera_left_rotate(t_camera *camera, double angle)
-{
-	camera_rotate(camera, angle);
-}
-
-void	camera_right_rotate(t_camera *camera, double angle)
-{
-	camera_rotate(camera, -angle);
-}
-
-void	camera_print(t_camera camera)
-{
-	fprintf(stderr, "\rPOS(%.2f, %.2f) DIR(%.2f, %.2f) PLANE(%.2f, %.2f) ",
-		camera.pos.x, camera.pos.y,
-		camera.dir.x, camera.dir.y,
-		camera.plane.x, camera.plane.y);
-	fflush(stderr);
 }

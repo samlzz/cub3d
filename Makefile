@@ -16,7 +16,6 @@ BIN_DIR   =
 FILES =	cubmap.c \
 		main.c \
 		data/camera.c \
-		data/camera_init.c \
 		data/data.c \
 		data/init_err.c \
 		data/sprite.c \
