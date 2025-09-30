@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   place_assets_in_map.c                              :+:      :+:    :+:   */
+/*   set_up_sprite_dist_and_order.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/29 10:54:08 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 09:36:06 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/29 15:52:07 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/30 08:47:49 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animated_asset.h"
-#include "cubmap.h"
-#include "data/data.h"
+#include "render.h"
 
-t_sprite	build_a_sprite(double x, double y, t_img *imgs, int32_t img_nb)
+void	set_up_sprite_order_and_dist(t_data *data)
 {
-	t_sprite	s;
+	int		i;
+	double	distance_x;
+	double	distance_y;
 
-	s.x = x;
-	s.y = y;
-	s.imgs = imgs;
-	s.img_nb = img_nb;
-	return (s);
-}
-
-void	build_all_sprites(t_sprite sprites[SPRITE_NB], t_assets *assets)
-{
-		sprites[0] = build_a_sprite(MEWTWO_X, MEWTWO_Y, assets->mewtwo_imgs,
-				MEWTWO_SPRITE_NB);
+	i = 0;
+	while (i < SPRITE_NB)
+	{
+		data->map.sprite_order[i] = i;
+		distance_x = data->camera.pos.x - data->map.sprites[i].x;
+		distance_y = data->camera.pos.y - data->map.sprites[i].y;
+		data->map.sprite_distance_square[i]
+			= distance_x * distance_x + distance_y * distance_y;
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 13:01:50 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 09:09:18 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ struct s_dda_data
 struct s_asset_data
 {
 	int32_t	i;
-	int32_t	printed_sprit_index;
+	int32_t	printed_sprit_id;
 	t_vec2d	camera_space_coordinate;
 	int32_t	sprite_center_x_screen_space;
 	int32_t	sprite_height;
@@ -73,6 +73,8 @@ struct s_asset_data
 	t_vec2i	right_bound;
 	t_img	frame_asset_img;
 	int32_t	frame_index;
+	int		tex_x;
+	int		tex_y;
 };
 
 t_vec2d	get_ray_dir(t_camera *cam, int32_t x);
@@ -93,5 +95,13 @@ void	draw_clear(t_img *img, uint32_t ceil_color, uint32_t floor_color);
 void	draw_vline(t_data *data, t_line line, uint32_t color);
 void	draw_bend_with_textue(t_data *data, t_dda_data *dda);
 void	draw_bend_without_texture(t_data *data, t_dda_data *dda);
+void	draw_sprite(t_data *data, t_asset_data *sprite_data);
+
+/*render sprite*/
+void	render_sprites(t_data *data);
+void	set_up_sprite_order_and_dist(t_data *data);
+void	sort_sprite(t_data *data);
+void	select_frame_img(t_data *data,
+			t_asset_data *sprite_data, t_sprite *sprite);
 
 #endif

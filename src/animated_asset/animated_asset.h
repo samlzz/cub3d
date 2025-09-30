@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 18:05:09 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 11:00:58 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 08:48:42 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,5 @@
 # define ASSET_PATH_SIZE 64
 
 # define SPRITE_NB 1
-
-typedef	struct s_sprite	t_sprite;
-
-struct	s_sprite
-{
-	double	x;
-	double	y;
-	t_img	*imgs;
-	int32_t	img_nb;
-};
 
 #endif

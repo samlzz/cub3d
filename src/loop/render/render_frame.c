@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:25 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 15:22:02 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 08:46:42 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,7 @@ void	render_frame(t_data *data)
 		dda_algorithm(data, &dda);
 		dda.x++;
 	}
+	set_up_sprite_order_and_dist(data);
+	sort_sprite(data);
+	render_sprites(data);
 }

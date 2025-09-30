@@ -18,6 +18,7 @@ FILES =	cubmap.c \
 		main.c \
 		animated_asset/clear_animated_assets.c \
 		animated_asset/load_animated_assets.c \
+		animated_asset/place_assets_in_map.c \
 		data/camera.c \
 		data/camera_init.c \
 		data/cardinal_textures.c \
@@ -46,8 +47,13 @@ FILES =	cubmap.c \
 		loop/render/dda_loop.c \
 		loop/render/deduce_after_loop.c \
 		loop/render/draw.c \
+		loop/render/draw_sprite.c \
 		loop/render/init_dda.c \
 		loop/render/render_frame.c \
+		loop/render/render_sprites.c \
+		loop/render/select_frame_img.c \
+		loop/render/set_up_sprite_dist_and_order.c \
+		loop/render/sort_sprites_by_distance.c \
 		parsing/grid.c \
 		parsing/identifiers.c \
 		parsing/map_validate.c \

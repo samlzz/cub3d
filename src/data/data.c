@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 11:29:45 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 08:53:55 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	data_init(t_data *data)
 		clear_data(data, true, EC_OPEN_TEXTURE_FAILURE);
 	if (install_doors(&data->map.g, &data->map.doors))
 		clear_data(data, true, EC_INSTALLING_DOOR_FAILURE);
-	build_all_sprites(&data->map.sprites, &data->assets);
+	build_all_sprites(data->map.sprites, &data->assets);
 	install_hooks(data);
 	install_frame_engine(data);
 	camera_init(&data->camera, data->map.g);

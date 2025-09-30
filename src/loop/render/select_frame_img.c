@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   place_assets_in_map.c                              :+:      :+:    :+:   */
+/*   select_frame_img.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/29 10:54:08 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 09:36:06 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/29 16:09:20 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/30 09:18:15 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animated_asset.h"
-#include "cubmap.h"
-#include "data/data.h"
+#include "render.h"
 
-t_sprite	build_a_sprite(double x, double y, t_img *imgs, int32_t img_nb)
+static int	get_frame_index(t_data *data, int number_of_frame)
 {
-	t_sprite	s;
-
-	s.x = x;
-	s.y = y;
-	s.imgs = imgs;
-	s.img_nb = img_nb;
-	return (s);
+	return ((int)(data->camera.current_frame_time) % number_of_frame);
 }
 
-void	build_all_sprites(t_sprite sprites[SPRITE_NB], t_assets *assets)
+void	select_frame_img(t_data *data,
+			t_asset_data *sprite_data, t_sprite *sprite)
 {
-		sprites[0] = build_a_sprite(MEWTWO_X, MEWTWO_Y, assets->mewtwo_imgs,
-				MEWTWO_SPRITE_NB);
+	sprite_data->frame_index = 0;
+	sprite_data->frame_asset_img
+		= sprite->imgs[get_frame_index(data, sprite->img_nb)];
 }

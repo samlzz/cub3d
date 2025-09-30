@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 15:27:47 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 08:53:09 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@
 # include "vec/vec.h"
 # include "door/door.h"
 # include "animated_asset/animated_asset.h"
+# include "data/ft_mlx.h"
 
 typedef enum e_directions	t_directions;
 typedef struct s_grid		t_grid;
 typedef struct s_map		t_map;
 typedef struct s_door		t_door;
+typedef	struct s_sprite	t_sprite;
 
 enum e_directions
 {
@@ -42,6 +44,15 @@ struct s_grid
 	t_vec2i	dim;
 };
 
+
+struct	s_sprite
+{
+	double	x;
+	double	y;
+	t_img	*imgs;
+	int32_t	img_nb;
+};
+
 struct s_map
 {
 	t_grid		g;
@@ -52,7 +63,7 @@ struct s_map
 	t_sprite	sprites[SPRITE_NB];
 	int			sprite_order[SPRITE_NB];
 	double		sprite_distance_square[SPRITE_NB];
-}
+};
 
 void	free_map(t_map *m);
 

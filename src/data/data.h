@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 12:41:41 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 08:51:02 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "cubmap.h"
 # include "camera.h"
 # include "animated_asset/animated_asset.h"
+# include "ft_mlx.h"
 
 # ifdef __linux__
 
@@ -52,16 +53,7 @@ typedef struct s_data	t_data;
 typedef struct s_assets	t_assets;
 typedef struct s_camera	t_camera;
 
-struct s_img
-{
-	void	*image_ptr;
-	char	*data_addr;
-	int32_t	bpp;
-	int32_t	endian;
-	int32_t	line_len;
-	int32_t	width;
-	int32_t	height;
-};
+
 
 struct s_assets
 {
@@ -82,12 +74,6 @@ struct s_inputs
 	bool	try_to_interact_with_door;
 };
 
-struct s_mlx
-{
-	void	*window;
-	void	*display;
-	t_img	img;
-};
 
 struct s_data
 {

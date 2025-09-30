@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 17:20:29 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 09:31:35 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 08:54:17 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	deduce_perp_wall_dist(t_data *data, t_dda_data *dda)
 	else
 		dda->perp_wall_dist = (dda->map.y - data->camera.pos.y
 				+ (1 - dda->step.y) / 2.0) / dda->ray_dir.y;
-	data->camera.zbuf[dda->x] = dda->perp_wall_dist;
+	data->zbuf[dda->x] = dda->perp_wall_dist;
 }
 
 void	deduce_wall_band_size(t_data *data, t_dda_data *dda)

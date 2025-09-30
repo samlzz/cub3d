@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   place_assets_in_map.c                              :+:      :+:    :+:   */
+/*   ft_mlx.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/29 10:54:08 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 09:36:06 by eazard           ###   ########.fr       */
+/*   Created: 2025/09/30 08:49:57 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/30 08:52:28 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animated_asset.h"
-#include "cubmap.h"
-#include "data/data.h"
+#ifndef FT_MLX_H
+# define FT_MLX_H
 
-t_sprite	build_a_sprite(double x, double y, t_img *imgs, int32_t img_nb)
+# include <stdint.h>
+
+typedef struct s_img	t_img;
+typedef struct s_mlx	t_mlx;
+
+struct s_img
 {
-	t_sprite	s;
+	void	*image_ptr;
+	char	*data_addr;
+	int32_t	bpp;
+	int32_t	endian;
+	int32_t	line_len;
+	int32_t	width;
+	int32_t	height;
+};
 
-	s.x = x;
-	s.y = y;
-	s.imgs = imgs;
-	s.img_nb = img_nb;
-	return (s);
-}
-
-void	build_all_sprites(t_sprite sprites[SPRITE_NB], t_assets *assets)
+struct s_mlx
 {
-		sprites[0] = build_a_sprite(MEWTWO_X, MEWTWO_Y, assets->mewtwo_imgs,
-				MEWTWO_SPRITE_NB);
-}
+	void	*window;
+	void	*display;
+	t_img	img;
+};
+
+#endif
