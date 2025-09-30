@@ -6,31 +6,33 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:32:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 16:39:26 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:06:04 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
+#ifdef CUB3D_BONUS
 
-#include "mlx.h"
-#include "libft.h"
-#include "data.h"
-#include "cubmap.h"
-#include "ft_mlx/ft_mlx_img.h"
-#include "ft_mlx/ft_mlx_texture.h"
-#include "parsing/parse_utils.h"
-#include "sprite.h"
+# include <stddef.h>
+# include <stdint.h>
+# include <stdio.h>
+# include <stdlib.h>
 
-#define MT_1	"./assets/mewtwo/mewtwo000.xpm"
-#define MT_2	"./assets/mewtwo/mewtwo001.xpm"
-#define MT_3	"./assets/mewtwo/mewtwo002.xpm"
-#define MT_4	"./assets/mewtwo/mewtwo003.xpm"
-#define MT_5	"./assets/mewtwo/mewtwo004.xpm"
-#define MT_6	"./assets/mewtwo/mewtwo005.xpm"
-#define MT_7	"./assets/mewtwo/mewtwo006.xpm"
+# include "mlx.h"
+# include "libft.h"
+# include "data.h"
+# include "cubmap.h"
+# include "ft_mlx/ft_mlx_img.h"
+# include "ft_mlx/ft_mlx_texture.h"
+# include "parsing/parse_utils.h"
+# include "sprite.h"
+
+# define MT_1	"./assets/mewtwo/mewtwo000.xpm"
+# define MT_2	"./assets/mewtwo/mewtwo001.xpm"
+# define MT_3	"./assets/mewtwo/mewtwo002.xpm"
+# define MT_4	"./assets/mewtwo/mewtwo003.xpm"
+# define MT_5	"./assets/mewtwo/mewtwo004.xpm"
+# define MT_6	"./assets/mewtwo/mewtwo005.xpm"
+# define MT_7	"./assets/mewtwo/mewtwo006.xpm"
 
 const t_sprite_meta	*sprites_get_metadata(size_t *count)
 {
@@ -96,3 +98,5 @@ void	sprite_free(t_sprite sprite, t_mlx *mlx)
 	}
 	free(sprite.frames);
 }
+
+#endif

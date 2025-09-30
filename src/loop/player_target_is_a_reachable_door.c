@@ -6,13 +6,15 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 16:47:19 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 19:24:22 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:13:17 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "loop.h"
-#include "render/render.h"
-#include "vec/ftmath_utils.h"
+#ifdef CUB3D_BONUS
+
+# include "loop.h"
+# include "render/render.h"
+# include "vec/ftmath_utils.h"
 
 static bool	_cell_isnt_the_open_door_on_witch_we_stand(t_data *data,
 				t_vec2i	*player_target)
@@ -80,3 +82,5 @@ bool	player_target_is_a_reachable_door(t_data *data, t_vec2i *player_target)
 	else
 		return (false);
 }
+
+#endif

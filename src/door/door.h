@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   door.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 11:30:55 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 15:47:54 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 17:06:32 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOOR_H
 # define DOOR_H
+
+# ifdef CUB3D_BONUS
 
 // # define DOOR_TIME_TO_OPEN 0.7
 # define DOOR_DISTANCE_MAX_TO_BE_ABLE_TO_INTERACT 1.5
@@ -41,5 +43,7 @@ void	update_doors(t_door **doors, double time_delta_between_frame);
 void	fatal_clear_doors(t_door ***doors);
 int16_t	install_doors(t_grid *grid, t_door ***doors);
 void	change_door_state(t_door *door);
+
+# endif
 
 #endif

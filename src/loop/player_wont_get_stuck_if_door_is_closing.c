@@ -6,15 +6,17 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 16:41:12 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 19:24:40 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:12:49 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
+#ifdef CUB3D_BONUS
 
-#include "loop.h"
-#include "vec/ftmath_utils.h"
-#include "vec/vec.h"
+# include <math.h>
+
+# include "loop.h"
+# include "vec/ftmath_utils.h"
+# include "vec/vec.h"
 
 /*
 the case of the player pos is handle elsewhere, before this function
@@ -76,3 +78,5 @@ bool	player_wont_get_stuck_if_door_is_closing(
 		|| (_door_closing_isnt_to_close_(data, data->camera.pos.x, \
 			data->camera.pos.y, PLAYER_RADIUS)));
 }
+
+#endif

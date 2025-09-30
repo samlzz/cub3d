@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 16:55:50 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:23:54 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,16 @@ struct s_inputs
 	bool	try_to_interact_with_door;
 	t_mouse	cursor;
 };
+
+struct s_mlx
+{
+	void	*window;
+	void	*display;
+	t_img	game;
+	t_img	minimap;
+	t_vec2i	minimap_pos;
+};
+
 #else
 
 struct s_inputs
@@ -75,16 +85,15 @@ struct s_inputs
 	bool	turn_right;
 	bool	try_to_interact_with_door;
 };
-#endif
 
 struct s_mlx
 {
 	void	*window;
 	void	*display;
 	t_img	game;
-	t_img	minimap;
-	t_vec2i	minimap_pos;
 };
+
+#endif
 
 struct s_data
 {
@@ -103,9 +112,12 @@ void	data_exit(t_data *data, t_init_error code);
 #ifdef CUB3D_BONUS
 
 int16_t	install_mlx(t_mlx *mlx, t_vec2i screen, t_mouse *cursor, t_vec2i grid);
+
+int16_t	install_doors(t_grid *grid, t_door ***doors);
+void	uninstall_doors(t_door ***doors);
 #else
 
-int16_t	install_mlx(t_mlx *mlx, t_vec2i screen, t_vec2i grid);
+int16_t	install_mlx(t_mlx *mlx, t_vec2i screen);
 #endif
 
 int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i img_dim);
@@ -114,7 +126,5 @@ void	install_hooks(t_data *data);
 
 void	install_frame_engine(t_data *data);
 
-int16_t	install_doors(t_grid *grid, t_door ***doors);
-void	uninstall_doors(t_door ***doors);
 
 #endif

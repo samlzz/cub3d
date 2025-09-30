@@ -34,6 +34,9 @@ enum e_time_precision
 
 int		app_loop_hook(t_data *data);
 void	app_update(t_data *data, double time_delta_beetwen_frame);
+void	update_position(t_data *data, double time_delta_beetwen_frame);
+void	update_angle(t_camera *cam, t_inputs *io,
+				double time_delta_beetwen_frame);
 
 double	get_time(t_time_precision time_precision);
 void	clamp_move_try_length(t_vec2d *move_try,

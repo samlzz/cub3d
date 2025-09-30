@@ -6,14 +6,16 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 14:13:13 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 20:42:01 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:01:29 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifdef CUB3D_BONUS
 
-#include "libft.h"
-#include "cubmap.h"
+# include <stdlib.h>
+
+# include "libft.h"
+# include "cubmap.h"
 
 static void	_fill_row(t_door *doors_row, char *grid_row)
 {
@@ -77,3 +79,5 @@ void	uninstall_doors(t_door ***doors)
 		(*doors) = NULL;
 	}
 }
+
+#endif

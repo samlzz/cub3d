@@ -6,21 +6,23 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:26:45 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 16:39:31 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:05:30 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPRITE_H
 # define SPRITE_H
 
-# include <stddef.h>
+# ifdef CUB3D_BONUS
 
-# include "ft_mlx/ft_mlx_img.h"
-# include "vec/vec.h"
+#  include <stddef.h>
 
-# ifndef SPR_MAX_FRAMES
-#  define SPR_MAX_FRAMES 32
-# endif
+#  include "ft_mlx/ft_mlx_img.h"
+#  include "vec/vec.h"
+
+#  ifndef SPR_MAX_FRAMES
+#   define SPR_MAX_FRAMES 32
+#  endif
 
 typedef struct s_mlx			t_mlx;
 typedef struct s_grid			t_grid;
@@ -62,5 +64,7 @@ void				sprite_free(t_sprite sprite, t_mlx *mlx);
 /* Install */
 int16_t				install_sprites_bank(t_sprites_data *bank, t_mlx *mlx);
 void				clear_sprite_bank(t_sprites_data *bank, t_mlx *mlx);
+
+# endif
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:38:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 15:47:26 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 16:52:06 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include <X11/Xutil.h>
 #include <stdint.h>
 
+#include "cubmap.h"
 #include "data/camera.h"
 #include "mlx.h"
 #include "../data.h"
-#include "vec/vec.h"
 
 /* 
  * Handle key press event: update input state in t_inputs
@@ -72,6 +72,8 @@ static int	on_destroy_notify(t_data *data)
 	return (0);
 }
 
+#ifdef CUB3D_BONUS
+
 int	on_mouse_move(int32_t x, int32_t y, t_data *data)
 {
 	t_mouse	*cursor;
@@ -90,6 +92,10 @@ int	on_mouse_move(int32_t x, int32_t y, t_data *data)
 		cursor->pos.x, cursor->pos.y);
 	return (0);
 }
+#else
+
+int	on_mouse_move(int32_t x, int32_t y, t_data *data);
+#endif
 
 /*
 Install hooks for key press, key release and window close events
@@ -101,6 +107,6 @@ void	install_hooks(t_data *data)
 		&on_key_release, data);
 	mlx_hook(data->mlx.window, DestroyNotify, StructureNotifyMask,
 		&on_destroy_notify, data);
-	mlx_hook(data->mlx.window, MotionNotify, PointerMotionMask,
-		&on_mouse_move, data);
+	if (CUB_BONUS)
+		mlx_hook(data->mlx.window, MotionNotify, PointerMotionMask, &on_mouse_move, data);
 }

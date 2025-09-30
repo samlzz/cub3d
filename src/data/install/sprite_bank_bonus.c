@@ -6,15 +6,17 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 01:23:50 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 01:51:08 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 16:52:48 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#ifdef CUB3D_BONUS
 
-#include "libft.h"
-#include "../sprite.h"
+# include <stdio.h>
+# include <stdlib.h>
+
+# include "libft.h"
+# include "../sprite.h"
 
 void	clear_sprite_bank(t_sprites_data *bank, t_mlx *mlx)
 {
@@ -58,3 +60,5 @@ int16_t	install_sprites_bank(t_sprites_data *bank, t_mlx *mlx)
 	}
 	return (0);
 }
+
+#endif
