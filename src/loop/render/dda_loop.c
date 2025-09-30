@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   dda_loop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 14:54:47 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 19:14:59 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:06:43 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 #include "vec/ftmath_utils.h"
 #include "door/door.h"
+
+#ifdef CUB3D_BONUS
 
 static bool	wall_has_been_hit(t_data *data, t_dda_data *dda)
 {
@@ -34,6 +36,28 @@ static bool	wall_has_been_hit(t_data *data, t_dda_data *dda)
 		return (true);
 	return (false);
 }
+
+#else
+
+static bool	wall_has_been_hit(t_data *data, t_dda_data *dda)
+{
+	char	cell;
+	t_vec2i	cubpos;
+
+	cubpos.y = get_y_pos(data->map.g.dim.y, dda->map.y);
+	if (cubpos.y < 0 || cubpos.y >= data->map.g.dim.y)
+		return (true);
+	cubpos.x = (int32_t)dda->map.x;
+	if (cubpos.x < 0 || cubpos.x >= data->map.g.dim.x)
+		return (true);
+	cell = data->map.g.grid[cubpos.y][cubpos.x];
+	dda->target = cell;
+	if (cell == '1')
+		return (true);
+	return (false);
+}
+
+#endif
 
 void	dda_loop(t_data *data, t_dda_data *dda)
 {

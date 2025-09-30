@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 14:54:06 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 17:11:01 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	dda_algorithm(t_data *data, t_dda_data *dda);
 
 /* deduce_after_loop */
 void	deduce_perp_wall_dist(t_data *data, t_dda_data *dda);
-void	deduce_wall_band_size(t_data *data, t_dda_data *dda);
+void	deduce_wall_band_size(t_dda_data *dda);
 void	deduce_wall_orientation(t_dda_data *dda);
 void	deduce_wall_x(t_data *data, t_dda_data *dda);
 void	deduce_texture_related_data(t_data *data, t_dda_data *dda);

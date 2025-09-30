@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deduce_after_loop.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 17:20:29 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 13:43:28 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:16:45 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ void	deduce_perp_wall_dist(t_data *data, t_dda_data *dda)
 	data->zbuf[dda->x] = dda->perp_wall_dist;
 }
 
-void	deduce_wall_band_size(t_data *data, t_dda_data *dda)
+void	deduce_wall_band_size(t_dda_data *dda)
 {
-	(void)data;
 	dda->line_height = (int)(WIN_HEIGHT / dda->perp_wall_dist);
 	dda->draw_start = WIN_HEIGHT / 2 - dda->line_height / 2;
 	if (dda->draw_start < 0)
@@ -65,12 +64,11 @@ void	deduce_wall_x(t_data *data, t_dda_data *dda)
 	dda->wall_x -= floor(dda->wall_x);
 }
 
+#ifndef CUB3D_BONUS
+
 void	deduce_texture_related_data(t_data *data, t_dda_data *dda)
 {
-	if (dda->target == 'D')
-		dda->tex_img = &data->map.textures[TEX_DOOR].img;
-	else
-		dda->tex_img = &data->map.textures[dda->wall_orientation].img;
+	dda->tex_img = &data->map.textures[dda->wall_orientation].img;
 	dda->tex_x = (int)(dda->wall_x * (double)dda->tex_img->dim.x);
 	if ((dda->side == 0 && dda->ray_dir.x > 0)
 		|| (dda->side == 1 && dda->ray_dir.y < 0))
@@ -81,3 +79,5 @@ void	deduce_texture_related_data(t_data *data, t_dda_data *dda)
 		(dda->draw_start - (float)WIN_HEIGHT / 2 + (float)dda->line_height / 2)
 		* dda->tex_step;
 }
+
+#endif
