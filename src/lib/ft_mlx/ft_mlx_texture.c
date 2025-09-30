@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_texture.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 18:54:21 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 01:16:52 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:59:02 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,15 @@ int16_t	ft_mlx_texture_load(t_texture *tex, t_mlx *mlx)
 	if (!_file_found_and_readable_(tex->path))
 		return (1);
 	img.image_ptr = mlx_xpm_file_to_image(
-		mlx->display,
-		tex->path,
-		&img.dim.x, &img.dim.y);
+			mlx->display,
+			tex->path,
+			&img.dim.x, &img.dim.y);
 	if (!img.image_ptr)
 		return (1);
 	img.data_addr = mlx_get_data_addr(
-		img.image_ptr,
-		&img.bpp, &img.line_len, &img.endian
-	);
+			img.image_ptr,
+			&img.bpp, &img.line_len, &img.endian
+			);
 	tex->img = img;
 	return (0);
 }

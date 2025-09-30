@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_texture.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 21:12:45 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 21:38:28 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 16:02:16 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_MLX_TEXTURE_H
 # define FT_MLX_TEXTURE_H
 
-#include <stdint.h>
+# include <stdint.h>
 
-#include "ft_mlx_img.h"
+# include "ft_mlx_img.h"
 
-typedef struct s_mlx	t_mlx;
+typedef struct s_mlx		t_mlx;
 
 typedef struct s_texture	t_texture;
 

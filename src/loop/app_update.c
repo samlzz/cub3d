@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   app_update.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:09:09 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 19:10:10 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:53:33 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,19 @@ static void	update_position(t_data *data, double time_delta_beetwen_frame)
 	try_move_and_update_pos(data, move_try);
 }
 
-static void	update_angle(t_camera *cam, t_inputs *io, double time_delta_beetwen_frame)
+static void	update_angle(t_camera *cam, t_inputs *io,
+				double time_delta_beetwen_frame)
 {
 	double	delta;
 
 	delta = ROT_SPEED * time_delta_beetwen_frame
 		* (double )(io->turn_left - io->turn_right);
-	delta += - io->cursor.dx_accum * MOUSE_SENSITIVITY;
+	delta += -io->cursor.dx_accum * MOUSE_SENSITIVITY;
 	io->cursor.dx_accum = 0;
 	camera_rotate(cam, delta);
 }
 
-void app_update(t_data *data, double time_delta_beetwen_frame)
+void	app_update(t_data *data, double time_delta_beetwen_frame)
 {
 	t_vec2i		player_target;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda_draw.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:30:20 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 13:42:02 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:08:15 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static inline uint32_t	_calcul_offset_from_tex_data(t_dda_data	*dda)
 
 /*
 function contextual to textured_dda algorithm, not re usable outside
+? & mask (8355711) => 01111111011111110111111101111111
 */
 void	draw_bend_with_textue(t_data *data, t_dda_data *dda)
 {
@@ -77,7 +78,7 @@ function contextual to untextured_dda algorithm, not re usable outside
 void	draw_bend_without_texture(t_data *data, t_dda_data *dda)
 {
 	int32_t		color;
-	t_ddaline		line;
+	t_ddaline	line;
 
 	if (dda->side == 0)
 	{

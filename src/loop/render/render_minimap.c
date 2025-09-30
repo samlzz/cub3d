@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_minimap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 22:53:10 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 16:37:01 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:58:38 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,10 @@ static t_vec2i	_get_grid_start(t_vec2i minimap_dim, t_vec2i grid_dim,
 
 	center.y = get_y_pos(grid_dim.y, cam_pos.y);
 	center.x = (int32_t)floor(cam_pos.x);
-	*tiles_displayed = vec2i_scalar_mult(
-		minimap_dim,
-		1.0 / (double)MINIMAP_SCALE
-	);
-	start = vec2i_minus(
-		center, 
-		vec2i_scalar_mult(*tiles_displayed, 0.5)
-	);
+	*tiles_displayed = vec2i_scalar_mult(minimap_dim,
+			1.0 / (double)MINIMAP_SCALE);
+	start = vec2i_minus(center,
+			vec2i_scalar_mult(*tiles_displayed, 0.5));
 	max_start = vec2i_minus(grid_dim, *tiles_displayed);
 	if (max_start.x < 0)
 		max_start.x = 0;
@@ -126,5 +122,5 @@ void	render_minimap(t_mlx *mlx, const t_grid *grid, const t_camera *cam)
 	}
 	render_minimap_player(&mlx->minimap, start, grid->dim.y, cam);
 	ft_mlx_img_put_rect(&mlx->minimap, MINIMAP_BORDER_PX,
-		(t_color){.value=MINIMAP_BORDER_COLOR});
+		(t_color){.value = MINIMAP_BORDER_COLOR});
 }

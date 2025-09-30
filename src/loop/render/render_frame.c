@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_frame.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:25 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 14:05:41 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:44:15 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	render_frame(t_data *data)
 {
 	t_dda_data	dda;
 
-	draw_clear(&data->mlx.game, data->map.ceil_colr.value, data->map.floor_colr.value);
+	draw_clear(&data->mlx.game,
+		data->map.ceil_colr.value, data->map.floor_colr.value);
 	dda.x = 0;
 	while (dda.x < WIN_WIDTH)
 	{

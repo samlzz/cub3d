@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:17:58 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/28 03:12:05 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:55:51 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ static bool	expect_comma(const char **ps)
 
 /* Parse in *out an RGB color like: *RR*,*GG*,*BB* * => n-spaces 
 return 0 in case of success
-		1 if separators wasn't formated as expected (commat surrounded by n-spaces)
+		1 if separators wasn't formated as expected
+			(commat surrounded by n-spaces)
 		2 if numbers wasn't in expected format (3 unsigned char)
 */
 int16_t	parse_rgb_triplet(const char *s, const char **end, t_color *out)

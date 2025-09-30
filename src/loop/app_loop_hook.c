@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   app_loop_hook.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:07:14 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/19 19:25:31 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:50:54 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	app_loop_hook(t_data *data)
 	double	beetwen_frame;
 
 	set_time_delta_beetwen_frame(data, &beetwen_frame);
-beetwen_frame = ftm_clamp(beetwen_frame, 0.0, DELTA_T_CLAMP_MAX);
+	beetwen_frame = ftm_clamp(beetwen_frame, 0.0, DELTA_T_CLAMP_MAX);
 	app_update(data, beetwen_frame);
 	render_frame(data);
 	mlx_put_image_to_window(
@@ -42,6 +42,8 @@ beetwen_frame = ftm_clamp(beetwen_frame, 0.0, DELTA_T_CLAMP_MAX);
 		data->mlx.game.image_ptr, 0, 0);
 	mlx_put_image_to_window(data->mlx.display,
 		data->mlx.window,
-		data->mlx.minimap.image_ptr, data->mlx.minimap_pos.x, data->mlx.minimap_pos.y);
+		data->mlx.minimap.image_ptr,
+		data->mlx.minimap_pos.x,
+		data->mlx.minimap_pos.y);
 	return (0);
 }

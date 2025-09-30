@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 14:26:53 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:54:06 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 # define FOG_DENSITY 0.1
 # define FOG_COLOR BLACK
 
-typedef struct s_img		t_img;
-typedef struct s_ddaline	t_ddaline;
-typedef struct s_dda_data	t_dda_data;
+typedef struct s_img					t_img;
+typedef struct s_ddaline				t_ddaline;
+typedef struct s_dda_data				t_dda_data;
 typedef struct s_sprite_rendering_data	t_sprite_rendering_data;
 
 struct s_ddaline

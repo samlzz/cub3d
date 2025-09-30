@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fields.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 21:26:58 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 15:47:46 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:06:10 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 # include <stddef.h>
 
 /* ? forwards declarations */
-typedef struct s_map	t_map;
+typedef struct s_map		t_map;
 typedef enum e_parse_err	t_parse_err;
-struct s_diag;
-struct s_parser;
+struct						s_diag;
+struct						s_parser;
 
 enum e_field_id
 {
@@ -47,8 +47,10 @@ enum e_field_kind
 typedef enum e_field_id		t_field_id;
 typedef enum e_field_kind	t_field_kind;
 
-typedef t_parse_err (*t_value_parser)(const char *value_str, void *dst, struct s_diag *d);
-typedef t_parse_err (*t_rest_parser)(int fd, char *first_line, struct s_parser *p);
+typedef t_parse_err			(*t_value_parser)(const char *value_str,
+			void *dst, struct s_diag *d);
+typedef t_parse_err			(*t_rest_parser)(int fd, char *first_line,
+			struct s_parser *p);
 typedef union u_parse_fn	t_parse_fn;
 union u_parse_fn
 {
@@ -75,7 +77,7 @@ struct s_field
 };
 
 void			fields_init(t_map *map, t_field *specs, t_field_id end);
-
-t_field_id		fields_get_by_key(const char *key, size_t len, const t_field *specs);
+t_field_id		fields_get_by_key(const char *key, size_t len,
+					const t_field *specs);
 
 #endif

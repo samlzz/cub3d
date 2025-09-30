@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 19:15:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 15:51:36 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:46:58 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i img_dim)
 	if (!img->image_ptr)
 		return (1);
 	img->data_addr = mlx_get_data_addr(img->image_ptr,
-		&img->bpp, &img->line_len, &img->endian);
+			&img->bpp, &img->line_len, &img->endian);
 	img->dim = img_dim;
 	if (!img->data_addr)
 		return (1);
@@ -60,7 +60,7 @@ int16_t	install_mlx(t_mlx *mlx, t_vec2i screen, t_mouse *cursor, t_vec2i grid)
 	if (!mlx->display)
 		return (1);
 	mlx->window = mlx_new_window(mlx->display,
-		screen.x, screen.y, WIN_NAME);
+			screen.x, screen.y, WIN_NAME);
 	if (!mlx->window)
 		return (1);
 	if (install_mlx_img(mlx, &mlx->game, screen))

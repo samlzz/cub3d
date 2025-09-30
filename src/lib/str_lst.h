@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   str_lst.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 17:41:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/16 16:14:04 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:54:45 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STR_LST_H
 # define STR_LST_H
 
-#include <stdint.h>
+# include <stdint.h>
 
 typedef struct s_strlst	t_strlst;
 

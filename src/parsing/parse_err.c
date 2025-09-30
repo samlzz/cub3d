@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_err.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 10:05:42 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 11:22:03 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:54:24 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	pe_diag_reset(struct s_diag *d)
 void	pe_quit(t_parser *p, t_parse_err code)
 {
 	if (!p)
-		return;
+		return ;
 	pe_print_err(&p->diag, p->specs, code);
 	pe_diag_reset(&p->diag);
 }

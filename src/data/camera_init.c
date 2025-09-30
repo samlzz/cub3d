@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   camera_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:44:59 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 16:36:14 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:45:51 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static int16_t	_dir_to_angle(char direction, double *theta)
 	return (0);
 }
 
-static inline void	_set_up_camera_vecs(t_camera *c, int32_t map_h, t_vec2i pos, char dir)
+static inline void	_set_up_camera_vecs(t_camera *c, int32_t map_h,
+						t_vec2i pos, char dir)
 {
 	double	th;
 

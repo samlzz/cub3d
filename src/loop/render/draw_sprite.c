@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 16:11:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 14:31:14 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:10:07 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,12 @@ static void	_draw_sprite_band(t_data *data,
 
 	sprite_img = &sprite_data->frame_asset_img;
 	sprite_data->tex_pos.x = (int)((band \
-							- (sprite_data->sprite_center_x_screen_space \
-							- ((double)sprite_data->sprite_width_on_window) / 2)) \
+						- (sprite_data->sprite_center_x_screen_space \
+						- ((double)sprite_data->sprite_width_on_window) / 2)) \
 					* ((double)sprite_img->dim.x \
 						/ (double)sprite_data->sprite_width_on_window));
-	if (sprite_data -> tex_pos.x < 0 || sprite_data->tex_pos.x >= sprite_img->dim.x)
+	if (sprite_data -> tex_pos.x < 0
+		|| sprite_data->tex_pos.x >= sprite_img->dim.x)
 		return ;
 	y = sprite_data->left_bound.y;
 	while (y < sprite_data->right_bound.y)

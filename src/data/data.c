@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 14:40:52 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:46:45 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 void	data_init(t_data *data)
 {
 	if (install_mlx(
-		&data->mlx,
-		(t_vec2i){WIN_WIDTH, WIN_HEIGHT},
+			&data->mlx,
+			(t_vec2i){WIN_WIDTH, WIN_HEIGHT},
 		&data->inputs.cursor,
 		data->map.g.dim
 	))
@@ -62,6 +62,5 @@ void	data_exit(t_data *data, t_init_error code)
 	clear_sprite_bank(&data->map.bank, &data->mlx);
 	free_map(&data->map, &data->mlx);
 	_fatal_clear_mlx(&data->mlx);
-	// todo: handle err message depends on code
 	exit(code);
 }

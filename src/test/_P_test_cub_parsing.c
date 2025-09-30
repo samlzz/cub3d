@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   _P_test_cub_parsing.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/30 16:02:37 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/30 16:02:38 by eazard           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdint.h>
 
 #include "libft.h"
@@ -5,7 +17,7 @@
 #include "parsing/parser.h"
 #include "test.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	int16_t	code;
 	t_map	map;

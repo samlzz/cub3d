@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_flow.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:17:11 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 02:26:24 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:51:01 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 #include "fields.h"
 #include "parse_err.h"
 
-static t_parse_err	_parse_header_line(const char *line, t_parser *p, bool *switch_rest)
+static t_parse_err	_parse_header_line(const char *line,
+						t_parser *p, bool *switch_rest)
 {
 	const char	*s;
 	size_t		key_len;
@@ -41,7 +42,8 @@ static t_parse_err	_parse_header_line(const char *line, t_parser *p, bool *switc
 	if (p->seen[id])
 		return (PE_U_DUPLICATE);
 	p->seen[id] = true;
-	exit_code = p->specs[id].parser.head(s + key_len, p->specs[id].dst, &p->diag);
+	exit_code
+		= p->specs[id].parser.head(s + key_len, p->specs[id].dst, &p->diag);
 	if (exit_code == PE_OK)
 		p->diag.owner = FI_INVALID;
 	return (exit_code);
@@ -55,7 +57,8 @@ static inline t_parse_err	_handle_eof_err(t_parser *p)
 	return (PE_U_MAP_MISSING);
 }
 
-static t_parse_err	_parse_header_flow(int fd, t_parser *p, char **trailing_line)
+static t_parse_err	_parse_header_flow(int fd,
+						t_parser *p, char **trailing_line)
 {
 	char		*line;
 	ssize_t		gnl_ret;
@@ -89,7 +92,8 @@ static t_parse_err	_parse_header_flow(int fd, t_parser *p, char **trailing_line)
 Call the rest parser on the left content of the file
 
 Handle errors 
-	(missing a required field, missing rest field, trailing content but no rest field)
+	(missing a required field, missing rest field,
+	trailing content but no rest field)
 */
 t_parse_err	parse_flow(int fd, t_parser *p)
 {

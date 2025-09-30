@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 14:40:44 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:47:32 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,6 @@
 #  define KEY_E				101
 #  define E_DESTROY_NOTIFY -1
 
-# else
-
-/* macOS (si besoin) :
-#  define KEY_ESC    53
-#  define KEY_W      13
-#  define KEY_A      0
-#  define KEY_S      1
-#  define KEY_D      2
-#  define KEY_LEFT   123
-#  define KEY_RIGHT  124
-*/
 # endif
 
 typedef struct s_img		t_img;

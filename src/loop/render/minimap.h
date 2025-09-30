@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:50:19 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 14:21:15 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:54:54 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@
 # define MINIMAP_ARROW_BORDER	0
 
 typedef struct s_arrow_len	t_arrow_len;
-typedef struct s_border 	t_border;
+typedef struct s_border		t_border;
 
 struct s_arrow_len
 {
-	double arrow_depth;
-	double head_len;
-	double head_wid;
+	double	arrow_depth;
+	double	head_len;
+	double	head_wid;
 };
 
 struct s_border
@@ -59,11 +59,12 @@ struct s_border
 	t_color	color;
 };
 
-void	render_minimap(t_mlx *mlx, const t_grid *grid, const t_camera *cam);
+void		render_minimap(t_mlx *mlx, const t_grid *grid, const t_camera *cam);
 void		render_minimap_player(t_img *minimap, t_vec2i start,
 				int32_t grid_height, const t_camera *cam);
 
 t_vec2iv3	arrow_triangle_build(t_vec2i player, t_vec2d u, t_arrow_len L);
-void		arrow_triangle_draw(t_img *minimap, t_vec2iv3 tri, t_color fill, t_border border);
+void		arrow_triangle_draw(t_img *minimap, t_vec2iv3 tri,
+				t_color fill, t_border border);
 
 #endif

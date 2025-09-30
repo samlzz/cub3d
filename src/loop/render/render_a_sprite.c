@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_a_sprite.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 11:46:11 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 14:17:10 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:43:49 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,15 @@ static void	clamp_sprite_bound_within_window_limits(
 				t_sprite_rendering_data *sprite_data)
 {
 	sprite_data->right_bound = vec2i_clamp(
-		sprite_data->right_bound,
-		(t_vec2i){0},
-		(t_vec2i){WIN_WIDTH, WIN_HEIGHT}
-	);
+			sprite_data->right_bound,
+			(t_vec2i){0},
+			(t_vec2i){WIN_WIDTH, WIN_HEIGHT}
+			);
 	sprite_data->left_bound = vec2i_clamp(
-		sprite_data->left_bound,
-		(t_vec2i){0},
-		(t_vec2i){WIN_WIDTH, WIN_HEIGHT}
-	);
+			sprite_data->left_bound,
+			(t_vec2i){0},
+			(t_vec2i){WIN_WIDTH, WIN_HEIGHT}
+			);
 }
 
 void	render_a_sprit(t_data *data, t_sprite_rendering_data *sprite_data,
@@ -62,7 +62,8 @@ void	render_a_sprit(t_data *data, t_sprite_rendering_data *sprite_data,
 {
 	get_sprite_size_and_location_on_window(sprite_data);
 	set_sprite_bound_on_window(sprite_data);
-	vec2i_clamp(sprite_data->right_bound, (t_vec2i){0}, (t_vec2i){WIN_WIDTH, WIN_HEIGHT});
+	vec2i_clamp(sprite_data->right_bound, (t_vec2i){0},
+		(t_vec2i){WIN_WIDTH, WIN_HEIGHT});
 	clamp_sprite_bound_within_window_limits(sprite_data);
 	select_sprite_frame_img(data, sprite_data, printed_sprite);
 	draw_sprite(data, sprite_data);

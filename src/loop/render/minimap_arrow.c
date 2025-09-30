@@ -1,5 +1,13 @@
 /* ************************************************************************** */
-/* Helpers triangle pour flèche de direction (norme 42 friendly)             */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minimap_arrow.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/30 14:56:39 by eazard            #+#    #+#             */
+/*   Updated: 2025/09/30 15:07:10 by eazard           ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mlx/ft_mlx_img.h"
@@ -11,7 +19,7 @@
 
 static inline t_vec2d	_tri_centroid(t_vec2iv3 tri)
 {
-	t_vec2d g;
+	t_vec2d	g;
 
 	g.x = (tri.a.x + tri.b.x + tri.c.x) / 3.0;
 	g.y = (tri.a.y + tri.b.y + tri.c.y) / 3.0;
@@ -30,7 +38,7 @@ static t_vec2i	_expand_from_centroid(t_vec2i p, t_vec2d g, int32_t px)
 		m = 1.0;
 	v.x = v.x / m * px;
 	v.y = v.y / m * px;
-	return (vec2d_round((t_vec2d){ p.x + v.x, p.y + v.y }, true));
+	return (vec2d_round((t_vec2d){p.x + v.x, p.y + v.y}, true));
 }
 
 static inline t_vec2iv3	_grow_triangle(t_vec2iv3 tri, int32_t border_px)
@@ -53,7 +61,7 @@ t_vec2iv3	arrow_triangle_build(t_vec2i player, t_vec2d u, t_arrow_len L)
 	t_vec2i		base;
 	t_vec2iv3	tri;
 
-	n = (t_vec2d){ -u.y, u.x };
+	n = (t_vec2d){-u.y, u.x};
 	tmp = vec2d_scalar_mult(u, L.arrow_depth);
 	tip = vec2i_sum(player, vec2d_round(tmp, true));
 	tmp = vec2d_scalar_mult(u, L.head_len);
@@ -65,10 +73,11 @@ t_vec2iv3	arrow_triangle_build(t_vec2i player, t_vec2d u, t_arrow_len L)
 	return (tri);
 }
 
-
-void arrow_triangle_draw(t_img *minimap, t_vec2iv3 tri, t_color fill, t_border border)
+void	arrow_triangle_draw(t_img *minimap, t_vec2iv3 tri,
+			t_color fill, t_border border)
 {
 	t_vec2iv3	outer;
+
 	if (border.px)
 	{
 		outer = _grow_triangle(tri, border.px);

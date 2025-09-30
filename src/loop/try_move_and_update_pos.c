@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   try_move_and_update_pos.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 10:15:11 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 19:09:17 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:50:20 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ static bool	_can_stand_at_(t_map *map, double x, double y, double r)
 	miny = get_y_pos(map->g.dim.y, y + r + EPS);
 	maxy = get_y_pos(map->g.dim.y, y - r - EPS);
 	if (_is_blocking_(&map->g, map->doors, minx, miny)
-		|| _is_blocking_(&map->g, map->doors,  minx, maxy)
-		|| _is_blocking_(&map->g, map->doors,  maxx, miny)
-		|| _is_blocking_(&map->g, map->doors,  maxx, maxy))
+		|| _is_blocking_(&map->g, map->doors, minx, maxy)
+		|| _is_blocking_(&map->g, map->doors, maxx, miny)
+		|| _is_blocking_(&map->g, map->doors, maxx, maxy))
 		return (false);
 	else
 		return (true);

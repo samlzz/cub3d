@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vec.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:23:12 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 14:20:04 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:56:45 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 typedef struct s_vec2i		t_vec2i;
 typedef struct s_vec2d		t_vec2d;
 
-typedef struct s_vec2iv2		t_vec2iv2;
-typedef struct s_vec2iv3		t_vec2iv3;
+typedef struct s_vec2iv2	t_vec2iv2;
+typedef struct s_vec2iv3	t_vec2iv3;
 
 struct s_vec2i
 {
@@ -48,7 +48,7 @@ struct s_vec2iv3
 	t_vec2i	c;
 };
 
-// *Functions
+/* Functions */
 
 /* vector of double */
 void	vec2d_rotate(t_vec2d *vec, double angle);

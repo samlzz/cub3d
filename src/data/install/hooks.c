@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:38:06 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 14:40:56 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:47:26 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,8 @@ int	on_mouse_move(int32_t x, int32_t y, t_data *data)
 	cursor->dx_accum += (double)(x - cursor->pos.x);
 	cursor->pos = (t_vec2i){WIN_WIDTH / 2, WIN_HEIGHT / 2};
 	cursor->pending_recenter = true;
-	mlx_mouse_move(data->mlx.display, data->mlx.window, cursor->pos.x, cursor->pos.y);
+	mlx_mouse_move(data->mlx.display, data->mlx.window,
+		cursor->pos.x, cursor->pos.y);
 	return (0);
 }
 
@@ -100,5 +101,6 @@ void	install_hooks(t_data *data)
 		&on_key_release, data);
 	mlx_hook(data->mlx.window, DestroyNotify, StructureNotifyMask,
 		&on_destroy_notify, data);
-	mlx_hook(data->mlx.window, MotionNotify, PointerMotionMask, &on_mouse_move, data);
+	mlx_hook(data->mlx.window, MotionNotify, PointerMotionMask,
+		&on_mouse_move, data);
 }

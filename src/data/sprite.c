@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:32:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 14:25:14 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:47:06 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,19 @@
 
 const t_sprite_meta	*sprites_get_metadata(size_t *count)
 {
-	static const t_sprite_meta sprites_def[] = {
-		{
-			.name = "Mewtwo 1",
-			.paths = { MT_1, MT_2, MT_3, MT_4, MT_5, MT_6, MT_7, NULL},
-			.default_pos = { 36.5, 11.5 }
-		},
-		{
-			.name = "Mewtwo 2",
-			.paths = { MT_1, MT_2, MT_3, MT_4, MT_5, MT_6, MT_7, NULL},
-			.default_pos = { -200, -100 }
-		},
+	static const t_sprite_meta	sprites_def[] = {
+	{
+		.name = "Mewtwo 1",
+		.paths = {MT_1, MT_2, MT_3, MT_4, MT_5, MT_6, MT_7, NULL},
+		.default_pos = {36.5, 11.5}
+	},
+	{
+		.name = "Mewtwo 2",
+		.paths = {MT_1, MT_2, MT_3, MT_4, MT_5, MT_6, MT_7, NULL},
+		.default_pos = {-200, -100}
+	},
 	};
+
 	*count = (sizeof (sprites_def) / sizeof (t_sprite_meta));
 	return (sprites_def);
 }

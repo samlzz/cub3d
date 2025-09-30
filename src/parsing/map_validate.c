@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:29:02 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 16:35:15 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:49:48 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,16 @@ t_grid	*get_normalized_grid(const t_grid *usr_map)
 
 static bool	_check_neighbors(const t_grid n, const t_vec2i pos)
 {
-	static const int32_t	DX[4] = { 1, -1,  0,  0 };
-	static const int32_t	DY[4] = { 0,  0,  1, -1 };
+	static const int32_t	dx[4] = {1, -1, 0, 0};
+	static const int32_t	dy[4] = {0, 0, 1, -1};
 	size_t					i;
 	t_vec2i					curr;
 
 	i = 0;
 	while (i < 4)
 	{
-		curr.x = pos.x + DX[i];
-		curr.y = pos.y + DY[i];
+		curr.x = pos.x + dx[i];
+		curr.y = pos.y + dy[i];
 		if (curr.x >= 0 && curr.y >= 0 && curr.x < n.dim.x && curr.y < n.dim.y)
 		{
 			if (n.grid[curr.y][curr.x] == ' ')
@@ -92,7 +92,7 @@ static bool	_check_neighbors(const t_grid n, const t_vec2i pos)
 	return (false);
 }
 
-static inline t_parse_err	_check_pos(const t_grid *n, const t_vec2i *pos, 
+static inline t_parse_err	_check_pos(const t_grid *n, const t_vec2i *pos,
 	bool *has_walkable, int32_t *usr_occ)
 {
 	char	v;

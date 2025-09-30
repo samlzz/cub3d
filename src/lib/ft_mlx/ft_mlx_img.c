@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_img.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:25:40 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 14:34:01 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:58:41 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	ft_mlx_img_put_sphere(t_img *img, t_vec2i center, int32_t diameter,
 		xr = sqrt(r - yc * yc);
 		curr.x = (int32_t)floor(xr - 0.5);
 		ft_mlx_img_put_span(img, (t_vec2iv2){
-			(t_vec2i){ center.x - curr.x, center.y + curr.y},
+			(t_vec2i){center.x - curr.x, center.y + curr.y},
 			vec2i_sum(center, curr)
 		}, color);
 		curr.y++;

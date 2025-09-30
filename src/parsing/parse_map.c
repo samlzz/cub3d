@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 17:21:24 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 16:21:36 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:54:12 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 #include "parse_err.h"
 #include "parser.h"
 
-static inline t_parse_err	_handle_invalid_map_ln(struct s_diag *d, int32_t i, char c_err)
+static inline t_parse_err	_handle_invalid_map_ln(struct s_diag *d,
+								int32_t i, char c_err)
 {
 	char	inv_char[4];
 
@@ -38,7 +39,8 @@ static inline t_parse_err	_handle_invalid_map_ln(struct s_diag *d, int32_t i, ch
 	return (PE_U_MALFORMED);
 }
 
-static t_parse_err	_parse_grid(t_strlst *lines, int32_t count, t_grid *grid, struct s_diag *d)
+static t_parse_err	_parse_grid(t_strlst *lines, int32_t count,
+						t_grid *grid, struct s_diag *d)
 {
 	int32_t	i;
 	size_t	err_idx;
@@ -66,12 +68,13 @@ static t_parse_err	_parse_grid(t_strlst *lines, int32_t count, t_grid *grid, str
 	return (PE_OK);
 }
 
-t_parse_err	parse_map(t_strlst *content, int32_t size, t_grid *out, struct s_diag *d)
+t_parse_err	parse_map(t_strlst *content, int32_t size,
+				t_grid *out, struct s_diag *d)
 {
 	t_parse_err	code;
 	t_grid		*n;
 	int32_t		map_y_err;
-	
+
 	code = _parse_grid(content, size, out, d);
 	if (code)
 		return (code);

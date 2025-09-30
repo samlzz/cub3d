@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   door.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 11:30:55 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 13:40:18 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:47:54 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOORS_H
-# define DOORS_H
+#ifndef DOOR_H
+# define DOOR_H
 
 // # define DOOR_TIME_TO_OPEN 0.7
 # define DOOR_DISTANCE_MAX_TO_BE_ABLE_TO_INTERACT 1.5

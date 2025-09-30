@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_err.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 23:12:46 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 11:21:14 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:51:26 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "parsing/fields.h"
 # include <stdint.h>
 
-typedef struct s_parser 	t_parser;
+typedef struct s_parser		t_parser;
 typedef enum e_parse_err	t_parse_err;
 
 enum e_parse_err

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_wrapper.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 00:10:29 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/29 13:33:01 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:52:13 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 #include "parsing/parse_err.h"
 #include "parsing/parser.h"
 
-t_parse_err	parse_texture_wrap(const char *after_id, void *tex_path, struct s_diag *d)
+t_parse_err	parse_texture_wrap(const char *after_id,
+				void *tex_path, struct s_diag *d)
 {
 	char		*tmp;
 	const char	*end;
@@ -48,7 +49,8 @@ t_parse_err	parse_texture_wrap(const char *after_id, void *tex_path, struct s_di
 	return (PE_OK);
 }
 
-t_parse_err	parse_color_wrap(const char *after_id, void *color, struct s_diag *d)
+t_parse_err	parse_color_wrap(const char *after_id,
+				void *color, struct s_diag *d)
 {
 	int16_t	code;
 
