@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_err.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 10:05:42 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 15:54:24 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 16:21:07 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@
 const char	*pe_str(t_parse_err code)
 {
 	static const char	*_pe_msgs[PE__COUNT] = {
-		"ok",
-		"internal error",
-		"duplicate key",
-		"malformed value",
-		"unknown key",
-		"missing required field",
-		"missing map",
-		"missing player on map",
-		"too many players on map",
-		"map must be surrounded by walls",
-		"map must contains at least one walkable tile",
-		"unexpected trailing content"
+	[PE_OK] = "ok",
+	[PE_INTERNAL] = "internal error",
+	[PE_U_DUPLICATE] = "duplicate key",
+	[PE_U_MALFORMED] = "malformed value",
+	[PE_U_UNKNOW_KEY] = "unknown key",
+	[PE_U_MISSING_REQUIRED] = "missing required field",
+	[PE_U_MAP_MISSING] = "missing map",
+	[PE_U_MAP_PLAYER_MISSING] = "missing player on map",
+	[PE_U_MAP_PLAYER_MANY] = "too many players on map",
+	[PE_U_MAP_OPEN] = "map must be surrounded by walls",
+	[PE_U_MAP_NO_WALKABLE] = "map must contains at least one walkable tile",
+	[PE_U_TRAILING_CONTENT] = "unexpected trailing content"
 	};
 	int32_t				idx;
 

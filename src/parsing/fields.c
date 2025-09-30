@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fields.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 21:50:00 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 15:01:07 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 16:20:58 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,18 @@
 #include "cubmap.h"
 #include "parser.h"
 
+#ifndef CUB3D_BONUS
+
 t_field_meta	fields_get_metadata(t_field_id id)
 {
 	static const t_field_meta	_fields_meta[FI__COUNT] = {
-	{"NO", FK_TEXTURE, true, "North texture (XPM file)."},
-	{"SO", FK_TEXTURE, true, "South texture (XPM file)."},
-	{"EA", FK_TEXTURE, true, "East texture (XPM file)."},
-	{"WE", FK_TEXTURE, true, "West texture (XPM file)."},
-	{"D", FK_TEXTURE, true, "Door texture (XPM file)."},
-	{"F", FK_COLOR, true, "Floor color: R,G,B (0..255)."},
-	{"C", FK_COLOR, true, "Ceiling color: R,G,B (0..255)."},
-	{"MAP", FK_REST, true, "Grid content until EOF."},
+	[FI_NO] = {"NO", FK_TEXTURE, true, "North texture (XPM file)."},
+	[FI_SO] = {"SO", FK_TEXTURE, true, "South texture (XPM file)."},
+	[FI_EA] = {"EA", FK_TEXTURE, true, "East texture (XPM file)."},
+	[FI_WE] = {"WE", FK_TEXTURE, true, "West texture (XPM file)."},
+	[FI_FLOOR] = {"F", FK_COLOR, true, "Floor color: R,G,B (0..255)."},
+	[FI_CEIL] = {"C", FK_COLOR, true, "Ceiling color: R,G,B (0..255)."},
+	[FI_MAP] = {"MAP", FK_REST, true, "Grid content until EOF."},
 	};
 
 	return (_fields_meta[id]);
@@ -52,6 +53,8 @@ void	*fields_get_dst(t_map *m, t_field_id id)
 		return ((void *)&m->ceil_colr);
 	return (NULL);
 }
+
+#endif
 
 t_parse_fn	fields_get_parser(t_field_kind type)
 {
