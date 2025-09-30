@@ -49,9 +49,10 @@ FILES =	cubmap.c \
 		loop/render/draw.c \
 		loop/render/draw_sprite.c \
 		loop/render/init_dda.c \
+		loop/render/render_a_sprite.c \
 		loop/render/render_frame.c \
-		loop/render/render_sprites.c \
-		loop/render/select_frame_img.c \
+		loop/render/render_sprites_in_fov.c \
+		loop/render/select_sprite_frame_img.c \
 		loop/render/set_up_sprite_dist_and_order.c \
 		loop/render/sort_sprites_by_distance.c \
 		parsing/grid.c \

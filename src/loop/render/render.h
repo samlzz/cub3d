@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:31:34 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 09:09:18 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 12:08:18 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 typedef struct s_img		t_img;
 typedef struct s_line		t_line;
 typedef struct s_dda_data	t_dda_data;
-typedef struct s_asset_data	t_asset_data;
+typedef struct s_sprite_rendering_data	t_sprite_rendering_data;
 
 struct s_line
 {
@@ -61,14 +61,14 @@ struct s_dda_data
 	char			target;
 };
 
-struct s_asset_data
+struct s_sprite_rendering_data
 {
 	int32_t	i;
 	int32_t	printed_sprit_id;
 	t_vec2d	camera_space_coordinate;
 	int32_t	sprite_center_x_screen_space;
-	int32_t	sprite_height;
-	int32_t	sprite_width;
+	int32_t	sprite_height_on_window;
+	int32_t	sprite_width_on_window;
 	t_vec2i	left_bound;
 	t_vec2i	right_bound;
 	t_img	frame_asset_img;
@@ -95,13 +95,14 @@ void	draw_clear(t_img *img, uint32_t ceil_color, uint32_t floor_color);
 void	draw_vline(t_data *data, t_line line, uint32_t color);
 void	draw_bend_with_textue(t_data *data, t_dda_data *dda);
 void	draw_bend_without_texture(t_data *data, t_dda_data *dda);
-void	draw_sprite(t_data *data, t_asset_data *sprite_data);
+void	draw_sprite(t_data *data, t_sprite_rendering_data *sprite_data);
 
 /*render sprite*/
-void	render_sprites(t_data *data);
+void	render_sprites_in_fov(t_data *data);
 void	set_up_sprite_order_and_dist(t_data *data);
 void	sort_sprite(t_data *data);
-void	select_frame_img(t_data *data,
-			t_asset_data *sprite_data, t_sprite *sprite);
-
+void	select_sprite_frame_img(t_data *data,
+			t_sprite_rendering_data *sprite_data, t_sprite *sprite);
+void	render_a_sprit(t_data *data, t_sprite_rendering_data *sprite_data,
+			t_sprite *printed_sprite);
 #endif

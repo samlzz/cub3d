@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:25 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 08:46:42 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 12:10:45 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 #include "vec/vec.h"
 #include "data/camera.h"
-#include "render.h"\
+#include "render.h"
 
 t_vec2d	get_ray_dir(t_camera *cam, int32_t x)
 {
 	double	camera_x;
 
 	camera_x = 2.0 * (double)x / (WIN_WIDTH - 1) - 1.0;
-	return (vec2d_sum(cam->dir, 
-		vec2d_scalar_mult(cam->plane, camera_x * cam->fov_factor)));
+	return (vec2d_sum(cam->dir,
+			vec2d_scalar_mult(cam->plane, camera_x * cam->fov_factor)));
 }
 
 void	render_frame(t_data *data)
 {
 	t_dda_data	dda;
 
-	draw_clear(&data->mlx.img, data->map.ceil_colr->value, data->map.floor_colr->value);
+	draw_clear(&data->mlx.img, data->map.ceil_colr->value,
+		data->map.floor_colr->value);
 	dda.x = 0;
 	while (dda.x < WIN_WIDTH)
 	{
@@ -39,5 +40,5 @@ void	render_frame(t_data *data)
 	}
 	set_up_sprite_order_and_dist(data);
 	sort_sprite(data);
-	render_sprites(data);
+	render_sprites_in_fov(data);
 }
