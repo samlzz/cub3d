@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 20:54:38 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 13:40:57 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,10 +115,5 @@ void	install_frame_engine(t_data *data);
 
 int16_t	install_doors(t_grid *grid, t_door ***doors);
 void	uninstall_doors(t_door ***doors);
-
-// int16_t	load_animated_assets(t_assets *assets, t_mlx *mlx);
-// void	install_mewtwo_assets_paths(char (*mewtwo_assets)[ASSET_PATH_SIZE]);
-// void	fatal_clear_animated_assets(t_mlx *mlx, t_assets *assets);
-// void	build_all_sprites(t_sprite sprites[SPRITE_NB], t_assets *assets);
 
 #endif

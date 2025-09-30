@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:50:19 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 21:18:10 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:21:15 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,6 @@
 # define MINIMAP_ARROW_THICK	3
 
 # define MINIMAP_ARROW_BORDER	0
-
-
-# define LITTLE 1e-9
 
 typedef struct s_arrow_len	t_arrow_len;
 typedef struct s_border 	t_border;

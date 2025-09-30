@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:41:20 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/27 15:25:43 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 13:45:32 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ struct s_img
 	int32_t	line_len;
 	t_vec2i	dim;
 };
-
 
 void		ft_mlx_img_put_px(t_img *img, t_vec2i pos, uint32_t color);
 uint32_t	ft_mlx_img_get_px(const t_img *img, t_vec2i pos);

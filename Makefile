@@ -34,6 +34,7 @@ FILES =	cubmap.c \
 		lib/vec/ftmath_utils.c \
 		lib/vec/print_vec.c \
 		lib/vec/vec2d.c \
+		lib/vec/vec2d_op.c \
 		lib/vec/vec2i.c \
 		loop/app_loop_hook.c \
 		loop/app_update.c \
@@ -46,11 +47,16 @@ FILES =	cubmap.c \
 		loop/render/dda_draw.c \
 		loop/render/dda_loop.c \
 		loop/render/deduce_after_loop.c \
+		loop/render/draw_sprite.c \
 		loop/render/init_dda.c \
 		loop/render/minimap_arrow.c \
 		loop/render/minimap_player.c \
+		loop/render/render_a_sprite.c \
 		loop/render/render_frame.c \
 		loop/render/render_minimap.c \
+		loop/render/render_sprites_in_fov.c \
+		loop/render/select_sprite_frame_img.c \
+		loop/render/sprites_ditances.c \
 		parsing/fields.c \
 		parsing/map_validate.c \
 		parsing/parse_err.c \

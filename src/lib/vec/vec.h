@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:23:12 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 14:01:38 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:20:04 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,13 @@ struct s_vec2iv3
 
 /* vector of double */
 void	vec2d_rotate(t_vec2d *vec, double angle);
-t_vec2d	vec2d_sum(t_vec2d vec1, t_vec2d vec2);
-t_vec2d	vec2d_scalar_mult(t_vec2d vec, double scalar);
 t_vec2i	vec2d_round(t_vec2d vec, bool round_greater);
 double	vec2d_get_norm(t_vec2d vec);
+
+/* base operations*/
+t_vec2d	vec2d_sum(t_vec2d vec1, t_vec2d vec2);
+t_vec2d	vec2d_minus(t_vec2d vec1, t_vec2d vec2);
+t_vec2d	vec2d_scalar_mult(t_vec2d vec, double scalar);
 
 void	vec2d_print(t_vec2d vec, char *name);
 

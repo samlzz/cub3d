@@ -4,6 +4,7 @@
 
 #include "ft_mlx/ft_mlx_img.h"
 #include "color.h"
+#include "loop/loop.h"
 #include "minimap.h"
 #include "vec/vec.h"
 #include <stdint.h>
@@ -25,7 +26,7 @@ static t_vec2i	_expand_from_centroid(t_vec2i p, t_vec2d g, int32_t px)
 	v.x = (double)p.x - g.x;
 	v.y = (double)p.y - g.y;
 	m = vec2d_get_norm(v);
-	if (m < 1e-9)
+	if (m < EPS)
 		m = 1.0;
 	v.x = v.x / m * px;
 	v.y = v.y / m * px;

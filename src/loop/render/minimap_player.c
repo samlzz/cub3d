@@ -6,13 +6,14 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:33:52 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 21:18:17 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:21:56 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "color.h"
 #include "ft_mlx/ft_mlx_img.h"
+#include "loop/loop.h"
 #include "minimap.h"
 #include "vec/vec.h"
 
@@ -31,7 +32,7 @@ static void	_draw_player_dir_triangle(t_img *minimap, const t_vec2d cam_dir,
 	d.x = cam_dir.x;
 	d.y = -cam_dir.y;
 	norm = vec2d_get_norm(d);
-	if (norm < LITTLE)
+	if (norm < EPS)
 		return ;
 	u.x = d.x / norm;
 	u.y = d.y / norm;

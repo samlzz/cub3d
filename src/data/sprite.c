@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:32:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 02:18:24 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:25:14 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,26 @@
 #include "parsing/parse_utils.h"
 #include "sprite.h"
 
+#define MT_1	"./assets/mewtwo/mewtwo000.xpm"
+#define MT_2	"./assets/mewtwo/mewtwo001.xpm"
+#define MT_3	"./assets/mewtwo/mewtwo002.xpm"
+#define MT_4	"./assets/mewtwo/mewtwo003.xpm"
+#define MT_5	"./assets/mewtwo/mewtwo004.xpm"
+#define MT_6	"./assets/mewtwo/mewtwo005.xpm"
+#define MT_7	"./assets/mewtwo/mewtwo006.xpm"
+
 const t_sprite_meta	*sprites_get_metadata(size_t *count)
 {
 	static const t_sprite_meta sprites_def[] = {
 		{
-			.name = "Mewtwo",
-			.paths = {
-					"./assets/mewtwo/mewtwo000.xpm",
-					"./assets/mewtwo/mewtwo001.xpm",
-					"./assets/mewtwo/mewtwo002.xpm",
-					"./assets/mewtwo/mewtwo003.xpm",
-					"./assets/mewtwo/mewtwo004.xpm",
-					"./assets/mewtwo/mewtwo005.xpm",
-					"./assets/mewtwo/mewtwo006.xpm",
-					NULL
-			},
+			.name = "Mewtwo 1",
+			.paths = { MT_1, MT_2, MT_3, MT_4, MT_5, MT_6, MT_7, NULL},
 			.default_pos = { 36.5, 11.5 }
+		},
+		{
+			.name = "Mewtwo 2",
+			.paths = { MT_1, MT_2, MT_3, MT_4, MT_5, MT_6, MT_7, NULL},
+			.default_pos = { -200, -100 }
 		},
 	};
 	*count = (sizeof (sprites_def) / sizeof (t_sprite_meta));

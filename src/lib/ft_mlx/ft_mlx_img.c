@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:25:40 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/27 15:24:50 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:34:01 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdint.h>
 
 #include "color.h"
-#include "loop/render/minimap.h"
+#include "loop/loop.h"
 #include "vec/ftmath_utils.h"
 #include "vec/vec.h"
 #include "ft_mlx_img.h"
@@ -79,7 +79,7 @@ void	ft_mlx_img_put_sphere(t_img *img, t_vec2i center, int32_t diameter,
 	if (diameter == 1)
 		return (ft_mlx_img_put_px(img, center, color.value));
 	r = (double)diameter * 0.5;
-	ymax = (int32_t)floor(r - LITTLE);
+	ymax = (int32_t)floor(r - EPS);
 	curr.y = (int32_t)floor(-r);
 	r *= r;
 	while (curr.y <= ymax)

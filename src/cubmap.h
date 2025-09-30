@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 02:33:21 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 13:40:05 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef enum e_texture_id	t_texture_id;
 typedef struct s_grid		t_grid;
 typedef struct s_map		t_map;
 typedef struct s_door		t_door;
+typedef	struct s_sprite	t_sprite;
 
 enum e_directions
 {
@@ -51,6 +52,14 @@ struct s_grid
 	char	**grid;
 	t_vec2i	dim;
 };
+
+// struct	s_sprite
+// {
+// 	double	x;
+// 	double	y;
+// 	t_img	*imgs;
+// 	int32_t	img_nb;
+// };
 
 struct s_map
 {
