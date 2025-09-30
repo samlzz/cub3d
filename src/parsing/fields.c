@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 21:50:00 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 16:20:58 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 16:35:05 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_field_meta	fields_get_metadata(t_field_id id)
 	[FI_SO] = {"SO", FK_TEXTURE, true, "South texture (XPM file)."},
 	[FI_EA] = {"EA", FK_TEXTURE, true, "East texture (XPM file)."},
 	[FI_WE] = {"WE", FK_TEXTURE, true, "West texture (XPM file)."},
+	[FI_DOOR] = {"D", FK_TEXTURE, true, "Door texture (XPM file)."},
 	[FI_FLOOR] = {"F", FK_COLOR, true, "Floor color: R,G,B (0..255)."},
 	[FI_CEIL] = {"C", FK_COLOR, true, "Ceiling color: R,G,B (0..255)."},
 	[FI_MAP] = {"MAP", FK_REST, true, "Grid content until EOF."},
