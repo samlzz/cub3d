@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:16:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 16:19:13 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 16:55:50 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,13 @@
 
 typedef struct s_img		t_img;
 
-typedef struct s_mouse		t_mouse;
 typedef struct s_inputs		t_inputs;
 typedef struct s_mlx		t_mlx;
 typedef struct s_data		t_data;
 
+#ifdef CUB3D_BONUS
+
+typedef struct s_mouse		t_mouse;
 struct s_mouse
 {
 	t_vec2i	pos;
@@ -61,6 +63,19 @@ struct s_inputs
 	bool	try_to_interact_with_door;
 	t_mouse	cursor;
 };
+#else
+
+struct s_inputs
+{
+	bool	forward;
+	bool	backward;
+	bool	left;
+	bool	right;
+	bool	turn_left;
+	bool	turn_right;
+	bool	try_to_interact_with_door;
+};
+#endif
 
 struct s_mlx
 {
@@ -85,7 +100,14 @@ void	data_exit(t_data *data, t_init_error code);
 
 // * Install
 
+#ifdef CUB3D_BONUS
+
 int16_t	install_mlx(t_mlx *mlx, t_vec2i screen, t_mouse *cursor, t_vec2i grid);
+#else
+
+int16_t	install_mlx(t_mlx *mlx, t_vec2i screen, t_vec2i grid);
+#endif
+
 int16_t	install_mlx_img(t_mlx *mlx, t_img *img, t_vec2i img_dim);
 
 void	install_hooks(t_data *data);

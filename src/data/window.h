@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 09:25:30 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/29 19:11:31 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/09/30 16:56:29 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@
 # ifndef FOV_FACTOR
 #  define FOV_FACTOR		0.66
 # endif
-# ifndef MOUSE_SENSITIVITY
-#  define MOUSE_SENSITIVITY 0.0025
+
+# ifdef CUB3D_BONUS
+#  ifndef MOUSE_SENSITIVITY
+#   define MOUSE_SENSITIVITY 0.0025
+#  endif
 # endif
 
 #endif
