@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 10:54:08 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 09:36:06 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 09:37:07 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ t_sprite	build_a_sprite(double x, double y, t_img *imgs, int32_t img_nb)
 void	build_all_sprites(t_sprite sprites[SPRITE_NB], t_assets *assets)
 {
 		sprites[0] = build_a_sprite(MEWTWO_X, MEWTWO_Y, assets->mewtwo_imgs,
+				MEWTWO_SPRITE_NB);
+		sprites[1] = build_a_sprite(MEWTWO_X + 2.0, MEWTWO_Y, assets->mewtwo_imgs,
 				MEWTWO_SPRITE_NB);
 }

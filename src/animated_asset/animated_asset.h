@@ -6,7 +6,7 @@
 /*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 18:05:09 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 08:48:42 by eazard           ###   ########.fr       */
+/*   Updated: 2025/09/30 09:37:27 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@
 
 # define ASSET_PATH_SIZE 64
 
-# define SPRITE_NB 1
+# define SPRITE_NB 2
 
 #endif
