@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_bank.c                                      :+:      :+:    :+:   */
+/*   sprite_bank_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 01:23:50 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 16:52:48 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/10/01 10:47:51 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int16_t	install_sprites_bank(t_sprites_data *bank, t_mlx *mlx)
 		bank->sprites[i].name = defs[i].name;
 		bank->sprites[i].pos = defs[i].default_pos;
 		if (sprite_load(bank->sprites + i, defs[i].paths, mlx))
-			return (bank->count = i, clear_sprite_bank(bank, mlx), 1);
+			return (bank->count = i, 1);
 		i++;
 	}
 	return (0);

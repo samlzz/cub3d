@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:32:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/10/01 10:17:05 by eazard           ###   ########.fr       */
+/*   Updated: 2025/10/01 10:50:53 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	sprite_free(t_sprite sprite, t_mlx *mlx)
 	int32_t	i;
 	void	*img_ptr;
 
-	if (!sprite.frames || sprite.count <= 0)
+	if (!sprite.frames || sprite.count < 0)
 		return ;
 	i = 0;
 	while (i < sprite.count)
