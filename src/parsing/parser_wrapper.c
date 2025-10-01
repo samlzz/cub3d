@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 00:10:29 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 18:29:00 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/10/01 10:23:40 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,12 +113,7 @@ t_parse_err	parse_rest_wrap(int fd, char *first_ln, t_parser *p)
 	t_parse_err	code;
 	t_strlst	*head;
 	int32_t		size;
-	bool		valid_map_begin;
-	char		invalid;
 
-	size = 0;
-	valid_map_begin = ft_isln_valid(first_ln, &size);
-	invalid = first_ln[size];
 	size = 0;
 	head = _retrieve_map_lines(fd, first_ln, &size);
 	if (!head && size == -1)
@@ -126,10 +121,7 @@ t_parse_err	parse_rest_wrap(int fd, char *first_ln, t_parser *p)
 	else if (!head)
 	{
 		p->diag.file_line += size;
-		if (valid_map_begin)
-			p->diag.what = ft_strdup("empty line in map content");
-		else
-			return (handle_invalid_map_ln(&p->diag, -1, invalid));
+		p->diag.what = ft_strdup("empty line in map content");
 		return (!p->diag.what * PE_INTERNAL + !!p->diag.what * PE_U_MALFORMED);
 	}
 	code = parse_map(head, size, &p->out->g, &p->diag);

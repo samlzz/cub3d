@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_flow.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:17:11 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 15:51:01 by eazard           ###   ########.fr       */
+/*   Updated: 2025/10/01 10:34:04 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,33 @@ static t_parse_err	_parse_header_flow(int fd,
 	return (PE_OK);
 }
 
+static inline t_parse_err	_check_fields_then_rest(int fd, t_parser *p,
+								char *trailing_ln)
+{
+	t_rest_parser	rest_fn;
+	t_field_id		i;
+
+	rest_fn = NULL;
+	i = 0;
+	while (i < FI__COUNT)
+	{
+		if (p->specs[i].metadata.kind == FK_REST)
+			rest_fn = p->specs[i].parser.rest;
+		else if (p->specs[i].metadata.required && !p->seen[i])
+			return (free(trailing_ln),
+				p->diag.owner = i,
+				PE_U_MISSING_REQUIRED);
+		i++;
+	}
+	if (rest_fn && trailing_ln)
+		return (rest_fn(fd, trailing_ln, p));
+	if (rest_fn)
+		return (PE_U_MAP_MISSING);
+	if (trailing_ln)
+		return (p->diag.what = trailing_ln, PE_U_TRAILING_CONTENT);
+	return (PE_OK);
+}
+
 /* Call _parse_header_flow then check required fields (except for REST one)
 
 Call the rest parser on the left content of the file
@@ -97,29 +124,20 @@ Handle errors
 */
 t_parse_err	parse_flow(int fd, t_parser *p)
 {
-	char			*trailing;
-	t_parse_err		code;
-	t_field_id		i;
-	t_rest_parser	rest_fn;
+	char		*trailing;
+	int32_t		err_idx;
+	char		err_char;
+	t_parse_err	code;
 
 	trailing = NULL;
 	code = _parse_header_flow(fd, p, &trailing);
 	if (code)
 		return (free(trailing), code);
-	i = -1;
-	rest_fn = NULL;
-	while (++i < FI__COUNT)
+	if (trailing && !ft_isln_valid(trailing, &err_idx))
 	{
-		if (p->specs[i].metadata.kind == FK_REST)
-			rest_fn = p->specs[i].parser.rest;
-		else if (p->specs[i].metadata.required && !p->seen[i])
-			return (free(trailing), p->diag.owner = i, PE_U_MISSING_REQUIRED);
+		err_char = trailing[err_idx];
+		free(trailing);
+		return (handle_invalid_map_ln(&p->diag, 0, err_char));
 	}
-	if (rest_fn && trailing)
-		return (rest_fn(fd, trailing, p));
-	if (rest_fn)
-		return (PE_U_MAP_MISSING);
-	if (trailing)
-		return (p->diag.what = trailing, PE_U_TRAILING_CONTENT);
-	return (PE_OK);
+	return (_check_fields_then_rest(fd, p, trailing));
 }
