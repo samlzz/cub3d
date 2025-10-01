@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 16:11:51 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 17:38:28 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/10/01 10:12:15 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	_draw_sprite_band(t_data *data,
 		if (_tex_y_is_in_sprite_img_bound(sprite_data->tex_pos.y, sprite_img))
 		{
 			color = ft_mlx_img_get_px(sprite_img, sprite_data->tex_pos);
-			if ((color & 0x00FFFFFF))
+			if ((color != 0x0dff00))
 				ft_mlx_img_put_px(&data->mlx.game, (t_vec2i){band, y}, color);
 		}
 		y++;

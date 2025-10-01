@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_err.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eazard <eazard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 23:12:46 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 18:23:14 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/10/01 10:19:22 by eazard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ struct s_diag
 	char		*what;
 };
 
-void	open_err(const char *filename);
+void		open_err(const char *filename);
 
-void	pe_quit(t_parser *p, t_parse_err code);
-void	pe_print_err(const struct s_diag *d,
-			const t_field *specs, t_parse_err code);
+void		pe_quit(t_parser *p, t_parse_err code);
+void		pe_print_err(const struct s_diag *d,
+				const t_field *specs, t_parse_err code);
 
 // ? in parse_map
 t_parse_err	handle_invalid_map_ln(struct s_diag *d, int32_t i, char c_err);
