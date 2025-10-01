@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:32:16 by sliziard          #+#    #+#             */
-/*   Updated: 2025/10/01 10:50:53 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/10/01 11:03:49 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include "cubmap.h"
 # include "ft_mlx/ft_mlx_img.h"
 # include "ft_mlx/ft_mlx_texture.h"
-# include "parsing/parse_utils.h"
 # include "sprite.h"
 
 # define MT_1	"./assets/mewtwo/mewtwo000.xpm"

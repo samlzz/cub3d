@@ -211,4 +211,4 @@ re: fclean all
 
 .PHONY: bonus
 bonus: CFLAGS += -DCUB3D_BONUS
-bonus: re
+bonus: all

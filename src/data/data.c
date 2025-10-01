@@ -6,9 +6,11 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:10:02 by eazard            #+#    #+#             */
-/*   Updated: 2025/09/30 18:00:22 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/10/01 11:03:36 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CUB3D_BONUS
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -21,8 +23,6 @@
 #include "data.h"
 #include "vec/vec.h"
 #include "window.h"
-
-#ifndef CUB3D_BONUS
 
 static void	_fatal_clear_mlx(t_mlx *mlx)
 {

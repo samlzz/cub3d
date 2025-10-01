@@ -6,7 +6,7 @@
 /*   By: sliziard <sliziard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 00:22:06 by sliziard          #+#    #+#             */
-/*   Updated: 2025/09/30 16:42:42 by sliziard         ###   ########.fr       */
+/*   Updated: 2025/10/01 10:42:30 by sliziard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 # include <stdint.h>
 
 # include "color.h"
-# include "data/sprite.h"
-# include "door/door.h"
 # include "ft_mlx/ft_mlx_texture.h"
 # include "vec/vec.h"
 
 # ifdef CUB3D_BONUS
+#  include "data/sprite.h"
+#  include "door/door.h"
 #  define CUB_BONUS 1
 # else
 #  define CUB_BONUS 0
